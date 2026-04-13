@@ -320,7 +320,6 @@ function buildPrintBook() {
 
 function setupRevealAnimations() {
   const sections = document.querySelectorAll(".section-reveal");
-  document.body.classList.add("can-reveal");
 
   if (!("IntersectionObserver" in window)) {
     sections.forEach((section) => section.classList.add("is-visible"));

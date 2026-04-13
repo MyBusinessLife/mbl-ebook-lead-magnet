@@ -1,5 +1,5 @@
 (function () {
-  var defaultSrc = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/?v=3";
+  var defaultSrc = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/?v=4";
   var script = document.currentScript;
   var targetSelector = script && script.getAttribute("data-target");
   var source = (script && script.getAttribute("data-src")) || defaultSrc;

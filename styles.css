@@ -1128,16 +1128,6 @@ h3 {
     transform 560ms ease;
 }
 
-body.can-reveal .section-reveal {
-  opacity: 0;
-  transform: translateY(18px);
-}
-
-body.can-reveal .section-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .print-book {
   display: none;
 }
