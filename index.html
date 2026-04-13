@@ -27,7 +27,7 @@
 
     <title>MY BUSINESS LIFE | Sites web, automatisations, stratégie digitale et outils métier</title>
     <link rel="preload" href="assets/logo.png" as="image" />
-    <link rel="stylesheet" href="styles.css?v=9" />
+    <link rel="stylesheet" href="styles.css?v=10" />
 
     <script type="application/ld+json">
       {
@@ -68,20 +68,39 @@
         Menu
       </button>
 
-      <nav class="site-nav" aria-label="Navigation principale">
-        <a href="#profils">Profils</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#experience">Expérience</a>
+      <nav class="site-nav" id="primary-navigation" aria-label="Navigation principale">
+        <a href="#top">Accueil</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false" aria-controls="services-menu">
+            Services
+          </button>
+          <div class="nav-dropdown" id="services-menu">
+            <a href="#services">
+              <span>Vue d’ensemble</span>
+              <small>Sites, automatisations, outils métier, stratégie.</small>
+            </a>
+            <a href="#diagnostic">
+              <span>Diagnostic digital</span>
+              <small>Comprendre vos priorités avant d’investir.</small>
+            </a>
+            <a href="#ressources">
+              <span>Ressources</span>
+              <small>Ebook, guides et contenus utiles.</small>
+            </a>
+          </div>
+        </div>
+        <a href="#a-propos">À propos</a>
+        <a href="#diagnostic">Diagnostic en ligne</a>
         <a href="#ressources">Ressources</a>
         <a class="nav-cta" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
-          Étude gratuite
+          Contact
         </a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero-section" aria-labelledby="hero-title">
-        <div class="hero-copy">
+        <div class="hero-copy" data-animate>
           <p class="eyebrow">MY BUSINESS LIFE</p>
           <h1 id="hero-title">Le partenaire digital qui rend vos projets plus clairs, plus simples et plus puissants.</h1>
           <p class="hero-text">
@@ -93,7 +112,7 @@
             <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
               Demander une étude gratuite
             </a>
-            <a class="button button-secondary" href="#profils">Explorer les besoins</a>
+            <a class="button button-secondary" href="#diagnostic">Faire le point</a>
           </div>
 
           <div class="hero-signals" aria-label="Engagements MY BUSINESS LIFE">
@@ -103,7 +122,7 @@
           </div>
         </div>
 
-        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE">
+        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE" data-animate="scale">
           <div class="stage-shell">
             <div class="stage-topbar">
               <span></span>
@@ -125,6 +144,10 @@
                   <span>Pilotage</span>
                 </div>
                 <div class="stage-board">
+                  <div class="stage-status">
+                    <strong>Plan digital</strong>
+                    <span>Priorités, actions, résultats</span>
+                  </div>
                   <div class="stage-line"></div>
                   <div class="stage-line short"></div>
                   <div class="stage-bars">
@@ -157,7 +180,7 @@
       </section>
 
       <section id="profils" class="profile-section light-section" aria-labelledby="profiles-title">
-        <div class="section-heading">
+        <div class="section-heading" data-animate>
           <p class="eyebrow dark">Vous vous reconnaissez ici</p>
           <h2 id="profiles-title">Chaque personne arrive avec une réalité différente. Le site doit parler à tout le monde, sans perdre personne.</h2>
           <p>
@@ -167,22 +190,22 @@
         </div>
 
         <div class="profile-grid">
-          <article class="profile-card">
+          <article class="profile-card" data-animate style="--delay: 40ms">
             <span>Particulier</span>
             <h3>J’ai une idée ou une démarche à digitaliser.</h3>
             <p>On vous aide à rendre votre projet clair, présentable et réalisable, sans vocabulaire technique inutile.</p>
           </article>
-          <article class="profile-card">
+          <article class="profile-card" data-animate style="--delay: 100ms">
             <span>Indépendant</span>
             <h3>Je veux être plus visible et mieux organisé.</h3>
             <p>Site, prise de rendez-vous, suivi client, supports : votre activité devient plus lisible.</p>
           </article>
-          <article class="profile-card">
+          <article class="profile-card" data-animate style="--delay: 160ms">
             <span>Entreprise</span>
             <h3>Je veux gagner du temps et piloter plus proprement.</h3>
             <p>Process, automatisations, CRM, outils métier et tableaux de bord adaptés à vos usages.</p>
           </article>
-          <article class="profile-card">
+          <article class="profile-card" data-animate style="--delay: 220ms">
             <span>Projet en croissance</span>
             <h3>Je veux passer un cap sans bricolage.</h3>
             <p>On structure le socle digital pour que votre croissance ne repose pas sur des outils dispersés.</p>
@@ -190,8 +213,8 @@
         </div>
       </section>
 
-      <section id="solutions" class="solutions-section" aria-labelledby="solutions-title">
-        <div class="section-heading split-heading">
+      <section id="services" class="solutions-section" aria-labelledby="solutions-title">
+        <div class="section-heading split-heading" data-animate>
           <div>
             <p class="eyebrow dark">Ce que nous faisons</p>
             <h2 id="solutions-title">Un écosystème de solutions pour votre business life.</h2>
@@ -203,32 +226,32 @@
         </div>
 
         <div class="solution-grid">
-          <article class="solution-card premium">
+          <article class="solution-card premium" data-animate style="--delay: 40ms">
             <span>01</span>
-            <h3>Stratégie digitale & diagnostic</h3>
+            <h3>Stratégie digitale &amp; diagnostic</h3>
             <p>Clarifier vos objectifs, vos priorités, vos blocages et le chemin le plus rentable.</p>
           </article>
-          <article class="solution-card">
+          <article class="solution-card" data-animate style="--delay: 90ms">
             <span>02</span>
             <h3>Sites web & pages de conversion</h3>
             <p>Créer une présence crédible, élégante et pensée pour transformer les visiteurs en contacts.</p>
           </article>
-          <article class="solution-card">
+          <article class="solution-card" data-animate style="--delay: 140ms">
             <span>03</span>
-            <h3>Automatisations & productivité</h3>
+            <h3>Automatisations &amp; productivité</h3>
             <p>Connecter vos outils, réduire la saisie, automatiser les relances et fluidifier le quotidien.</p>
           </article>
-          <article class="solution-card">
+          <article class="solution-card" data-animate style="--delay: 190ms">
             <span>04</span>
             <h3>Outils métier & logiciels sur mesure</h3>
             <p>Construire l’interface dont votre activité a vraiment besoin, sans fonctionnalités parasites.</p>
           </article>
-          <article class="solution-card">
+          <article class="solution-card" data-animate style="--delay: 240ms">
             <span>05</span>
-            <h3>CRM, suivi client & pilotage</h3>
+            <h3>CRM, suivi client &amp; pilotage</h3>
             <p>Mieux gérer les demandes, les ventes, les interventions, les données et les décisions.</p>
           </article>
-          <article class="solution-card">
+          <article class="solution-card" data-animate style="--delay: 290ms">
             <span>06</span>
             <h3>Image, contenus & supports</h3>
             <p>Rendre votre message plus clair avec des supports modernes, cohérents et professionnels.</p>
@@ -236,7 +259,35 @@
         </div>
       </section>
 
-      <section id="experience" class="experience-section dark-panel" aria-labelledby="experience-title">
+      <section id="a-propos" class="about-section dark-panel" aria-labelledby="about-title" data-animate>
+        <div class="about-copy">
+          <p class="eyebrow">À propos de MBL</p>
+          <h2 id="about-title">Un studio digital pensé pour les gens qui veulent avancer sans se perdre dans la technique.</h2>
+          <p>
+            MY BUSINESS LIFE réunit conseil, design, automatisation et développement pour transformer
+            une idée, un besoin ou une activité en système clair. Notre rôle : comprendre votre réalité,
+            simplifier les décisions et créer des solutions utiles, élégantes et durables.
+          </p>
+          <a class="button button-secondary" href="#diagnostic">Lancer un diagnostic</a>
+        </div>
+
+        <div class="about-mosaic" aria-label="Méthode MY BUSINESS LIFE">
+          <div class="about-tile large" data-animate style="--delay: 80ms">
+            <span>Vision</span>
+            <strong>On commence par clarifier ce qui compte vraiment.</strong>
+          </div>
+          <div class="about-tile" data-animate style="--delay: 140ms">
+            <span>Design</span>
+            <strong>Chaque interface doit donner envie d’être utilisée.</strong>
+          </div>
+          <div class="about-tile" data-animate style="--delay: 200ms">
+            <span>Système</span>
+            <strong>Le digital doit organiser, pas compliquer.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="experience-section dark-panel" aria-labelledby="experience-title" data-animate>
         <div class="experience-copy">
           <p class="eyebrow">Expérience MBL</p>
           <h2 id="experience-title">Une expérience fluide, premium, et surtout compréhensible.</h2>
@@ -251,22 +302,22 @@
         </div>
 
         <div class="experience-steps">
-          <div>
+          <div data-animate style="--delay: 70ms">
             <span>1</span>
             <h3>Écouter</h3>
             <p>On part de votre quotidien, de vos contraintes et de votre niveau de maturité digitale.</p>
           </div>
-          <div>
+          <div data-animate style="--delay: 130ms">
             <span>2</span>
             <h3>Designer</h3>
             <p>On transforme le besoin en parcours simple, beau, logique et facile à utiliser.</p>
           </div>
-          <div>
+          <div data-animate style="--delay: 190ms">
             <span>3</span>
             <h3>Construire</h3>
             <p>On livre des supports, pages ou outils propres, performants et maintenables.</p>
           </div>
-          <div>
+          <div data-animate style="--delay: 250ms">
             <span>4</span>
             <h3>Faire évoluer</h3>
             <p>On améliore avec vous, au rythme de votre activité et de vos nouvelles priorités.</p>
@@ -275,33 +326,72 @@
       </section>
 
       <section class="outcome-section light-section" aria-labelledby="outcome-title">
-        <div class="section-heading">
+        <div class="section-heading" data-animate>
           <p class="eyebrow dark">Résultat attendu</p>
           <h2 id="outcome-title">Vous repartez avec plus qu’un livrable. Vous repartez avec un système.</h2>
         </div>
 
         <div class="outcome-grid">
-          <div>
+          <div data-animate style="--delay: 50ms">
             <strong>Clarté</strong>
             <p>Vos offres, vos parcours et vos priorités deviennent lisibles.</p>
           </div>
-          <div>
+          <div data-animate style="--delay: 110ms">
             <strong>Crédibilité</strong>
             <p>Votre présence inspire confiance dès les premières secondes.</p>
           </div>
-          <div>
+          <div data-animate style="--delay: 170ms">
             <strong>Temps</strong>
             <p>Les tâches répétitives reculent, les décisions avancent.</p>
           </div>
-          <div>
+          <div data-animate style="--delay: 230ms">
             <strong>Évolution</strong>
             <p>Votre solution peut grandir avec votre activité, pas contre elle.</p>
           </div>
         </div>
       </section>
 
+      <section id="diagnostic" class="diagnostic-section light-section" aria-labelledby="diagnostic-title">
+        <div class="section-heading split-heading" data-animate>
+          <div>
+            <p class="eyebrow dark">Diagnostic en ligne</p>
+            <h2 id="diagnostic-title">Avant de créer quoi que ce soit, on identifie ce qui bloque vraiment.</h2>
+          </div>
+          <p>
+            Votre besoin peut être un site, une automatisation, un outil interne, une stratégie ou
+            simplement une meilleure manière d’organiser votre projet. Le diagnostic sert à choisir
+            la bonne prochaine action.
+          </p>
+        </div>
+
+        <div class="diagnostic-panel" data-animate="scale">
+          <div class="diagnostic-score">
+            <span>MBL Check</span>
+            <strong>12 min</strong>
+            <p>Un premier échange pour cartographier vos priorités et repérer les gains rapides.</p>
+          </div>
+          <div class="diagnostic-list">
+            <div>
+              <strong>Votre situation</strong>
+              <p>Particulier, indépendant, entreprise ou projet en lancement.</p>
+            </div>
+            <div>
+              <strong>Vos frictions</strong>
+              <p>Visibilité, organisation, outils, conversion, suivi client ou temps perdu.</p>
+            </div>
+            <div>
+              <strong>Votre prochaine étape</strong>
+              <p>Un plan clair : quoi faire, dans quel ordre, avec quel niveau de priorité.</p>
+            </div>
+          </div>
+          <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
+            Démarrer le diagnostic
+          </a>
+        </div>
+      </section>
+
       <section id="ressources" class="resource-section" aria-labelledby="resource-title">
-        <div class="resource-copy">
+        <div class="resource-copy" data-animate>
           <p class="eyebrow dark">Ressource gratuite</p>
           <h2 id="resource-title">Commencez par comprendre ce que vos outils vous coûtent vraiment.</h2>
           <p>
@@ -313,7 +403,7 @@
             <a class="button button-secondary light" href="ebook.html#ebook">Ouvrir le lecteur</a>
           </div>
         </div>
-        <article class="ebook-preview">
+        <article class="ebook-preview" data-animate="scale">
           <img src="assets/logo.png" alt="" />
           <span>Ebook gratuit</span>
           <h3>Pourquoi vos logiciels vous font perdre du temps et de l’argent</h3>
@@ -322,7 +412,7 @@
       </section>
 
       <section class="faq-section light-section" aria-labelledby="faq-title">
-        <div class="section-heading">
+        <div class="section-heading" data-animate>
           <p class="eyebrow dark">Questions fréquentes</p>
           <h2 id="faq-title">Vous pouvez arriver avec une question simple. Nous construirons la suite avec vous.</h2>
         </div>
@@ -346,7 +436,7 @@
         </div>
       </section>
 
-      <section class="final-cta" aria-labelledby="final-title">
+      <section class="final-cta" aria-labelledby="final-title" data-animate="scale">
         <p class="eyebrow">Étude gratuite</p>
         <h2 id="final-title">Une idée, un blocage, un projet ou une activité à structurer ? Parlons-en.</h2>
         <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
@@ -364,13 +454,14 @@
         </span>
       </a>
       <nav aria-label="Navigation pied de page">
-        <a href="#profils">Profils</a>
-        <a href="#solutions">Solutions</a>
+        <a href="#services">Services</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#diagnostic">Diagnostic</a>
         <a href="ebook.html">Ebook</a>
         <a href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">Contact</a>
       </nav>
     </footer>
 
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=10"></script>
   </body>
 </html>
