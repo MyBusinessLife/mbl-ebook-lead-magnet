@@ -8,7 +8,7 @@
       content="Ebook MY BUSINESS LIFE : pourquoi vos logiciels vous font perdre du temps et de l'argent, et comment le sur-mesure transforme votre activité."
     />
     <title>MY BUSINESS LIFE | Ebook logiciel sur-mesure</title>
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=5" />
   </head>
   <body>
     <div class="page-glow page-glow-a" aria-hidden="true"></div>
@@ -142,13 +142,26 @@
               </div>
             </div>
 
-            <article id="ebookPage" class="ebook-page-card" aria-live="polite"></article>
+            <article id="ebookPage" class="ebook-page-card ebook-cover" aria-live="polite">
+              <div class="ebook-inner ebook-cover">
+                <div class="ebook-page-meta">
+                  <span>MY BUSINESS LIFE</span>
+                  <span class="ebook-page-number">01 / 10</span>
+                </div>
+                <div>
+                  <img class="ebook-cover-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
+                  <h2 class="ebook-title">Pourquoi vos logiciels vous font perdre du temps et de l'argent</h2>
+                  <p class="ebook-subtitle">La solution pour automatiser et accélérer votre entreprise</p>
+                </div>
+                <div class="ebook-signature">MY BUSINESS LIFE</div>
+              </div>
+            </article>
 
             <div class="viewer-actions">
               <button class="button button-secondary" type="button" data-download-pdf>
                 Télécharger le PDF
               </button>
-              <a class="button button-primary" href="#study">Demander une étude gratuite</a>
+              <a class="button button-primary" href="mailto:contact@mybusinesslife.fr?subject=Demande%20d'%C3%A9tude%20gratuite%20-%20Logiciel%20sur-mesure" data-cta-link>Demander une étude gratuite</a>
             </div>
           </div>
         </div>
@@ -163,7 +176,7 @@
             vous aide à identifier les automatisations et les interfaces qui peuvent produire un
             impact réel.
           </p>
-          <a class="button button-primary" href="mailto:contact@mybusinesslife.fr?subject=Demande%20d'%C3%A9tude%20gratuite%20-%20Logiciel%20sur-mesure">
+          <a class="button button-primary" href="mailto:contact@mybusinesslife.fr?subject=Demande%20d'%C3%A9tude%20gratuite%20-%20Logiciel%20sur-mesure" data-cta-link>
             Demander une étude gratuite
           </a>
         </div>
@@ -200,6 +213,6 @@
     <div id="printBook" class="print-book" aria-hidden="true"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
   </body>
 </html>

@@ -100,6 +100,8 @@ const nextButton = document.querySelector("#nextPage");
 const form = document.querySelector(".lead-form");
 const formMessage = document.querySelector("#formMessage");
 const printBook = document.querySelector("#printBook");
+const DEFAULT_CTA_URL = "mailto:contact@mybusinesslife.fr?subject=Demande%20d'%C3%A9tude%20gratuite%20-%20Logiciel%20sur-mesure";
+const ctaUrl = new URLSearchParams(window.location.search).get("cta") || DEFAULT_CTA_URL;
 
 function escapeHtml(value) {
   return String(value)
@@ -237,7 +239,7 @@ function renderPageContent(page) {
         <h2 class="ebook-title">${escapeHtml(page.title)}</h2>
         <p class="ebook-subtitle">${escapeHtml(page.subtitle)}</p>
         <div class="cta-final-actions">
-          <a class="button button-primary" href="#study">Demander une étude gratuite</a>
+          <a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">Demander une étude gratuite</a>
           <button class="button button-secondary" type="button" data-download-pdf> Télécharger le PDF </button>
         </div>
       </div>
@@ -666,7 +668,13 @@ function setupActions() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    formMessage.textContent = "Votre diagnostic est prêt à être préparé. Le bouton principal ouvre le contact email MY BUSINESS LIFE.";
+    formMessage.textContent = "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
+  });
+
+  document.querySelectorAll("[data-cta-link]").forEach((link) => {
+    link.href = ctaUrl;
+    link.target = "_blank";
+    link.rel = "noopener";
   });
 }
 
