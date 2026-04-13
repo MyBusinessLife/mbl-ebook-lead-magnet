@@ -100,7 +100,7 @@ const nextButton = document.querySelector("#nextPage");
 const form = document.querySelector(".lead-form");
 const formMessage = document.querySelector("#formMessage");
 const printBook = document.querySelector("#printBook");
-const DEFAULT_CTA_URL = "mailto:contact@mybusinesslife.fr?subject=Demande%20d'%C3%A9tude%20gratuite%20-%20Logiciel%20sur-mesure";
+const DEFAULT_CTA_URL = "https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure";
 const ctaUrl = new URLSearchParams(window.location.search).get("cta") || DEFAULT_CTA_URL;
 
 function escapeHtml(value) {
@@ -625,7 +625,8 @@ function drawFinalCta(doc) {
   doc.roundedRect(118, 162, 52, 14, 3, 3, "F");
   doc.setTextColor(24, 9, 4);
   doc.setFontSize(8);
-  doc.text("contact MBL", 130, 171);
+  doc.text("réserver", 130, 171);
+  doc.link(22, 150, 166, 44, { url: ctaUrl });
 }
 
 function drawConclusion(doc, text, x, y) {
