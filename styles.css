@@ -365,6 +365,7 @@ h3 {
 
 .visual-panel {
   position: relative;
+  isolation: isolate;
   min-height: 520px;
   overflow: hidden;
   border: 1px solid rgba(247, 249, 252, 0.12);
@@ -378,6 +379,7 @@ h3 {
 .visual-panel::before {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
     linear-gradient(145deg, transparent 0 48%, rgba(255, 106, 46, 0.15) 49%, transparent 58%),
     linear-gradient(30deg, rgba(28, 143, 163, 0.18), transparent 42%);
@@ -386,6 +388,7 @@ h3 {
 
 .software-preview {
   position: absolute;
+  z-index: 1;
   right: -42px;
   bottom: 42px;
   width: min(78%, 520px);
@@ -526,6 +529,7 @@ h3 {
 
 .ebook-mockup {
   position: absolute;
+  z-index: 2;
   left: 34px;
   top: 52px;
   display: grid;

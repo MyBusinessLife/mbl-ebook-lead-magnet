@@ -675,10 +675,18 @@ function setupEmbedHeightSync() {
   if (window.parent === window) return;
 
   const sendHeight = () => {
+    const height = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight,
+    );
+
     window.parent.postMessage(
       {
         type: "mbl-ebook-height",
-        height: document.documentElement.scrollHeight,
+        height,
       },
       "*",
     );
@@ -693,6 +701,9 @@ function setupEmbedHeightSync() {
   }
 
   sendHeight();
+  [100, 300, 700, 1200, 2000, 3500].forEach((delay) => {
+    window.setTimeout(sendHeight, delay);
+  });
 }
 
 renderThumbnails();

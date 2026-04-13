@@ -1,9 +1,9 @@
 (function () {
-  var defaultSrc = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/?v=2";
+  var defaultSrc = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/?v=3";
   var script = document.currentScript;
   var targetSelector = script && script.getAttribute("data-target");
   var source = (script && script.getAttribute("data-src")) || defaultSrc;
-  var minHeight = Number((script && script.getAttribute("data-min-height")) || 760);
+  var minHeight = Number((script && script.getAttribute("data-min-height")) || 2800);
   var container =
     (targetSelector && document.querySelector(targetSelector)) ||
     document.getElementById("mbl-ebook-leadmagnet");
@@ -20,7 +20,7 @@
 
   container.style.width = "100%";
   container.style.maxWidth = "100%";
-  container.style.overflow = "hidden";
+  container.style.overflow = "visible";
 
   var iframe = document.createElement("iframe");
   iframe.title = "Ebook MY BUSINESS LIFE - logiciel sur-mesure";
@@ -34,6 +34,7 @@
   iframe.style.border = "0";
   iframe.style.borderRadius = "8px";
   iframe.style.background = "#0F2230";
+  iframe.setAttribute("scrolling", "auto");
 
   container.innerHTML = "";
   container.appendChild(iframe);
