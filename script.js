@@ -103,18 +103,18 @@ const printBook = document.querySelector("#printBook");
 
 function escapeHtml(value) {
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
-function renderPage(index) {
+function renderPage(index, options = {}) {
   const page = ebookPages[index];
-  pageEl.classList.add("is-changing");
+  const shouldAnimate = options.animate !== false && pageEl.innerHTML.trim() !== "";
 
-  window.setTimeout(() => {
+  const updatePage = () => {
     pageEl.className = `ebook-page-card ${page.type === "cover" ? "ebook-cover" : ""}`;
     pageEl.innerHTML = `
       <div class="ebook-inner ${page.type === "cover" ? "ebook-cover" : ""}">
@@ -131,13 +131,22 @@ function renderPage(index) {
     nextButton.disabled = index === ebookPages.length - 1;
     updateThumbnails(index);
     requestAnimationFrame(() => pageEl.classList.remove("is-changing"));
-  }, 130);
+  };
+
+  if (!shouldAnimate) {
+    updatePage();
+    return;
+  }
+
+  pageEl.classList.add("is-changing");
+  window.setTimeout(updatePage, 130);
 }
 
 function renderPageContent(page) {
   if (page.type === "cover") {
     return `
       <div>
+        <img class="ebook-cover-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
         <h2 class="ebook-title">${escapeHtml(page.title)}</h2>
         <p class="ebook-subtitle">${escapeHtml(page.subtitle)}</p>
       </div>
@@ -311,6 +320,7 @@ function buildPrintBook() {
 
 function setupRevealAnimations() {
   const sections = document.querySelectorAll(".section-reveal");
+  document.body.classList.add("can-reveal");
 
   if (!("IntersectionObserver" in window)) {
     sections.forEach((section) => section.classList.add("is-visible"));
@@ -330,6 +340,9 @@ function setupRevealAnimations() {
   );
 
   sections.forEach((section) => observer.observe(section));
+  window.setTimeout(() => {
+    sections.forEach((section) => section.classList.add("is-visible"));
+  }, 900);
 }
 
 function setupLogoFallback() {
@@ -344,7 +357,11 @@ function setupLogoFallback() {
   ];
 
   const tryCandidate = (candidateIndex) => {
-    if (candidateIndex >= candidates.length) return;
+    if (candidateIndex >= candidates.length) {
+      logo.hidden = true;
+      fallback.hidden = false;
+      return;
+    }
     const image = new Image();
     image.onload = () => {
       logo.src = candidates[candidateIndex];
@@ -679,7 +696,7 @@ function setupEmbedHeightSync() {
 }
 
 renderThumbnails();
-renderPage(currentPage);
+renderPage(currentPage, { animate: false });
 buildPrintBook();
 setupRevealAnimations();
 setupLogoFallback();

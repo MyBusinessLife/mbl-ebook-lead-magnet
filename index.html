@@ -8,7 +8,7 @@
       content="Ebook MY BUSINESS LIFE : pourquoi vos logiciels vous font perdre du temps et de l'argent, et comment le sur-mesure transforme votre activité."
     />
     <title>MY BUSINESS LIFE | Ebook logiciel sur-mesure</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
     <div class="page-glow page-glow-a" aria-hidden="true"></div>
@@ -17,8 +17,8 @@
     <header class="topbar" aria-label="En-tête MY BUSINESS LIFE">
       <a class="brand" href="#top" aria-label="Retour en haut de page">
         <span class="brand-badge">
-          <img id="brandLogo" class="brand-logo" alt="Logo MY BUSINESS LIFE" hidden />
-          <span id="brandFallback" class="brand-fallback" aria-hidden="true">MBL</span>
+          <img id="brandLogo" class="brand-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
+          <span id="brandFallback" class="brand-fallback" aria-hidden="true" hidden>MBL</span>
         </span>
         <span class="brand-text">
           <strong>MY BUSINESS LIFE</strong>
@@ -61,14 +61,46 @@
 
         <div class="hero-visual" aria-label="Aperçu premium de l'ebook">
           <div class="visual-panel">
-            <img
-              class="product-image"
-              src="assets/mbl-product-visual.png"
-              alt="Interface digitale premium représentant un logiciel métier sur-mesure"
-            />
+            <div class="software-preview" aria-hidden="true">
+              <div class="preview-topbar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="preview-layout">
+                <div class="preview-sidebar">
+                  <strong>MBL OS</strong>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="preview-dashboard">
+                  <div class="preview-kpis">
+                    <span>+40%</span>
+                    <span>-15h</span>
+                    <span>1 outil</span>
+                  </div>
+                  <div class="preview-chart">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="preview-flow">
+                    <span>Lead</span>
+                    <span>Devis</span>
+                    <span>Planning</span>
+                    <span>Facture</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="ebook-mockup" aria-hidden="true">
               <div class="mockup-spine"></div>
               <div class="mockup-cover">
+                <img class="mockup-logo" src="assets/logo.png" alt="" />
                 <span class="mockup-kicker">EBOOK MBL</span>
                 <strong>Logiciel sur-mesure</strong>
                 <small>Automatisation, données, performance</small>
@@ -168,6 +200,6 @@
     <div id="printBook" class="print-book" aria-hidden="true"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
   </body>
 </html>
