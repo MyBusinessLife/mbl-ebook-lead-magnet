@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mybusinesslife.fr/sitemap.xml
+Sitemap: https://mybusinesslife.github.io/mbl-ebook-lead-magnet/sitemap.xml
