@@ -1,3 +1,9 @@
+const EBOOK_PRODUCTION_URL = "https://mybusinesslife.fr/ebook";
+
+if (window.location.hostname === "mybusinesslife.github.io") {
+  window.location.replace(`${EBOOK_PRODUCTION_URL}${window.location.hash}`);
+}
+
 const ebookPages = [
   {
     type: "cover",
