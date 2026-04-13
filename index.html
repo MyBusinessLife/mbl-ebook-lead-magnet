@@ -3,22 +3,64 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0F2230" />
     <meta
       name="description"
-      content="MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises pour clarifier, créer, automatiser et faire grandir leurs projets digitaux."
+      content="MY BUSINESS LIFE accompagne particuliers, indépendants, dirigeants et équipes avec des sites web, automatisations, outils métier, stratégie digitale et accompagnement sur mesure."
     />
-    <title>MY BUSINESS LIFE | Solutions digitales pour votre quotidien et votre activité</title>
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <meta
+      name="keywords"
+      content="MY BUSINESS LIFE, site web, automatisation, logiciel sur mesure, stratégie digitale, CRM, transformation digitale, accompagnement digital"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mybusinesslife.fr/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MY BUSINESS LIFE | Votre partenaire digital au quotidien" />
+    <meta
+      property="og:description"
+      content="Des solutions digitales claires pour créer, organiser, automatiser et faire grandir vos projets."
+    />
+    <meta property="og:url" content="https://mybusinesslife.fr/" />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <title>MY BUSINESS LIFE | Sites web, automatisations, stratégie digitale et outils métier</title>
+    <link rel="preload" href="assets/logo.png" as="image" />
+    <link rel="stylesheet" href="styles.css?v=9" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MY BUSINESS LIFE",
+        "url": "https://mybusinesslife.fr/",
+        "logo": "https://mybusinesslife.fr/assets/logo.png",
+        "sameAs": ["https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure"],
+        "description": "MY BUSINESS LIFE accompagne particuliers, indépendants, dirigeants et équipes avec des solutions digitales, sites web, automatisations, outils métier et stratégie digitale."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MY BUSINESS LIFE",
+        "url": "https://mybusinesslife.fr/",
+        "potentialAction": {
+          "@type": "ScheduleAction",
+          "target": "https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure",
+          "name": "Demander une étude gratuite"
+        }
+      }
+    </script>
   </head>
   <body>
     <header class="site-header" aria-label="Navigation MY BUSINESS LIFE">
       <a class="brand" href="#top" aria-label="MY BUSINESS LIFE">
-        <span class="brand-mark">
-          <img src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
-        </span>
-        <span>
+        <span class="brand-mark"><img src="assets/logo.png" alt="Logo MY BUSINESS LIFE" /></span>
+        <span class="brand-copy">
           <strong>MY BUSINESS LIFE</strong>
-          <small>Digital. Organisation. Croissance.</small>
+          <small>Digital, organisation, croissance</small>
         </span>
       </a>
 
@@ -28,8 +70,8 @@
 
       <nav class="site-nav" aria-label="Navigation principale">
         <a href="#profils">Profils</a>
-        <a href="#services">Services</a>
-        <a href="#methode">Méthode</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#experience">Expérience</a>
         <a href="#ressources">Ressources</a>
         <a class="nav-cta" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
           Étude gratuite
@@ -38,230 +80,297 @@
     </header>
 
     <main id="top">
-      <section class="hero-section">
+      <section class="hero-section" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">MY BUSINESS LIFE</p>
-          <h1>Des solutions digitales claires pour avancer plus vite, sans vous perdre dans la technique.</h1>
+          <h1 id="hero-title">Le partenaire digital qui rend vos projets plus clairs, plus simples et plus puissants.</h1>
           <p class="hero-text">
-            Que vous soyez particulier, indépendant, dirigeant, équipe terrain ou structure en
-            croissance, nous vous aidons à transformer une idée, un blocage ou une organisation
-            compliquée en solution simple, utile et durable.
+            Sites web, automatisations, outils métier, stratégie, accompagnement et supports digitaux :
+            nous construisons les solutions qui vous aident à avancer, vendre, organiser et piloter avec confiance.
           </p>
-          <div class="hero-actions">
+
+          <div class="hero-actions" aria-label="Actions principales">
             <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
               Demander une étude gratuite
             </a>
-            <a class="button button-secondary" href="#profils">Trouver mon besoin</a>
+            <a class="button button-secondary" href="#profils">Explorer les besoins</a>
           </div>
-          <div class="signal-row" aria-label="Engagements">
-            <span>Audit clair</span>
-            <span>Solutions sur mesure</span>
+
+          <div class="hero-signals" aria-label="Engagements MY BUSINESS LIFE">
+            <span>Clarté stratégique</span>
+            <span>Exécution premium</span>
             <span>Accompagnement humain</span>
           </div>
         </div>
 
-        <div class="hero-media" aria-label="Aperçu visuel MY BUSINESS LIFE">
-          <img src="assets/home-command-center.png" alt="Tableau de bord digital premium" />
-          <div class="hero-card card-a">
-            <strong>Un seul cap</strong>
-            <span>Comprendre, structurer, exécuter.</span>
+        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE">
+          <div class="stage-shell">
+            <div class="stage-topbar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="stage-content">
+              <aside class="stage-sidebar">
+                <img src="assets/logo.png" alt="" />
+                <strong>MBL Studio</strong>
+                <span></span>
+                <span></span>
+                <span></span>
+              </aside>
+              <div class="stage-main">
+                <div class="stage-kpis">
+                  <span>Présence</span>
+                  <span>Automatisation</span>
+                  <span>Pilotage</span>
+                </div>
+                <div class="stage-board">
+                  <div class="stage-line"></div>
+                  <div class="stage-line short"></div>
+                  <div class="stage-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                </div>
+                <div class="stage-flow">
+                  <span>Idée</span>
+                  <span>Plan</span>
+                  <span>Création</span>
+                  <span>Résultat</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="hero-card card-b">
-            <strong>Pour tous les profils</strong>
-            <span>Particuliers, pros, équipes, projets.</span>
+
+          <div class="floating-proof proof-a">
+            <strong>1 vision</strong>
+            <span>Une direction claire avant de construire.</span>
+          </div>
+          <div class="floating-proof proof-b">
+            <strong>+ simple</strong>
+            <span>Moins de friction, plus d’action.</span>
           </div>
         </div>
       </section>
 
-      <section id="profils" class="audience-section section-band">
+      <section id="profils" class="profile-section light-section" aria-labelledby="profiles-title">
         <div class="section-heading">
-          <p class="eyebrow">Votre point de départ</p>
-          <h2>Vous arrivez avec une situation. On vous aide à choisir le bon chemin.</h2>
+          <p class="eyebrow dark">Vous vous reconnaissez ici</p>
+          <h2 id="profiles-title">Chaque personne arrive avec une réalité différente. Le site doit parler à tout le monde, sans perdre personne.</h2>
           <p>
-            L’objectif n’est pas de vendre une solution unique. C’est de comprendre votre contexte,
-            puis de construire le chemin digital le plus simple pour atteindre le résultat attendu.
+            MY BUSINESS LIFE vous aide à passer d’un besoin parfois flou à un plan concret, que
+            vous cherchiez à lancer, structurer, moderniser ou accélérer.
           </p>
         </div>
 
-        <div class="audience-grid">
-          <a class="audience-card" href="#services">
-            <span>01</span>
-            <h3>Je suis entrepreneur ou dirigeant</h3>
-            <p>Structurer l’activité, gagner du temps, mieux piloter, vendre plus clairement.</p>
-          </a>
-          <a class="audience-card" href="#services">
-            <span>02</span>
-            <h3>Je suis indépendant</h3>
-            <p>Créer une présence pro, simplifier les demandes clients, automatiser le suivi.</p>
-          </a>
-          <a class="audience-card" href="#services">
-            <span>03</span>
-            <h3>Je suis particulier</h3>
-            <p>Être accompagné pour un projet web, une idée digitale, un outil ou une démarche.</p>
-          </a>
-          <a class="audience-card" href="#services">
-            <span>04</span>
-            <h3>Je gère une équipe ou un terrain</h3>
-            <p>Centraliser les données, fluidifier les process, réduire les tâches répétitives.</p>
-          </a>
+        <div class="profile-grid">
+          <article class="profile-card">
+            <span>Particulier</span>
+            <h3>J’ai une idée ou une démarche à digitaliser.</h3>
+            <p>On vous aide à rendre votre projet clair, présentable et réalisable, sans vocabulaire technique inutile.</p>
+          </article>
+          <article class="profile-card">
+            <span>Indépendant</span>
+            <h3>Je veux être plus visible et mieux organisé.</h3>
+            <p>Site, prise de rendez-vous, suivi client, supports : votre activité devient plus lisible.</p>
+          </article>
+          <article class="profile-card">
+            <span>Entreprise</span>
+            <h3>Je veux gagner du temps et piloter plus proprement.</h3>
+            <p>Process, automatisations, CRM, outils métier et tableaux de bord adaptés à vos usages.</p>
+          </article>
+          <article class="profile-card">
+            <span>Projet en croissance</span>
+            <h3>Je veux passer un cap sans bricolage.</h3>
+            <p>On structure le socle digital pour que votre croissance ne repose pas sur des outils dispersés.</p>
+          </article>
         </div>
       </section>
 
-      <section id="services" class="services-section">
-        <div class="section-heading split">
+      <section id="solutions" class="solutions-section" aria-labelledby="solutions-title">
+        <div class="section-heading split-heading">
           <div>
-            <p class="eyebrow">Services</p>
-            <h2>Un écosystème pour créer, organiser et faire évoluer votre activité.</h2>
+            <p class="eyebrow dark">Ce que nous faisons</p>
+            <h2 id="solutions-title">Un écosystème de solutions pour votre business life.</h2>
           </div>
           <p>
-            Chaque service peut être activé seul ou combiné dans un plan d’action plus complet.
-            Vous gardez une lecture claire de ce qui est utile, prioritaire et rentable.
+            Vous n’avez pas besoin de choisir une catégorie avant de nous parler. Nous identifions
+            ce qui vous fera réellement avancer, puis nous construisons l’ensemble le plus cohérent.
           </p>
         </div>
 
-        <div class="services-grid">
-          <article class="service-card featured">
-            <span class="service-tag">Stratégie</span>
-            <h3>Diagnostic digital & plan d’action</h3>
-            <p>Clarifier vos objectifs, vos blocages, vos outils actuels et les priorités à traiter.</p>
+        <div class="solution-grid">
+          <article class="solution-card premium">
+            <span>01</span>
+            <h3>Stratégie digitale & diagnostic</h3>
+            <p>Clarifier vos objectifs, vos priorités, vos blocages et le chemin le plus rentable.</p>
           </article>
-          <article class="service-card">
-            <span class="service-tag">Présence</span>
-            <h3>Sites web, tunnels & pages de vente</h3>
-            <p>Créer des pages lisibles, crédibles et pensées pour convertir sans complexité inutile.</p>
+          <article class="solution-card">
+            <span>02</span>
+            <h3>Sites web & pages de conversion</h3>
+            <p>Créer une présence crédible, élégante et pensée pour transformer les visiteurs en contacts.</p>
           </article>
-          <article class="service-card">
-            <span class="service-tag">Organisation</span>
-            <h3>Automatisations & outils métier</h3>
-            <p>Réduire la saisie, relier vos données, accélérer vos tâches répétitives.</p>
+          <article class="solution-card">
+            <span>03</span>
+            <h3>Automatisations & productivité</h3>
+            <p>Connecter vos outils, réduire la saisie, automatiser les relances et fluidifier le quotidien.</p>
           </article>
-          <article class="service-card">
-            <span class="service-tag">Croissance</span>
+          <article class="solution-card">
+            <span>04</span>
+            <h3>Outils métier & logiciels sur mesure</h3>
+            <p>Construire l’interface dont votre activité a vraiment besoin, sans fonctionnalités parasites.</p>
+          </article>
+          <article class="solution-card">
+            <span>05</span>
             <h3>CRM, suivi client & pilotage</h3>
-            <p>Mieux suivre les demandes, les relances, les ventes, les interventions et les résultats.</p>
+            <p>Mieux gérer les demandes, les ventes, les interventions, les données et les décisions.</p>
           </article>
-          <article class="service-card">
-            <span class="service-tag">Image</span>
-            <h3>Identité, contenus & supports</h3>
-            <p>Mettre en forme votre message pour être compris plus vite et choisi plus facilement.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-tag">Accompagnement</span>
-            <h3>Support, formation & amélioration continue</h3>
-            <p>Avancer avec un partenaire qui explique, ajuste et fait évoluer vos outils.</p>
+          <article class="solution-card">
+            <span>06</span>
+            <h3>Image, contenus & supports</h3>
+            <p>Rendre votre message plus clair avec des supports modernes, cohérents et professionnels.</p>
           </article>
         </div>
       </section>
 
-      <section id="methode" class="method-section section-band">
-        <div class="method-copy">
-          <p class="eyebrow">Méthode</p>
-          <h2>Une méthode premium, mais jamais compliquée.</h2>
+      <section id="experience" class="experience-section dark-panel" aria-labelledby="experience-title">
+        <div class="experience-copy">
+          <p class="eyebrow">Expérience MBL</p>
+          <h2 id="experience-title">Une expérience fluide, premium, et surtout compréhensible.</h2>
           <p>
-            Le digital devient utile quand il respecte votre réalité. Nous partons de vos usages,
-            pas d’une solution imposée.
+            Le meilleur digital n’est pas celui qui impressionne le plus. C’est celui qui vous aide
+            à prendre de meilleures décisions, à gagner du temps et à créer une relation plus simple
+            avec vos clients, vos équipes ou vos projets.
           </p>
+          <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
+            Parler de mon besoin
+          </a>
         </div>
-        <div class="method-steps">
+
+        <div class="experience-steps">
           <div>
             <span>1</span>
-            <h3>Comprendre</h3>
-            <p>On identifie votre situation, vos irritants, vos objectifs et votre niveau d’urgence.</p>
+            <h3>Écouter</h3>
+            <p>On part de votre quotidien, de vos contraintes et de votre niveau de maturité digitale.</p>
           </div>
           <div>
             <span>2</span>
-            <h3>Structurer</h3>
-            <p>On transforme les idées dispersées en parcours, fonctionnalités et priorités.</p>
+            <h3>Designer</h3>
+            <p>On transforme le besoin en parcours simple, beau, logique et facile à utiliser.</p>
           </div>
           <div>
             <span>3</span>
             <h3>Construire</h3>
-            <p>On crée une solution propre, lisible, responsive et adaptée à vos usages.</p>
+            <p>On livre des supports, pages ou outils propres, performants et maintenables.</p>
           </div>
           <div>
             <span>4</span>
             <h3>Faire évoluer</h3>
-            <p>On mesure, ajuste, automatise et améliore au rythme de vos besoins.</p>
+            <p>On améliore avec vous, au rythme de votre activité et de vos nouvelles priorités.</p>
           </div>
         </div>
       </section>
 
-      <section class="conversion-section">
-        <div class="conversion-panel">
+      <section class="outcome-section light-section" aria-labelledby="outcome-title">
+        <div class="section-heading">
+          <p class="eyebrow dark">Résultat attendu</p>
+          <h2 id="outcome-title">Vous repartez avec plus qu’un livrable. Vous repartez avec un système.</h2>
+        </div>
+
+        <div class="outcome-grid">
           <div>
-            <p class="eyebrow">Orientation rapide</p>
-            <h2>Vous ne savez pas encore ce qu’il vous faut ? C’est précisément le point de départ.</h2>
-            <p>
-              En quelques minutes, nous pouvons qualifier votre besoin : site, automatisation,
-              logiciel, tunnel, visibilité, organisation ou accompagnement.
-            </p>
+            <strong>Clarté</strong>
+            <p>Vos offres, vos parcours et vos priorités deviennent lisibles.</p>
           </div>
-          <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
-            Réserver un diagnostic
-          </a>
+          <div>
+            <strong>Crédibilité</strong>
+            <p>Votre présence inspire confiance dès les premières secondes.</p>
+          </div>
+          <div>
+            <strong>Temps</strong>
+            <p>Les tâches répétitives reculent, les décisions avancent.</p>
+          </div>
+          <div>
+            <strong>Évolution</strong>
+            <p>Votre solution peut grandir avec votre activité, pas contre elle.</p>
+          </div>
         </div>
       </section>
 
-      <section id="ressources" class="resource-section section-band">
+      <section id="ressources" class="resource-section" aria-labelledby="resource-title">
         <div class="resource-copy">
-          <p class="eyebrow">Ressource gratuite</p>
-          <h2>Un ebook pour comprendre pourquoi vos outils vous ralentissent.</h2>
+          <p class="eyebrow dark">Ressource gratuite</p>
+          <h2 id="resource-title">Commencez par comprendre ce que vos outils vous coûtent vraiment.</h2>
           <p>
-            Si votre quotidien dépend de trop d’outils, de fichiers, de doubles saisies ou de
-            process manuels, commencez par ce guide court et concret.
+            Notre ebook vous aide à repérer les pertes de temps, les abonnements inutiles, les
+            doubles saisies et les opportunités d’automatisation.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="ebook.html">Lire l’ebook</a>
-            <a class="button button-secondary" href="ebook.html#ebook">Accéder au lecteur</a>
+            <a class="button button-secondary light" href="ebook.html#ebook">Ouvrir le lecteur</a>
           </div>
         </div>
-        <div class="resource-card">
-          <span>EBOOK</span>
+        <article class="ebook-preview">
+          <img src="assets/logo.png" alt="" />
+          <span>Ebook gratuit</span>
           <h3>Pourquoi vos logiciels vous font perdre du temps et de l’argent</h3>
-          <p>10 pages pour poser un diagnostic simple et identifier les bons leviers.</p>
-        </div>
+          <p>10 pages pour poser le bon diagnostic avant de choisir vos prochains outils.</p>
+        </article>
       </section>
 
-      <section class="faq-section">
+      <section class="faq-section light-section" aria-labelledby="faq-title">
         <div class="section-heading">
-          <p class="eyebrow">Questions fréquentes</p>
-          <h2>Un premier échange suffit souvent à clarifier la suite.</h2>
+          <p class="eyebrow dark">Questions fréquentes</p>
+          <h2 id="faq-title">Vous pouvez arriver avec une question simple. Nous construirons la suite avec vous.</h2>
         </div>
         <div class="faq-list">
           <details>
-            <summary>Est-ce réservé aux entreprises ?</summary>
-            <p>Non. MY BUSINESS LIFE peut accompagner un particulier, un porteur de projet, un indépendant, une association ou une entreprise déjà structurée.</p>
+            <summary>Est-ce que MY BUSINESS LIFE accompagne aussi les particuliers ?</summary>
+            <p>Oui. Un particulier peut venir avec une idée, un besoin d’accompagnement digital, une démarche à simplifier ou un projet à rendre concret.</p>
           </details>
           <details>
-            <summary>Dois-je déjà savoir exactement ce que je veux ?</summary>
-            <p>Non. L’étude gratuite sert justement à traduire votre situation en besoin clair, puis en solution réaliste.</p>
+            <summary>Faut-il déjà savoir quel outil ou quel site créer ?</summary>
+            <p>Non. L’étude gratuite sert à clarifier votre besoin avant de parler solution, budget ou planning.</p>
           </details>
           <details>
-            <summary>Pouvez-vous intervenir sur un outil existant ?</summary>
-            <p>Oui, selon le contexte. On peut améliorer un site, connecter des outils, automatiser une partie du flux ou repartir sur une base plus saine.</p>
+            <summary>Pouvez-vous intervenir sur une activité déjà existante ?</summary>
+            <p>Oui. Nous pouvons améliorer l’existant, connecter des outils, refondre une page, automatiser un flux ou concevoir un système plus complet.</p>
+          </details>
+          <details>
+            <summary>Le rendez-vous engage-t-il à quelque chose ?</summary>
+            <p>Non. Il sert à comprendre votre situation et à vous donner une première lecture claire des prochaines étapes possibles.</p>
           </details>
         </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <p class="eyebrow">Étude gratuite</p>
+        <h2 id="final-title">Une idée, un blocage, un projet ou une activité à structurer ? Parlons-en.</h2>
+        <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">
+          Réserver mon créneau
+        </a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="brand footer-brand">
-        <span class="brand-mark">
-          <img src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
-        </span>
-        <span>
+      <a class="brand footer-brand" href="#top" aria-label="MY BUSINESS LIFE">
+        <span class="brand-mark"><img src="assets/logo.png" alt="Logo MY BUSINESS LIFE" /></span>
+        <span class="brand-copy">
           <strong>MY BUSINESS LIFE</strong>
-          <small>Votre partenaire digital au quotidien.</small>
+          <small>Solutions digitales utiles, élégantes et durables.</small>
         </span>
-      </div>
+      </a>
       <nav aria-label="Navigation pied de page">
         <a href="#profils">Profils</a>
-        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
         <a href="ebook.html">Ebook</a>
         <a href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" target="_blank" rel="noopener">Contact</a>
       </nav>
     </footer>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
   </body>
 </html>
