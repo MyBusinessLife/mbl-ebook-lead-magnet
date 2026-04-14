@@ -17,7 +17,7 @@
     />
     <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
     <title>Jeux | Puissance 4 MY BUSINESS LIFE</title>
-    <link rel="stylesheet" href="premium-site.css?v=11" />
+    <link rel="stylesheet" href="premium-site.css?v=12" />
   </head>
   <body class="premium-page">
     <header class="site-header" aria-label="Navigation principale">
@@ -148,8 +148,20 @@
               <div><strong id="gameTurnLabel">Orange</strong><span>Tour</span></div>
               <div><strong>1-7</strong><span>Clavier</span></div>
             </div>
+            <div class="game-scoreboard" aria-label="Score de la session">
+              <div class="score-card orange">
+                <span>Orange</span>
+                <strong id="gameOrangeScore">0</strong>
+              </div>
+              <div class="score-separator">:</div>
+              <div class="score-card teal">
+                <span id="gameTealLabel">Ordinateur</span>
+                <strong id="gameTealScore">0</strong>
+              </div>
+            </div>
             <p class="game-tip">
-              Astuce : commencez au centre, les alignements y ouvrent plus d'options.
+              Le score reste actif jusqu'au refresh de la page. Astuce : commencez au centre,
+              les alignements y ouvrent plus d'options.
             </p>
           </aside>
         </div>
@@ -213,6 +225,6 @@
     </footer>
 
     <script src="premium-site.js?v=11"></script>
-    <script src="jeux.js?v=11"></script>
+    <script src="jeux.js?v=12"></script>
   </body>
 </html>

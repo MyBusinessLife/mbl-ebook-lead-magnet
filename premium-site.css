@@ -2752,7 +2752,8 @@ p {
   gap: 10px;
 }
 
-.game-stats div {
+.game-stats div,
+.score-card {
   border: 1px solid rgba(7, 19, 28, 0.1);
   border-radius: var(--radius);
   background:
@@ -2762,19 +2763,68 @@ p {
 }
 
 .game-stats strong,
-.game-stats span {
+.game-stats span,
+.score-card strong,
+.score-card span {
   display: block;
 }
 
-.game-stats strong {
+.game-stats strong,
+.score-card strong {
   color: #0b5d6c;
   font-size: 1.2rem;
 }
 
 .game-stats span,
+.score-card span,
 .game-tip {
   color: var(--soft-text-muted);
   font-size: 0.92rem;
+}
+
+.game-scoreboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.score-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 92px;
+}
+
+.score-card::after {
+  position: absolute;
+  inset: auto 12px 12px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--orange), var(--teal));
+  content: "";
+  opacity: 0.74;
+}
+
+.score-card.orange strong {
+  color: #c44a1e;
+}
+
+.score-card.teal strong {
+  color: #0b5d6c;
+}
+
+.score-card strong {
+  margin-top: 8px;
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+.score-separator {
+  display: grid;
+  place-items: center;
+  color: var(--soft-text-muted);
+  font-size: 2rem;
+  font-weight: 950;
 }
 
 @keyframes premiumFloat {
@@ -2975,6 +3025,14 @@ p {
   .game-board-wrap,
   .game-side {
     padding: 14px;
+  }
+
+  .game-scoreboard {
+    grid-template-columns: 1fr;
+  }
+
+  .score-separator {
+    display: none;
   }
 }
 

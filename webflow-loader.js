@@ -16,7 +16,7 @@
     contact: "contact.html?v=11",
     "a-propos": "a-propos.html?v=11",
     blog: "blog.html?v=11",
-    jeux: "jeux.html?v=11",
+    jeux: "jeux.html?v=12",
   };
   var script = document.currentScript;
   var targetSelector = script && script.getAttribute("data-target");

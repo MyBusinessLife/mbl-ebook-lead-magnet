@@ -6,6 +6,9 @@
   const statusEl = document.getElementById("gameStatus");
   const modeLabel = document.getElementById("gameModeLabel");
   const turnLabel = document.getElementById("gameTurnLabel");
+  const orangeScoreEl = document.getElementById("gameOrangeScore");
+  const tealScoreEl = document.getElementById("gameTealScore");
+  const tealLabelEl = document.getElementById("gameTealLabel");
   const modeButtons = document.querySelectorAll("[data-mode]");
   const restartButton = document.querySelector("[data-restart]");
 
@@ -15,14 +18,24 @@
   const ORANGE = 1;
   const TEAL = 2;
   const AI_DELAY = 420;
+  const GRAVITY = 5600;
+  const MAX_FALL_SPEED = 2400;
+  const BOUNCE_DAMPING = 0.24;
 
   const state = {
     board: createBoard(),
+    scores: {
+      orange: 0,
+      teal: 0,
+    },
     mode: "solo",
     currentPlayer: ORANGE,
     winner: null,
     winningCells: [],
     hoverColumn: null,
+    fallingPiece: null,
+    animationFrame: null,
+    lastFrameTime: 0,
     pendingAi: false,
     aiElapsed: 0,
     aiTimer: null,
@@ -50,17 +63,34 @@
     });
 
     if (modeLabel) modeLabel.textContent = state.mode === "solo" ? "Solo" : "2 joueurs";
-    if (turnLabel) turnLabel.textContent = state.winner ? playerName(state.winner) : playerName(state.currentPlayer);
+    if (turnLabel) {
+      if (state.winner === "draw") {
+        turnLabel.textContent = "Match nul";
+      } else if (state.winner) {
+        turnLabel.textContent = playerName(state.winner);
+      } else if (state.fallingPiece) {
+        turnLabel.textContent = playerName(state.fallingPiece.player);
+      } else {
+        turnLabel.textContent = playerName(state.currentPlayer);
+      }
+    }
+    if (orangeScoreEl) orangeScoreEl.textContent = String(state.scores.orange);
+    if (tealScoreEl) tealScoreEl.textContent = String(state.scores.teal);
+    if (tealLabelEl) tealLabelEl.textContent = state.mode === "solo" ? "Ordinateur" : "Bleu-vert";
   }
 
   function resetGame(mode = state.mode) {
     if (state.aiTimer) window.clearTimeout(state.aiTimer);
+    if (state.animationFrame) window.cancelAnimationFrame(state.animationFrame);
     state.board = createBoard();
     state.mode = mode;
     state.currentPlayer = ORANGE;
     state.winner = null;
     state.winningCells = [];
     state.hoverColumn = null;
+    state.fallingPiece = null;
+    state.animationFrame = null;
+    state.lastFrameTime = 0;
     state.pendingAi = false;
     state.aiElapsed = 0;
     state.aiTimer = null;
@@ -132,21 +162,74 @@
     return priority.find((column) => legal.includes(column)) ?? legal[0];
   }
 
-  function placePiece(column, player) {
+  function startRenderLoop() {
+    if (state.animationFrame) return;
+    state.lastFrameTime = 0;
+    state.animationFrame = window.requestAnimationFrame(tick);
+  }
+
+  function tick(timestamp) {
+    const dt = state.lastFrameTime ? Math.min(timestamp - state.lastFrameTime, 34) : 16.67;
+    state.lastFrameTime = timestamp;
+    update(dt);
+    render();
+
+    if (state.fallingPiece) {
+      state.animationFrame = window.requestAnimationFrame(tick);
+    } else {
+      state.animationFrame = null;
+      state.lastFrameTime = 0;
+    }
+  }
+
+  function startDrop(column, player) {
     const row = getDropRow(column);
     if (row === -1) return false;
 
-    state.board[row][column] = player;
+    const layout = boardLayout();
+    const x = layout.x + layout.cell * (column + 0.5);
+    const targetY = layout.y + layout.cell * (row + 0.5);
+
+    state.fallingPiece = {
+      row,
+      column,
+      player,
+      x,
+      y: layout.y - layout.cell * 0.52,
+      targetY,
+      velocity: 0,
+      bounces: 0,
+    };
+    state.hoverColumn = column;
+    setMessage(`Jeton ${playerName(player)} en chute...`);
+    updateUi();
+    startRenderLoop();
+    render();
+    return true;
+  }
+
+  function finalizeDrop() {
+    const piece = state.fallingPiece;
+    if (!piece) return;
+
+    state.board[piece.row][piece.column] = piece.player;
+    state.fallingPiece = null;
+    commitPlacement(piece.player);
+  }
+
+  function commitPlacement(player) {
     const winningCells = findWinningCells(state.board, player);
 
     if (winningCells.length) {
       state.winner = player;
       state.winningCells = winningCells;
       state.pendingAi = false;
-      setMessage(`${playerName(player)} gagne la partie.`);
+      if (player === ORANGE) state.scores.orange += 1;
+      if (player === TEAL) state.scores.teal += 1;
+      setMessage(`${playerName(player)} gagne la manche. Score ${state.scores.orange} - ${state.scores.teal}.`);
       updateUi();
       render();
-      return true;
+      return;
     }
 
     if (legalColumns().length === 0) {
@@ -155,7 +238,7 @@
       setMessage("Match nul. Le plateau est complet.");
       updateUi();
       render();
-      return true;
+      return;
     }
 
     state.currentPlayer = player === ORANGE ? TEAL : ORANGE;
@@ -167,8 +250,10 @@
     } else {
       setMessage(`Tour ${playerName(state.currentPlayer)}. Choisissez une colonne.`);
     }
+  }
 
-    return true;
+  function placePiece(column, player) {
+    return startDrop(column, player);
   }
 
   function queueAiMove() {
@@ -197,12 +282,33 @@
   }
 
   function handleColumn(column) {
-    if (state.winner || state.pendingAi) return;
+    if (state.winner || state.pendingAi || state.fallingPiece) return;
     if (column < 0 || column >= COLS || getDropRow(column) === -1) {
       setMessage("Cette colonne est pleine. Choisissez une autre colonne.");
       return;
     }
     placePiece(column, state.currentPlayer);
+  }
+
+  function update(dtMs) {
+    if (!state.fallingPiece) return;
+
+    const piece = state.fallingPiece;
+    const dt = Math.max(0.001, Math.min(dtMs / 1000, 0.05));
+    piece.velocity = Math.min(piece.velocity + GRAVITY * dt, MAX_FALL_SPEED);
+    piece.y += piece.velocity * dt;
+
+    if (piece.y >= piece.targetY) {
+      piece.y = piece.targetY;
+
+      if (piece.velocity > 520 && piece.bounces < 1) {
+        piece.velocity = -piece.velocity * BOUNCE_DAMPING;
+        piece.bounces += 1;
+        return;
+      }
+
+      finalizeDrop();
+    }
   }
 
   function boardLayout() {
@@ -299,7 +405,7 @@
     ctx.fillStyle = "rgba(247, 249, 252, 0.7)";
     ctx.fillText(state.mode === "solo" ? "Solo vs ordinateur" : "Mode 2 joueurs", 42, 66);
 
-    if (state.hoverColumn !== null && !state.winner && !state.pendingAi && getDropRow(state.hoverColumn) !== -1) {
+    if (state.hoverColumn !== null && !state.winner && !state.pendingAi && !state.fallingPiece && getDropRow(state.hoverColumn) !== -1) {
       const hx = layout.x + layout.cell * (state.hoverColumn + 0.5);
       drawPiece(hx, layout.y - layout.cell * 0.42, layout.cell * 0.32, state.currentPlayer, false);
     }
@@ -338,6 +444,11 @@
 
         if (value !== EMPTY) drawPiece(x, y, radius * 0.92, value, isWinning);
       }
+    }
+
+    if (state.fallingPiece) {
+      const piece = state.fallingPiece;
+      drawPiece(piece.x, piece.y, layout.cell * 0.33, piece.player, false);
     }
   }
 
@@ -396,6 +507,11 @@
   window.addEventListener("resize", render, { passive: true });
 
   window.advanceTime = (ms = 16) => {
+    const steps = Math.max(1, Math.ceil(ms / (1000 / 60)));
+    const stepMs = ms / steps;
+    for (let i = 0; i < steps; i += 1) {
+      update(stepMs);
+    }
     if (state.pendingAi) {
       state.aiElapsed += ms;
       if (state.aiElapsed >= AI_DELAY) performAiMove();
@@ -410,6 +526,17 @@
       mode: state.mode,
       currentPlayer: state.winner ? null : playerName(state.currentPlayer),
       winner: state.winner === "draw" ? "draw" : state.winner ? playerName(state.winner) : null,
+      scores: { ...state.scores },
+      fallingPiece: state.fallingPiece
+        ? {
+            player: playerName(state.fallingPiece.player),
+            row: state.fallingPiece.row,
+            column: state.fallingPiece.column,
+            y: Math.round(state.fallingPiece.y),
+            targetY: Math.round(state.fallingPiece.targetY),
+            velocity: Math.round(state.fallingPiece.velocity),
+          }
+        : null,
       pendingAi: state.pendingAi,
       hoverColumn: state.hoverColumn,
       legalColumns: legalColumns(),
