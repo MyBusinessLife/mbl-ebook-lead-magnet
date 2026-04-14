@@ -115,7 +115,15 @@ const formMessage = document.querySelector("#formMessage");
 const printBook = document.querySelector("#printBook");
 const DEFAULT_CTA_URL =
   ebookConfig.ctaUrl || "https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure";
-const ctaUrl = new URLSearchParams(window.location.search).get("cta") || DEFAULT_CTA_URL;
+const rawCtaUrl = new URLSearchParams(window.location.search).get("cta") || DEFAULT_CTA_URL;
+let ctaUrl = rawCtaUrl;
+
+try {
+  ctaUrl = new URL(rawCtaUrl, window.location.href).href;
+} catch (error) {
+  ctaUrl = rawCtaUrl;
+}
+
 const pdfFilename = ebookConfig.pdfFilename || "ebook-logiciel-sur-mesure-mbl.pdf";
 const pdfFooterText = ebookConfig.pdfFooterText || "Logiciels sur-mesure pour entreprises ambitieuses";
 const formSuccessMessage =
