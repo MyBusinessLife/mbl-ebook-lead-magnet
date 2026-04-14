@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Contactez MY BUSINESS LIFE pour un site web premium, un logiciel sur-mesure, une automatisation, une réparation ordinateur ou un achat matériel."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mybusinesslife.fr/contact" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact | MY BUSINESS LIFE" />
+    <meta
+      property="og:description"
+      content="Décrivez votre besoin et obtenez une réponse claire pour votre projet digital ou informatique."
+    />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <title>Contact | MY BUSINESS LIFE</title>
+    <link rel="stylesheet" href="styles.css?v=8" />
+  </head>
+  <body class="premium-page">
+    <header class="site-header" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="MY BUSINESS LIFE">
+        <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+        <span class="brand-copy"><strong>MY BUSINESS LIFE</strong><small>Digital, organisation, croissance</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">Menu</button>
+      <nav id="site-navigation" class="site-nav" aria-label="Menu du site">
+        <a href="services.html">Services</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Solutions</button>
+          <div class="nav-dropdown">
+            <a href="logiciel-sur-mesure.html"><span>Logiciel sur-mesure</span><small>Outils métier, automatisation et pilotage.</small></a>
+            <a href="developpement-web.html"><span>Développement web</span><small>Sites premium, tunnels et expériences digitales.</small></a>
+            <a href="reparation-ordinateur.html"><span>Réparation ordinateur</span><small>Diagnostic, remise en état et optimisation.</small></a>
+            <a href="achat-materiel-informatique.html"><span>Achat matériel</span><small>Configurations adaptées à votre usage.</small></a>
+          </div>
+        </div>
+        <a href="cas-clients.html">Cas clients</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="ebook.html">Ebook</a>
+        <a class="nav-cta" href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </header>
+
+    <main class="premium-main">
+      <section class="premium-hero" aria-labelledby="contact-title">
+        <div data-animate>
+          <p class="premium-kicker">Contact</p>
+          <h1 id="contact-title">Parlez-nous de ce que vous voulez <span>clarifier, créer ou réparer</span>.</h1>
+          <p class="premium-lead">
+            Vous n'avez pas besoin d'avoir un cahier des charges parfait. Décrivez votre situation :
+            MY BUSINESS LIFE vous aide à transformer le flou en prochaine action simple.
+          </p>
+          <div class="premium-actions">
+            <a class="button button-primary" href="#formulaire">Envoyer une demande</a>
+            <a class="button button-secondary" href="diagnostic.html">Passer par le diagnostic</a>
+          </div>
+        </div>
+        <div class="premium-visual" data-animate="scale">
+          <div class="floating-metrics" aria-hidden="true">
+            <span><strong>24/48h</strong> retour clair</span>
+            <span><strong>0</strong> jargon imposé</span>
+          </div>
+          <div class="visual-frame">
+            <img
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=82"
+              alt="Discussion professionnelle autour d'un projet"
+              fetchpriority="high"
+            />
+            <div class="visual-card">
+              <span>Premier échange</span>
+              <strong>Une demande simple vaut mieux qu'un brief compliqué.</strong>
+              <p>On clarifie ensemble le besoin, le niveau d'urgence et la meilleure trajectoire.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="formulaire" class="section-band" aria-labelledby="form-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Demande</p>
+            <h2 id="form-title">Un formulaire court, utile et orienté action.</h2>
+          </div>
+          <p>Les informations sont envoyées au point de contact MY BUSINESS LIFE. Si le backend n'est pas disponible sur l'environnement actuel, votre email s'ouvre automatiquement avec la demande préparée.</p>
+        </div>
+
+        <div class="story-panel">
+          <form class="premium-form" data-intake-form data-source="contact" data-endpoint="/api/contact" aria-label="Formulaire de contact MY BUSINESS LIFE" data-animate>
+            <div class="field-grid">
+              <label>Nom
+                <input type="text" name="nom" autocomplete="name" required />
+              </label>
+              <label>Email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>Profil
+                <select name="profil" required>
+                  <option value="">Choisir</option>
+                  <option>Particulier</option>
+                  <option>Indépendant</option>
+                  <option>Entreprise</option>
+                  <option>Association</option>
+                </select>
+              </label>
+              <label>Besoin principal
+                <select name="besoin" required>
+                  <option value="">Choisir</option>
+                  <option>Site web</option>
+                  <option>Logiciel sur-mesure</option>
+                  <option>Automatisation</option>
+                  <option>Réparation ordinateur</option>
+                  <option>Achat matériel informatique</option>
+                  <option>Stratégie digitale</option>
+                </select>
+              </label>
+            </div>
+            <label>Votre message
+              <textarea name="message" placeholder="Expliquez ce que vous souhaitez obtenir, corriger ou comprendre." required></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Envoyer ma demande</button>
+            <p class="form-status" data-form-status role="status"></p>
+            <p class="form-note">Vous pouvez aussi écrire directement à contact@mybusinesslife.fr.</p>
+          </form>
+
+          <div class="premium-grid" data-animate="scale">
+            <article class="premium-card" data-spotlight>
+              <span class="service-icon">01</span>
+              <h3>Réponse claire</h3>
+              <p>Vous recevez une lecture simple de la demande : priorité, faisabilité et prochaine étape.</p>
+            </article>
+            <article class="premium-card" data-spotlight>
+              <span class="service-icon">02</span>
+              <h3>Orientation honnête</h3>
+              <p>Si la bonne réponse est une réparation, un achat, un site ou un logiciel, on vous le dit clairement.</p>
+            </article>
+            <article class="premium-card" data-spotlight>
+              <span class="service-icon">03</span>
+              <h3>Suite structurée</h3>
+              <p>Le projet avance avec un périmètre compréhensible et des choix faciles à valider.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band dark" aria-labelledby="contact-options">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Accès rapides</p>
+            <h2 id="contact-options">Vous préférez être guidé ? Choisissez le bon point d'entrée.</h2>
+          </div>
+          <p>Chaque parcours réduit les questions inutiles et prépare un échange plus efficace.</p>
+        </div>
+        <div class="premium-grid cards-3">
+          <a class="premium-card dark-card" data-spotlight data-animate href="diagnostic.html"><span class="service-icon">DIAG</span><h3>Diagnostic en ligne</h3><p>Un parcours étape par étape pour qualifier votre besoin.</p></a>
+          <a class="premium-card dark-card" data-spotlight data-animate style="--delay: 80ms" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure"><span class="service-icon">RDV</span><h3>Étude gratuite</h3><p>Un échange direct pour cadrer un projet logiciel ou digital.</p></a>
+          <a class="premium-card dark-card" data-spotlight data-animate style="--delay: 160ms" href="mailto:contact@mybusinesslife.fr"><span class="service-icon">@</span><h3>Email direct</h3><p>Envoyez votre contexte, vos fichiers ou vos questions.</p></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer premium-footer" aria-label="Pied de page">
+      <div class="footer-shell">
+        <div>
+          <a class="brand footer-brand" href="index.html" aria-label="MY BUSINESS LIFE">
+            <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+            <span class="brand-copy"><strong>MY BUSINESS LIFE</strong><small>Digital, organisation, croissance</small></span>
+          </a>
+          <p>Des expériences digitales et informatiques premium, pensées pour être simples à comprendre et solides à utiliser.</p>
+        </div>
+        <div class="footer-column"><strong>Services</strong><a href="developpement-web.html">Développement web</a><a href="logiciel-sur-mesure.html">Logiciel sur-mesure</a><a href="automatisation.html">Automatisation</a><a href="reparation-ordinateur.html">Réparation ordinateur</a></div>
+        <div class="footer-column"><strong>Explorer</strong><a href="services.html">Tous les services</a><a href="cas-clients.html">Cas clients</a><a href="a-propos.html">À propos</a><a href="blog.html">Blog</a></div>
+        <div class="footer-column"><strong>Contact</strong><a href="diagnostic.html">Diagnostic en ligne</a><a href="contact.html">Demander une étude</a><a href="ebook.html">Lire l'ebook</a><a href="mailto:contact@mybusinesslife.fr">contact@mybusinesslife.fr</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 MY BUSINESS LIFE. Tous droits réservés.</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a></span></div>
+    </footer>
+
+    <script src="script.js?v=8"></script>
+  </body>
+</html>

@@ -73,3 +73,61 @@ document.querySelectorAll("details").forEach((item) => {
     });
   });
 });
+
+document.querySelectorAll("[data-spotlight]").forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = Math.round(((event.clientX - rect.left) / rect.width) * 100);
+    const y = Math.round(((event.clientY - rect.top) / rect.height) * 100);
+    card.style.setProperty("--mx", `${x}%`);
+    card.style.setProperty("--my", `${y}%`);
+  });
+});
+
+document.querySelectorAll("[data-intake-form]").forEach((form) => {
+  const status = form.querySelector("[data-form-status]");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    const endpoint = form.getAttribute("data-endpoint") || "/api/contact";
+
+    if (status) status.textContent = "Envoi de votre demande...";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: form.getAttribute("data-source") || "site-vitrine",
+          page: document.title,
+          submittedAt: new Date().toISOString(),
+          ...payload,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Request failed");
+
+      form.reset();
+      if (status) status.textContent = "Demande reçue. Nous revenons vers vous rapidement.";
+    } catch (error) {
+      const subject = encodeURIComponent("Demande depuis le site MY BUSINESS LIFE");
+      const body = encodeURIComponent(
+        Object.entries(payload)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join("\n"),
+      );
+
+      if (status) {
+        status.textContent =
+          "Le serveur de formulaire n'est pas encore connecté ici. Votre email va s'ouvrir avec la demande préparée.";
+      }
+
+      window.setTimeout(() => {
+        window.location.href = `mailto:contact@mybusinesslife.fr?subject=${subject}&body=${body}`;
+      }, 450);
+    }
+  });
+});

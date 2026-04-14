@@ -1385,3 +1385,98 @@ h3 {
     font-size: 12pt;
   }
 }
+
+.ebook-upgrade .topbar,
+.ebook-upgrade .reader-shell,
+.ebook-upgrade .cta-section,
+.ebook-upgrade .visual-panel {
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.ebook-upgrade .topbar {
+  background:
+    linear-gradient(135deg, rgba(247, 249, 252, 0.11), rgba(247, 249, 252, 0.035)),
+    rgba(8, 21, 31, 0.76);
+}
+
+.ebook-upgrade .topnav a,
+.ebook-upgrade .nav-download,
+.ebook-upgrade .button,
+.ebook-upgrade .thumbnail-button,
+.ebook-upgrade .icon-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ebook-upgrade .topnav a::after {
+  position: absolute;
+  right: 12px;
+  bottom: 7px;
+  left: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--orange), var(--teal), transparent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.ebook-upgrade .topnav a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.ebook-upgrade .button::before,
+.ebook-upgrade .nav-download::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 10%, rgba(255, 255, 255, 0.22), transparent 38%);
+  content: "";
+  opacity: 0;
+  transform: translateX(-120%);
+  transition:
+    opacity 240ms ease,
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ebook-upgrade .button:hover::before,
+.ebook-upgrade .nav-download:hover::before {
+  opacity: 1;
+  transform: translateX(110%);
+}
+
+.ebook-upgrade .reader-shell {
+  border-color: rgba(247, 249, 252, 0.2);
+  background:
+    linear-gradient(135deg, rgba(247, 249, 252, 0.1), rgba(247, 249, 252, 0.035)),
+    rgba(8, 21, 31, 0.86);
+}
+
+.ebook-upgrade .ebook-page-card {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(247, 249, 252, 0.06);
+}
+
+.ebook-upgrade .ebook-card,
+.ebook-upgrade .result-pill,
+.ebook-upgrade .compare-column,
+.ebook-upgrade .benefit-chip {
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ebook-upgrade .ebook-card:hover,
+.ebook-upgrade .result-pill:hover,
+.ebook-upgrade .compare-column:hover,
+.ebook-upgrade .benefit-chip:hover {
+  border-color: rgba(28, 143, 163, 0.28);
+  box-shadow: 0 18px 44px rgba(7, 19, 28, 0.1);
+  transform: translateY(-3px);
+}

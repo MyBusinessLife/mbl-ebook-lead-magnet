@@ -1,7 +1,24 @@
 (function () {
-  var defaultSrc = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/ebook.html?v=7";
+  var base = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/";
+  var pages = {
+    ebook: "ebook.html?v=8",
+    services: "services.html?v=8",
+    logiciel: "logiciel-sur-mesure.html?v=8",
+    web: "developpement-web.html?v=8",
+    reparation: "reparation-ordinateur.html?v=8",
+    materiel: "achat-materiel-informatique.html?v=8",
+    automatisation: "automatisation.html?v=8",
+    strategie: "strategie-digitale.html?v=8",
+    diagnostic: "diagnostic.html?v=8",
+    "cas-clients": "cas-clients.html?v=8",
+    contact: "contact.html?v=8",
+    "a-propos": "a-propos.html?v=8",
+    blog: "blog.html?v=8",
+  };
   var script = document.currentScript;
   var targetSelector = script && script.getAttribute("data-target");
+  var requestedPage = (script && script.getAttribute("data-page")) || "ebook";
+  var defaultSrc = base + (pages[requestedPage] || pages.ebook);
   var source = (script && script.getAttribute("data-src")) || defaultSrc;
   var minHeight = Number((script && script.getAttribute("data-min-height")) || 2800);
   var container =
@@ -23,7 +40,7 @@
   container.style.overflow = "visible";
 
   var iframe = document.createElement("iframe");
-  iframe.title = "Ebook MY BUSINESS LIFE - logiciel sur-mesure";
+  iframe.title = "MY BUSINESS LIFE - " + requestedPage.replace(/-/g, " ");
   iframe.src = source;
   iframe.loading = "lazy";
   iframe.referrerPolicy = "strict-origin-when-cross-origin";
