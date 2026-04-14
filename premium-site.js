@@ -168,6 +168,144 @@ document.querySelectorAll(".button").forEach((button) => {
   });
 });
 
+const cookieConsentKey = "mbl_cookie_consent_v1";
+
+const readCookieConsent = () => {
+  try {
+    const raw = window.localStorage.getItem(cookieConsentKey);
+    return raw ? JSON.parse(raw) : null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const applyCookieConsent = (consent) => {
+  window.mblConsent = {
+    essential: true,
+    analytics: Boolean(consent?.analytics),
+    marketing: Boolean(consent?.marketing),
+    savedAt: consent?.savedAt || null,
+  };
+
+  document.documentElement.dataset.cookiesAnalytics = window.mblConsent.analytics ? "granted" : "denied";
+  document.documentElement.dataset.cookiesMarketing = window.mblConsent.marketing ? "granted" : "denied";
+  window.dispatchEvent(new CustomEvent("mbl:cookie-consent", { detail: window.mblConsent }));
+};
+
+const saveCookieConsent = (settings) => {
+  const consent = {
+    version: 1,
+    essential: true,
+    analytics: Boolean(settings.analytics),
+    marketing: Boolean(settings.marketing),
+    savedAt: new Date().toISOString(),
+  };
+
+  try {
+    window.localStorage.setItem(cookieConsentKey, JSON.stringify(consent));
+  } catch (error) {
+    // Consent is still applied for the current session if storage is unavailable.
+  }
+
+  applyCookieConsent(consent);
+  document.querySelector("[data-cookie-consent]")?.remove();
+};
+
+const renderCookieConsent = (forceOpen = false) => {
+  const existing = document.querySelector("[data-cookie-consent]");
+  if (existing) {
+    existing.classList.add("is-visible");
+    return;
+  }
+
+  const stored = readCookieConsent();
+  if (stored && !forceOpen) {
+    applyCookieConsent(stored);
+    return;
+  }
+
+  const current = stored || { analytics: false, marketing: false };
+  const banner = document.createElement("section");
+  banner.className = "cookie-consent";
+  banner.dataset.cookieConsent = "";
+  banner.setAttribute("role", "dialog");
+  banner.setAttribute("aria-label", "Préférences cookies MY BUSINESS LIFE");
+  banner.innerHTML = `
+    <div class="cookie-panel">
+      <h2>Respect de votre confidentialité</h2>
+      <p>Nous utilisons les cookies nécessaires au fonctionnement du site. Les cookies de mesure d'audience et marketing ne sont activés qu'avec votre accord.</p>
+      <div class="cookie-options">
+        <label class="cookie-option">
+          <span class="cookie-switch"><strong>Nécessaires</strong><input type="checkbox" checked disabled /></span>
+          <small>Indispensables au fonctionnement du site et à la sécurité.</small>
+        </label>
+        <label class="cookie-option">
+          <span class="cookie-switch"><strong>Mesure d'audience</strong><input type="checkbox" data-cookie-toggle="analytics" ${current.analytics ? "checked" : ""} /></span>
+          <small>Aide à comprendre les pages consultées et à améliorer l'expérience.</small>
+        </label>
+        <label class="cookie-option">
+          <span class="cookie-switch"><strong>Marketing</strong><input type="checkbox" data-cookie-toggle="marketing" ${current.marketing ? "checked" : ""} /></span>
+          <small>Permettrait de mesurer les campagnes publicitaires si elles sont activées.</small>
+        </label>
+      </div>
+      <div class="cookie-actions">
+        <button class="button button-secondary" type="button" data-cookie-reject>Refuser</button>
+        <button class="button button-secondary" type="button" data-cookie-save>Enregistrer</button>
+        <button class="button button-primary" type="button" data-cookie-accept>Tout accepter</button>
+      </div>
+      <div class="cookie-links">
+        <a href="cookies.html">Politique cookies</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+  window.requestAnimationFrame(() => banner.classList.add("is-visible"));
+
+  banner.querySelector("[data-cookie-reject]")?.addEventListener("click", () => {
+    saveCookieConsent({ analytics: false, marketing: false });
+  });
+
+  banner.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
+    saveCookieConsent({ analytics: true, marketing: true });
+  });
+
+  banner.querySelector("[data-cookie-save]")?.addEventListener("click", () => {
+    saveCookieConsent({
+      analytics: banner.querySelector('[data-cookie-toggle="analytics"]')?.checked,
+      marketing: banner.querySelector('[data-cookie-toggle="marketing"]')?.checked,
+    });
+  });
+};
+
+applyCookieConsent(readCookieConsent());
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => renderCookieConsent(false), { once: true });
+} else {
+  renderCookieConsent(false);
+}
+
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-cookie-preferences]");
+  if (!trigger) return;
+  event.preventDefault();
+  renderCookieConsent(true);
+});
+
+document.querySelectorAll(".footer-bottom").forEach((footerBottom) => {
+  if (footerBottom.querySelector("[data-cookie-preferences]")) return;
+  const target = footerBottom.querySelector("span:last-child") || footerBottom;
+  const separator = document.createTextNode(" · ");
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "footer-cookie-button";
+  button.dataset.cookiePreferences = "";
+  button.textContent = "Préférences cookies";
+  target.append(separator, button);
+});
+
 document.querySelectorAll("[data-intake-form]").forEach((form) => {
   const status = form.querySelector("[data-form-status]");
 
