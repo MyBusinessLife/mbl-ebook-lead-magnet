@@ -1,10 +1,15 @@
-const EBOOK_PRODUCTION_URL = "https://mybusinesslife.fr/ebook";
+const ebookConfig = window.MBL_EBOOK_CONFIG || {};
+const EBOOK_PRODUCTION_URL = ebookConfig.productionUrl || "https://mybusinesslife.fr/ebook";
 
-if (window.location.hostname === "mybusinesslife.github.io") {
+if (
+  ebookConfig.redirectProduction !== false &&
+  EBOOK_PRODUCTION_URL &&
+  window.location.hostname === "mybusinesslife.github.io"
+) {
   window.location.replace(`${EBOOK_PRODUCTION_URL}${window.location.hash}`);
 }
 
-const ebookPages = [
+const defaultEbookPages = [
   {
     type: "cover",
     title: "Pourquoi vos logiciels vous font perdre du temps et de l'argent",
@@ -96,6 +101,8 @@ const ebookPages = [
   },
 ];
 
+const ebookPages = ebookConfig.pages || defaultEbookPages;
+
 let currentPage = 0;
 
 const pageEl = document.querySelector("#ebookPage");
@@ -106,8 +113,14 @@ const nextButton = document.querySelector("#nextPage");
 const form = document.querySelector(".lead-form");
 const formMessage = document.querySelector("#formMessage");
 const printBook = document.querySelector("#printBook");
-const DEFAULT_CTA_URL = "https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure";
+const DEFAULT_CTA_URL =
+  ebookConfig.ctaUrl || "https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure";
 const ctaUrl = new URLSearchParams(window.location.search).get("cta") || DEFAULT_CTA_URL;
+const pdfFilename = ebookConfig.pdfFilename || "ebook-logiciel-sur-mesure-mbl.pdf";
+const pdfFooterText = ebookConfig.pdfFooterText || "Logiciels sur-mesure pour entreprises ambitieuses";
+const formSuccessMessage =
+  ebookConfig.formSuccessMessage ||
+  "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
 
 function escapeHtml(value) {
   return String(value)
@@ -398,7 +411,7 @@ function downloadPdf() {
     drawPdfPage(doc, page, index);
   });
 
-  doc.save("ebook-logiciel-sur-mesure-mbl.pdf");
+  doc.save(pdfFilename);
 }
 
 function drawPdfPage(doc, page, index) {
@@ -649,7 +662,7 @@ function drawPdfFooter(doc, index) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor(90, 105, 116);
-  doc.text("Logiciels sur-mesure pour entreprises ambitieuses", 22, 278);
+  doc.text(pdfFooterText, 22, 278);
   doc.text(`Page ${index + 1}`, 174, 278);
 }
 
@@ -675,7 +688,7 @@ function setupActions() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    formMessage.textContent = "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
+    formMessage.textContent = formSuccessMessage;
   });
 
   document.querySelectorAll("[data-cta-link]").forEach((link) => {

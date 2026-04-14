@@ -1,7 +1,9 @@
 (function () {
   var base = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/";
   var pages = {
-    ebook: "ebook.html?v=8",
+    ebook: "ebook.html?v=9",
+    "ebook-site": "ebook-site-internet.html?v=9",
+    "ebook-site-internet": "ebook-site-internet.html?v=9",
     services: "services.html?v=8",
     logiciel: "logiciel-sur-mesure.html?v=8",
     web: "developpement-web.html?v=8",
