@@ -4,6 +4,14 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const navGroups = document.querySelectorAll(".nav-group");
 const animatedItems = document.querySelectorAll("[data-animate]");
+const siteHeader = document.querySelector(".site-header");
+
+const normalizePageId = (value) => {
+  if (!value) return "index";
+  const clean = value.split("#")[0].split("?")[0].replace(/\/+$/, "");
+  const last = clean.split("/").filter(Boolean).pop() || "index";
+  return last.replace(/\.html$/, "") || "index";
+};
 
 const closeNavigation = () => {
   siteNav?.classList.remove("is-open");
@@ -48,6 +56,34 @@ if (menuToggle && siteNav) {
   });
 }
 
+if (siteNav) {
+  const currentPage = normalizePageId(window.location.pathname);
+
+  siteNav.querySelectorAll("a[href]").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("#")) return;
+
+    const linkPage = normalizePageId(new URL(href, window.location.href).pathname);
+    const isCurrent = linkPage === currentPage || (currentPage === "" && linkPage === "index");
+
+    if (isCurrent) {
+      link.setAttribute("aria-current", "page");
+      link.closest(".nav-group")?.classList.add("is-current");
+    } else if (link.getAttribute("aria-current") === "page") {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+if (siteHeader) {
+  const updateHeaderState = () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+
+  updateHeaderState();
+  window.addEventListener("scroll", updateHeaderState, { passive: true });
+}
+
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -81,6 +117,21 @@ document.querySelectorAll("[data-spotlight]").forEach((card) => {
     const y = Math.round(((event.clientY - rect.top) / rect.height) * 100);
     card.style.setProperty("--mx", `${x}%`);
     card.style.setProperty("--my", `${y}%`);
+    card.style.setProperty("--tilt-x", `${((event.clientY - rect.top) / rect.height - 0.5) * -3}deg`);
+    card.style.setProperty("--tilt-y", `${((event.clientX - rect.left) / rect.width - 0.5) * 3}deg`);
+  });
+
+  card.addEventListener("pointerleave", () => {
+    card.style.removeProperty("--tilt-x");
+    card.style.removeProperty("--tilt-y");
+  });
+});
+
+document.querySelectorAll(".button").forEach((button) => {
+  button.addEventListener("pointermove", (event) => {
+    const rect = button.getBoundingClientRect();
+    button.style.setProperty("--button-x", `${event.clientX - rect.left}px`);
+    button.style.setProperty("--button-y", `${event.clientY - rect.top}px`);
   });
 });
 
