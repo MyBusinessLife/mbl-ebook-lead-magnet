@@ -1,13 +1,47 @@
 document.documentElement.classList.add("js-enabled");
 
-const pageLoader = document.querySelector("[data-page-loader]");
 const loaderStart = performance.now();
+const shouldUsePageLoader = document.body && document.body.dataset.loader !== "off";
 
-if (pageLoader && document.body?.dataset.loader) {
+function getLoaderLogoSrc() {
+  return (
+    document.querySelector(".brand-mark img, .brand-badge img, .site-logo img")?.getAttribute("src") ||
+    "assets/logo.png"
+  );
+}
+
+function createPageLoader() {
+  const loader = document.createElement("div");
+  loader.className = "mbl-page-loader";
+  loader.dataset.pageLoader = "";
+  loader.setAttribute("aria-hidden", "false");
+  loader.innerHTML = `
+    <div class="loader-orbit">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="loader-brand">
+        <img src="${getLoaderLogoSrc()}" alt="" />
+        <strong>MY BUSINESS LIFE</strong>
+        <small>Préparation de l'expérience</small>
+      </div>
+    </div>
+    <div class="loader-line"><span></span></div>
+  `;
+  document.body.prepend(loader);
+  return loader;
+}
+
+const pageLoader =
+  document.querySelector("[data-page-loader]") || (shouldUsePageLoader ? createPageLoader() : null);
+
+if (pageLoader && shouldUsePageLoader) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const minLoaderTime = reduceMotion ? 120 : 1250;
   const maxLoaderTime = reduceMotion ? 160 : 1900;
   let loaderHidden = false;
+
+  document.body.classList.add("is-page-loading");
 
   const hideLoader = () => {
     if (loaderHidden) return;

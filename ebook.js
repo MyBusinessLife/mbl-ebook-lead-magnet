@@ -1,6 +1,62 @@
 const ebookConfig = window.MBL_EBOOK_CONFIG || {};
 const EBOOK_PRODUCTION_URL = ebookConfig.productionUrl || "https://mybusinesslife.fr/ebook";
 
+document.documentElement.classList.add("js-enabled");
+
+function initEbookLoader() {
+  if (!document.body || document.body.dataset.loader === "off") return;
+
+  const loader = document.createElement("div");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const loaderStart = performance.now();
+  const minLoaderTime = reduceMotion ? 120 : 1200;
+  const maxLoaderTime = reduceMotion ? 160 : 1850;
+  let loaderHidden = false;
+
+  loader.className = "mbl-page-loader";
+  loader.dataset.pageLoader = "";
+  loader.setAttribute("aria-hidden", "false");
+  loader.innerHTML = `
+    <div class="loader-orbit">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="loader-brand">
+        <img src="assets/logo.png" alt="" />
+        <strong>MY BUSINESS LIFE</strong>
+        <small>Chargement de l'ebook</small>
+      </div>
+    </div>
+    <div class="loader-line"><span></span></div>
+  `;
+
+  document.body.classList.add("is-page-loading");
+  document.body.prepend(loader);
+
+  const hideLoader = () => {
+    if (loaderHidden) return;
+    const elapsed = performance.now() - loaderStart;
+    const delay = Math.max(0, minLoaderTime - elapsed);
+
+    window.setTimeout(() => {
+      loaderHidden = true;
+      document.body.classList.remove("is-page-loading");
+      loader.setAttribute("aria-hidden", "true");
+      window.setTimeout(() => loader.remove(), reduceMotion ? 180 : 760);
+    }, delay);
+  };
+
+  if (document.readyState === "complete") {
+    hideLoader();
+  } else {
+    window.addEventListener("load", hideLoader, { once: true });
+  }
+
+  window.setTimeout(hideLoader, maxLoaderTime);
+}
+
+initEbookLoader();
+
 if (
   ebookConfig.redirectProduction !== false &&
   EBOOK_PRODUCTION_URL &&
@@ -75,19 +131,26 @@ const defaultEbookPages = [
   },
   {
     type: "case",
-    title: "Cas concret : société de transport",
-    subtitle: "Une entreprise de transport gérait ses tournées, chauffeurs et suivis de manière dispersée.",
+    title: "Cas concret : THALES",
+    subtitle:
+      "MY BUSINESS LIFE est intervenu auprès de THALES pour digitaliser une partie de la chaîne de production et traiter les données via un logiciel entièrement développé sur-mesure.",
+    logo: {
+      src: "assets/thales-logo.png",
+      alt: "Logo THALES",
+      caption: "Digitalisation de production et pilotage data",
+    },
     results: [
-      { value: "+40%", label: "de productivité" },
-      { value: "-15h", label: "par semaine" },
-      { value: "+25%", label: "de rentabilité" },
+      { value: "x10", label: "plus vite pour voir et corriger les dérives" },
+      { value: "2,4M€", label: "économisés par an" },
+      { value: "Data", label: "chaîne de production rendue lisible" },
     ],
-    conclusion: "Un outil adapté peut transformer toute une organisation.",
+    conclusion:
+      "Quand la donnée de production devient claire, les décisions critiques arrivent beaucoup plus vite.",
   },
   {
     type: "case",
     title: "Cas concret : société de services",
-    subtitle: "Une société d'interventions perdait du temps entre planning, suivi client et facturation.",
+    subtitle: "Une société d'interventions perdait du temps entre planning, suivi client, facturation et suivi terrain.",
     results: [
       { value: "+60%", label: "de rapidité de traitement" },
       { value: "-20%", label: "d'erreurs de facturation" },
@@ -235,6 +298,12 @@ function renderPageContent(page) {
   if (page.type === "case") {
     return `
       <div>
+        ${page.logo ? `
+          <figure class="case-logo-lockup">
+            <img src="${escapeHtml(page.logo.src)}" alt="${escapeHtml(page.logo.alt || "")}" loading="lazy" />
+            ${page.logo.caption ? `<figcaption>${escapeHtml(page.logo.caption)}</figcaption>` : ""}
+          </figure>
+        ` : ""}
         <h2 class="ebook-title">${escapeHtml(page.title)}</h2>
         <p class="ebook-subtitle">${escapeHtml(page.subtitle)}</p>
         <div class="ebook-content case-results">
@@ -332,6 +401,7 @@ function buildPrintBook() {
       <section class="print-page">
         <div>
           <p>MY BUSINESS LIFE | Page ${index + 1} / ${ebookPages.length}</p>
+          ${page.logo ? `<img class="print-logo" src="${escapeHtml(page.logo.src)}" alt="${escapeHtml(page.logo.alt || "")}" />` : ""}
           <h2>${escapeHtml(page.title)}</h2>
           ${page.subtitle ? `<p>${escapeHtml(page.subtitle)}</p>` : ""}
           ${page.cards ? `<ul>${page.cards.map((card) => `<li><strong>${escapeHtml(card.title)}</strong> ${escapeHtml(card.text)}</li>`).join("")}</ul>` : ""}
@@ -403,13 +473,60 @@ function setupLogoFallback() {
   tryCandidate(0);
 }
 
-function downloadPdf() {
+const pdfLogoCache = new Map();
+
+function loadPdfLogo(src) {
+  if (!src) return Promise.resolve(null);
+  if (pdfLogoCache.has(src)) return Promise.resolve(pdfLogoCache.get(src));
+
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+
+    image.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = image.naturalWidth || image.width;
+        canvas.height = image.naturalHeight || image.height;
+        const context = canvas.getContext("2d");
+        context.drawImage(image, 0, 0);
+        const dataUrl = canvas.toDataURL("image/png");
+        pdfLogoCache.set(src, dataUrl);
+        resolve(dataUrl);
+      } catch (error) {
+        pdfLogoCache.set(src, null);
+        resolve(null);
+      }
+    };
+
+    image.onerror = () => {
+      pdfLogoCache.set(src, null);
+      resolve(null);
+    };
+
+    image.src = src;
+  });
+}
+
+async function preloadPdfLogos() {
+  await Promise.all(
+    ebookPages
+      .filter((page) => page.logo?.src)
+      .map(async (page) => {
+        page.logo.dataUrl = await loadPdfLogo(page.logo.src);
+      }),
+  );
+}
+
+async function downloadPdf() {
   const pdfLib = window.jspdf;
 
   if (!pdfLib || !pdfLib.jsPDF) {
     window.print();
     return;
   }
+
+  await preloadPdfLogos();
 
   const { jsPDF } = pdfLib;
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
@@ -438,19 +555,25 @@ function drawPdfPage(doc, page, index) {
     return;
   }
 
+  if (page.logo) {
+    drawClientLogo(doc, page.logo, 22, 40);
+  }
+
+  const titleY = page.logo ? 82 : 50;
+  const subtitleY = page.logo ? 113 : 82;
+  const startY = page.subtitle ? (page.logo ? 142 : 108) : page.logo ? 110 : 88;
+
   doc.setTextColor(7, 19, 28);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(25);
-  drawWrappedText(doc, page.title, 22, 50, 166, 11);
+  drawWrappedText(doc, page.title, 22, titleY, 166, 11);
 
   if (page.subtitle) {
     doc.setTextColor(65, 82, 94);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    drawWrappedText(doc, page.subtitle, 22, 82, 160, 6.2);
+    drawWrappedText(doc, page.subtitle, 22, subtitleY, 160, 6.2);
   }
-
-  const startY = page.subtitle ? 108 : 88;
 
   if (page.cards) {
     drawCardGrid(doc, page.cards, 22, startY, page.cards.length === 5 ? 2 : 2);
@@ -508,6 +631,28 @@ function drawPdfHeader(doc, index, darkPage) {
   doc.setTextColor(darkPage ? 247 : 55, darkPage ? 249 : 72, darkPage ? 252 : 84);
   doc.text("MY BUSINESS LIFE", 22, 24);
   doc.text(`${String(index + 1).padStart(2, "0")} / ${ebookPages.length}`, 174, 24);
+}
+
+function drawClientLogo(doc, logo, x, y) {
+  doc.setFillColor(31, 42, 117);
+  doc.setDrawColor(210, 219, 236);
+  doc.roundedRect(x, y, 62, 30, 3, 3, "FD");
+
+  if (logo.dataUrl) {
+    try {
+      doc.addImage(logo.dataUrl, "PNG", x + 5, y + 7, 52, 16);
+    } catch (error) {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(13);
+      doc.setTextColor(247, 249, 252);
+      doc.text(logo.alt || "Client", x + 8, y + 19);
+    }
+  } else {
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(13);
+    doc.setTextColor(247, 249, 252);
+    doc.text(logo.alt || "Client", x + 8, y + 19);
+  }
 }
 
 function drawCoverPage(doc, page) {

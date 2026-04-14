@@ -1,24 +1,24 @@
 (function () {
-  var base = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/";
-  var pages = {
-    ebook: "ebook.html?v=17",
-    "ebook-site": "ebook-site-internet.html?v=17",
-    "ebook-site-internet": "ebook-site-internet.html?v=17",
-    services: "services.html?v=17",
-    logiciel: "logiciel-sur-mesure.html?v=17",
-    web: "developpement-web.html?v=17",
-    reparation: "reparation-ordinateur.html?v=17",
-    materiel: "achat-materiel-informatique.html?v=17",
-    automatisation: "automatisation.html?v=17",
-    strategie: "strategie-digitale.html?v=17",
-    diagnostic: "diagnostic.html?v=17",
-    "cas-clients": "cas-clients.html?v=17",
-    contact: "contact.html?v=17",
-    "a-propos": "a-propos.html?v=17",
-    blog: "blog.html?v=17",
-    jeux: "jeux.html?v=17",
-  };
   var script = document.currentScript;
+  var base = (script && script.getAttribute("data-base")) || "https://apicg.mybusinesslife.fr/test/";
+  var pages = {
+    ebook: "ebook.html?v=18",
+    "ebook-site": "ebook-site-internet.html?v=18",
+    "ebook-site-internet": "ebook-site-internet.html?v=18",
+    services: "services.html?v=18",
+    logiciel: "logiciel-sur-mesure.html?v=18",
+    web: "developpement-web.html?v=18",
+    reparation: "reparation-ordinateur.html?v=18",
+    materiel: "achat-materiel-informatique.html?v=18",
+    automatisation: "automatisation.html?v=18",
+    strategie: "strategie-digitale.html?v=18",
+    diagnostic: "diagnostic.html?v=18",
+    "cas-clients": "cas-clients.html?v=18",
+    contact: "contact.html?v=18",
+    "a-propos": "a-propos.html?v=18",
+    blog: "blog.html?v=18",
+    jeux: "jeux.html?v=18",
+  };
   var targetSelector = script && script.getAttribute("data-target");
   var requestedPage = (script && script.getAttribute("data-page")) || "ebook";
   var defaultSrc = base + (pages[requestedPage] || pages.ebook);
