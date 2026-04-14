@@ -1,21 +1,21 @@
 (function () {
   var base = "https://mybusinesslife.github.io/mbl-ebook-lead-magnet/";
   var pages = {
-    ebook: "ebook.html?v=9",
-    "ebook-site": "ebook-site-internet.html?v=9",
-    "ebook-site-internet": "ebook-site-internet.html?v=9",
-    services: "services.html?v=8",
-    logiciel: "logiciel-sur-mesure.html?v=8",
-    web: "developpement-web.html?v=8",
-    reparation: "reparation-ordinateur.html?v=8",
-    materiel: "achat-materiel-informatique.html?v=8",
-    automatisation: "automatisation.html?v=8",
-    strategie: "strategie-digitale.html?v=8",
-    diagnostic: "diagnostic.html?v=8",
-    "cas-clients": "cas-clients.html?v=8",
-    contact: "contact.html?v=8",
-    "a-propos": "a-propos.html?v=8",
-    blog: "blog.html?v=8",
+    ebook: "ebook.html?v=10",
+    "ebook-site": "ebook-site-internet.html?v=10",
+    "ebook-site-internet": "ebook-site-internet.html?v=10",
+    services: "services.html?v=10",
+    logiciel: "logiciel-sur-mesure.html?v=10",
+    web: "developpement-web.html?v=10",
+    reparation: "reparation-ordinateur.html?v=10",
+    materiel: "achat-materiel-informatique.html?v=10",
+    automatisation: "automatisation.html?v=10",
+    strategie: "strategie-digitale.html?v=10",
+    diagnostic: "diagnostic.html?v=10",
+    "cas-clients": "cas-clients.html?v=10",
+    contact: "contact.html?v=10",
+    "a-propos": "a-propos.html?v=10",
+    blog: "blog.html?v=10",
   };
   var script = document.currentScript;
   var targetSelector = script && script.getAttribute("data-target");
