@@ -11,7 +11,7 @@
     materiel: "achat-materiel-informatique.html?v=11",
     automatisation: "automatisation.html?v=11",
     strategie: "strategie-digitale.html?v=11",
-    diagnostic: "diagnostic.html?v=11",
+    diagnostic: "diagnostic.html?v=14",
     "cas-clients": "cas-clients.html?v=11",
     contact: "contact.html?v=11",
     "a-propos": "a-propos.html?v=11",
@@ -23,7 +23,11 @@
   var requestedPage = (script && script.getAttribute("data-page")) || "ebook";
   var defaultSrc = base + (pages[requestedPage] || pages.ebook);
   var source = (script && script.getAttribute("data-src")) || defaultSrc;
-  var minHeight = Number((script && script.getAttribute("data-min-height")) || 2800);
+  var pageMinHeights = {
+    diagnostic: 860,
+    jeux: 1500,
+  };
+  var minHeight = Number((script && script.getAttribute("data-min-height")) || pageMinHeights[requestedPage] || 2800);
   var container =
     (targetSelector && document.querySelector(targetSelector)) ||
     document.getElementById("mbl-ebook-leadmagnet");

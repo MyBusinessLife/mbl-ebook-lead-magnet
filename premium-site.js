@@ -1,5 +1,38 @@
 document.documentElement.classList.add("js-enabled");
 
+const pageLoader = document.querySelector("[data-page-loader]");
+const loaderStart = performance.now();
+
+if (pageLoader && document.body?.dataset.loader) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const minLoaderTime = reduceMotion ? 120 : 1250;
+  const maxLoaderTime = reduceMotion ? 160 : 1900;
+  let loaderHidden = false;
+
+  const hideLoader = () => {
+    if (loaderHidden) return;
+    const elapsed = performance.now() - loaderStart;
+    const delay = Math.max(0, minLoaderTime - elapsed);
+
+    window.setTimeout(() => {
+      loaderHidden = true;
+      document.body.classList.remove("is-page-loading");
+      pageLoader.setAttribute("aria-hidden", "true");
+      window.setTimeout(() => pageLoader.remove(), reduceMotion ? 180 : 760);
+    }, delay);
+  };
+
+  if (document.readyState === "complete") {
+    hideLoader();
+  } else {
+    window.addEventListener("load", hideLoader, { once: true });
+  }
+
+  window.setTimeout(hideLoader, maxLoaderTime);
+} else {
+  document.body?.classList.remove("is-page-loading");
+}
+
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const navGroups = document.querySelectorAll(".nav-group");
