@@ -2,28 +2,34 @@
   var script = document.currentScript;
   var base = (script && script.getAttribute("data-base")) || "https://apicg.mybusinesslife.fr/test/";
   var pages = {
-    ebook: "ebook.html?v=18",
-    "ebook-site": "ebook-site-internet.html?v=18",
-    "ebook-site-internet": "ebook-site-internet.html?v=18",
-    services: "services.html?v=18",
-    logiciel: "logiciel-sur-mesure.html?v=18",
-    web: "developpement-web.html?v=18",
-    reparation: "reparation-ordinateur.html?v=18",
-    materiel: "achat-materiel-informatique.html?v=18",
-    automatisation: "automatisation.html?v=18",
-    strategie: "strategie-digitale.html?v=18",
-    diagnostic: "diagnostic.html?v=18",
-    "cas-clients": "cas-clients.html?v=18",
-    contact: "contact.html?v=18",
-    "a-propos": "a-propos.html?v=18",
-    blog: "blog.html?v=18",
-    jeux: "jeux.html?v=18",
+    home: "index.html?v=19",
+    accueil: "index.html?v=19",
+    index: "index.html?v=19",
+    ebook: "ebook.html?v=19",
+    "ebook-site": "ebook-site-internet.html?v=19",
+    "ebook-site-internet": "ebook-site-internet.html?v=19",
+    services: "services.html?v=19",
+    logiciel: "logiciel-sur-mesure.html?v=19",
+    web: "developpement-web.html?v=19",
+    reparation: "reparation-ordinateur.html?v=19",
+    materiel: "achat-materiel-informatique.html?v=19",
+    automatisation: "automatisation.html?v=19",
+    strategie: "strategie-digitale.html?v=19",
+    diagnostic: "diagnostic.html?v=19",
+    "cas-clients": "cas-clients.html?v=19",
+    contact: "contact.html?v=19",
+    "a-propos": "a-propos.html?v=19",
+    blog: "blog.html?v=19",
+    jeux: "jeux.html?v=19",
   };
   var targetSelector = script && script.getAttribute("data-target");
-  var requestedPage = (script && script.getAttribute("data-page")) || "ebook";
-  var defaultSrc = base + (pages[requestedPage] || pages.ebook);
+  var requestedPage = (script && script.getAttribute("data-page")) || "home";
+  var defaultSrc = base + (pages[requestedPage] || pages.home);
   var source = (script && script.getAttribute("data-src")) || defaultSrc;
   var pageMinHeights = {
+    home: 3300,
+    accueil: 3300,
+    index: 3300,
     diagnostic: 860,
     jeux: 1500,
   };

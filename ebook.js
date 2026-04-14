@@ -1,5 +1,5 @@
 const ebookConfig = window.MBL_EBOOK_CONFIG || {};
-const EBOOK_PRODUCTION_URL = ebookConfig.productionUrl || "https://mybusinesslife.fr/ebook";
+const EBOOK_PRODUCTION_URL = ebookConfig.productionUrl || "https://mybusinesslife.fr/ebook.html";
 
 document.documentElement.classList.add("js-enabled");
 

@@ -807,6 +807,7 @@ p {
 .solution-card,
 .outcome-grid > div,
 .faq-list details {
+  display: block;
   border: 1px solid var(--dark-line);
   border-radius: var(--radius);
   background: #ffffff;

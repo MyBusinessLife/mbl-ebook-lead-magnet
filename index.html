@@ -3,226 +3,406 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0F2230" />
     <meta
       name="description"
-      content="Ebook MY BUSINESS LIFE : pourquoi vos logiciels vous font perdre du temps et de l'argent, et comment le sur-mesure transforme votre activité."
+      content="MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des sites web premium, logiciels sur-mesure, automatisations, stratégie digitale, réparation informatique et conseil matériel."
     />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="canonical" href="https://mybusinesslife.fr/ebook" />
+    <meta
+      name="keywords"
+      content="MY BUSINESS LIFE, site web premium, logiciel sur-mesure, automatisation, réparation ordinateur, achat matériel informatique, stratégie digitale"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mybusinesslife.fr/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="MY BUSINESS LIFE | Ebook logiciel sur-mesure" />
+    <meta property="og:title" content="MY BUSINESS LIFE | Digital, organisation et croissance" />
     <meta
       property="og:description"
-      content="Lisez l'ebook MY BUSINESS LIFE et découvrez comment un logiciel sur-mesure peut automatiser, centraliser et accélérer votre entreprise."
+      content="Un partenaire premium pour clarifier, créer, automatiser, réparer et faire évoluer vos projets digitaux et informatiques."
     />
-    <meta property="og:url" content="https://mybusinesslife.fr/ebook" />
-    <meta property="og:image" content="https://mybusinesslife.github.io/mbl-ebook-lead-magnet/assets/logo.png" />
-    <title>MY BUSINESS LIFE | Ebook logiciel sur-mesure</title>
-    <link rel="stylesheet" href="ebook.css?v=12" />
+    <meta property="og:url" content="https://mybusinesslife.fr/" />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>MY BUSINESS LIFE | Sites web, logiciels, automatisation et informatique</title>
+    <link rel="preload" href="assets/logo.png" as="image" />
+    <link rel="stylesheet" href="premium-site.css?v=19" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MY BUSINESS LIFE",
+        "url": "https://mybusinesslife.fr/",
+        "logo": "https://mybusinesslife.fr/assets/logo.png",
+        "description": "MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des solutions digitales, sites web, logiciels sur-mesure, automatisations et services informatiques."
+      }
+    </script>
   </head>
   <body>
-    <div class="page-glow page-glow-a" aria-hidden="true"></div>
-    <div class="page-glow page-glow-b" aria-hidden="true"></div>
-
-    <header class="topbar" aria-label="En-tête MY BUSINESS LIFE">
-      <a class="brand" href="#top" aria-label="Retour en haut de page">
-        <span class="brand-badge">
-          <img id="brandLogo" class="brand-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
-          <span id="brandFallback" class="brand-fallback" aria-hidden="true" hidden>MBL</span>
-        </span>
-        <span class="brand-text">
+    <header class="site-header" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="MY BUSINESS LIFE">
+        <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+        <span class="brand-copy">
           <strong>MY BUSINESS LIFE</strong>
-          <span>Logiciels sur-mesure</span>
+          <small>Digital, organisation, croissance</small>
         </span>
       </a>
-
-      <nav class="topnav" aria-label="Navigation principale">
-        <a href="#ebook">Lire l'ebook</a>
-        <a href="#study">Étude gratuite</a>
-        <button class="nav-download" type="button" data-download-pdf>
-          Télécharger le PDF
-        </button>
+      <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">Menu</button>
+      <nav id="site-navigation" class="site-nav" aria-label="Menu du site">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Particuliers</button>
+          <div class="nav-dropdown">
+            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Réparation, conseil et matériel.</small></a>
+            <a href="reparation-ordinateur.html"><span>Réparation ordinateur</span><small>PC lent, écran, mot de passe, données.</small></a>
+            <a href="achat-materiel-informatique.html"><span>Achat matériel</span><small>PC, RAM, stockage, écran et usage.</small></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Professionnels</button>
+          <div class="nav-dropdown">
+            <a href="professionnels.html"><span>Vue d'ensemble</span><small>Acquisition, organisation et croissance.</small></a>
+            <a href="developpement-web.html"><span>Développement web</span><small>Sites premium, SEO et conversion.</small></a>
+            <a href="logiciel-sur-mesure.html"><span>Logiciel sur-mesure</span><small>Outils métier, dashboards et automatisation.</small></a>
+            <a href="automatisation.html"><span>Automatisation</span><small>Flux, relances et tâches répétitives.</small></a>
+            <a href="strategie-digitale.html"><span>Stratégie digitale</span><small>Audit, priorités et feuille de route.</small></a>
+          </div>
+        </div>
+        <a href="diagnostic.html">Diagnostic</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Ressources</button>
+          <div class="nav-dropdown">
+            <a href="cas-clients.html"><span>Cas clients</span><small>Exemples de transformation digitale.</small></a>
+            <a href="blog.html"><span>Blog</span><small>Conseils web, logiciel et informatique.</small></a>
+            <a href="jeux.html"><span>Jeux</span><small>Puissance 4 MY BUSINESS LIFE.</small></a>
+            <a href="ebook.html"><span>Ebook logiciel</span><small>Automatiser et centraliser votre activité.</small></a>
+            <a href="ebook-site-internet.html"><span>Ebook site internet</span><small>Moderniser, suivre et convertir.</small></a>
+          </div>
+        </div>
+        <a href="a-propos.html">À propos</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero section-reveal" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Lead magnet digital</p>
-          <h1 id="hero-title">Pourquoi vos logiciels vous font perdre du temps et de l'argent</h1>
-          <p class="hero-subtitle">
-            Découvrez pourquoi les outils standards freinent de nombreuses entreprises et comment
-            un logiciel sur-mesure peut transformer votre activité.
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy" data-animate>
+          <p class="eyebrow">MY BUSINESS LIFE</p>
+          <h1 id="hero-title">Le partenaire digital qui rend vos projets plus clairs, plus simples et plus puissants.</h1>
+          <p class="hero-text">
+            Sites web, automatisations, logiciels métier, stratégie digitale, réparation ordinateur
+            et conseil matériel : nous vous aidons à avancer avec des solutions utiles, belles et solides.
           </p>
-
-          <div class="hero-actions" aria-label="Actions ebook">
-            <a class="button button-primary" href="#ebook">Lire l'ebook</a>
-            <button class="button button-secondary" type="button" data-download-pdf>
-              Télécharger le PDF
-            </button>
+          <div class="hero-actions" aria-label="Actions principales">
+            <a class="button button-primary" href="diagnostic.html">Faire mon diagnostic</a>
+            <a class="button button-secondary" href="services.html">Explorer les services</a>
           </div>
-
-          <div class="trust-row" aria-label="Points clés">
-            <span>Audit gratuit</span>
-            <span>PDF inclus</span>
-            <span>10 pages actionnables</span>
+          <div class="hero-signals" aria-label="Engagements MY BUSINESS LIFE">
+            <span>Clarté stratégique</span>
+            <span>Exécution premium</span>
+            <span>Accompagnement humain</span>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Aperçu premium de l'ebook">
-          <div class="visual-panel">
-            <div class="software-preview" aria-hidden="true">
-              <div class="preview-topbar">
+        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE" data-animate="scale">
+          <div class="stage-shell">
+            <div class="stage-topbar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="stage-content">
+              <aside class="stage-sidebar">
+                <img src="assets/logo.png" alt="" />
+                <strong>MBL Studio</strong>
                 <span></span>
                 <span></span>
                 <span></span>
-              </div>
-              <div class="preview-layout">
-                <div class="preview-sidebar">
-                  <strong>MBL OS</strong>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
+              </aside>
+              <div class="stage-main">
+                <div class="stage-kpis">
+                  <span>Présence</span>
+                  <span>Automatisation</span>
+                  <span>Pilotage</span>
                 </div>
-                <div class="preview-dashboard">
-                  <div class="preview-kpis">
-                    <span>x10</span>
-                    <span>2,4M€</span>
-                    <span>Data</span>
+                <div class="stage-board">
+                  <div class="stage-status">
+                    <strong>Plan digital</strong>
+                    <span>Priorités, actions, résultats</span>
                   </div>
-                  <div class="preview-chart">
+                  <div class="stage-line"></div>
+                  <div class="stage-line short"></div>
+                  <div class="stage-bars">
                     <i></i>
                     <i></i>
                     <i></i>
                     <i></i>
                     <i></i>
                   </div>
-                  <div class="preview-flow">
-                    <span>Capteurs</span>
-                    <span>Données</span>
-                    <span>Alertes</span>
-                    <span>Décision</span>
-                  </div>
+                </div>
+                <div class="stage-flow">
+                  <span>Besoin</span>
+                  <span>Plan</span>
+                  <span>Création</span>
+                  <span>Résultat</span>
                 </div>
               </div>
             </div>
-            <div class="ebook-mockup" aria-hidden="true">
-              <div class="mockup-spine"></div>
-              <div class="mockup-cover">
-                <img class="mockup-logo" src="assets/logo.png" alt="" />
-                <span class="mockup-kicker">EBOOK MBL</span>
-                <strong>Logiciel sur-mesure</strong>
-                <small>Automatisation, données, performance</small>
-              </div>
-            </div>
+          </div>
+          <div class="floating-proof proof-a">
+            <strong>1 vision</strong>
+            <span>Une direction claire avant de construire.</span>
+          </div>
+          <div class="floating-proof proof-b">
+            <strong>+ simple</strong>
+            <span>Moins de friction, plus d'action.</span>
           </div>
         </div>
       </section>
 
-      <section id="ebook" class="reader-section section-reveal" aria-labelledby="reader-title">
-        <div class="section-heading">
-          <p class="eyebrow">Lecture intégrée</p>
-          <h2 id="reader-title">Lisez l'ebook directement dans la page</h2>
+      <section id="profils" class="profile-section light-section" aria-labelledby="profiles-title">
+        <div class="section-heading" data-animate>
+          <p class="eyebrow dark">Choisissez votre point de départ</p>
+          <h2 id="profiles-title">Particulier, indépendant, dirigeant ou équipe : chacun trouve rapidement le bon parcours.</h2>
           <p>
-            Un format court, clair et commercial pour comprendre où vos outils actuels vous
-            ralentissent, puis identifier ce qu'un logiciel métier peut débloquer.
+            Le site est organisé pour vous orienter vers la bonne réponse sans vous forcer à connaître
+            le vocabulaire technique avant même d'expliquer votre besoin.
           </p>
         </div>
-
-        <div class="reader-shell">
-          <aside class="reader-sidebar" aria-label="Pages de l'ebook">
-            <div class="sidebar-title">Sommaire</div>
-            <div id="thumbnailList" class="thumbnail-list"></div>
-          </aside>
-
-          <div class="reader-main">
-            <div class="reader-toolbar" aria-label="Commandes du lecteur">
-              <div>
-                <span class="reader-label">Ebook digital</span>
-                <strong id="pageCounter">1 / 10</strong>
-              </div>
-              <div class="toolbar-actions">
-                <button class="icon-button" id="prevPage" type="button" aria-label="Page précédente">
-                  Précédent
-                </button>
-                <button class="icon-button" id="nextPage" type="button" aria-label="Page suivante">
-                  Suivant
-                </button>
-              </div>
-            </div>
-
-            <article id="ebookPage" class="ebook-page-card ebook-cover" aria-live="polite">
-              <div class="ebook-inner ebook-cover">
-                <div class="ebook-page-meta">
-                  <span>MY BUSINESS LIFE</span>
-                  <span class="ebook-page-number">01 / 10</span>
-                </div>
-                <div>
-                  <img class="ebook-cover-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
-                  <h2 class="ebook-title">Pourquoi vos logiciels vous font perdre du temps et de l'argent</h2>
-                  <p class="ebook-subtitle">La solution pour automatiser et accélérer votre entreprise</p>
-                </div>
-                <div class="ebook-signature">MY BUSINESS LIFE</div>
-              </div>
-            </article>
-
-            <div class="viewer-actions">
-              <button class="button button-secondary" type="button" data-download-pdf>
-                Télécharger le PDF
-              </button>
-              <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" data-cta-link>Demander une étude gratuite</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="study" class="cta-section section-reveal" aria-labelledby="cta-title">
-        <div class="cta-copy">
-          <p class="eyebrow">Passer du diagnostic à l'action</p>
-          <h2 id="cta-title">Et si votre prochain avantage concurrentiel était votre propre logiciel ?</h2>
-          <p>
-            Décrivez votre fonctionnement, vos pertes de temps et vos objectifs. MY BUSINESS LIFE
-            vous aide à identifier les automatisations et les interfaces qui peuvent produire un
-            impact réel.
-          </p>
-          <a class="button button-primary" href="https://calendly.com/contact-mybusinesslife/etude-de-besoins-logiciel-sur-mesure" data-cta-link>
-            Demander une étude gratuite
+        <div class="profile-grid">
+          <a class="profile-card" href="particuliers.html" data-animate style="--delay: 40ms">
+            <span>Particulier</span>
+            <h3>Réparer, choisir ou concrétiser un projet digital.</h3>
+            <p>Diagnostic clair, réparation ordinateur, conseil matériel et accompagnement simple.</p>
+          </a>
+          <a class="profile-card" href="professionnels.html" data-animate style="--delay: 100ms">
+            <span>Professionnel</span>
+            <h3>Structurer votre acquisition et vos outils.</h3>
+            <p>Site premium, logiciel, automatisation, stratégie et pilotage de l'activité.</p>
+          </a>
+          <a class="profile-card" href="diagnostic.html" data-animate style="--delay: 160ms">
+            <span>Besoin flou</span>
+            <h3>Vous ne savez pas encore quelle solution choisir.</h3>
+            <p>Le diagnostic vous guide étape par étape vers la prochaine action utile.</p>
+          </a>
+          <a class="profile-card" href="contact.html" data-animate style="--delay: 220ms">
+            <span>Urgence</span>
+            <h3>Vous voulez parler directement à quelqu'un.</h3>
+            <p>Expliquez votre situation et obtenez une première orientation claire.</p>
           </a>
         </div>
+      </section>
 
-        <form class="lead-form" aria-label="Mini formulaire de demande d'étude">
-          <label>
-            <span>Votre besoin principal</span>
-            <input type="text" name="need" placeholder="Automatiser les devis, planning, suivi client..." />
-          </label>
-          <label>
-            <span>Volume d'équipe</span>
-            <select name="team">
-              <option>1 à 5 personnes</option>
-              <option>6 à 20 personnes</option>
-              <option>21 à 50 personnes</option>
-              <option>50+ personnes</option>
-            </select>
-          </label>
-          <label>
-            <span>Email professionnel</span>
-            <input type="email" name="email" placeholder="vous@entreprise.fr" />
-          </label>
-          <button class="button button-primary" type="submit">Préparer mon diagnostic</button>
-          <p id="formMessage" class="form-message" role="status"></p>
-        </form>
+      <section id="services" class="solutions-section" aria-labelledby="solutions-title">
+        <div class="section-heading split-heading" data-animate>
+          <div>
+            <p class="eyebrow dark">Services MY BUSINESS LIFE</p>
+            <h2 id="solutions-title">Un écosystème complet pour créer, organiser et faire évoluer.</h2>
+          </div>
+          <p>
+            Chaque service peut être activé seul ou combiné dans un plan d'action cohérent selon
+            votre niveau, votre budget, votre urgence et votre objectif.
+          </p>
+        </div>
+        <div class="solution-grid">
+          <a class="solution-card premium" href="developpement-web.html" data-animate style="--delay: 40ms">
+            <span>01</span>
+            <h3>Sites web premium</h3>
+            <p>Une présence moderne, rapide, SEO, responsive et pensée pour convertir.</p>
+          </a>
+          <a class="solution-card" href="logiciel-sur-mesure.html" data-animate style="--delay: 90ms">
+            <span>02</span>
+            <h3>Logiciels sur-mesure</h3>
+            <p>Des outils métier, dashboards et interfaces adaptés à votre réalité terrain.</p>
+          </a>
+          <a class="solution-card" href="automatisation.html" data-animate style="--delay: 140ms">
+            <span>03</span>
+            <h3>Automatisation</h3>
+            <p>Relances, exports, synchronisations et tâches répétitives deviennent fluides.</p>
+          </a>
+          <a class="solution-card" href="strategie-digitale.html" data-animate style="--delay: 190ms">
+            <span>04</span>
+            <h3>Stratégie digitale</h3>
+            <p>Clarifier les priorités avant d'investir du temps ou du budget.</p>
+          </a>
+          <a class="solution-card" href="reparation-ordinateur.html" data-animate style="--delay: 240ms">
+            <span>05</span>
+            <h3>Réparation ordinateur</h3>
+            <p>PC lent, écran cassé, mot de passe perdu, virus ou récupération de données.</p>
+          </a>
+          <a class="solution-card" href="achat-materiel-informatique.html" data-animate style="--delay: 290ms">
+            <span>06</span>
+            <h3>Achat matériel</h3>
+            <p>Choisir le bon PC, la bonne RAM, le bon stockage et la bonne configuration.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="experience-section dark-panel" aria-labelledby="experience-title" data-animate>
+        <div class="experience-copy">
+          <p class="eyebrow">Expérience MBL</p>
+          <h2 id="experience-title">Une expérience fluide, premium et surtout compréhensible.</h2>
+          <p>
+            Notre rôle n'est pas seulement de produire une page, un outil ou une intervention. C'est
+            de rendre la technologie plus claire, plus utile et plus agréable à utiliser.
+          </p>
+          <a class="button button-primary" href="diagnostic.html">Commencer le parcours</a>
+        </div>
+        <div class="experience-steps">
+          <div data-animate style="--delay: 70ms">
+            <span>1</span>
+            <h3>Comprendre</h3>
+            <p>Votre contexte, votre niveau, vos contraintes et votre objectif réel.</p>
+          </div>
+          <div data-animate style="--delay: 130ms">
+            <span>2</span>
+            <h3>Designer</h3>
+            <p>Un parcours clair, beau, logique et adapté à l'utilisateur final.</p>
+          </div>
+          <div data-animate style="--delay: 190ms">
+            <span>3</span>
+            <h3>Construire</h3>
+            <p>Des pages, outils, automatisations ou diagnostics propres et maintenables.</p>
+          </div>
+          <div data-animate style="--delay: 250ms">
+            <span>4</span>
+            <h3>Faire évoluer</h3>
+            <p>Une base qui peut grandir avec vos usages et vos nouvelles priorités.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="outcome-section light-section" aria-labelledby="outcome-title">
+        <div class="section-heading" data-animate>
+          <p class="eyebrow dark">Ce que vous gagnez</p>
+          <h2 id="outcome-title">Plus de clarté, plus de crédibilité, moins de friction.</h2>
+        </div>
+        <div class="outcome-grid">
+          <div data-animate style="--delay: 50ms">
+            <strong>Clarté</strong>
+            <p>Votre besoin, votre offre ou votre problème devient lisible.</p>
+          </div>
+          <div data-animate style="--delay: 110ms">
+            <strong>Crédibilité</strong>
+            <p>Votre image inspire confiance dès les premières secondes.</p>
+          </div>
+          <div data-animate style="--delay: 170ms">
+            <strong>Temps</strong>
+            <p>Les tâches répétitives et les hésitations reculent.</p>
+          </div>
+          <div data-animate style="--delay: 230ms">
+            <strong>Évolution</strong>
+            <p>Votre solution peut grandir avec votre activité ou votre usage.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="diagnostic-section light-section" aria-labelledby="diagnostic-title">
+        <div class="section-heading split-heading" data-animate>
+          <div>
+            <p class="eyebrow dark">Diagnostic en ligne</p>
+            <h2 id="diagnostic-title">Avant de créer quoi que ce soit, identifiez ce qui bloque vraiment.</h2>
+          </div>
+          <p>
+            Le parcours s'adapte selon votre besoin : site internet, logiciel, automatisation,
+            réparation PC, achat matériel ou stratégie digitale.
+          </p>
+        </div>
+        <div class="diagnostic-panel" data-animate="scale">
+          <div class="diagnostic-score">
+            <span>MBL Check</span>
+            <strong>6 à 10 min</strong>
+            <p>Un outil guidé pour transformer un besoin flou en demande claire.</p>
+          </div>
+          <div class="diagnostic-list">
+            <div>
+              <strong>Votre situation</strong>
+              <p>Particulier, indépendant, entreprise, équipe ou projet en lancement.</p>
+            </div>
+            <div>
+              <strong>Vos frictions</strong>
+              <p>Visibilité, organisation, outil, conversion, PC, matériel ou suivi client.</p>
+            </div>
+            <div>
+              <strong>Votre prochaine action</strong>
+              <p>Une demande qualifiée pour recevoir la bonne recommandation.</p>
+            </div>
+          </div>
+          <a class="button button-primary" href="diagnostic.html">Lancer le diagnostic</a>
+        </div>
+      </section>
+
+      <section id="ressources" class="resource-section" aria-labelledby="resource-title">
+        <div class="resource-copy" data-animate>
+          <p class="eyebrow dark">Ressources gratuites</p>
+          <h2 id="resource-title">Commencez par comprendre où se cache la valeur.</h2>
+          <p>
+            Nos ebooks vous aident à voir ce que vos outils, votre site ou votre organisation peuvent
+            améliorer avant même de lancer un projet.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="ebook.html">Ebook logiciel</a>
+            <a class="button button-secondary light" href="ebook-site-internet.html">Ebook site internet</a>
+          </div>
+        </div>
+        <article class="ebook-preview" data-animate="scale">
+          <img src="assets/logo.png" alt="" />
+          <span>Ebooks MBL</span>
+          <h3>Logiciel sur-mesure, site moderne, dashboard et conversion.</h3>
+          <p>Des guides courts, concrets et exploitables pour mieux décider.</p>
+        </article>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title" data-animate="scale">
+        <p class="eyebrow">Passer à l'action</p>
+        <h2 id="final-title">Une idée, un problème, une urgence ou un projet à structurer ? Parlons-en.</h2>
+        <a class="button button-primary" href="contact.html">Contacter MY BUSINESS LIFE</a>
       </section>
     </main>
 
-    <footer class="footer">
-      <span>MY BUSINESS LIFE</span>
-      <span>Création de logiciels sur-mesure pour entreprises ambitieuses.</span>
+    <footer class="site-footer premium-footer" aria-label="Pied de page">
+      <div class="footer-shell">
+        <div>
+          <a class="brand footer-brand" href="index.html" aria-label="MY BUSINESS LIFE">
+            <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+            <span class="brand-copy">
+              <strong>MY BUSINESS LIFE</strong>
+              <small>Digital, organisation, croissance</small>
+            </span>
+          </a>
+          <p>Des expériences digitales et informatiques premium, pensées pour être simples à comprendre et solides à utiliser.</p>
+        </div>
+        <div class="footer-column">
+          <strong>Services</strong>
+          <a href="developpement-web.html">Développement web</a>
+          <a href="logiciel-sur-mesure.html">Logiciel sur-mesure</a>
+          <a href="automatisation.html">Automatisation</a>
+          <a href="reparation-ordinateur.html">Réparation ordinateur</a>
+          <a href="achat-materiel-informatique.html">Achat matériel</a>
+        </div>
+        <div class="footer-column">
+          <strong>Parcours</strong>
+          <a href="particuliers.html">Particuliers</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a href="diagnostic.html">Diagnostic en ligne</a>
+          <a href="contact.html">Demander une étude</a>
+        </div>
+        <div class="footer-column">
+          <strong>Ressources</strong>
+          <a href="cas-clients.html">Cas clients</a>
+          <a href="blog.html">Blog</a>
+          <a href="jeux.html">Jeux</a>
+          <a href="ebook.html">Ebook logiciel</a>
+          <a href="ebook-site-internet.html">Ebook site internet</a>
+          <a href="mailto:contact@mybusinesslife.fr">contact@mybusinesslife.fr</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 MY BUSINESS LIFE. Tous droits réservés.</span>
+        <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a></span>
+      </div>
     </footer>
 
-    <div id="printBook" class="print-book" aria-hidden="true"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-    <script src="ebook.js?v=12"></script>
+    <script src="premium-site.js?v=19"></script>
   </body>
 </html>
