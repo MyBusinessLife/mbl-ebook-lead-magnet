@@ -11,7 +11,7 @@
     materiel: "achat-materiel-informatique.html?v=11",
     automatisation: "automatisation.html?v=11",
     strategie: "strategie-digitale.html?v=11",
-    diagnostic: "diagnostic.html?v=15",
+    diagnostic: "diagnostic.html?v=16",
     "cas-clients": "cas-clients.html?v=11",
     contact: "contact.html?v=11",
     "a-propos": "a-propos.html?v=11",
