@@ -1,0 +1,816 @@
+.proposal-presentation-page {
+  --proposal-accent: #ff6a2e;
+  --proposal-accent-strong: #ff7a40;
+  --proposal-teal: #1c8fa3;
+  --proposal-surface: #143447;
+  --proposal-surface-soft: rgba(20, 52, 71, 0.12);
+  --proposal-text: var(--text);
+  --proposal-muted: var(--muted);
+  --proposal-grid: rgba(28, 143, 163, 0.08);
+  --proposal-page-bg: #f6f9fc;
+  --proposal-page-panel: #ffffff;
+  --proposal-page-ink: #07131c;
+  --proposal-page-muted: rgba(11, 24, 33, 0.72);
+}
+
+.proposal-presentation-page .topnav {
+  gap: 14px;
+}
+
+.proposal-presentation-page .ebook-page-card {
+  background:
+    linear-gradient(135deg, rgba(28, 143, 163, 0.06), transparent 32%),
+    linear-gradient(315deg, rgba(255, 106, 46, 0.08), transparent 36%),
+    var(--proposal-page-panel);
+}
+
+.proposal-presentation-page .ebook-page-card::before {
+  background:
+    linear-gradient(130deg, rgba(28, 143, 163, 0.09), transparent 34%),
+    linear-gradient(315deg, rgba(255, 106, 46, 0.1), transparent 38%);
+}
+
+.proposal-presentation-page .ebook-page-card::after {
+  border-color: rgba(20, 52, 71, 0.08);
+}
+
+.proposal-presentation-page .ebook-page-meta {
+  color: rgba(20, 52, 71, 0.58);
+}
+
+.proposal-presentation-page .ebook-page-number {
+  background: rgba(20, 52, 71, 0.08);
+  color: rgba(20, 52, 71, 0.76);
+}
+
+.proposal-presentation-page .ebook-title {
+  color: var(--proposal-page-ink);
+}
+
+.proposal-presentation-page .ebook-subtitle,
+.proposal-presentation-page .ebook-text,
+.proposal-presentation-page .ebook-card span,
+.proposal-presentation-page .ebook-list li,
+.proposal-presentation-page .proposal-page-stack p,
+.proposal-presentation-page .ebook-conclusion {
+  color: var(--proposal-page-muted);
+}
+
+.proposal-presentation-page .ebook-card {
+  border-color: rgba(20, 52, 71, 0.11);
+  background:
+    linear-gradient(145deg, rgba(247, 249, 252, 0.92), rgba(255, 255, 255, 0.98)),
+    #ffffff;
+  box-shadow: 0 14px 36px rgba(15, 34, 48, 0.08);
+}
+
+.proposal-presentation-page .ebook-card strong,
+.proposal-presentation-page .ebook-conclusion,
+.proposal-presentation-page .proposal-mockup-head h2 {
+  color: var(--proposal-page-ink);
+}
+
+.proposal-presentation-page .ebook-list li {
+  border-bottom-color: rgba(20, 52, 71, 0.12);
+}
+
+.proposal-presentation-page .ebook-list li::before {
+  background: var(--proposal-accent);
+  box-shadow: 0 0 14px rgba(255, 106, 46, 0.28);
+}
+
+.proposal-visual-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 106, 46, 0.18), transparent 14rem),
+    radial-gradient(circle at 18% 80%, rgba(28, 143, 163, 0.16), transparent 18rem),
+    linear-gradient(145deg, rgba(247, 249, 252, 0.08), rgba(247, 249, 252, 0.04)),
+    var(--proposal-surface);
+}
+
+.proposal-visual-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--proposal-grid) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 143, 163, 0.067) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.56;
+}
+
+.proposal-brand-mark {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  border: 1px solid rgba(255, 106, 46, 0.26);
+  border-radius: 999px;
+  background: rgba(255, 106, 46, 0.12);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+  color: var(--proposal-text);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  padding: 10px 14px;
+}
+
+.proposal-visual-card {
+  position: absolute;
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(247, 249, 252, 0.14);
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, rgba(247, 249, 252, 0.12), rgba(247, 249, 252, 0.04)),
+    #123244;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+  padding: 18px;
+}
+
+.proposal-visual-card span {
+  color: rgba(247, 249, 252, 0.62);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.proposal-visual-card strong {
+  color: var(--proposal-text);
+  font-size: 1.15rem;
+  line-height: 1.05;
+}
+
+.proposal-visual-card small {
+  color: var(--proposal-muted);
+  font-size: 0.88rem;
+}
+
+.proposal-visual-card.primary {
+  top: 34px;
+  left: 34px;
+  width: min(320px, calc(100% - 68px));
+}
+
+.proposal-visual-card.secondary {
+  right: 28px;
+  top: 120px;
+  width: 180px;
+}
+
+.proposal-visual-card.tertiary {
+  left: 72px;
+  bottom: 38px;
+  width: 160px;
+}
+
+.proposal-page-stack,
+.proposal-dual-grid,
+.proposal-pill-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.proposal-dual-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  align-items: start;
+}
+
+.proposal-note-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.proposal-note {
+  border: 1px solid rgba(20, 52, 71, 0.1);
+  border-radius: 16px;
+  background:
+    linear-gradient(160deg, rgba(20, 52, 71, 0.96), rgba(9, 26, 37, 0.98)),
+    #0f2230;
+  color: rgba(247, 249, 252, 0.82);
+  box-shadow: 0 22px 52px rgba(9, 26, 37, 0.22);
+  padding: 14px;
+}
+
+.proposal-note strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--proposal-text);
+  font-size: 0.98rem;
+}
+
+.proposal-note .ebook-list li {
+  color: rgba(247, 249, 252, 0.82);
+  border-bottom-color: rgba(247, 249, 252, 0.1);
+}
+
+.proposal-spotlight {
+  border: 1px solid rgba(255, 106, 46, 0.18);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 0 0, rgba(255, 106, 46, 0.12), transparent 20rem),
+    linear-gradient(145deg, rgba(247, 249, 252, 0.98), rgba(243, 248, 251, 0.96));
+  color: var(--proposal-page-muted);
+  padding: 18px;
+}
+
+.proposal-spotlight strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--proposal-page-ink);
+}
+
+.proposal-spotlight p,
+.proposal-page-stack p {
+  margin: 0;
+}
+
+.proposal-pill-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.proposal-pill {
+  border: 1px solid rgba(20, 52, 71, 0.11);
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 251, 0.98)),
+    #ffffff;
+  color: var(--proposal-page-muted);
+  padding: 14px;
+}
+
+.proposal-pill strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--proposal-page-ink);
+}
+
+.proposal-module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.proposal-module-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid rgba(20, 52, 71, 0.11);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(201, 138, 56, 0.12), transparent 10rem),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 250, 0.98));
+  box-shadow: 0 18px 42px rgba(15, 34, 48, 0.08);
+  padding: 18px;
+}
+
+.proposal-module-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.proposal-module-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--proposal-accent), var(--proposal-accent-strong));
+  box-shadow: 0 14px 28px rgba(201, 138, 56, 0.24);
+  color: #fffaf5;
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.proposal-module-head strong {
+  display: block;
+  color: var(--proposal-page-ink);
+  font-size: 1rem;
+}
+
+.proposal-module-head small {
+  color: var(--proposal-page-muted);
+  font-size: 0.78rem;
+}
+
+.proposal-module-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.proposal-module-meta span {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(20, 52, 71, 0.08);
+  border-radius: 999px;
+  background: rgba(20, 52, 71, 0.05);
+  color: rgba(7, 19, 28, 0.82);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
+.proposal-module-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proposal-module-list li {
+  position: relative;
+  color: var(--proposal-page-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  padding-left: 18px;
+}
+
+.proposal-module-list li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--proposal-accent);
+  box-shadow: 0 0 12px rgba(201, 138, 56, 0.26);
+  content: "";
+}
+
+.proposal-empty-state {
+  border: 1px dashed rgba(247, 249, 252, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--proposal-page-muted);
+  padding: 18px;
+}
+
+.proposal-client-chip {
+  border: 1px solid rgba(255, 106, 46, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 106, 46, 0.16);
+  color: rgba(247, 249, 252, 0.94);
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 8px 12px;
+}
+
+.proposal-presentation-page .topnav button.icon-button {
+  white-space: nowrap;
+}
+
+.proposal-presentation-page .button,
+.proposal-presentation-page .icon-button {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.proposal-presentation-page .button:hover,
+.proposal-presentation-page .icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.proposal-pdf-render {
+  position: fixed;
+  top: 0;
+  left: -200vw;
+  z-index: -1;
+  display: grid;
+  gap: 20px;
+  width: 1240px;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.proposal-pdf-render .proposal-pdf-page {
+  width: 1240px;
+  min-height: 1754px;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.proposal-pdf-render .proposal-pdf-page .ebook-inner {
+  min-height: 1754px;
+  padding: 72px;
+}
+
+.proposal-pdf-render .proposal-pdf-page .ebook-title {
+  max-width: 920px;
+  font-size: 4.5rem;
+}
+
+.proposal-pdf-render .proposal-pdf-page .ebook-subtitle,
+.proposal-pdf-render .proposal-pdf-page .ebook-text,
+.proposal-pdf-render .proposal-pdf-page .proposal-page-stack p,
+.proposal-pdf-render .proposal-pdf-page .ebook-card span,
+.proposal-pdf-render .proposal-pdf-page .ebook-list li {
+  max-width: none;
+  font-size: 1.45rem;
+}
+
+.proposal-pdf-render .proposal-pdf-page .ebook-page-meta {
+  margin-bottom: 54px;
+  font-size: 0.96rem;
+}
+
+.proposal-pdf-render .proposal-pdf-page .ebook-card,
+.proposal-pdf-render .proposal-pdf-page .proposal-note,
+.proposal-pdf-render .proposal-pdf-page .proposal-pill,
+.proposal-pdf-render .proposal-pdf-page .proposal-spotlight,
+.proposal-pdf-render .proposal-pdf-page .proposal-module-card,
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-panel,
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-rail-card,
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-window,
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-logo,
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-metric {
+  box-shadow: none;
+}
+
+.proposal-pdf-render .proposal-pdf-page .proposal-module-list li,
+.proposal-pdf-render .proposal-pdf-page .proposal-module-meta span,
+.proposal-pdf-render .proposal-pdf-page .proposal-module-head small {
+  font-size: 1.12rem;
+}
+
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-stage {
+  min-height: 980px;
+}
+
+.proposal-pdf-render .proposal-pdf-page .proposal-mockup-figure {
+  min-height: 640px;
+}
+
+.proposal-mockup-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.proposal-mockup-head {
+  display: grid;
+  gap: 10px;
+}
+
+.proposal-mockup-head h2 {
+  margin: 0;
+}
+
+.proposal-mockup-kicker {
+  color: var(--proposal-accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.proposal-mockup-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.proposal-mockup-badge {
+  border: 1px solid rgba(255, 106, 46, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 106, 46, 0.1);
+  color: var(--proposal-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
+.proposal-mockup-stage {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 180px;
+  gap: 16px;
+  border: 1px solid rgba(20, 52, 71, 0.12);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 80% 12%, rgba(255, 106, 46, 0.16), transparent 13rem),
+    radial-gradient(circle at 18% 80%, rgba(28, 143, 163, 0.14), transparent 18rem),
+    linear-gradient(145deg, rgba(20, 52, 71, 0.96), rgba(8, 21, 31, 0.98));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+  padding: 18px;
+}
+
+.proposal-mockup-stage--visual {
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: stretch;
+}
+
+.proposal-mockup-stage--visual.is-portrait {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+
+.proposal-mockup-stage::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image:
+    linear-gradient(rgba(28, 143, 163, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 143, 163, 0.059) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.proposal-mockup-sidebar,
+.proposal-mockup-main,
+.proposal-mockup-rail {
+  position: relative;
+  z-index: 1;
+}
+
+.proposal-mockup-sidebar {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding-top: 10px;
+}
+
+.proposal-mockup-logo {
+  display: grid;
+  gap: 6px;
+  border: 1px solid rgba(255, 106, 46, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px;
+}
+
+.proposal-mockup-logo strong {
+  color: var(--proposal-text);
+  font-size: 0.92rem;
+  line-height: 1.1;
+}
+
+.proposal-mockup-logo span,
+.proposal-mockup-sidebar small {
+  color: var(--proposal-muted);
+  font-size: 0.76rem;
+}
+
+.proposal-mockup-dotlist {
+  display: grid;
+  gap: 10px;
+}
+
+.proposal-mockup-dot {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--proposal-accent), rgba(28, 143, 163, 0.68));
+}
+
+.proposal-mockup-dot:nth-child(2) {
+  width: 82%;
+}
+
+.proposal-mockup-dot:nth-child(3) {
+  width: 64%;
+}
+
+.proposal-mockup-main {
+  display: grid;
+  gap: 14px;
+}
+
+.proposal-mockup-media {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.proposal-mockup-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.proposal-mockup-window {
+  display: grid;
+  gap: 12px;
+  border: 1px solid rgba(247, 249, 252, 0.12);
+  border-radius: 20px;
+  background: rgba(5, 8, 10, 0.34);
+  padding: 16px;
+}
+
+.proposal-mockup-window strong {
+  color: var(--proposal-text);
+}
+
+.proposal-mockup-window p {
+  margin: 0;
+  color: var(--proposal-muted);
+}
+
+.proposal-mockup-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  border: 1px solid rgba(247, 249, 252, 0.12);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(247, 249, 252, 0.18), transparent 14rem),
+    linear-gradient(180deg, rgba(247, 249, 252, 0.06), rgba(247, 249, 252, 0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 22px 55px rgba(0, 0, 0, 0.26);
+  margin: 0;
+  padding: 20px;
+}
+
+.proposal-mockup-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.34);
+}
+
+.proposal-mockup-figure.is-portrait img {
+  width: auto;
+  max-width: min(100%, 360px);
+  max-height: 560px;
+}
+
+.proposal-mockup-figure.is-landscape img {
+  max-width: 100%;
+}
+
+.proposal-mockup-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.proposal-mockup-metric {
+  border: 1px solid rgba(247, 249, 252, 0.12);
+  border-radius: 18px;
+  background: rgba(247, 249, 252, 0.06);
+  padding: 14px;
+}
+
+.proposal-mockup-metric strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--proposal-accent);
+  font-size: 1.02rem;
+}
+
+.proposal-mockup-metric span {
+  color: var(--proposal-muted);
+  font-size: 0.82rem;
+}
+
+.proposal-mockup-panels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.proposal-mockup-panel {
+  border: 1px solid rgba(255, 106, 46, 0.15);
+  border-radius: 18px;
+  background:
+    linear-gradient(160deg, rgba(255, 106, 46, 0.08), rgba(247, 249, 252, 0.02)),
+    rgba(0, 0, 0, 0.12);
+  padding: 14px;
+}
+
+.proposal-mockup-panel strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--proposal-text);
+}
+
+.proposal-mockup-panel span {
+  color: var(--proposal-muted);
+  font-size: 0.82rem;
+}
+
+.proposal-mockup-rail {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.proposal-mockup-rail--summary .proposal-mockup-metrics,
+.proposal-mockup-rail--summary .proposal-mockup-panels {
+  grid-template-columns: 1fr;
+}
+
+.proposal-mockup-rail-card {
+  border: 1px solid rgba(247, 249, 252, 0.12);
+  border-radius: 18px;
+  background: rgba(247, 249, 252, 0.05);
+  padding: 14px;
+}
+
+.proposal-mockup-rail-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--proposal-text);
+}
+
+.proposal-mockup-rail-card span {
+  color: var(--proposal-muted);
+  font-size: 0.8rem;
+}
+
+.proposal-mockup-note {
+  border-left: 2px solid var(--proposal-accent);
+  padding-left: 12px;
+}
+
+.proposal-mockup-note p {
+  margin: 0;
+  color: var(--proposal-muted);
+}
+
+@media (max-width: 980px) {
+  .proposal-dual-grid,
+  .proposal-pill-grid,
+  .proposal-module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-mockup-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-mockup-stage--visual,
+  .proposal-mockup-stage--visual.is-portrait {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-mockup-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proposal-mockup-metrics,
+  .proposal-mockup-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .proposal-visual-panel {
+    min-height: 340px;
+  }
+
+  .proposal-visual-card.primary,
+  .proposal-visual-card.secondary,
+  .proposal-visual-card.tertiary {
+    width: auto;
+  }
+
+  .proposal-visual-card.primary {
+    left: 22px;
+    right: 22px;
+    top: 22px;
+  }
+
+  .proposal-visual-card.secondary {
+    left: 22px;
+    right: 22px;
+    top: 160px;
+  }
+
+  .proposal-visual-card.tertiary {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+
+  .proposal-brand-mark {
+    display: none;
+  }
+
+  .proposal-mockup-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-mockup-figure {
+    min-height: 320px;
+    padding: 16px;
+  }
+
+  .proposal-mockup-figure img,
+  .proposal-mockup-figure.is-portrait img {
+    max-height: 420px;
+  }
+}
