@@ -57,6 +57,95 @@ function initEbookLoader() {
 
 initEbookLoader();
 
+const EBOOK_COOKIE_CONSENT_KEY = "mbl_cookie_consent_v3";
+
+function readEbookCookieConsent() {
+  try {
+    const raw = window.localStorage.getItem(EBOOK_COOKIE_CONSENT_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function applyEbookCookieConsent(consent) {
+  window.mblConsent = {
+    essential: true,
+    analytics: Boolean(consent?.analytics),
+    marketing: Boolean(consent?.marketing),
+    savedAt: consent?.savedAt || null,
+  };
+
+  window.dispatchEvent(new CustomEvent("mbl:cookie-consent", { detail: window.mblConsent }));
+}
+
+function saveEbookCookieConsent(settings) {
+  const consent = {
+    version: 3,
+    essential: true,
+    analytics: Boolean(settings.analytics),
+    marketing: Boolean(settings.marketing),
+    savedAt: new Date().toISOString(),
+  };
+
+  try {
+    window.localStorage.setItem(EBOOK_COOKIE_CONSENT_KEY, JSON.stringify(consent));
+  } catch (error) {
+    // Consent is still applied in the current session when storage is blocked.
+  }
+
+  applyEbookCookieConsent(consent);
+  document.querySelector("[data-ebook-cookie-consent]")?.remove();
+}
+
+function initEbookCookieConsent() {
+  const stored = readEbookCookieConsent();
+  if (stored) {
+    applyEbookCookieConsent(stored);
+    return;
+  }
+
+  const banner = document.createElement("section");
+  banner.className = "ebook-cookie-consent";
+  banner.dataset.ebookCookieConsent = "";
+  banner.setAttribute("role", "dialog");
+  banner.setAttribute("aria-label", "Préférences cookies MY BUSINESS LIFE");
+  banner.innerHTML = `
+    <div>
+      <strong>Respect de votre confidentialité</strong>
+      <p>Les cookies de mesure d'audience ne sont activés qu'avec votre accord.</p>
+      <label><input type="checkbox" data-ebook-cookie-toggle="analytics" /> Mesure d'audience</label>
+      <label><input type="checkbox" data-ebook-cookie-toggle="marketing" /> Marketing</label>
+      <div class="ebook-cookie-actions">
+        <button type="button" data-ebook-cookie-reject>Refuser</button>
+        <button type="button" data-ebook-cookie-save>Enregistrer</button>
+        <button type="button" data-ebook-cookie-accept>Tout accepter</button>
+      </div>
+      <a href="cookies.html">Politique cookies</a>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+  window.requestAnimationFrame(() => banner.classList.add("is-visible"));
+
+  banner.querySelector("[data-ebook-cookie-reject]")?.addEventListener("click", () => {
+    saveEbookCookieConsent({ analytics: false, marketing: false });
+  });
+
+  banner.querySelector("[data-ebook-cookie-accept]")?.addEventListener("click", () => {
+    saveEbookCookieConsent({ analytics: true, marketing: true });
+  });
+
+  banner.querySelector("[data-ebook-cookie-save]")?.addEventListener("click", () => {
+    saveEbookCookieConsent({
+      analytics: banner.querySelector('[data-ebook-cookie-toggle="analytics"]')?.checked,
+      marketing: banner.querySelector('[data-ebook-cookie-toggle="marketing"]')?.checked,
+    });
+  });
+}
+
+initEbookCookieConsent();
+
 if (
   ebookConfig.redirectProduction !== false &&
   EBOOK_PRODUCTION_URL &&
@@ -839,8 +928,34 @@ function setupActions() {
     if (downloadButton) downloadPdf();
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    const formData = new FormData(form);
+    const payload = {
+      source: ebookConfig.source || "ebook",
+      page: document.title,
+      submittedAt: new Date().toISOString(),
+      ...(window.MBLData?.pageContext?.() || { page_path: window.location.pathname }),
+      ...Object.fromEntries(formData.entries()),
+    };
+
+    formMessage.textContent = "Préparation de votre demande...";
+
+    try {
+      const dataResult = window.MBLData?.submitContact
+        ? await window.MBLData.submitContact(payload)
+        : { ok: false, skipped: true };
+
+      if (dataResult?.ok) {
+        form.reset();
+        formMessage.textContent = "Demande reçue. Nous revenons vers vous rapidement.";
+        return;
+      }
+    } catch (error) {
+      formMessage.textContent = formSuccessMessage;
+      return;
+    }
+
     formMessage.textContent = formSuccessMessage;
   });
 

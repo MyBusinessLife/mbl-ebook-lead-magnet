@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="MBL Ads accompagne les entreprises dans la création, le pilotage et l'optimisation de leurs campagnes Meta Ads Facebook et Instagram pour générer davantage de prospects qualifiés."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mybusinesslife.fr/mbl-ads.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MBL Ads — Campagnes Meta Ads performantes | MY BUSINESS LIFE" />
+    <meta
+      property="og:description"
+      content="Nous créons, pilotons et optimisons vos campagnes Facebook et Instagram pour générer davantage de prospects qualifiés et développer votre chiffre d'affaires."
+    />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <title>MBL Ads — Campagnes Meta Ads performantes | MY BUSINESS LIFE</title>
+    <link rel="stylesheet" href="premium-site.css?v=32" />
+    <style>
+      /* ── MBL Ads page-specific styles ── */
+
+      /* Hero visual ads */
+      .service-motion--ads {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ads-core {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--orange) 0%, #ff9a5e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: #fff;
+        z-index: 2;
+        box-shadow: 0 0 0 12px rgba(255, 106, 46, 0.15), 0 0 0 28px rgba(255, 106, 46, 0.07);
+        animation: pulse-ads 2.8s ease-in-out infinite;
+      }
+
+      @keyframes pulse-ads {
+        0%, 100% { box-shadow: 0 0 0 12px rgba(255, 106, 46, 0.15), 0 0 0 28px rgba(255, 106, 46, 0.07); }
+        50%       { box-shadow: 0 0 0 18px rgba(255, 106, 46, 0.22), 0 0 0 40px rgba(255, 106, 46, 0.06); }
+      }
+
+      .ads-orbit {
+        position: absolute;
+        inset: 0;
+        animation: orbit-spin 12s linear infinite;
+      }
+
+      @keyframes orbit-spin { to { transform: rotate(360deg); } }
+
+      .ads-planet {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--navy-2);
+        border: 1px solid rgba(255, 106, 46, 0.35);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: var(--orange);
+        white-space: nowrap;
+      }
+
+      .ads-stat {
+        position: absolute;
+        background: var(--navy-2);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.35;
+        white-space: nowrap;
+        animation: float-stat 3.5s ease-in-out infinite;
+      }
+
+      .ads-stat.stat-a { top: 22%; right: 6%; animation-delay: 0s; }
+      .ads-stat.stat-b { bottom: 28%; right: 4%; animation-delay: 0.9s; }
+      .ads-stat.stat-c { bottom: 22%; left: 6%; animation-delay: 1.8s; }
+
+      .ads-stat span { display: block; color: var(--orange); font-size: 1rem; }
+
+      @keyframes float-stat {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(-6px); }
+      }
+
+      /* Problem cards */
+      .problems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .problem-card {
+        background: var(--navy);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .problem-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 106, 46, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+      }
+
+      .problem-card h3 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.35;
+      }
+
+      /* Process timeline (horizontal) */
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0;
+        margin-top: 48px;
+        position: relative;
+      }
+
+      .process-steps::before {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 60px;
+        right: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--orange) 0%, rgba(255, 106, 46, 0.25) 100%);
+        z-index: 0;
+      }
+
+      .process-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+        position: relative;
+        z-index: 1;
+        padding: 0 8px;
+      }
+
+      .step-num {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--orange), #ff9a5e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: #fff;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 6px rgba(255, 106, 46, 0.12);
+      }
+
+      .process-step h3 {
+        margin: 0;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .process-step p {
+        margin: 0;
+        font-size: 0.78rem;
+        color: var(--muted-soft);
+        line-height: 1.45;
+      }
+
+      /* Services grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .service-card-ads {
+        background: var(--navy);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 24px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: border-color 0.3s, transform 0.3s;
+      }
+
+      .service-card-ads:hover {
+        border-color: rgba(255, 106, 46, 0.5);
+        transform: translateY(-3px);
+      }
+
+      .service-card-ads .svc-icon {
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+
+      .service-card-ads h3 {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .service-card-ads p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: var(--muted-soft);
+        line-height: 1.5;
+      }
+
+      /* Why choose — checklist */
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .why-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        background: var(--navy);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 22px 20px;
+      }
+
+      .why-check {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--orange), #ff9a5e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .why-item h3 {
+        margin: 0 0 4px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .why-item p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: var(--muted-soft);
+        line-height: 1.5;
+      }
+
+      /* Method ribbon */
+      .method-ribbon {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+      }
+
+      .method-node {
+        background: linear-gradient(135deg, rgba(255, 106, 46, 0.15), rgba(255, 106, 46, 0.07));
+        border: 1px solid rgba(255, 106, 46, 0.35);
+        border-radius: 100px;
+        padding: 10px 22px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--white);
+        white-space: nowrap;
+      }
+
+      .method-arrow {
+        color: var(--orange);
+        font-size: 1.1rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      /* Loop diagram */
+      .loop-diagram {
+        margin: 48px auto 0;
+        max-width: 640px;
+        position: relative;
+        aspect-ratio: 1 / 0.55;
+      }
+
+      .loop-inner {
+        width: 100%;
+        height: 100%;
+        border: 2px dashed rgba(255, 106, 46, 0.3);
+        border-radius: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        animation: spin-loop 22s linear infinite;
+      }
+
+      @keyframes spin-loop { to { transform: rotate(360deg); } }
+
+      .loop-nodes {
+        position: absolute;
+        inset: 0;
+        animation: spin-loop-reverse 22s linear infinite;
+      }
+
+      @keyframes spin-loop-reverse { to { transform: rotate(-360deg); } }
+
+      .loop-node {
+        position: absolute;
+        background: var(--navy-2);
+        border: 1px solid rgba(255, 106, 46, 0.45);
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--white);
+        white-space: nowrap;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Position nodes around ellipse */
+      .loop-node:nth-child(1) { top: 0%;  left: 50%; }
+      .loop-node:nth-child(2) { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+      .loop-node:nth-child(3) { top: 100%; left: 65%; transform: translate(-50%, -100%); }
+      .loop-node:nth-child(4) { top: 100%; left: 35%; transform: translate(-50%, -100%); }
+      .loop-node:nth-child(5) { top: 50%; left: 0%; transform: translate(0%, -50%); }
+
+      .loop-center-text {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--orange);
+        text-align: center;
+        line-height: 1.5;
+        padding: 0 40px;
+      }
+
+      /* Results placeholders */
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .result-placeholder {
+        background: var(--navy);
+        border: 2px dashed rgba(255, 106, 46, 0.25);
+        border-radius: 12px;
+        padding: 36px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+        min-height: 180px;
+        justify-content: center;
+      }
+
+      .result-placeholder .ph-icon {
+        font-size: 2rem;
+        opacity: 0.5;
+      }
+
+      .result-placeholder h3 {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--muted-soft);
+      }
+
+      .result-placeholder p {
+        margin: 0;
+        font-size: 0.78rem;
+        color: rgba(247, 249, 252, 0.4);
+        line-height: 1.5;
+      }
+
+      .ph-badge {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        color: var(--orange);
+        background: rgba(255, 106, 46, 0.1);
+        border: 1px solid rgba(255, 106, 46, 0.25);
+        border-radius: 100px;
+        padding: 4px 12px;
+        text-transform: uppercase;
+      }
+
+      /* FAQ */
+      .faq-list {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      details.faq-item {
+        background: var(--navy);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: border-color 0.3s;
+      }
+
+      details.faq-item[open] {
+        border-color: rgba(255, 106, 46, 0.4);
+      }
+
+      details.faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 22px 24px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        user-select: none;
+      }
+
+      details.faq-item summary::-webkit-details-marker { display: none; }
+
+      .faq-chevron {
+        font-size: 1.1rem;
+        color: var(--orange);
+        transition: transform 0.3s;
+        flex-shrink: 0;
+      }
+
+      details.faq-item[open] .faq-chevron {
+        transform: rotate(180deg);
+      }
+
+      .faq-body {
+        padding: 0 24px 22px;
+        font-size: 0.88rem;
+        color: var(--muted-soft);
+        line-height: 1.65;
+      }
+
+      /* Contact form */
+      .ads-form {
+        background: var(--navy);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 720px;
+        margin: 40px auto 0;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        background: rgba(247, 249, 252, 0.06);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 13px 16px;
+        font-size: 0.9rem;
+        color: var(--white);
+        font-family: inherit;
+        transition: border-color 0.25s;
+        width: 100%;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(247, 249, 252, 0.3);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--orange);
+        background: rgba(255, 106, 46, 0.05);
+      }
+
+      .form-group select option { background: var(--navy); color: var(--white); }
+
+      .form-group textarea { resize: vertical; min-height: 120px; }
+
+      .form-submit {
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      /* Floating CTA bar */
+      .sticky-cta {
+        display: none;
+      }
+
+      @media (max-width: 700px) {
+        .process-steps { grid-template-columns: 1fr 1fr; }
+        .process-steps::before { display: none; }
+        .form-row { grid-template-columns: 1fr; }
+        .ads-form { padding: 28px 20px; }
+        .loop-diagram { display: none; }
+        .method-ribbon { gap: 8px; }
+        .method-node { padding: 8px 14px; font-size: 0.78rem; }
+      }
+
+      @media (max-width: 480px) {
+        .process-steps { grid-template-columns: 1fr; }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "MBL Ads — Gestion de campagnes Meta Ads",
+        "provider": {
+          "@type": "Organization",
+          "name": "MY BUSINESS LIFE",
+          "url": "https://mybusinesslife.fr"
+        },
+        "areaServed": "France",
+        "serviceType": "Publicité Meta Ads, Facebook Ads, Instagram Ads",
+        "description": "MBL Ads accompagne les entreprises dans la création, le pilotage et l'optimisation de leurs campagnes Meta Ads Facebook et Instagram pour générer davantage de prospects qualifiés."
+      }
+    </script>
+  </head>
+  <body class="premium-page">
+    <header class="site-header" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="MY BUSINESS LIFE">
+        <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+        <span class="brand-copy">
+          <strong>MY BUSINESS LIFE</strong>
+          <small>Digital, organisation, croissance</small>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">Menu</button>
+      <nav id="site-navigation" class="site-nav" aria-label="Menu du site">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Particuliers</button>
+          <div class="nav-dropdown">
+            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Domicile, réparation, conseil et matériel.</small></a>
+            <a href="assistance-informatique-domicile.html"><span>Assistance à domicile</span><small>Dépannage chez vous, crédit d'impôt 50%.</small></a>
+            <a href="installation-camera-surveillance.html"><span>Caméras de surveillance</span><small>Intérieur, extérieur, alertes et départs en vacances.</small></a>
+            <a href="reparation-ordinateur.html"><span>Réparation ordinateur</span><small>PC lent, écran, mot de passe, données.</small></a>
+            <a href="achat-materiel-informatique.html"><span>Achat matériel</span><small>PC, RAM, stockage, écran et usage.</small></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Professionnels</button>
+          <div class="nav-dropdown">
+            <a href="professionnels.html"><span>Vue d'ensemble</span><small>Acquisition, organisation et croissance.</small></a>
+            <a href="developpement-web.html"><span>Développement web</span><small>Sites premium, SEO et conversion.</small></a>
+            <a href="logiciel-sur-mesure.html"><span>Logiciel sur-mesure</span><small>Outils métier, dashboards et automatisation.</small></a>
+            <a href="automatisation.html"><span>Automatisation</span><small>Flux, relances et tâches répétitives.</small></a>
+            <a href="agents-ia.html"><span>Agents IA</span><small>Assistants métier, workflows et automatisation intelligente.</small></a>
+            <a href="strategie-digitale.html"><span>Stratégie digitale</span><small>Audit, priorités et feuille de route.</small></a>
+            <a href="mbl-ads.html" style="border-left: 2px solid var(--orange)"><span>MBL Ads</span><small>Campagnes Meta Ads Facebook et Instagram.</small></a>
+          </div>
+        </div>
+        <a href="diagnostic.html">Diagnostic</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Ressources</button>
+          <div class="nav-dropdown">
+            <a href="cas-clients.html"><span>Cas clients</span><small>Exemples de transformation digitale.</small></a>
+            <a href="blog.html"><span>Blog</span><small>Conseils web, logiciel et informatique.</small></a>
+            <a href="credit-impot-assistance-informatique.html"><span>Crédit d'impôt</span><small>Comprendre le reste à charge 50%.</small></a>
+            <a href="jeux.html"><span>Jeux</span><small>Puissance 4 MY BUSINESS LIFE.</small></a>
+            <a href="ebook.html"><span>Ebook logiciel</span><small>Automatiser et centraliser votre activité.</small></a>
+            <a href="ebook-site-internet.html"><span>Ebook site internet</span><small>Moderniser, suivre et convertir.</small></a>
+            <a href="ebook-agents-ia.html"><span>Ebook agents IA</span><small>Automatiser sans perdre le contrôle.</small></a>
+            <a href="ebook-reparation-informatique.html"><span>Ebook réparation</span><small>Diagnostiquer avant d'intervenir.</small></a>
+          </div>
+        </div>
+        <a href="a-propos.html">À propos</a>
+        <a href="espace-client.html">Espace client</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="premium-main">
+
+      <!-- ═══════════════════════════════════════════
+           HERO
+      ═══════════════════════════════════════════ -->
+      <section class="premium-hero" aria-labelledby="ads-title">
+        <div data-animate>
+          <p class="premium-kicker">MBL Ads — Meta Ads Facebook &amp; Instagram</p>
+          <h1 id="ads-title">Développez votre entreprise grâce à des campagnes <span>Meta Ads performantes</span>.</h1>
+          <p class="premium-lead">
+            Nous créons, pilotons et optimisons vos campagnes Facebook et Instagram afin de générer
+            davantage de prospects qualifiés et de développer votre chiffre d'affaires.
+          </p>
+          <div class="premium-actions">
+            <a class="button button-primary" href="#contact-ads">Demander un audit</a>
+            <a class="button button-secondary" href="#contact-ads">Être rappelé</a>
+          </div>
+        </div>
+        <div class="premium-visual" data-animate="scale">
+          <div class="floating-metrics" aria-hidden="true">
+            <span><strong>Meta</strong> Ads</span>
+            <span><strong>ROI</strong> optimisé</span>
+          </div>
+          <div class="visual-frame service-motion-frame" role="img" aria-label="Illustration animée de campagnes Meta Ads avec statistiques et optimisation">
+            <div class="motion-bg-grid" aria-hidden="true"></div>
+            <div class="service-motion service-motion--ads" aria-hidden="true">
+              <div class="ads-core">ADS</div>
+              <div class="ads-orbit">
+                <div class="ads-planet">Facebook · Instagram</div>
+              </div>
+              <div class="ads-stat stat-a"><span>+340%</span>Portée</div>
+              <div class="ads-stat stat-b"><span>-52%</span>Coût / lead</div>
+              <div class="ads-stat stat-c"><span>×4</span>Prospects</div>
+            </div>
+            <div class="visual-card">
+              <span>Campagne active</span>
+              <strong>Une pub qui performe, ça se pilote chaque semaine.</strong>
+              <p>Nous analysons, testons et ajustons en continu pour maximiser vos résultats.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strip bénéfices -->
+      <section class="proof-strip" aria-label="Bénéfices MBL Ads" data-animate>
+        <div><strong>Prospects</strong><span>Des leads qualifiés générés par vos publicités Facebook et Instagram.</span></div>
+        <div><strong>Ciblage</strong><span>Audiences précises construites autour de votre client idéal.</span></div>
+        <div><strong>Optimisation</strong><span>Chaque semaine, vos campagnes sont analysées et améliorées.</span></div>
+        <div><strong>Transparence</strong><span>Rapports détaillés et communication claire sur chaque action.</span></div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           PROBLÈME
+      ═══════════════════════════════════════════ -->
+      <section class="section-band" id="probleme" aria-labelledby="prob-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Le problème</p>
+            <h2 id="prob-title">Pourquoi vos campagnes n'obtiennent-elles pas les résultats attendus&nbsp;?</h2>
+          </div>
+          <p>
+            La majorité des entreprises qui lancent des publicités Meta sans accompagnement brûlent
+            leur budget sans mesurer ce qui fonctionne vraiment.
+          </p>
+        </div>
+        <div class="problems-grid">
+          <div class="problem-card" data-animate>
+            <div class="problem-icon" aria-hidden="true">📉</div>
+            <h3>Campagnes sans résultats</h3>
+            <p style="margin:0;font-size:0.82rem;color:var(--muted-soft);line-height:1.5">Les publicités tournent mais le téléphone ne sonne pas.</p>
+          </div>
+          <div class="problem-card" data-animate style="--delay:80ms">
+            <div class="problem-icon" aria-hidden="true">💸</div>
+            <h3>Budget publicitaire gaspillé</h3>
+            <p style="margin:0;font-size:0.82rem;color:var(--muted-soft);line-height:1.5">L'argent part sans pouvoir identifier ce qui est rentable.</p>
+          </div>
+          <div class="problem-card" data-animate style="--delay:160ms">
+            <div class="problem-icon" aria-hidden="true">🎯</div>
+            <h3>Mauvais ciblage</h3>
+            <p style="margin:0;font-size:0.82rem;color:var(--muted-soft);line-height:1.5">Les publicités touchent des personnes qui ne deviendront jamais clients.</p>
+          </div>
+          <div class="problem-card" data-animate style="--delay:240ms">
+            <div class="problem-icon" aria-hidden="true">👥</div>
+            <h3>Peu de prospects qualifiés</h3>
+            <p style="margin:0;font-size:0.82rem;color:var(--muted-soft);line-height:1.5">Les demandes reçues ne correspondent pas à votre clientèle cible.</p>
+          </div>
+          <div class="problem-card" data-animate style="--delay:320ms">
+            <div class="problem-icon" aria-hidden="true">🔄</div>
+            <h3>Aucune optimisation</h3>
+            <p style="margin:0;font-size:0.82rem;color:var(--muted-soft);line-height:1.5">Les campagnes sont lancées puis oubliées sans suivi régulier.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           SOLUTION — PROCESS
+      ═══════════════════════════════════════════ -->
+      <section class="section-band dark" id="solution" aria-labelledby="solution-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Notre approche</p>
+            <h2 id="solution-title">Nous gérons vos Meta Ads de A à Z.</h2>
+          </div>
+          <p>
+            De l'analyse de votre activité à l'optimisation hebdomadaire, MBL Ads prend en charge
+            l'intégralité de vos campagnes pour des résultats progressifs et mesurables.
+          </p>
+        </div>
+        <div class="process-steps">
+          <div class="process-step" data-animate>
+            <div class="step-num">01</div>
+            <h3>Analyse</h3>
+            <p>Étude de votre marché, de vos concurrents et de vos objectifs.</p>
+          </div>
+          <div class="process-step" data-animate style="--delay:80ms">
+            <div class="step-num">02</div>
+            <h3>Stratégie</h3>
+            <p>Définition des audiences, des messages clés et du budget.</p>
+          </div>
+          <div class="process-step" data-animate style="--delay:160ms">
+            <div class="step-num">03</div>
+            <h3>Création</h3>
+            <p>Rédaction des textes, création des visuels et montage des campagnes.</p>
+          </div>
+          <div class="process-step" data-animate style="--delay:240ms">
+            <div class="step-num">04</div>
+            <h3>Lancement</h3>
+            <p>Mise en ligne des campagnes avec paramétrage complet du pixel Meta.</p>
+          </div>
+          <div class="process-step" data-animate style="--delay:320ms">
+            <div class="step-num">05</div>
+            <h3>Optimisation</h3>
+            <p>Ajustements chaque semaine basés sur les données réelles.</p>
+          </div>
+          <div class="process-step" data-animate style="--delay:400ms">
+            <div class="step-num">06</div>
+            <h3>Rapports</h3>
+            <p>Compte rendu hebdomadaire avec chiffres clairs et prochaines actions.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:48px" data-animate>
+          <a class="button button-primary" href="#contact-ads">Discuter de mon projet</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           SERVICES
+      ═══════════════════════════════════════════ -->
+      <section class="section-band" id="services" aria-labelledby="services-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Ce que nous faisons</p>
+            <h2 id="services-title">Tout ce dont vous avez besoin pour des campagnes qui convertissent.</h2>
+          </div>
+          <p>
+            MBL Ads couvre l'ensemble de la chaîne publicitaire : de la stratégie à la mesure des
+            résultats, en passant par la création et l'optimisation continue.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card-ads" data-animate>
+            <span class="svc-icon" aria-hidden="true">🚀</span>
+            <h3>Création de campagnes</h3>
+            <p>Conception et paramétrage complet de vos campagnes Meta Ads sur Facebook et Instagram.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:60ms">
+            <span class="svc-icon" aria-hidden="true">⚙️</span>
+            <h3>Optimisation continue</h3>
+            <p>Analyse et ajustements hebdomadaires pour améliorer progressivement vos résultats.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:120ms">
+            <span class="svc-icon" aria-hidden="true">🧪</span>
+            <h3>Tests A/B</h3>
+            <p>Comparaison de visuels, d'audiences et de messages pour identifier ce qui performe.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:180ms">
+            <span class="svc-icon" aria-hidden="true">🎨</span>
+            <h3>Création de visuels</h3>
+            <p>Conception de visuels publicitaires adaptés à votre activité et à votre audience.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:240ms">
+            <span class="svc-icon" aria-hidden="true">✍️</span>
+            <h3>Rédaction publicitaire</h3>
+            <p>Textes d'annonce percutants conçus pour capter l'attention et déclencher l'action.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:300ms">
+            <span class="svc-icon" aria-hidden="true">📋</span>
+            <h3>Formulaires Meta</h3>
+            <p>Mise en place de formulaires natifs Facebook pour collecter des prospects directement.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:360ms">
+            <span class="svc-icon" aria-hidden="true">📊</span>
+            <h3>Suivi des performances</h3>
+            <p>Tableau de bord en temps réel pour suivre coûts, impressions et conversions.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:420ms">
+            <span class="svc-icon" aria-hidden="true">📈</span>
+            <h3>Reporting hebdomadaire</h3>
+            <p>Rapport clair chaque semaine avec les résultats, les décisions prises et les prochaines étapes.</p>
+          </div>
+          <div class="service-card-ads" data-animate style="--delay:480ms">
+            <span class="svc-icon" aria-hidden="true">💡</span>
+            <h3>Conseils stratégiques</h3>
+            <p>Recommandations sur les offres, les messages et la stratégie globale d'acquisition.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           POURQUOI MBL ADS
+      ═══════════════════════════════════════════ -->
+      <section class="section-band dark" id="pourquoi" aria-labelledby="why-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Pourquoi nous choisir</p>
+            <h2 id="why-title">Pourquoi choisir MBL Ads&nbsp;?</h2>
+          </div>
+          <p>
+            Derrière chaque campagne se trouve un vrai interlocuteur qui comprend votre activité et
+            qui s'engage sur la durée pour faire progresser vos résultats.
+          </p>
+        </div>
+        <div class="why-grid">
+          <div class="why-item" data-animate>
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h3>Accompagnement personnalisé</h3>
+              <p>Un suivi dédié à votre activité, pas un service standardisé. Vous avez un interlocuteur direct et disponible.</p>
+            </div>
+          </div>
+          <div class="why-item" data-animate style="--delay:80ms">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h3>Optimisation continue</h3>
+              <p>Vos campagnes ne sont jamais laissées sans surveillance. Nous agissons chaque semaine sur les données réelles.</p>
+            </div>
+          </div>
+          <div class="why-item" data-animate style="--delay:160ms">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h3>Suivi régulier</h3>
+              <p>Des points réguliers pour vous tenir informé des évolutions, des résultats et des prochaines actions prévues.</p>
+            </div>
+          </div>
+          <div class="why-item" data-animate style="--delay:240ms">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h3>Rapports détaillés</h3>
+              <p>Des chiffres clairs et compréhensibles, sans jargon publicitaire inutile. Vous savez exactement où en est votre budget.</p>
+            </div>
+          </div>
+          <div class="why-item" data-animate style="--delay:320ms">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h3>Communication transparente</h3>
+              <p>Nous vous disons ce qui fonctionne et ce qui ne fonctionne pas. Aucune promesse non tenue, aucune zone d'ombre.</p>
+            </div>
+          </div>
+          <div class="why-item" data-animate style="--delay:400ms">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h3>Stratégie adaptée</h3>
+              <p>Chaque entreprise est différente. Votre stratégie publicitaire est construite autour de votre secteur et de vos objectifs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           MÉTHODE
+      ═══════════════════════════════════════════ -->
+      <section class="section-band" id="methode" aria-labelledby="method-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Notre méthode</p>
+            <h2 id="method-title">Une méthode structurée, du premier audit aux résultats durables.</h2>
+          </div>
+          <p>
+            Chaque étape est pensée pour construire une base solide avant d'accélérer votre acquisition.
+          </p>
+        </div>
+        <div class="method-ribbon" data-animate>
+          <span class="method-node">Analyse de votre entreprise</span>
+          <span class="method-arrow" aria-hidden="true">→</span>
+          <span class="method-node">Étude des concurrents</span>
+          <span class="method-arrow" aria-hidden="true">→</span>
+          <span class="method-node">Création des publicités</span>
+          <span class="method-arrow" aria-hidden="true">→</span>
+          <span class="method-node">Lancement</span>
+          <span class="method-arrow" aria-hidden="true">→</span>
+          <span class="method-node">Optimisation chaque semaine</span>
+          <span class="method-arrow" aria-hidden="true">→</span>
+          <span class="method-node">Analyse des résultats</span>
+          <span class="method-arrow" aria-hidden="true">→</span>
+          <span class="method-node">Amélioration continue</span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           OPTIMISATION CONTINUE
+      ═══════════════════════════════════════════ -->
+      <section class="section-band dark" aria-labelledby="opti-title">
+        <div class="story-panel">
+          <div class="story-copy" data-animate>
+            <p class="premium-kicker">Optimisation continue</p>
+            <h2 id="opti-title">Une campagne performante ne s'arrête pas au lancement.</h2>
+            <p>
+              Chaque semaine, nous analysons les performances, testons de nouvelles approches et
+              optimisons vos campagnes afin d'améliorer progressivement les résultats. La
+              constance dans l'optimisation est ce qui distingue une campagne ordinaire d'une
+              campagne rentable.
+            </p>
+            <div class="premium-actions">
+              <a class="button button-primary" href="#contact-ads">Demander un audit</a>
+              <a class="button button-secondary light" href="#pourquoi">Nos engagements</a>
+            </div>
+          </div>
+          <div class="story-image" data-animate="scale" style="display:flex;align-items:center;justify-content:center">
+            <div class="loop-diagram" aria-label="Schéma en boucle : Analyse → Optimisation → Tests A/B → Analyse → Optimisation">
+              <div class="loop-inner">
+                <div class="loop-nodes">
+                  <div class="loop-node">Analyse des données</div>
+                  <div class="loop-node">Optimisation</div>
+                  <div class="loop-node">Tests A/B</div>
+                  <div class="loop-node">Résultats</div>
+                  <div class="loop-node">Amélioration</div>
+                </div>
+                <div class="loop-center-text">Cycle<br>d'optimisation<br>hebdomadaire</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           RÉSULTATS (placeholders évolutifs)
+      ═══════════════════════════════════════════ -->
+      <section class="section-band" id="resultats" aria-labelledby="results-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Résultats</p>
+            <h2 id="results-title">Des résultats concrets, mesurables et partagés.</h2>
+          </div>
+          <p>
+            Captures d'écran, statistiques, témoignages clients et études de cas seront publiés ici
+            au fil des campagnes gérées par MBL Ads.
+          </p>
+        </div>
+        <div class="results-grid">
+          <div class="result-placeholder" data-animate>
+            <div class="ph-icon" aria-hidden="true">📸</div>
+            <span class="ph-badge">À venir</span>
+            <h3>Captures Meta Ads</h3>
+            <p>Résultats réels issus des gestionnaires de publicités Facebook et Instagram.</p>
+          </div>
+          <div class="result-placeholder" data-animate style="--delay:80ms">
+            <div class="ph-icon" aria-hidden="true">📉</div>
+            <span class="ph-badge">À venir</span>
+            <h3>Coût par prospect</h3>
+            <p>Évolution du coût par lead sur les campagnes optimisées par MBL Ads.</p>
+          </div>
+          <div class="result-placeholder" data-animate style="--delay:160ms">
+            <div class="ph-icon" aria-hidden="true">👥</div>
+            <span class="ph-badge">À venir</span>
+            <h3>Prospects générés</h3>
+            <p>Volume de demandes qualifiées obtenues via les campagnes pilotées.</p>
+          </div>
+          <div class="result-placeholder" data-animate style="--delay:240ms">
+            <div class="ph-icon" aria-hidden="true">💬</div>
+            <span class="ph-badge">À venir</span>
+            <h3>Témoignages clients</h3>
+            <p>Retours d'expérience des entrepreneurs accompagnés par MBL Ads.</p>
+          </div>
+          <div class="result-placeholder" data-animate style="--delay:320ms">
+            <div class="ph-icon" aria-hidden="true">📁</div>
+            <span class="ph-badge">À venir</span>
+            <h3>Études de cas</h3>
+            <p>Détail des stratégies mises en place et des résultats obtenus par secteur.</p>
+          </div>
+          <div class="result-placeholder" data-animate style="--delay:400ms">
+            <div class="ph-icon" aria-hidden="true">🎬</div>
+            <span class="ph-badge">À venir</span>
+            <h3>Vidéos & démonstrations</h3>
+            <p>Présentation vidéo des campagnes et des méthodes d'optimisation utilisées.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           CTA intermédiaire
+      ═══════════════════════════════════════════ -->
+      <section class="premium-cta" data-animate>
+        <p class="premium-kicker">Passez à l'action</p>
+        <h2>Prêt à lancer des campagnes qui génèrent de vrais prospects&nbsp;?</h2>
+        <p>Décrivez votre activité et vos objectifs. Nous préparons un audit personnalisé de vos opportunités sur Meta Ads.</p>
+        <div class="premium-actions">
+          <a class="button button-primary" href="#contact-ads">Demander un audit gratuit</a>
+          <a class="button button-secondary" href="#contact-ads">Être rappelé</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           FAQ
+      ═══════════════════════════════════════════ -->
+      <section class="section-band" id="faq" aria-labelledby="faq-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Questions fréquentes</p>
+            <h2 id="faq-title">Tout ce que vous voulez savoir sur MBL Ads.</h2>
+          </div>
+        </div>
+        <div class="faq-list" data-animate>
+          <details class="faq-item">
+            <summary>
+              Comment fonctionne MBL Ads&nbsp;?
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-body">
+              MBL Ads prend en charge l'intégralité de vos campagnes publicitaires sur Facebook et Instagram.
+              Nous commençons par analyser votre activité et vos concurrents, puis nous construisons une stratégie
+              adaptée à vos objectifs. Nous créons les publicités, les lançons, les optimisons chaque semaine et
+              vous envoyons un rapport régulier. Vous restez informé à chaque étape sans avoir à gérer la technique.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Quel budget publicitaire faut-il prévoir&nbsp;?
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-body">
+              Le budget publicitaire dépend de votre secteur d'activité, de vos objectifs et de votre zone géographique.
+              Lors de notre premier échange, nous vous recommandons un budget de départ réaliste pour obtenir des
+              données exploitables rapidement. Ce budget est distinct de notre accompagnement et est directement géré
+              par vos soins sur votre compte Meta.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Qui paie la publicité&nbsp;?
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-body">
+              Vous payez directement Meta (Facebook / Instagram) pour le budget publicitaire. Ce montant est distinct
+              de notre prestation de gestion et d'optimisation. Ainsi, vous avez une totale visibilité sur ce qui est
+              dépensé en publicité et sur ce qui est facturé par MBL Ads pour la gestion des campagnes.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Combien de temps avant les premiers résultats&nbsp;?
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-body">
+              L'algorithme de Meta a besoin de données pour optimiser la diffusion. Les premières semaines servent
+              à collecter des informations et à calibrer les campagnes. Des résultats significatifs apparaissent
+              généralement à partir du deuxième ou troisième mois, en fonction du secteur et du budget investi.
+              Nous vous communiquons les premières données dès la première semaine.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Puis-je arrêter à tout moment&nbsp;?
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-body">
+              Oui. Nous travaillons sans engagement à vie. Lors de notre premier échange, nous définissons ensemble
+              les modalités de collaboration et les conditions de fin de prestation. Notre objectif est que vous
+              restiez parce que les résultats sont là, pas parce que vous y êtes obligé.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Comment se déroule le suivi&nbsp;?
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-body">
+              Chaque semaine, vous recevez un rapport avec les indicateurs clés : impressions, clics, coût par prospect,
+              nombre de leads générés et actions réalisées. Nous sommes joignables par email et organisons des points
+              réguliers pour faire le bilan et valider les prochaines orientations stratégiques. Aucune décision
+              importante n'est prise sans vous en informer.
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           FORMULAIRE DE CONTACT
+      ═══════════════════════════════════════════ -->
+      <section class="section-band dark" id="contact-ads" aria-labelledby="form-title">
+        <div class="section-head" data-animate>
+          <div>
+            <p class="premium-kicker">Nous contacter</p>
+            <h2 id="form-title">Recevez un audit personnalisé de vos opportunités Meta Ads.</h2>
+          </div>
+          <p>
+            Décrivez votre activité en quelques lignes. Nous analysons votre potentiel sur Facebook
+            et Instagram et revenons vers vous avec des recommandations concrètes.
+          </p>
+        </div>
+
+        <form
+          class="ads-form"
+          data-animate
+          name="mbl-ads-contact"
+          method="POST"
+          action="contact.html"
+          novalidate
+          aria-label="Formulaire de demande d'audit MBL Ads"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ads-nom">Nom complet <span aria-hidden="true" style="color:var(--orange)">*</span></label>
+              <input type="text" id="ads-nom" name="nom" placeholder="Jean Dupont" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="ads-tel">Téléphone <span aria-hidden="true" style="color:var(--orange)">*</span></label>
+              <input type="tel" id="ads-tel" name="telephone" placeholder="06 12 34 56 78" required autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ads-email">Email <span aria-hidden="true" style="color:var(--orange)">*</span></label>
+              <input type="email" id="ads-email" name="email" placeholder="jean@monentreprise.fr" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="ads-entreprise">Entreprise</label>
+              <input type="text" id="ads-entreprise" name="entreprise" placeholder="Mon Entreprise SAS" autocomplete="organization" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ads-secteur">Secteur d'activité</label>
+            <select id="ads-secteur" name="secteur">
+              <option value="" disabled selected>Choisissez votre secteur…</option>
+              <option>Artisan / BTP</option>
+              <option>Commerce / Retail</option>
+              <option>Restauration / Hôtellerie</option>
+              <option>Santé / Bien-être</option>
+              <option>Immobilier</option>
+              <option>Formation / Coaching</option>
+              <option>Services aux entreprises</option>
+              <option>E-commerce</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ads-message">Décrivez votre projet ou vos objectifs</label>
+            <textarea id="ads-message" name="message" placeholder="Expliquez votre activité, vos cibles, votre budget publicitaire envisagé ou vos difficultés actuelles…"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="button button-primary" style="font-size:1rem;padding:16px 40px">
+              Recevoir un audit personnalisé
+            </button>
+            <p style="margin:16px 0 0;font-size:0.78rem;color:var(--muted-soft)">
+              Aucun engagement. Nous vous répondons sous 24 h ouvrées.
+            </p>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer class="site-footer premium-footer" aria-label="Pied de page">
+      <div class="footer-shell">
+        <div>
+          <a class="brand footer-brand" href="index.html" aria-label="MY BUSINESS LIFE">
+            <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+            <span class="brand-copy">
+              <strong>MY BUSINESS LIFE</strong>
+              <small>Digital, organisation, croissance</small>
+            </span>
+          </a>
+          <p>Des expériences digitales et informatiques premium, pensées pour être simples à comprendre et solides à utiliser.</p>
+        </div>
+        <div class="footer-column">
+          <strong>Services</strong>
+          <a href="developpement-web.html">Développement web</a>
+          <a href="logiciel-sur-mesure.html">Logiciel sur-mesure</a>
+          <a href="automatisation.html">Automatisation</a>
+          <a href="agents-ia.html">Agents IA</a>
+          <a href="mbl-ads.html">MBL Ads</a>
+          <a href="assistance-informatique-domicile.html">Assistance à domicile</a>
+          <a href="reparation-ordinateur.html">Réparation ordinateur</a>
+        </div>
+        <div class="footer-column">
+          <strong>Parcours</strong>
+          <a href="particuliers.html">Particuliers</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a href="diagnostic.html">Diagnostic en ligne</a>
+          <a href="espace-client.html">Espace client</a>
+          <a href="contact.html">Demander une étude</a>
+        </div>
+        <div class="footer-column">
+          <strong>Ressources</strong>
+          <a href="cas-clients.html">Cas clients</a>
+          <a href="blog.html">Blog</a>
+          <a href="credit-impot-assistance-informatique.html">Crédit d'impôt informatique</a>
+          <a href="jeux.html">Jeux</a>
+          <a href="ebook.html">Ebook logiciel</a>
+          <a href="ebook-site-internet.html">Ebook site internet</a>
+          <a href="ebook-agents-ia.html">Ebook agents IA</a>
+          <a href="ebook-reparation-informatique.html">Ebook réparation</a>
+          <a href="mailto:contact@mybusinesslife.fr">contact@mybusinesslife.fr</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 MY BUSINESS LIFE</span>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Confidentialité</a>
+        <a href="cgv.html">CGV</a>
+        <a href="accessibilite.html">Accessibilité</a>
+        <a href="sitemap.xml">Plan du site</a>
+      </div>
+    </footer>
+
+    <script src="premium-site.js?v=32" defer></script>
+  </body>
+</html>

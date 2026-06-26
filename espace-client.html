@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0F2230" />
+    <meta
+      name="description"
+      content="Connexion et inscription à l'espace client MY BUSINESS LIFE pour suivre vos diagnostics, demandes et projets."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <title>Espace client | Connexion MY BUSINESS LIFE</title>
+    <link rel="preload" href="assets/logo.png" as="image" />
+    <link rel="stylesheet" href="premium-site.css?v=32" />
+    <link rel="stylesheet" href="espace-client.css?v=11" />
+  </head>
+  <body class="premium-page access-page">
+    <header class="site-header" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="MY BUSINESS LIFE">
+        <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+        <span class="brand-copy">
+          <strong>MY BUSINESS LIFE</strong>
+          <small>Digital, organisation, croissance</small>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">Menu</button>
+      <nav id="site-navigation" class="site-nav" aria-label="Menu du site">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Particuliers</button>
+          <div class="nav-dropdown">
+            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Domicile, réparation, conseil et matériel.</small></a>
+            <a href="assistance-informatique-domicile.html"><span>Assistance à domicile</span><small>Dépannage chez vous, crédit d'impôt 50%.</small></a>
+            <a href="installation-camera-surveillance.html"><span>Caméras de surveillance</span><small>Intérieur, extérieur, alertes et départs en vacances.</small></a>
+            <a href="reparation-ordinateur.html"><span>Réparation ordinateur</span><small>PC lent, écran, mot de passe, données.</small></a>
+            <a href="achat-materiel-informatique.html"><span>Achat matériel</span><small>PC, RAM, stockage, écran et usage.</small></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Professionnels</button>
+          <div class="nav-dropdown">
+            <a href="professionnels.html"><span>Vue d'ensemble</span><small>Acquisition, organisation et croissance.</small></a>
+            <a href="developpement-web.html"><span>Développement web</span><small>Sites premium, SEO et conversion.</small></a>
+            <a href="logiciel-sur-mesure.html"><span>Logiciel sur-mesure</span><small>Outils métier, dashboards et automatisation.</small></a>
+            <a href="automatisation.html"><span>Automatisation</span><small>Flux, relances et tâches répétitives.</small></a>
+            <a href="agents-ia.html"><span>Agents IA</span><small>Assistants métier, workflows et automatisation intelligente.</small></a>
+            <a href="strategie-digitale.html"><span>Stratégie digitale</span><small>Audit, priorités et feuille de route.</small></a>
+          </div>
+        </div>
+        <a href="diagnostic.html">Diagnostic</a>
+        <div class="nav-group">
+          <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Ressources</button>
+          <div class="nav-dropdown">
+            <a href="cas-clients.html"><span>Cas clients</span><small>Exemples de transformation digitale.</small></a>
+            <a href="blog.html"><span>Blog</span><small>Conseils web, logiciel et informatique.</small></a>
+            <a href="credit-impot-assistance-informatique.html"><span>Crédit d'impôt</span><small>Comprendre le reste à charge 50%.</small></a>
+            <a href="jeux.html"><span>Jeux</span><small>Puissance 4 MY BUSINESS LIFE.</small></a>
+            <a href="ebook.html"><span>Ebook logiciel</span><small>Automatiser et centraliser votre activité.</small></a>
+            <a href="ebook-site-internet.html"><span>Ebook site internet</span><small>Moderniser, suivre et convertir.</small></a>
+            <a href="ebook-agents-ia.html"><span>Ebook agents IA</span><small>Automatiser sans perdre le contrôle.</small></a>
+            <a href="ebook-reparation-informatique.html"><span>Ebook réparation</span><small>Diagnostiquer avant d'intervenir.</small></a>
+          </div>
+        </div>
+        <a href="a-propos.html">À propos</a>
+        <a href="espace-client.html" aria-current="page">Espace client</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top" class="admin-shell portal-shell" aria-labelledby="admin-title">
+      <section class="portal-toolbar" aria-label="Actions du compte">
+        <span class="admin-role-badge" id="adminRoleBadge" hidden></span>
+        <select id="adminRange" aria-label="Période des statistiques" hidden>
+          <option value="7">7 jours</option>
+          <option value="30" selected>30 jours</option>
+          <option value="90">90 jours</option>
+          <option value="365">12 mois</option>
+        </select>
+        <button class="button button-secondary" id="refreshDashboard" type="button" hidden>Actualiser</button>
+        <button class="button button-secondary" id="logoutButton" type="button" hidden>Déconnexion</button>
+      </section>
+
+      <section class="access-hero" aria-labelledby="admin-title">
+        <div class="access-hero-copy" data-animate>
+          <p class="eyebrow">Portail MY BUSINESS LIFE</p>
+          <h1 id="admin-title">Votre espace projet, clair et sécurisé.</h1>
+          <p class="premium-lead">Connectez-vous pour retrouver vos diagnostics, vos demandes et les prochaines étapes de votre accompagnement digital.</p>
+          <div class="access-signals" aria-label="Suivi disponible">
+            <span>Diagnostics</span>
+            <span>Demandes</span>
+            <span>Projet en cours</span>
+          </div>
+          <p class="admin-status" id="adminStatus" role="status"></p>
+        </div>
+        <div class="access-command" aria-hidden="true" data-animate="scale">
+          <div class="command-grid"></div>
+          <div class="command-core">
+            <img src="assets/logo.png" alt="" />
+            <strong>MBL Access</strong>
+            <span>Session sécurisée</span>
+          </div>
+          <div class="command-stream stream-a"></div>
+          <div class="command-stream stream-b"></div>
+          <div class="command-tile tile-a"><span>Suivi</span><strong>Live</strong></div>
+          <div class="command-tile tile-b"><span>Accès</span><strong>Fluide</strong></div>
+          <div class="command-tile tile-c"><span>Projet</span><strong>Actif</strong></div>
+        </div>
+      </section>
+
+      <section class="admin-login access-login" id="loginPanel" aria-labelledby="login-title" hidden>
+        <div class="auth-stage" aria-hidden="true">
+          <span class="auth-line line-a"></span>
+          <span class="auth-line line-b"></span>
+          <span class="auth-node node-a"></span>
+          <span class="auth-node node-b"></span>
+          <span class="auth-node node-c"></span>
+        </div>
+        <div class="access-auth-intro" data-animate>
+          <p class="auth-kicker">Espace client</p>
+          <h2>Connexion ou inscription, au même endroit.</h2>
+          <p>Créez votre espace client MY BUSINESS LIFE pour garder une trace claire de vos diagnostics, demandes et projets.</p>
+        </div>
+        <div class="auth-shell">
+          <article class="auth-benefits" aria-label="Avantages de l'espace client">
+            <p class="auth-kicker">Suivi client</p>
+            <h3>Tout votre parcours reste accessible.</h3>
+            <p>Votre espace client centralise les diagnostics envoyés, les demandes formulaires et l'état de vos projets, sans perdre le fil.</p>
+            <ul>
+              <li>Retrouvez vos diagnostics en ligne</li>
+              <li>Suivez les demandes en cours</li>
+              <li>Gardez vos prochaines étapes sous la main</li>
+            </ul>
+          </article>
+
+          <div class="premium-form auth-panel unified-auth">
+            <div class="auth-tabs" role="tablist" aria-label="Choisir le formulaire d'accès">
+              <button class="auth-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="loginForm" data-auth-tab="login">Connexion</button>
+              <button class="auth-tab" type="button" role="tab" aria-selected="false" aria-controls="signupForm" data-auth-tab="signup">Inscription</button>
+            </div>
+            <p class="auth-kicker">Accès sécurisé</p>
+            <h2 id="login-title">Votre espace client</h2>
+            <p class="auth-copy" id="authModeCopy">Retrouvez vos diagnostics, demandes et projets en cours.</p>
+            <button class="google-auth-button" type="button" data-google-auth>
+              <span class="google-mark" aria-hidden="true">G</span>
+              <span id="googleAuthLabel">Continuer avec Google</span>
+            </button>
+            <div class="auth-divider"><span>ou</span></div>
+            <p class="form-status" id="authStatus" role="status"></p>
+
+            <form class="auth-form is-active" id="loginForm" data-auth-panel="login">
+            <label>Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>Mot de passe
+              <input type="password" name="password" autocomplete="current-password" required />
+            </label>
+            <button class="button button-primary" type="submit">Se connecter</button>
+            <p class="form-status" id="loginStatus" role="status"></p>
+          </form>
+
+            <form class="auth-form" id="signupForm" data-auth-panel="signup" hidden>
+            <label>Nom
+              <input type="text" name="display_name" autocomplete="name" />
+            </label>
+            <label>Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>Mot de passe
+              <input type="password" name="password" autocomplete="new-password" minlength="8" required />
+            </label>
+            <button class="button button-secondary" type="submit">Créer un accès</button>
+            <p class="form-status" id="signupStatus" role="status"></p>
+          </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-config" id="pendingPanel" hidden>
+        <h2>Compte en attente</h2>
+        <p>Votre accès existe, mais il n'est pas encore actif. Contactez MY BUSINESS LIFE si vous pensez que c'est une erreur.</p>
+        <button class="button button-secondary" id="pendingLogoutButton" type="button">Se déconnecter</button>
+      </section>
+
+      <section class="admin-config" id="configPanel" hidden>
+        <h2>Connexion Supabase à finaliser</h2>
+        <p>Ajoutez l'URL du projet et la clé anon publique dans site-config.js, puis activez la collecte.</p>
+      </section>
+
+      <section class="admin-account" id="accountPanel" aria-labelledby="account-title" hidden>
+        <div>
+          <h2 id="account-title">Mon compte</h2>
+          <p>Changez votre mot de passe et gardez votre espace client à jour.</p>
+        </div>
+        <form class="password-form" id="passwordForm">
+          <label>Nouveau mot de passe
+            <input type="password" name="password" autocomplete="new-password" minlength="8" required />
+          </label>
+          <button class="button button-secondary" type="submit">Changer</button>
+          <p class="form-status" id="passwordStatus" role="status"></p>
+        </form>
+      </section>
+
+      <div id="clientPanel" hidden>
+        <section class="client-hero" aria-labelledby="client-title">
+          <div>
+            <p class="premium-kicker">Espace client</p>
+            <h2 id="client-title">Vos demandes restent visibles, même après l'envoi.</h2>
+            <p>Suivez les diagnostics transmis, l'état de traitement et les prochaines étapes.</p>
+          </div>
+          <a class="button button-primary" href="diagnostic.html">Nouveau diagnostic</a>
+        </section>
+
+        <section class="client-metrics" aria-label="Résumé client">
+          <article class="metric-card">
+            <span>Demandes</span>
+            <strong id="clientTotalRequests">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>En cours</span>
+            <strong id="clientActiveRequests">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Terminées</span>
+            <strong id="clientDoneRequests">0</strong>
+          </article>
+        </section>
+
+        <section class="admin-requests" aria-labelledby="client-requests-title">
+          <div class="admin-panel-head">
+            <h2 id="client-requests-title">Suivi des demandes</h2>
+            <span id="clientRequestsMeta"></span>
+          </div>
+          <div class="client-request-list" id="clientRequests"></div>
+        </section>
+      </div>
+
+      <div id="dashboardPanel" hidden>
+        <section class="admin-metrics" aria-label="Statistiques principales">
+          <article class="metric-card">
+            <span>Pages vues</span>
+            <strong id="metricPageviews">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Visites</span>
+            <strong id="metricSessions">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Demandes contact</span>
+            <strong id="metricContacts">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Diagnostics</span>
+            <strong id="metricDiagnostics">0</strong>
+          </article>
+          <article class="metric-card urgent">
+            <span>À traiter</span>
+            <strong id="metricOpen">0</strong>
+          </article>
+        </section>
+
+        <nav class="admin-tabs" aria-label="Navigation admin">
+          <button class="admin-tab is-active" type="button" data-admin-tab="requests" aria-selected="true">Demandes</button>
+          <button class="admin-tab" type="button" data-admin-tab="projects" aria-selected="false">Projets</button>
+          <button class="admin-tab" type="button" data-admin-tab="performance" aria-selected="false">Performance</button>
+          <button class="admin-tab" type="button" data-admin-tab="users" aria-selected="false">Utilisateurs</button>
+        </nav>
+
+        <section class="admin-requests admin-leads-panel admin-tab-panel is-active" data-admin-tab-panel="requests" aria-labelledby="all-requests-title">
+          <div class="admin-panel-head admin-panel-head-stacked">
+            <div>
+              <p class="auth-kicker">Suivi commercial</p>
+              <h2 id="all-requests-title">Demandes clients</h2>
+              <span id="allRequestsMeta"></span>
+            </div>
+            <div class="request-toolbar" aria-label="Filtres des demandes clients">
+              <input id="leadSearch" type="search" placeholder="Rechercher nom, email, besoin..." aria-label="Rechercher une demande client" />
+              <select id="leadTypeFilter" aria-label="Filtrer par type de demande">
+                <option value="all">Tous les types</option>
+                <option value="contact">Formulaires</option>
+                <option value="diagnostic">Diagnostics</option>
+              </select>
+              <select id="leadStatusFilter" aria-label="Filtrer par statut">
+                <option value="all">Tous les statuts</option>
+                <option value="new">Nouveaux</option>
+                <option value="in_progress">En cours</option>
+                <option value="won">Traités gagnés</option>
+                <option value="lost">Traités perdus</option>
+                <option value="archived">Archivés</option>
+              </select>
+            </div>
+          </div>
+          <div class="request-list lead-request-list" id="allRequests"></div>
+        </section>
+
+        <section class="admin-requests admin-proposal-panel admin-tab-panel" id="proposalStudioPanel" data-admin-tab-panel="projects" aria-labelledby="proposal-studio-title" hidden>
+          <div class="admin-panel-head admin-panel-head-stacked">
+            <div>
+              <p class="auth-kicker">Présentation client</p>
+              <h2 id="proposal-studio-title">Projets à envoyer aux prospects</h2>
+              <span id="proposalStudioMeta"></span>
+            </div>
+            <div class="request-toolbar" aria-label="Actions des projets prospects">
+              <input id="proposalSearch" type="search" placeholder="Rechercher un prospect, un projet, un service..." aria-label="Rechercher un projet prospect" />
+              <select id="proposalStatusFilter" aria-label="Filtrer les projets par statut">
+                <option value="all">Tous les statuts</option>
+                <option value="draft">Brouillons</option>
+                <option value="sent">Envoyés</option>
+                <option value="viewed">Consultés</option>
+                <option value="accepted">Acceptés</option>
+                <option value="refused">Refusés</option>
+                <option value="archived">Archivés</option>
+              </select>
+              <button class="button button-primary" id="createProposalButton" type="button">Nouveau projet</button>
+            </div>
+          </div>
+
+          <div class="proposal-studio-grid proposal-studio-grid-list-only">
+            <div class="proposal-list" id="proposalList" aria-label="Liste des projets prospects"></div>
+            <article class="proposal-studio-hint" aria-label="Aide rapide">
+              <p class="auth-kicker">Workflow</p>
+              <h3>Créez, ajustez, partagez.</h3>
+              <p>Préparez une proposition propre, générez son lien unique, puis revenez l'ajuster en quelques secondes si le prospect fait évoluer son besoin.</p>
+              <ul>
+                <li>Proposition claire et structurée</li>
+                <li>Partage immédiat par lien</li>
+                <li>Lecture plus simple pour le prospect</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="proposal-modal" id="proposalModal" hidden>
+            <div class="proposal-modal-backdrop" data-close-proposal-modal></div>
+            <div class="proposal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="proposalFormTitle">
+              <div class="proposal-modal-toolbar">
+                <div>
+                  <p class="auth-kicker">Studio projet</p>
+                  <p>Travaillez la proposition dans une fenêtre dédiée, plus lisible et plus confortable à utiliser.</p>
+                </div>
+                <button class="button button-secondary proposal-modal-close" type="button" data-close-proposal-modal>Fermer</button>
+              </div>
+
+              <form class="premium-form proposal-form" id="proposalForm" aria-label="Éditeur de projet prospect">
+              <div class="proposal-form-head">
+                <div>
+                  <p class="auth-kicker">Éditeur</p>
+                  <h3 id="proposalFormTitle">Créer une présentation projet</h3>
+                </div>
+                <span class="proposal-form-meta" id="proposalFormMeta">Préparez un lien unique prêt à être envoyé.</span>
+              </div>
+
+              <input type="hidden" name="id" />
+              <input type="hidden" name="source_type" />
+              <input type="hidden" name="source_request_id" />
+
+              <section class="proposal-overview-card" aria-label="Synthèse rapide du projet">
+                <div class="proposal-overview-intro">
+                  <p class="auth-kicker">Vue d'ensemble</p>
+                  <p class="proposal-overview-copy">Gardez une lecture immédiate du prospect, du statut et du niveau d'avancement avant d'entrer dans le détail.</p>
+                </div>
+                <div class="proposal-overview-grid">
+                  <article class="proposal-overview-item">
+                    <span>Statut</span>
+                    <strong id="proposalOverviewStatus">Brouillon</strong>
+                  </article>
+                  <article class="proposal-overview-item">
+                    <span>Prospect</span>
+                    <strong id="proposalOverviewClient">À préciser</strong>
+                  </article>
+                  <article class="proposal-overview-item">
+                    <span>Service</span>
+                    <strong id="proposalOverviewService">À définir</strong>
+                  </article>
+                  <article class="proposal-overview-item">
+                    <span>Référence</span>
+                    <strong id="proposalOverviewRef">Non générée</strong>
+                  </article>
+                  <article class="proposal-overview-item">
+                    <span>Source</span>
+                    <strong id="proposalOverviewSource">Création manuelle</strong>
+                  </article>
+                  <article class="proposal-overview-item">
+                    <span>Mise à jour</span>
+                    <strong id="proposalOverviewUpdated">Brouillon en préparation</strong>
+                  </article>
+                </div>
+              </section>
+
+              <nav class="proposal-form-nav" aria-label="Navigation dans l'éditeur">
+                <button class="button button-secondary button-compact" type="button" data-proposal-nav="publication">Partage</button>
+                <button class="button button-secondary button-compact" type="button" data-proposal-nav="identity">Identité</button>
+                <button class="button button-secondary button-compact" type="button" data-proposal-nav="strategy">Cadrage</button>
+                <button class="button button-secondary button-compact" type="button" data-proposal-nav="delivery">Production</button>
+                <button class="button button-secondary button-compact" type="button" data-proposal-nav="closing">Finalisation</button>
+              </nav>
+
+              <section class="proposal-section-card" id="proposal-section-publication">
+                <div class="proposal-section-head">
+                  <div>
+                    <p class="auth-kicker">Partage</p>
+                    <h4>Diffusion de la présentation</h4>
+                  </div>
+                  <p>Préparez le lien public unique, puis ouvrez ou copiez la version à envoyer au prospect.</p>
+                </div>
+                <div class="proposal-link-shell">
+                  <label>
+                    <span>Référence publique</span>
+                    <input type="text" name="public_ref" id="proposalPublicRef" readonly placeholder="Générée à l'enregistrement" />
+                  </label>
+                  <div class="proposal-link-actions">
+                    <a class="button button-secondary" id="openProposalLink" href="#" target="_blank" rel="noreferrer noopener">Ouvrir la présentation</a>
+                    <button class="button button-secondary" id="copyProposalLink" type="button">Copier le lien</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="proposal-section-card" id="proposal-section-identity">
+                <div class="proposal-section-head">
+                  <div>
+                    <p class="auth-kicker">Identité</p>
+                    <h4>Qui reçoit cette proposition ?</h4>
+                  </div>
+                  <p>Renseignez clairement le projet, le statut commercial et les coordonnées du prospect.</p>
+                </div>
+                <div class="proposal-form-grid">
+                  <label>
+                    <span>Titre du projet</span>
+                    <input type="text" name="project_title" placeholder="Ex : Refonte site premium + dashboard commercial" required />
+                  </label>
+                  <label>
+                    <span>Statut</span>
+                    <select name="status" id="proposalStatusSelect">
+                      <option value="draft">Brouillon</option>
+                      <option value="sent">Envoyé</option>
+                      <option value="viewed">Consulté</option>
+                      <option value="accepted">Accepté</option>
+                      <option value="refused">Refusé</option>
+                      <option value="archived">Archivé</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Nom du prospect</span>
+                    <input type="text" name="client_name" placeholder="Nom du contact" />
+                  </label>
+                  <label>
+                    <span>Email du prospect</span>
+                    <input type="email" name="client_email" placeholder="prospect@entreprise.fr" />
+                  </label>
+                  <label>
+                    <span>Entreprise</span>
+                    <input type="text" name="client_company" placeholder="Nom de l'entreprise" />
+                  </label>
+                  <label>
+                    <span>Téléphone</span>
+                    <input type="text" name="client_phone" placeholder="Numéro de téléphone" />
+                  </label>
+                  <label class="proposal-field-span">
+                    <span>Ligne de service</span>
+                    <input type="text" name="service_line" placeholder="Développement web, logiciel, agents IA, maintenance..." />
+                  </label>
+                </div>
+              </section>
+
+              <section class="proposal-section-card" id="proposal-section-strategy">
+                <div class="proposal-section-head">
+                  <div>
+                    <p class="auth-kicker">Cadrage</p>
+                    <h4>Comment présenter la valeur du projet ?</h4>
+                  </div>
+                  <p>Structurez ici le besoin, les objectifs, la solution et la vision fonctionnelle à partager avec le prospect.</p>
+                </div>
+                <label>
+                  <span>Pitch court</span>
+                  <textarea name="short_pitch" rows="3" placeholder="Une synthèse commerciale très claire du projet à proposer."></textarea>
+                </label>
+
+                <label>
+                  <span>Contexte / besoin du prospect</span>
+                  <textarea name="client_context" rows="5" placeholder="Décrivez le contexte, les irritants, le besoin exprimé et les informations issues du lead."></textarea>
+                </label>
+
+                <label>
+                  <span>Objectifs à atteindre</span>
+                  <textarea name="objectives" rows="4" placeholder="Un objectif par ligne ou un texte libre très détaillé."></textarea>
+                </label>
+
+                <label>
+                  <span>Solution proposée</span>
+                  <textarea name="solution_overview" rows="5" placeholder="Décrivez la logique de la solution, la valeur métier, les grandes orientations."></textarea>
+                </label>
+
+                <label>
+                  <span>Analyse fonctionnelle du besoin</span>
+                  <textarea name="functional_analysis" rows="5" placeholder="Un point fonctionnel par ligne : parcours, données, rôles, validations, documents, automatisations..."></textarea>
+                </label>
+
+                <label>
+                  <span>Recommandations techniques</span>
+                  <textarea name="technical_recommendations" rows="5" placeholder="Un point technique par ligne : architecture, sécurité, hébergement, API, stockage, supervision..."></textarea>
+                </label>
+
+                <label>
+                  <span>Périmètre et modules</span>
+                  <textarea name="scope_details" rows="5" placeholder="Fonctionnalités, modules, zones couvertes, exclusions éventuelles."></textarea>
+                </label>
+              </section>
+
+              <section class="proposal-section-card" id="proposal-section-delivery">
+                <div class="proposal-section-head">
+                  <div>
+                    <p class="auth-kicker">Production</p>
+                    <h4>Budget, planning et exécution</h4>
+                  </div>
+                  <p>Définissez les blocs budgétaires, la méthode de livraison, le rythme projet et les technologies envisagées.</p>
+                </div>
+                <label>
+                  <span>Estimation budgétaire</span>
+                  <textarea name="budget_estimate" rows="4" placeholder="Une ligne par bloc, idéalement sous la forme « Intitulé : montant ou précision »."></textarea>
+                </label>
+
+                <label>
+                  <span>Planning de développement par phases</span>
+                  <textarea name="development_phases" rows="5" placeholder="Une phase par ligne avec durée estimée, par exemple « Phase 1 — UX/UI (2 semaines) : prototype et validation des écrans »."></textarea>
+                </label>
+
+                <label>
+                  <span>Livrables</span>
+                  <textarea name="deliverables" rows="4" placeholder="Un livrable par ligne, ou une description structurée."></textarea>
+                </label>
+
+                <label>
+                  <span>Technologies envisagées</span>
+                  <textarea name="technologies_envisaged" rows="4" placeholder="Une technologie ou un bloc technique par ligne, idéalement « Domaine : choix recommandé »."></textarea>
+                </label>
+
+                <label>
+                  <span>Déroulé / phases de travail</span>
+                  <textarea name="rollout_plan" rows="4" placeholder="Étapes de cadrage, design, développement, validation, accompagnement..."></textarea>
+                </label>
+
+                <div class="proposal-form-grid proposal-form-grid-tight">
+                  <label>
+                    <span>Délais / tempo conseillé</span>
+                    <textarea name="timeline_notes" rows="3" placeholder="Délais indicatifs, ordre logique, rythme projet."></textarea>
+                  </label>
+
+                  <label>
+                    <span>Mode de collaboration</span>
+                    <textarea name="collaboration_notes" rows="3" placeholder="Qui valide, comment se passent les points, ce que MY BUSINESS LIFE prend en charge."></textarea>
+                  </label>
+                </div>
+              </section>
+
+              <section class="proposal-section-card" id="proposal-section-closing">
+                <div class="proposal-section-head">
+                  <div>
+                    <p class="auth-kicker">Finalisation</p>
+                    <h4>Suite du projet et notes internes</h4>
+                  </div>
+                  <p>Terminez avec les évolutions futures, la prochaine étape à proposer et vos notes de pilotage interne.</p>
+                </div>
+                <label>
+                  <span>Possibilités d’évolution future</span>
+                  <textarea name="future_evolutions" rows="4" placeholder="Une évolution par ligne : facturation, intégrations, reporting, mobile native, automatisations supplémentaires..."></textarea>
+                </label>
+
+                <label>
+                  <span>Prochaine étape proposée</span>
+                  <textarea name="next_step" rows="3" placeholder="Ex : validation du cadrage, arbitrage du périmètre, point de lancement, atelier métier..."></textarea>
+                </label>
+
+                <label>
+                  <span>Notes internes</span>
+                  <textarea name="admin_notes" rows="3" placeholder="Visible uniquement dans l'admin."></textarea>
+                </label>
+              </section>
+
+              <div class="proposal-form-actions">
+                <button class="button button-primary" id="saveProposalButton" type="submit">Enregistrer le projet</button>
+                <button class="button button-secondary" id="resetProposalButton" type="button">Vider l'éditeur</button>
+              </div>
+              <p class="form-status" id="proposalStatusMessage" role="status"></p>
+            </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-grid admin-tab-panel" data-admin-tab-panel="performance" hidden>
+          <article class="admin-panel">
+            <div class="admin-panel-head">
+              <h2>Pages les plus vues</h2>
+              <span id="topPagesMeta"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Page</th>
+                    <th>Vues</th>
+                    <th>Visites</th>
+                  </tr>
+                </thead>
+                <tbody id="topPagesBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="admin-panel">
+            <div class="admin-panel-head">
+              <h2>Évolution</h2>
+              <span id="dailyMeta"></span>
+            </div>
+            <div class="daily-chart" id="dailyChart" aria-label="Pages vues par jour"></div>
+          </article>
+        </section>
+
+        <section class="admin-requests admin-tab-panel" data-admin-tab-panel="requests" aria-labelledby="contact-requests-title">
+          <div class="admin-panel-head">
+            <h2 id="contact-requests-title">Demandes formulaires</h2>
+            <span id="contactMeta"></span>
+          </div>
+          <div class="request-list" id="contactRequests"></div>
+        </section>
+
+        <section class="admin-requests admin-tab-panel" data-admin-tab-panel="requests" aria-labelledby="diagnostic-requests-title">
+          <div class="admin-panel-head">
+            <h2 id="diagnostic-requests-title">Diagnostics</h2>
+            <span id="diagnosticMeta"></span>
+          </div>
+          <div class="request-list" id="diagnosticRequests"></div>
+        </section>
+
+        <section class="admin-requests admin-tab-panel" id="usersPanel" data-admin-tab-panel="users" aria-labelledby="users-title" hidden>
+          <div class="admin-panel-head">
+            <h2 id="users-title">Utilisateurs et rôles</h2>
+            <span id="usersMeta"></span>
+          </div>
+          <div class="user-list" id="usersList"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer premium-footer" aria-label="Pied de page">
+      <div class="footer-shell">
+        <div>
+          <a class="brand footer-brand" href="index.html" aria-label="MY BUSINESS LIFE">
+            <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
+            <span class="brand-copy">
+              <strong>MY BUSINESS LIFE</strong>
+              <small>Digital, organisation, croissance</small>
+            </span>
+          </a>
+          <p>Des expériences digitales et informatiques premium, pensées pour être simples à comprendre et solides à utiliser.</p>
+        </div>
+        <div class="footer-column">
+          <strong>Services</strong>
+          <a href="developpement-web.html">Développement web</a>
+          <a href="logiciel-sur-mesure.html">Logiciel sur-mesure</a>
+          <a href="automatisation.html">Automatisation</a>
+          <a href="agents-ia.html">Agents IA</a>
+          <a href="assistance-informatique-domicile.html">Assistance à domicile</a>
+          <a href="reparation-ordinateur.html">Réparation ordinateur</a>
+          <a href="achat-materiel-informatique.html">Achat matériel</a>
+        </div>
+        <div class="footer-column">
+          <strong>Parcours</strong>
+          <a href="particuliers.html">Particuliers</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a href="diagnostic.html">Diagnostic en ligne</a>
+          <a href="espace-client.html">Espace client</a>
+          <a href="contact.html">Demander une étude</a>
+        </div>
+        <div class="footer-column">
+          <strong>Ressources</strong>
+          <a href="cas-clients.html">Cas clients</a>
+          <a href="blog.html">Blog</a>
+          <a href="credit-impot-assistance-informatique.html">Crédit d'impôt informatique</a>
+          <a href="jeux.html">Jeux</a>
+          <a href="ebook.html">Ebook logiciel</a>
+          <a href="ebook-site-internet.html">Ebook site internet</a>
+          <a href="ebook-agents-ia.html">Ebook agents IA</a>
+          <a href="ebook-reparation-informatique.html">Ebook réparation</a>
+          <a href="mailto:contact@mybusinesslife.fr">contact@mybusinesslife.fr</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 MY BUSINESS LIFE. Tous droits réservés.</span>
+        <span><a href="mentions-legales.html">Mentions légales</a> · <a href="conditions-utilisation.html">CGU</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a> · <a href="accessibilite.html">Accessibilité</a></span>
+      </div>
+    </footer>
+
+    <script src="site-config.js?v=4"></script>
+    <script src="site-data.js?v=7"></script>
+    <script src="premium-site.js?v=29"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="espace-client.js?v=13"></script>
+  </body>
+</html>

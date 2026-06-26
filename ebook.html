@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://mybusinesslife.fr/ebook.html" />
     <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
     <title>MY BUSINESS LIFE | Ebook logiciel sur-mesure</title>
-    <link rel="stylesheet" href="ebook.css?v=12" />
+    <link rel="stylesheet" href="ebook.css?v=13" />
   </head>
   <body class="ebook-upgrade">
     <div class="page-glow page-glow-a" aria-hidden="true"></div>
@@ -210,7 +210,7 @@
           </label>
           <label>
             <span>Email professionnel</span>
-            <input type="email" name="email" placeholder="vous@entreprise.fr" />
+            <input type="email" name="email" placeholder="vous@entreprise.fr" autocomplete="email" required />
           </label>
           <button class="button button-primary" type="submit">Préparer mon diagnostic</button>
           <p id="formMessage" class="form-message" role="status"></p>
@@ -225,7 +225,14 @@
 
     <div id="printBook" class="print-book" aria-hidden="true"></div>
 
+    <script>
+      window.MBL_EBOOK_CONFIG = {
+        source: "ebook-logiciel",
+      };
+    </script>
+    <script src="site-config.js?v=4"></script>
+    <script src="site-data.js?v=7"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-    <script src="ebook.js?v=13"></script>
+    <script src="ebook.js?v=16"></script>
   </body>
 </html>

@@ -91,24 +91,31 @@ document.querySelectorAll("[data-intake-form]").forEach((form) => {
     event.preventDefault();
 
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = {
+      source: form.getAttribute("data-source") || "site-vitrine",
+      page: document.title,
+      submittedAt: new Date().toISOString(),
+      ...(window.MBLData?.pageContext?.() || { page_path: window.location.pathname }),
+      ...Object.fromEntries(formData.entries()),
+    };
     const endpoint = form.getAttribute("data-endpoint") || "/api/contact";
 
     if (status) status.textContent = "Envoi de votre demande...";
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          source: form.getAttribute("data-source") || "site-vitrine",
-          page: document.title,
-          submittedAt: new Date().toISOString(),
-          ...payload,
-        }),
-      });
+      const dataResult = window.MBLData?.submitContact
+        ? await window.MBLData.submitContact(payload)
+        : { ok: false, skipped: true };
 
-      if (!response.ok) throw new Error("Request failed");
+      if (!dataResult?.ok) {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error("Request failed");
+      }
 
       form.reset();
       if (status) status.textContent = "Demande reçue. Nous revenons vers vous rapidement.";

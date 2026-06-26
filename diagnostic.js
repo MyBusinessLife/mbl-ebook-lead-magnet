@@ -16,10 +16,28 @@
       text: "Outil interne, CRM, planning, devis, facturation ou reporting.",
     },
     {
+      value: "ai",
+      label: "Agents IA",
+      tag: "IA",
+      text: "Assistant métier, qualification, support, documents ou reporting.",
+    },
+    {
       value: "repair",
       label: "Réparation PC",
       tag: "PC",
       text: "Panne, écran cassé, mot de passe, virus, lenteur ou données.",
+    },
+    {
+      value: "home-support",
+      label: "Assistance à domicile",
+      tag: "HOME",
+      text: "Dépannage chez vous, internet, installation et crédit d'impôt 50%.",
+    },
+    {
+      value: "camera",
+      label: "Caméras de surveillance",
+      tag: "CAM",
+      text: "Intérieur, extérieur, alertes, vacances, vision à distance et enregistrement.",
     },
     {
       value: "hardware",
@@ -244,6 +262,139 @@
         },
       ],
     },
+    "home-support": {
+      label: "Assistance informatique à domicile",
+      summary: "Intervention à domicile",
+      next: "Vérifier le besoin, le domicile, l'urgence et l'éligibilité au crédit d'impôt.",
+      steps: [
+        {
+          id: "besoin_domicile",
+          label: "Besoin",
+          title: "Quelle aide informatique souhaitez-vous à domicile ?",
+          hint: "Le parcours reste centré sur une intervention chez vous.",
+          type: "multi",
+          dense: true,
+          options: [
+            choice("depannage", "Dépannage ordinateur", "PC lent, blocage, démarrage, réglages.", "PC"),
+            choice("internet", "Internet / Wi-Fi", "Box, réseau, email, navigation, imprimante.", "NET"),
+            choice("installation", "Installation", "Ordinateur, logiciel, imprimante, sauvegarde.", "SET"),
+            choice("securite", "Sécurité", "Antivirus, mots de passe, sauvegardes.", "SEC"),
+            choice("transfert", "Transfert de données", "Migration, fichiers, nouveau PC.", "DATA"),
+            choice("prise_en_main", "Prise en main", "Accompagnement simple et pédagogie.", "HELP"),
+          ],
+        },
+        {
+          id: "environnement",
+          label: "Environnement",
+          title: "Dans quel environnement faudra-t-il intervenir ?",
+          hint: "Ces éléments changent la préparation de l'intervention.",
+          type: "multi",
+          options: [
+            choice("pc_portable", "PC portable", "Laptop Windows ou MacBook.", "LAP"),
+            choice("pc_fixe", "PC fixe", "Tour, mini PC ou poste de bureau.", "DESK"),
+            choice("box", "Box internet", "Wi-Fi, routeur, réseau domestique.", "BOX"),
+            choice("imprimante", "Imprimante", "Installation, Wi-Fi, scanner.", "PRINT"),
+            choice("nouveau_pc", "Nouveau PC", "Mise en route ou transfert.", "NEW"),
+            choice("plusieurs", "Plusieurs appareils", "Ordinateur, téléphone, accessoires.", "MULTI"),
+          ],
+        },
+        {
+          id: "credit_impot",
+          label: "Crédit d'impôt",
+          title: "Souhaitez-vous bénéficier du crédit d'impôt de 50% ?",
+          hint: "L'assistance informatique à domicile peut être éligible, dans la limite des plafonds applicables.",
+          type: "single",
+          options: [
+            choice("avance", "Oui, avec avance immédiate", "Objectif : ne régler que 50% si le dispositif est applicable.", "50%"),
+            choice("declaration", "Oui, via déclaration", "Vous réglez puis déclarez l'avantage fiscal.", "IMP"),
+            choice("a_verifier", "À vérifier", "On confirme les conditions avant de promettre l'avantage.", "ASK"),
+            choice("non", "Pas nécessaire", "L'intervention reste possible hors avantage fiscal.", "NO"),
+          ],
+        },
+        {
+          id: "urgence_domicile",
+          label: "Urgence",
+          title: "Quand souhaitez-vous être aidé ?",
+          hint: "Cela permet de prioriser correctement la demande.",
+          type: "single",
+          options: [
+            choice("bloque", "Je suis bloqué", "Impossible d'utiliser l'ordinateur ou internet.", "NOW"),
+            choice("semaine", "Cette semaine", "Le problème gêne l'usage quotidien.", "7J"),
+            choice("souple", "Quand possible", "Installation, optimisation ou prise en main.", "OK"),
+            choice("conseil", "Je veux d'abord un conseil", "Comprendre avant de planifier.", "ASK"),
+          ],
+        },
+      ],
+    },
+    camera: {
+      label: "Caméras de surveillance",
+      summary: "Protection du domicile",
+      next: "Qualifier les zones, le niveau de surveillance, la consultation à distance et le contexte du logement.",
+      steps: [
+        {
+          id: "zones_camera",
+          label: "Zones",
+          title: "Quelles zones souhaitez-vous couvrir ?",
+          hint: "Le bon système dépend des accès et espaces vraiment importants à surveiller.",
+          type: "multi",
+          dense: true,
+          options: [
+            choice("entree", "Porte d'entrée", "Voir les accès principaux et les allées venues.", "ENT"),
+            choice("portail", "Portail / allée", "Suivre les passages extérieurs et arrivées.", "OUT"),
+            choice("garage", "Garage", "Protéger un accès secondaire ou le stationnement.", "GAR"),
+            choice("jardin", "Jardin / terrasse", "Garder un oeil sur l'extérieur.", "EXT"),
+            choice("salon", "Pièce de vie", "Vérifier un espace intérieur ciblé.", "IN"),
+            choice("residence", "Résidence secondaire", "Conserver une vision à distance pendant les absences.", "VAC"),
+          ],
+        },
+        {
+          id: "objectif_camera",
+          label: "Objectif",
+          title: "Qu'attendez-vous surtout de l'installation ?",
+          hint: "On cherche le bon usage : dissuader, vérifier, comprendre une alerte ou suivre un accès.",
+          type: "multi",
+          dense: true,
+          options: [
+            choice("dissuasion", "Dissuader", "Montrer qu'un accès est surveillé.", "SAFE"),
+            choice("verification", "Vérifier à distance", "Lever un doute quand vous n'êtes pas sur place.", "APP"),
+            choice("vacances", "Partir plus sereinement", "Suivi pendant vacances ou déplacements.", "VAC"),
+            choice("livraisons", "Suivre les passages", "Visites, livraisons ou mouvements extérieurs.", "MOVE"),
+            choice("animaux", "Surveiller un animal", "Vérifier l'intérieur ponctuellement.", "PET"),
+            choice("preuves", "Conserver un historique", "Revoir une séquence ou un événement.", "REC"),
+          ],
+        },
+        {
+          id: "contexte_camera",
+          label: "Contexte",
+          title: "Dans quel contexte faut-il installer les caméras ?",
+          hint: "Ces éléments changent le type de matériel, la couverture et la préparation.",
+          type: "multi",
+          options: [
+            choice("interieur", "Seulement intérieur", "Pièces de vie, accès ou résidence secondaire.", "IN"),
+            choice("exterieur", "Seulement extérieur", "Entrée, cour, portail, garage ou jardin.", "OUT"),
+            choice("mixte", "Intérieur + extérieur", "Vision plus complète du domicile.", "360"),
+            choice("wifi", "Wi-Fi à vérifier", "Couverture ou stabilité à contrôler.", "NET"),
+            choice("alimentation", "Alimentation à prévoir", "Prises ou passages techniques à cadrer.", "POW"),
+            choice("multiusers", "Plusieurs accès mobiles", "Couple, famille ou proches à partager.", "TEAM"),
+          ],
+        },
+        {
+          id: "pilotage_camera",
+          label: "Pilotage",
+          title: "Comment voulez-vous suivre le système au quotidien ?",
+          hint: "Le confort vient beaucoup de l'application, des alertes et de la logique d'enregistrement.",
+          type: "multi",
+          options: [
+            choice("alertes", "Alertes smartphone", "Recevoir les événements importants.", "PING"),
+            choice("direct", "Vision en direct", "Consulter rapidement depuis le téléphone.", "LIVE"),
+            choice("historique", "Historique vidéo", "Pouvoir revoir une séquence plus tard.", "HIS"),
+            choice("discret", "Usage discret", "Limiter les notifications et garder une interface simple.", "ZEN"),
+            choice("nuit", "Vision nocturne", "Voir clairement le soir et la nuit.", "NIGHT"),
+            choice("confidentialite", "Confidentialité", "Cadrer les zones et l'usage intérieur.", "PRIV"),
+          ],
+        },
+      ],
+    },
     hardware: {
       label: "Achat matériel informatique",
       summary: "Configuration informatique",
@@ -392,6 +543,106 @@
         },
       ],
     },
+    ai: {
+      label: "Agents IA",
+      summary: "Agent IA métier",
+      next: "Cadrer objectif, données, contrôle humain et connexions utiles.",
+      steps: [
+        {
+          id: "objectif_ia",
+          label: "Objectif",
+          title: "Quel rôle voulez-vous confier à un agent IA ?",
+          hint: "On part du cas d'usage concret avant de parler technologie.",
+          type: "single",
+          options: [
+            choice("qualification", "Qualifier les demandes", "Analyser les leads, résumer et prioriser.", "LEAD"),
+            choice("support", "Assister le support", "Répondre, trier les urgences, guider les clients.", "HELP"),
+            choice("interne", "Assistant interne", "Aider les équipes à retrouver les bonnes informations.", "TEAM"),
+            choice("documents", "Analyser des documents", "Résumer, extraire, comparer, vérifier.", "DOC"),
+            choice("reporting", "Produire des synthèses", "Transformer données et tableaux en décisions.", "DATA"),
+            choice("workflow", "Déclencher des actions", "Préparer ou exécuter des workflows contrôlés.", "FLOW"),
+          ],
+        },
+        {
+          id: "donnees_ia",
+          label: "Données",
+          title: "Quelles sources l'agent IA devrait-il comprendre ?",
+          hint: "La qualité de l'agent dépend surtout des informations qu'il peut utiliser.",
+          type: "multi",
+          dense: true,
+          options: [
+            choice("site", "Formulaires du site", "Demandes entrantes, briefs, devis.", "WEB"),
+            choice("crm", "CRM / base clients", "Fiches, historique, opportunités.", "CRM"),
+            choice("documents", "Documents internes", "Procédures, offres, contrats, PDF.", "DOC"),
+            choice("emails", "Emails", "Boîtes partagées, réponses, relances.", "MAIL"),
+            choice("tableaux", "Tableaux / exports", "Excel, Sheets, CSV, reporting.", "XLS"),
+            choice("logiciel", "Logiciel métier", "Données et actions de votre outil interne.", "APP"),
+            choice("aucune", "Base à créer", "Les règles et contenus doivent être structurés.", "NEW"),
+          ],
+        },
+        {
+          id: "utilisateurs_ia",
+          label: "Utilisateurs",
+          title: "Qui utilisera l'agent IA au quotidien ?",
+          hint: "Un agent pour la direction ne se conçoit pas comme un agent pour le support.",
+          type: "multi",
+          options: [
+            choice("direction", "Direction", "Synthèses, arbitrages, pilotage.", "CEO"),
+            choice("commercial", "Commercial", "Qualification, relances, argumentaires.", "SALES"),
+            choice("support", "Support client", "Réponses, tri, suivi des demandes.", "HELP"),
+            choice("operations", "Opérations", "Procédures, tâches, coordination.", "OPS"),
+            choice("admin", "Administratif", "Documents, factures, dossiers.", "ADMIN"),
+            choice("clients", "Clients", "Assistant visible côté client.", "EXT"),
+          ],
+        },
+        {
+          id: "controle_ia",
+          label: "Contrôle",
+          title: "Quel niveau d'autonomie acceptez-vous ?",
+          hint: "Le bon niveau dépend des risques et de la sensibilité des actions.",
+          type: "single",
+          options: [
+            choice("suggestion", "Suggestions uniquement", "L'agent prépare, l'humain décide.", "SAFE"),
+            choice("validation", "Action après validation", "L'agent propose, vous validez l'envoi.", "OK"),
+            choice("semi_auto", "Semi-automatique", "Certaines actions simples peuvent partir seules.", "MIX"),
+            choice("auto_controle", "Automatique avec alertes", "Logs, alertes et contrôles sur les cas sensibles.", "AUTO"),
+            choice("a_definir", "À définir", "On choisira le niveau juste ensemble.", "ASK"),
+          ],
+        },
+        {
+          id: "connexions_ia",
+          label: "Connexions",
+          title: "À quels outils l'agent IA devra-t-il se connecter ?",
+          hint: "Les connexions déterminent ce que l'agent peut réellement faire.",
+          type: "multi",
+          dense: true,
+          options: [
+            choice("site", "Site internet", "Formulaires, chat, landing pages.", "WEB"),
+            choice("crm", "CRM", "Contacts, opportunités, suivis.", "CRM"),
+            choice("mail", "Email", "Brouillons, réponses, relances.", "MAIL"),
+            choice("drive", "Drive / documents", "Dossiers, PDF, fichiers partagés.", "DOC"),
+            choice("agenda", "Agenda", "RDV, disponibilités, rappels.", "CAL"),
+            choice("logiciel", "Logiciel métier", "Actions internes ou dashboard.", "APP"),
+            choice("none", "À définir", "Les outils ne sont pas encore clairs.", "ASK"),
+          ],
+        },
+        {
+          id: "risques_ia",
+          label: "Cadre",
+          title: "Quel point doit être particulièrement sécurisé ?",
+          hint: "Un agent IA premium doit être utile, mais aussi maîtrisé.",
+          type: "multi",
+          options: [
+            choice("confidentialite", "Confidentialité", "Données clients, dossiers internes, accès.", "LOCK"),
+            choice("exactitude", "Exactitude des réponses", "Éviter les réponses approximatives.", "QA"),
+            choice("ton", "Ton de marque", "Réponses alignées avec votre image.", "BRAND"),
+            choice("droits", "Droits d'accès", "Qui peut voir ou déclencher quoi.", "SEC"),
+            choice("tracabilite", "Traçabilité", "Historique, logs, validations.", "LOG"),
+            choice("adoption", "Adoption équipe", "Simplicité, confiance, formation.", "TEAM"),
+          ],
+        },
+      ],
+    },
     strategy: {
       label: "Stratégie digitale",
       summary: "Clarification digitale",
@@ -491,6 +742,7 @@
 
   const state = {
     route: "",
+    lockedRoute: false,
     stepIndex: 0,
     answers: {},
     sending: false,
@@ -506,18 +758,149 @@
     pc: "repair",
     reparation: "repair",
     repair: "repair",
+    domicile: "home-support",
+    assistance: "home-support",
+    "assistance-domicile": "home-support",
+    "assistance-informatique": "home-support",
+    "assistance-informatique-domicile": "home-support",
+    "home-support": "home-support",
+    camera: "camera",
+    cameras: "camera",
+    surveillance: "camera",
+    "camera-surveillance": "camera",
+    "cameras-surveillance": "camera",
+    "installation-camera": "camera",
+    "installation-camera-surveillance": "camera",
     materiel: "hardware",
     hardware: "hardware",
     achat: "hardware",
     automatisation: "automation",
     automation: "automation",
+    ia: "ai",
+    ai: "ai",
+    agent: "ai",
+    agents: "ai",
+    agentsia: "ai",
+    "agents-ia": "ai",
     strategie: "strategy",
     strategy: "strategy",
   };
 
-  const getSteps = () => [firstStep, ...(state.route ? routes[state.route].steps : []), contactStep];
+  const themedPageCopy = {
+    web: {
+      kicker: "Diagnostic site internet",
+      title: "Cadrer votre futur site sans questions inutiles.",
+      text:
+        "Objectif, conversion, SEO, contenus, suivi des visites et fonctionnalités premium : le parcours se concentre uniquement sur votre projet web.",
+      introTitle: "Préparez un site moderne, crédible et mesurable.",
+      introText:
+        "Chaque question aide à clarifier le rôle du site, les contenus à produire, les fonctionnalités utiles et la manière de mesurer les visites.",
+    },
+    software: {
+      kicker: "Diagnostic logiciel métier",
+      title: "Qualifier votre logiciel sur-mesure avec les bonnes questions.",
+      text:
+        "Processus, modules, utilisateurs, données et priorités : le parcours reste concentré sur l'outil métier dont votre organisation a besoin.",
+      introTitle: "Transformez votre besoin logiciel en périmètre clair.",
+      introText:
+        "Le diagnostic identifie les process à simplifier, les modules utiles, les données à centraliser et les rôles à prévoir.",
+    },
+    repair: {
+      kicker: "Diagnostic réparation PC",
+      title: "Décrire votre panne sans passer par des questions hors sujet.",
+      text:
+        "Écran cassé, mot de passe perdu, lenteur, virus, démarrage, batterie ou données : le parcours cible uniquement le problème informatique.",
+      introTitle: "Expliquez le symptôme et l'urgence en quelques étapes.",
+      introText:
+        "Les questions portent sur le type d'appareil, les symptômes, la priorité et les données à préserver avant intervention.",
+    },
+    "home-support": {
+      kicker: "Diagnostic assistance à domicile",
+      title: "Préparer une assistance informatique à domicile sans questions inutiles.",
+      text:
+        "Dépannage chez vous, internet, installation, sécurité, prise en main et crédit d'impôt : le parcours reste concentré sur une intervention à domicile.",
+      introTitle: "Expliquez votre besoin et préparez le reste à charge 50%.",
+      introText:
+        "Les questions portent sur l'aide attendue, l'environnement à domicile, l'urgence et le crédit d'impôt de 50% sous conditions.",
+    },
+    camera: {
+      kicker: "Diagnostic caméras de surveillance",
+      title: "Préparer votre installation sans questions hors sujet.",
+      text:
+        "Zones à couvrir, intérieur, extérieur, alertes, départs en vacances et suivi à distance : le parcours reste concentré sur la protection du domicile.",
+      introTitle: "Cadrez votre besoin caméra de manière simple et utile.",
+      introText:
+        "Les questions portent sur les zones, l'objectif, le contexte du logement et la façon dont vous souhaitez suivre le système au quotidien.",
+    },
+    hardware: {
+      kicker: "Diagnostic matériel informatique",
+      title: "Préparer une configuration adaptée à votre usage réel.",
+      text:
+        "PC portable, fixe, écran, RAM, stockage, mobilité, logiciels et accessoires : le parcours aide à éviter l'achat mal dimensionné.",
+      introTitle: "Choisissez le bon matériel avec des critères lisibles.",
+      introText:
+        "Le diagnostic collecte l'usage, le format souhaité, la mémoire, le stockage et les contraintes qui comptent vraiment.",
+    },
+    automation: {
+      kicker: "Diagnostic automatisation",
+      title: "Identifier les tâches à automatiser sans disperser le sujet.",
+      text:
+        "Relances, documents, saisie, reporting, synchronisation et validations : le parcours reste focalisé sur vos répétitions opérationnelles.",
+      introTitle: "Repérez les automatisations qui valent vraiment le coup.",
+      introText:
+        "Les questions qualifient les tâches répétitives, les outils existants, la fréquence et le niveau de contrôle à conserver.",
+    },
+    ai: {
+      kicker: "Diagnostic agents IA",
+      title: "Cadrer un agent IA utile sans questions hors sujet.",
+      text:
+        "Assistant métier, qualification, support, documents, reporting, données et contrôle humain : le parcours reste concentré sur votre projet IA professionnel.",
+      introTitle: "Transformez une idée d'IA en cas d'usage clair.",
+      introText:
+        "Le diagnostic identifie le rôle de l'agent, les sources de données, les utilisateurs, les connexions utiles et les règles de contrôle à prévoir.",
+    },
+    strategy: {
+      kicker: "Diagnostic stratégie digitale",
+      title: "Clarifier vos priorités digitales avant de produire plus.",
+      text:
+        "Acquisition, organisation, image, outils, roadmap et mesure : le parcours transforme vos idées en direction concrète.",
+      introTitle: "Passez d'un ensemble d'idées à une feuille de route.",
+      introText:
+        "Le diagnostic aide à choisir les bons leviers, prioriser les actions et structurer une trajectoire digitale compréhensible.",
+    },
+  };
 
-  const getCurrentStep = () => getSteps()[state.stepIndex] || firstStep;
+  const pageCopySelectors = {
+    heroKicker: document.querySelector("[data-diag-hero-kicker]"),
+    heroTitle: document.querySelector("[data-diag-hero-title]"),
+    heroText: document.querySelector("[data-diag-hero-text]"),
+    introKicker: document.querySelector("[data-diag-intro-kicker]"),
+    introTitle: document.querySelector("[data-diag-intro-title]"),
+    introText: document.querySelector("[data-diag-intro-text]"),
+  };
+
+  const applyThemedPageCopy = () => {
+    if (!state.lockedRoute || !state.route) return;
+
+    const copy = themedPageCopy[state.route];
+    if (!copy) return;
+
+    if (pageCopySelectors.heroKicker) pageCopySelectors.heroKicker.textContent = copy.kicker;
+    if (pageCopySelectors.heroTitle) pageCopySelectors.heroTitle.textContent = copy.title;
+    if (pageCopySelectors.heroText) pageCopySelectors.heroText.textContent = copy.text;
+    if (pageCopySelectors.introKicker) pageCopySelectors.introKicker.textContent = copy.kicker;
+    if (pageCopySelectors.introTitle) pageCopySelectors.introTitle.textContent = copy.introTitle;
+    if (pageCopySelectors.introText) pageCopySelectors.introText.textContent = copy.introText;
+  };
+
+  const getSteps = () => [
+    ...(state.lockedRoute ? [] : [firstStep]),
+    ...(state.route ? routes[state.route].steps : []),
+    contactStep,
+  ];
+
+  const getCurrentStep = () =>
+    getSteps()[state.stepIndex] || (state.lockedRoute && state.route ? routes[state.route].steps[0] : firstStep);
 
   const getOptionLabel = (step, value) => {
     const option = step.options?.find((item) => item.value === value);
@@ -555,6 +938,17 @@
       return "Configuration à cadrer";
     }
 
+    if (state.route === "camera") {
+      const count =
+        (answers.zones_camera?.length || 0) +
+        (answers.objectif_camera?.length || 0) +
+        (answers.contexte_camera?.length || 0) +
+        (answers.pilotage_camera?.length || 0);
+      if ((answers.contexte_camera || []).includes("mixte") || count >= 8) return "Protection multi-zones";
+      if (count >= 5) return "Installation cadrée";
+      return "Protection ciblée";
+    }
+
     const selectedCount = Object.values(answers).reduce((total, value) => {
       if (Array.isArray(value)) return total + value.length;
       return total + (value ? 1 : 0);
@@ -573,7 +967,14 @@
     return [
       ["Besoin", route?.label || "À préciser"],
       ["Analyse", estimateComplexity()],
-      ["Point clé", primary ? formatAnswer(primary, state.answers[primary.id]) : "Choisir un besoin"],
+      [
+        "Point clé",
+        primary
+          ? formatAnswer(primary, state.answers[primary.id])
+          : route
+            ? "Répondre à la première question"
+            : "Choisir un besoin",
+      ],
       ["Prochaine étape", route?.next || "Sélectionner un parcours"],
     ];
   };
@@ -603,7 +1004,9 @@
       .map((step, index) => {
         const status = index === state.stepIndex ? "is-active" : index < state.stepIndex ? "is-done" : "";
         return `<button class="diagnostic-rail-item ${status}" type="button" data-step="${index}" ${
-          index > state.stepIndex || (index > 1 && !state.route) ? "disabled" : ""
+          index === state.stepIndex ? 'aria-current="step"' : ""
+        } ${
+          index > state.stepIndex || (!state.lockedRoute && index > 1 && !state.route) ? "disabled" : ""
         }><span>${String(index + 1).padStart(2, "0")}</span>${step.label}</button>`;
       })
       .join("");
@@ -659,6 +1062,7 @@
     selectors.reset.disabled = state.stepIndex === 0 && !state.route;
 
     app.dataset.route = state.route || "start";
+    app.dataset.lockedRoute = state.lockedRoute ? "true" : "false";
   };
 
   const submitDiagnostic = async () => {
@@ -680,6 +1084,7 @@
       source: "diagnostic-premium",
       page: document.title,
       submittedAt: new Date().toISOString(),
+      ...(window.MBLData?.pageContext?.() || { page_path: window.location.pathname }),
       besoin: state.route ? routes[state.route].label : "À préciser",
       synthese: estimateComplexity(),
       reponses: readableAnswers,
@@ -691,13 +1096,19 @@
     render();
 
     try {
-      const response = await fetch(app.getAttribute("data-endpoint") || "/api/diagnostic", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const dataResult = window.MBLData?.submitDiagnostic
+        ? await window.MBLData.submitDiagnostic(payload)
+        : { ok: false, skipped: true };
 
-      if (!response.ok) throw new Error("Request failed");
+      if (!dataResult?.ok) {
+        const response = await fetch(app.getAttribute("data-endpoint") || "/api/diagnostic", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error("Request failed");
+      }
 
       selectors.status.textContent = "Diagnostic reçu. Nous revenons vers vous rapidement.";
       selectors.next.textContent = "Demande envoyée";
@@ -763,24 +1174,30 @@
   });
 
   selectors.reset.addEventListener("click", () => {
-    state.route = "";
+    const lockedRoute = state.lockedRoute ? state.route : "";
+    state.route = lockedRoute;
     state.stepIndex = 0;
-    state.answers = {};
+    state.answers = lockedRoute ? { besoin: lockedRoute } : {};
     selectors.contact.reset();
     selectors.status.textContent = "";
     render();
   });
 
   const params = new URLSearchParams(window.location.search);
-  const routeFromUrl = alias[(params.get("type") || params.get("service") || "").toLowerCase()];
+  const routeFromUrl = alias[
+    (params.get("theme") || params.get("type") || params.get("service") || params.get("parcours") || "").toLowerCase()
+  ];
   if (routeFromUrl && routes[routeFromUrl]) {
     state.route = routeFromUrl;
+    state.lockedRoute = true;
     state.answers = { besoin: routeFromUrl };
-    state.stepIndex = 1;
+    state.stepIndex = 0;
+    applyThemedPageCopy();
   }
 
   window.render_diagnostic_to_text = () => ({
     route: state.route,
+    lockedRoute: state.lockedRoute,
     stepIndex: state.stepIndex,
     totalSteps: getSteps().length,
     title: getCurrentStep().title,

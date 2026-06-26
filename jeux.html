@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Jeux MY BUSINESS LIFE : jouez au Puissance 4 en solo contre l'ordinateur ou à deux joueurs dans une interface premium."
+      content="Jeux MY BUSINESS LIFE : plongez dans un mini-jeu cyberpunk Three.js où un technicien MBL doit réparer des serveurs dans un datacenter futuriste."
     />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#06131c" />
     <link rel="canonical" href="https://mybusinesslife.fr/jeux.html" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Jeux | Puissance 4 MY BUSINESS LIFE" />
+    <meta property="og:title" content="Jeux | Datacenter Neon Rush MY BUSINESS LIFE" />
     <meta
       property="og:description"
-      content="Une section jeux premium pour découvrir MY BUSINESS LIFE autrement avec un Puissance 4 jouable seul ou à deux."
+      content="Une expérience Three.js cyberpunk où vous réparez des serveurs MBL sous tension dans un datacenter futuriste."
     />
     <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
-    <title>Jeux | Puissance 4 MY BUSINESS LIFE</title>
-    <link rel="stylesheet" href="premium-site.css?v=19" />
+    <title>Jeux | Datacenter Neon Rush MY BUSINESS LIFE</title>
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js" />
+    <link rel="stylesheet" href="premium-site.css?v=32" />
   </head>
-  <body class="premium-page">
+  <body class="premium-page cyber-game-page">
     <header class="site-header" aria-label="Navigation principale">
       <a class="brand" href="index.html" aria-label="MY BUSINESS LIFE">
         <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
@@ -35,7 +37,9 @@
         <div class="nav-group">
           <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Particuliers</button>
           <div class="nav-dropdown">
-            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Réparation, conseil et matériel.</small></a>
+            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Domicile, réparation, conseil et matériel.</small></a>
+            <a href="assistance-informatique-domicile.html"><span>Assistance à domicile</span><small>Dépannage chez vous, crédit d'impôt 50%.</small></a>
+            <a href="installation-camera-surveillance.html"><span>Caméras de surveillance</span><small>Intérieur, extérieur, alertes et départs en vacances.</small></a>
             <a href="reparation-ordinateur.html"><span>Réparation ordinateur</span><small>PC lent, écran, mot de passe, données.</small></a>
             <a href="achat-materiel-informatique.html"><span>Achat matériel</span><small>PC, RAM, stockage, écran et usage.</small></a>
           </div>
@@ -47,6 +51,7 @@
             <a href="developpement-web.html"><span>Développement web</span><small>Sites premium, SEO et conversion.</small></a>
             <a href="logiciel-sur-mesure.html"><span>Logiciel sur-mesure</span><small>Outils métier, dashboards et automatisation.</small></a>
             <a href="automatisation.html"><span>Automatisation</span><small>Flux, relances et tâches répétitives.</small></a>
+            <a href="agents-ia.html"><span>Agents IA</span><small>Assistants métier, workflows et automatisation intelligente.</small></a>
             <a href="strategie-digitale.html"><span>Stratégie digitale</span><small>Audit, priorités et feuille de route.</small></a>
           </div>
         </div>
@@ -56,12 +61,16 @@
           <div class="nav-dropdown">
             <a href="cas-clients.html"><span>Cas clients</span><small>Exemples de transformation digitale.</small></a>
             <a href="blog.html"><span>Blog</span><small>Conseils web, logiciel et informatique.</small></a>
-            <a href="jeux.html"><span>Jeux</span><small>Puissance 4 MY BUSINESS LIFE.</small></a>
+            <a href="credit-impot-assistance-informatique.html"><span>Crédit d'impôt</span><small>Comprendre le reste à charge 50%.</small></a>
+            <a href="jeux.html"><span>Jeux</span><small>Datacenter Neon Rush.</small></a>
             <a href="ebook.html"><span>Ebook logiciel</span><small>Automatiser et centraliser votre activité.</small></a>
             <a href="ebook-site-internet.html"><span>Ebook site internet</span><small>Moderniser, suivre et convertir.</small></a>
+            <a href="ebook-agents-ia.html"><span>Ebook agents IA</span><small>Automatiser sans perdre le contrôle.</small></a>
+            <a href="ebook-reparation-informatique.html"><span>Ebook réparation</span><small>Diagnostiquer avant d'intervenir.</small></a>
           </div>
         </div>
         <a href="a-propos.html">À propos</a>
+        <a href="espace-client.html">Espace client</a>
         <a class="nav-cta" href="contact.html">Contact</a>
       </nav>
     </header>
@@ -69,114 +78,223 @@
     <main class="premium-main">
       <section class="premium-hero game-hero" aria-labelledby="games-title">
         <div data-animate>
-          <p class="premium-kicker">Section jeux</p>
-          <h1 id="games-title">Un Puissance 4 <span>simple, fluide et premium</span>.</h1>
+          <p class="premium-kicker">Mini-jeu Three.js</p>
+          <h1 id="games-title">Datacenter Neon Rush <span>réparez les serveurs avant la panne totale</span>.</h1>
           <p class="premium-lead">
-            Jouez seul contre l'ordinateur ou lancez une partie à deux. Une parenthèse ludique,
-            propre et responsive, dans l'univers MY BUSINESS LIFE.
+            Entrez dans un datacenter futuriste baigné de néons. Incarnez un technicien MBL,
+            traversez les allées, stabilisez les racks en surcharge et gardez l'uptime au plus haut
+            dans une mission cyberpunk premium.
           </p>
           <div class="premium-actions">
-            <a class="button button-primary" href="#puissance-4">Jouer maintenant</a>
-            <a class="button button-secondary" href="diagnostic.html">Revenir au diagnostic</a>
+            <a class="button button-primary" href="#datacenter-neon-rush">Lancer la mission</a>
+            <a class="button button-secondary" href="contact.html">Créer une expérience similaire</a>
           </div>
         </div>
 
         <div class="premium-visual" data-animate="scale">
           <div class="floating-metrics" aria-hidden="true">
-            <span><strong>Solo</strong> IA incluse</span>
-            <span><strong>Duo</strong> même écran</span>
+            <span><strong>75 s</strong> pour sauver l'uptime</span>
+            <span><strong>Neon FX</strong> particules et glow dynamique</span>
+            <span><strong>MBL Tech</strong> gameplay clavier et tactile</span>
           </div>
-          <div class="visual-frame game-preview-frame">
-            <div class="game-preview-board" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span><span></span>
+          <div class="visual-frame game-preview-frame cyber-preview-frame">
+            <div class="cyber-preview-stage" aria-hidden="true">
+              <div class="cyber-preview-grid"></div>
+              <div class="cyber-preview-rack cyber-preview-rack-left">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="cyber-preview-rack cyber-preview-rack-right">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="cyber-preview-rack cyber-preview-rack-alert">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="cyber-preview-tech">
+                <i></i>
+                <b></b>
+              </div>
+              <div class="cyber-preview-beam"></div>
+              <div class="cyber-preview-particles">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
             </div>
             <div class="visual-card">
-              <span>Micro expérience</span>
-              <strong>Un jeu léger pour montrer le soin porté aux interactions.</strong>
-              <p>Animations douces, interface claire, mode solo et mode deux joueurs.</p>
+              <span>Mission premium</span>
+              <strong>Une scène Three.js pensée comme une vraie salle serveur futuriste.</strong>
+              <p>Glow cyan et ambre, incidents dynamiques, score, combo et HUD bas-chrome pour laisser respirer le playfield.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="puissance-4" class="section-band game-section" aria-labelledby="connect4-title">
+      <section id="datacenter-neon-rush" class="section-band game-section cyber-section" aria-labelledby="cyber-title">
         <div class="section-head" data-animate>
           <div>
-            <p class="premium-kicker">Puissance 4</p>
-            <h2 id="connect4-title">Alignez 4 jetons avant votre adversaire.</h2>
+            <p class="premium-kicker">Datacenter Neon Rush</p>
+            <h2 id="cyber-title">Stabilisez les racks avant que l'uptime ne s'effondre.</h2>
           </div>
           <p>
-            Cliquez une colonne, utilisez les touches 1 à 7, ou jouez au tactile. Le mode solo
-            déclenche une réponse automatique de l'ordinateur.
+            Déplacez-vous dans l'allée centrale, ciblez les serveurs en alerte et maintenez la
+            réparation juste à temps. Plus vous enchaînez vite, plus votre combo et votre score
+            montent.
           </p>
         </div>
 
-        <div class="game-shell" data-animate>
-          <div class="game-panel">
-            <div class="game-toolbar" aria-label="Options de partie">
-              <button class="game-mode is-active" type="button" data-mode="solo">Solo vs ordinateur</button>
-              <button class="game-mode" type="button" data-mode="duo">2 joueurs</button>
-              <button class="game-reset" type="button" data-restart>Rejouer</button>
+        <div class="game-shell cyber-shell" data-animate>
+          <div class="game-panel cyber-panel" data-spotlight>
+            <div class="game-toolbar cyber-toolbar" aria-label="Pilotage de mission">
+              <div class="cyber-toolbar-copy">
+                <span class="compact-label">Mission live</span>
+                <strong>Technicien MBL sur site</strong>
+                <small>Clavier, tactile, score et uptime en temps réel.</small>
+              </div>
+              <div class="cyber-toolbar-actions">
+                <button class="game-mode is-active" type="button" data-game-action="restart">Nouvelle mission</button>
+                <button class="game-reset" type="button" data-game-action="pause" aria-pressed="false">Pause</button>
+              </div>
             </div>
 
-            <div class="game-board-wrap">
-              <canvas
-                id="connect4Canvas"
-                width="840"
-                height="720"
-                aria-label="Plateau de Puissance 4, 7 colonnes et 6 lignes"
-              ></canvas>
-              <p id="gameStatus" class="game-status" aria-live="polite">À vous de jouer. Choisissez une colonne.</p>
+            <div class="game-board-wrap cyber-stage-shell">
+              <div class="cyber-arena" data-cyber-game>
+                <canvas
+                  id="cyberGameCanvas"
+                  aria-label="Mini-jeu 3D dans un datacenter futuriste où un technicien MBL répare des serveurs"
+                ></canvas>
+
+                <div class="cyber-hud">
+                  <div class="cyber-hud-row cyber-hud-row-top">
+                    <div class="cyber-chip cyber-objective">
+                      <span>Objectif</span>
+                      <strong id="cyberObjective">Cliquez sur démarrer, allez au rack orange ou rouge, puis maintenez E pour le réparer.</strong>
+                    </div>
+                    <div class="cyber-score-strip">
+                      <div class="cyber-chip">
+                        <span>Score</span>
+                        <strong id="cyberScore">0</strong>
+                      </div>
+                      <div class="cyber-chip">
+                        <span>Temps</span>
+                        <strong id="cyberTimer">75s</strong>
+                      </div>
+                      <div class="cyber-chip">
+                        <span>Combo</span>
+                        <strong id="cyberCombo">x1</strong>
+                      </div>
+                      <div class="cyber-chip">
+                        <span>Uptime</span>
+                        <strong id="cyberUptime">100%</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="cyberIntro" class="cyber-intro">
+                    <span class="compact-label">Comment jouer</span>
+                    <strong>Réparez les racks en alerte avant que l'uptime ne tombe.</strong>
+                    <div class="cyber-intro-steps">
+                      <span><strong>1.</strong> Cherchez le rack <em>orange ou rouge</em> et le <em>halo lumineux</em> devant lui.</span>
+                      <span><strong>2.</strong> Déplacez-vous avec <em>ZQSD / WASD / flèches</em>.</span>
+                      <span><strong>3.</strong> Placez-vous juste devant le rack, puis maintenez <em>E</em> ou <em>Espace</em>.</span>
+                      <span><strong>4.</strong> Quand la barre atteint <em>100%</em>, le rack est réparé et votre score monte.</span>
+                    </div>
+                    <div class="cyber-intro-legend">
+                      <span class="is-safe">Cyan = stable</span>
+                      <span class="is-warning">Orange = à réparer</span>
+                      <span class="is-critical">Rouge = urgence</span>
+                    </div>
+                    <button class="button button-primary" type="button" data-game-action="start">Démarrer la mission</button>
+                  </div>
+
+                  <div class="cyber-hud-row cyber-hud-row-bottom">
+                    <div id="cyberPrompt" class="cyber-prompt">Cliquez sur « Démarrer la mission », puis allez vers le rack orange ou rouge.</div>
+                    <div class="cyber-progress">
+                      <span>Progression de réparation</span>
+                      <div class="cyber-progress-track">
+                        <span id="cyberRepairFill"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="cyberEndcard" class="cyber-endcard" hidden>
+                    <span class="compact-label">Mission terminée</span>
+                    <strong id="cyberEndTitle">Datacenter stabilisé</strong>
+                    <p id="cyberEndSummary">Vous avez maintenu le réseau sous tension critique.</p>
+                    <button class="button button-primary" type="button" data-game-action="restart">Relancer la mission</button>
+                  </div>
+
+                  <div class="cyber-mobile-controls" aria-label="Contrôles tactiles">
+                    <div class="cyber-dpad">
+                      <button type="button" data-touch-move="up" aria-label="Avancer">^</button>
+                      <button type="button" data-touch-move="left" aria-label="Aller à gauche">&lt;</button>
+                      <button type="button" data-touch-move="down" aria-label="Reculer">v</button>
+                      <button type="button" data-touch-move="right" aria-label="Aller à droite">&gt;</button>
+                    </div>
+                    <button class="cyber-action-button" type="button" data-touch-action="repair">REPAIR</button>
+                  </div>
+                </div>
+              </div>
+
+              <p id="cyberStatus" class="game-status cyber-status" aria-live="polite">
+                Mission initialisée. Stabilisez le datacenter avant la panne générale.
+              </p>
             </div>
           </div>
 
-          <aside class="game-side" aria-label="Aide et état du jeu">
-            <span class="compact-label">Règles</span>
-            <h3>Le premier alignement gagne.</h3>
+          <aside class="game-side cyber-side" aria-label="Console de pilotage" data-spotlight>
+            <span class="compact-label">Ops console</span>
+            <h3>Technicien MBL en intervention néon.</h3>
             <p>
-              Posez un jeton dans une colonne. Le jeton tombe à la première case disponible.
-              Alignez 4 jetons horizontalement, verticalement ou en diagonale.
+              Les racks passent du cyan stable à l'orange d'alerte, puis au rouge critique.
+              Chaque seconde perdue fait baisser l'uptime. Réparations rapides = meilleur combo.
             </p>
-            <div class="game-stats">
-              <div><strong id="gameModeLabel">Solo</strong><span>Mode</span></div>
-              <div><strong id="gameTurnLabel">Orange</strong><span>Tour</span></div>
-              <div><strong>1-7</strong><span>Clavier</span></div>
+
+            <div class="game-stats cyber-stats-grid">
+              <div><strong id="cyberRepaired">0</strong><span>Serveurs réparés</span></div>
+              <div><strong id="cyberIncidents">0</strong><span>Incidents actifs</span></div>
+              <div><strong id="cyberBestCombo">x1</strong><span>Meilleure série</span></div>
+              <div><strong id="cyberThreat">Faible</strong><span>Niveau d'alerte</span></div>
             </div>
-            <div class="game-scoreboard" aria-label="Score de la session">
-              <div class="score-card orange">
-                <span>Orange</span>
-                <strong id="gameOrangeScore">0</strong>
-              </div>
-              <div class="score-separator">:</div>
-              <div class="score-card teal">
-                <span id="gameTealLabel">Ordinateur</span>
-                <strong id="gameTealScore">0</strong>
+
+            <div class="cyber-side-card">
+              <span class="compact-label">Contrôles</span>
+              <div class="cyber-control-list">
+                <span><strong>ZQSD / WASD</strong> Déplacement</span>
+                <span><strong>Flèches</strong> Alternative clavier</span>
+                <span><strong>E / Espace</strong> Maintenir pour réparer</span>
+                <span><strong>Mobile</strong> D-pad et bouton REPAIR</span>
               </div>
             </div>
-            <p class="game-tip">
-              Le score reste actif jusqu'au refresh de la page. Astuce : commencez au centre,
-              les alignements y ouvrent plus d'options.
-            </p>
+
+            <div class="cyber-side-card">
+              <span class="compact-label">Cible prioritaire</span>
+              <strong id="cyberTarget">Aucune alerte active</strong>
+              <p id="cyberTargetDetail" class="game-tip">
+                Restez mobile entre les deux lignes de racks pour couvrir vite les incidents.
+              </p>
+            </div>
+
+            <div class="cyber-side-card">
+              <span class="compact-label">Incidents live</span>
+              <div id="cyberIncidentList" class="cyber-incident-list"></div>
+            </div>
+
+            <div class="cyber-side-card">
+              <span class="compact-label">Journal MBL</span>
+              <div id="cyberFeed" class="cyber-feed"></div>
+            </div>
           </aside>
         </div>
       </section>
 
       <section class="premium-cta" data-animate>
-        <p class="premium-kicker">Besoin réel</p>
-        <h2>Un site ou un outil interactif peut aussi devenir un levier de marque.</h2>
+        <p class="premium-kicker">Digital premium</p>
+        <h2>Un jeu de marque peut devenir une vitrine technique mémorisable.</h2>
         <p>
-          MY BUSINESS LIFE crée des expériences digitales utiles, mémorables et adaptées à votre
-          activité, du site vitrine au logiciel métier.
+          MY BUSINESS LIFE conçoit des expériences interactives qui racontent un savoir-faire,
+          valorisent une expertise et transforment une simple visite en souvenir fort.
         </p>
         <div class="premium-actions">
-          <a class="button button-primary" href="contact.html">Créer mon expérience</a>
-          <a class="button button-secondary" href="developpement-web.html">Voir développement web</a>
+          <a class="button button-primary" href="contact.html">Imaginer mon expérience</a>
+          <a class="button button-secondary" href="developpement-web.html">Voir le développement web</a>
         </div>
       </section>
     </main>
@@ -198,6 +316,8 @@
           <a href="developpement-web.html">Développement web</a>
           <a href="logiciel-sur-mesure.html">Logiciel sur-mesure</a>
           <a href="automatisation.html">Automatisation</a>
+          <a href="agents-ia.html">Agents IA</a>
+          <a href="assistance-informatique-domicile.html">Assistance à domicile</a>
           <a href="reparation-ordinateur.html">Réparation ordinateur</a>
           <a href="achat-materiel-informatique.html">Achat matériel</a>
         </div>
@@ -206,25 +326,31 @@
           <a href="particuliers.html">Particuliers</a>
           <a href="professionnels.html">Professionnels</a>
           <a href="diagnostic.html">Diagnostic en ligne</a>
+          <a href="espace-client.html">Espace client</a>
           <a href="contact.html">Demander une étude</a>
         </div>
         <div class="footer-column">
           <strong>Ressources</strong>
           <a href="cas-clients.html">Cas clients</a>
           <a href="blog.html">Blog</a>
+          <a href="credit-impot-assistance-informatique.html">Crédit d'impôt informatique</a>
           <a href="jeux.html">Jeux</a>
           <a href="ebook.html">Ebook logiciel</a>
           <a href="ebook-site-internet.html">Ebook site internet</a>
+          <a href="ebook-agents-ia.html">Ebook agents IA</a>
+          <a href="ebook-reparation-informatique.html">Ebook réparation</a>
           <a href="mailto:contact@mybusinesslife.fr">contact@mybusinesslife.fr</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 MY BUSINESS LIFE. Tous droits réservés.</span>
-        <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a></span>
+        <span><a href="mentions-legales.html">Mentions légales</a> · <a href="conditions-utilisation.html">CGU</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a> · <a href="accessibilite.html">Accessibilité</a></span>
       </div>
     </footer>
 
-    <script src="premium-site.js?v=19"></script>
-    <script src="jeux.js?v=12"></script>
+    <script src="site-config.js?v=4"></script>
+    <script src="site-data.js?v=7"></script>
+    <script src="premium-site.js?v=29"></script>
+    <script type="module" src="jeux.js?v=16"></script>
   </body>
 </html>

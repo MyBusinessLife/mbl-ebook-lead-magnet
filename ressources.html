@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07131c" />
+    <meta
+      name="description"
+      content="Explorez l'univers des ressources MY BUSINESS LIFE : ebooks logiciel, site internet, agents IA, réparation informatique, cas clients, blog et guides utiles."
+    />
+    <meta
+      name="keywords"
+      content="ressources MY BUSINESS LIFE, ebook logiciel, ebook site internet, ebook agents IA, ebook réparation informatique, cas clients, blog digital"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://mybusinesslife.fr/ressources.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Univers des ressources | MY BUSINESS LIFE" />
+    <meta
+      property="og:description"
+      content="Un système solaire 3D premium pour naviguer entre les ressources, ebooks, cas clients et guides MY BUSINESS LIFE."
+    />
+    <meta property="og:url" content="https://mybusinesslife.fr/ressources.html" />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Univers des ressources | MY BUSINESS LIFE</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preload" href="assets/logo.png" as="image" />
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="premium-site.css?v=32" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Univers des ressources MY BUSINESS LIFE",
+        "url": "https://mybusinesslife.fr/ressources.html",
+        "description": "Une page immersive pour accéder aux ebooks, cas clients et guides MY BUSINESS LIFE.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "MY BUSINESS LIFE",
+          "url": "https://mybusinesslife.fr/",
+          "logo": "https://mybusinesslife.fr/assets/logo.png"
+        }
+      }
+    </script>
+  </head>
+  <body class="resources-universe-page">
+    <main class="resources-universe-main">
+      <section class="resources-universe-shell" data-resources-universe aria-labelledby="resources-universe-page-title">
+        <h1 id="resources-universe-page-title" class="sr-only">Univers des ressources MY BUSINESS LIFE</h1>
+        <canvas
+          id="resourcesUniverseCanvas"
+          class="resources-universe-canvas"
+          aria-label="Système solaire 3D des ressources MY BUSINESS LIFE avec planètes cliquables"
+        ></canvas>
+
+        <div class="resources-universe-topbar">
+          <a class="resources-universe-brand" href="index.html" aria-label="Retour à l'accueil MY BUSINESS LIFE">
+            <span class="resources-universe-brand-mark"><img src="assets/logo.png" alt="" /></span>
+            <span class="resources-universe-brand-copy">
+              <strong>MY BUSINESS LIFE</strong>
+              <small>Univers des ressources</small>
+            </span>
+          </a>
+          <div class="resources-universe-actions">
+            <button
+              class="resources-universe-audio"
+              type="button"
+              data-universe-audio
+              aria-pressed="false"
+              aria-label="Activer l'ambiance sonore"
+            >
+              Activer le son
+            </button>
+            <a class="resources-universe-exit" href="index.html">Retour au site</a>
+          </div>
+        </div>
+
+        <button class="resources-universe-open" type="button" data-universe-open aria-expanded="false">
+          Explorer une ressource
+        </button>
+
+        <div class="resources-universe-backdrop" data-universe-backdrop aria-hidden="true"></div>
+
+        <aside
+          class="resources-universe-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="resources-universe-title"
+          aria-describedby="resources-universe-description"
+          aria-hidden="true"
+          data-universe-panel
+        >
+          <button
+            class="resources-universe-close"
+            type="button"
+            data-universe-close
+            aria-label="Revenir à la vue globale"
+          >
+            Retour à l'univers
+          </button>
+          <div class="resources-universe-copy">
+            <span class="resources-universe-kicker" data-universe-type>Ressource sélectionnée</span>
+            <h2 id="resources-universe-title" data-universe-title>Logiciel sur-mesure</h2>
+            <p id="resources-universe-description" class="resources-universe-description" data-universe-text>
+              Un ebook premium pour comprendre comment centraliser vos données, automatiser vos tâches et construire un outil métier réellement adapté.
+            </p>
+            <div class="resources-universe-chips" data-universe-chips aria-label="Formats et thèmes"></div>
+            <a class="button button-primary" href="ebook.html" data-universe-link>Ouvrir la ressource</a>
+          </div>
+          <div class="resources-universe-meta">
+            <div>
+              <span>Format</span>
+              <strong data-universe-format>Ebook digital</strong>
+            </div>
+            <div>
+              <span>But</span>
+              <strong data-universe-goal>Comprendre avant d'investir</strong>
+            </div>
+          </div>
+        </aside>
+
+        <div class="resources-universe-hint" aria-hidden="true">
+          <span>Glisser pour orbiter</span>
+          <span>Molette pour zoomer</span>
+          <strong>Cliquez une planète pour ouvrir sa fiche</strong>
+        </div>
+
+        <nav class="sr-only" aria-label="Liste des ressources MY BUSINESS LIFE">
+          <a href="ebook.html">Ebook logiciel sur-mesure</a>
+          <a href="ebook-site-internet.html">Ebook site internet moderne</a>
+          <a href="ebook-agents-ia.html">Ebook agents IA</a>
+          <a href="ebook-reparation-informatique.html">Ebook réparation informatique</a>
+          <a href="cas-clients.html">Cas clients</a>
+          <a href="blog.html">Blog MY BUSINESS LIFE</a>
+          <a href="credit-impot-assistance-informatique.html">Guide crédit d'impôt assistance informatique</a>
+        </nav>
+
+        <div class="resources-universe-fallback" role="status">
+          <strong>Chargement de l'univers 3D</strong>
+          <span>Si la scène ne s'affiche pas, votre navigateur bloque peut-être WebGL.</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="site-config.js?v=5"></script>
+    <script src="site-data.js?v=8"></script>
+    <script src="premium-site.js?v=31"></script>
+    <script type="module" src="resources-universe.js?v=8"></script>
+  </body>
+</html>

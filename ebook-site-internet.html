@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://mybusinesslife.fr/ebook-site-internet.html" />
     <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
     <title>MY BUSINESS LIFE | Ebook site internet moderne</title>
-    <link rel="stylesheet" href="ebook.css?v=12" />
+    <link rel="stylesheet" href="ebook.css?v=13" />
   </head>
   <body class="ebook-upgrade web-ebook">
     <div class="page-glow page-glow-a" aria-hidden="true"></div>
@@ -211,7 +211,7 @@
           </label>
           <label>
             <span>Email professionnel</span>
-            <input type="email" name="email" placeholder="vous@entreprise.fr" />
+            <input type="email" name="email" placeholder="vous@entreprise.fr" autocomplete="email" required />
           </label>
           <button class="button button-primary" type="submit">Préparer mon diagnostic web</button>
           <p id="formMessage" class="form-message" role="status"></p>
@@ -231,6 +231,7 @@
         productionUrl: "https://mybusinesslife.fr/ebook-site-internet.html",
         redirectProduction: false,
         ctaUrl: "contact.html",
+        source: "ebook-site-internet",
         pdfFilename: "ebook-site-internet-moderne-mbl.pdf",
         pdfFooterText: "Sites internet premium, tracking et pilotage digital",
         formSuccessMessage:
@@ -385,7 +386,9 @@
         ],
       };
     </script>
+    <script src="site-config.js?v=4"></script>
+    <script src="site-data.js?v=7"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-    <script src="ebook.js?v=13"></script>
+    <script src="ebook.js?v=16"></script>
   </body>
 </html>

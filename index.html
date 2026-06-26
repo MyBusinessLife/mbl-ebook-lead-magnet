@@ -6,11 +6,11 @@
     <meta name="theme-color" content="#0F2230" />
     <meta
       name="description"
-      content="MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des sites web premium, logiciels sur-mesure, automatisations, stratégie digitale, réparation informatique et conseil matériel."
+      content="MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des sites web premium, logiciels sur-mesure, agents IA, automatisations, stratégie digitale, réparation informatique et conseil matériel."
     />
     <meta
       name="keywords"
-      content="MY BUSINESS LIFE, site web premium, logiciel sur-mesure, automatisation, réparation ordinateur, achat matériel informatique, stratégie digitale"
+      content="MY BUSINESS LIFE, site web premium, logiciel sur-mesure, agents IA, automatisation, réparation ordinateur, achat matériel informatique, stratégie digitale"
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://mybusinesslife.fr/" />
@@ -23,9 +23,9 @@
     <meta property="og:url" content="https://mybusinesslife.fr/" />
     <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>MY BUSINESS LIFE | Sites web, logiciels, automatisation et informatique</title>
+    <title>MY BUSINESS LIFE | Sites web, logiciels, agents IA et informatique</title>
     <link rel="preload" href="assets/logo.png" as="image" />
-    <link rel="stylesheet" href="premium-site.css?v=19" />
+    <link rel="stylesheet" href="premium-site.css?v=32" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -33,7 +33,7 @@
         "name": "MY BUSINESS LIFE",
         "url": "https://mybusinesslife.fr/",
         "logo": "https://mybusinesslife.fr/assets/logo.png",
-        "description": "MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des solutions digitales, sites web, logiciels sur-mesure, automatisations et services informatiques."
+        "description": "MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des solutions digitales, sites web, logiciels sur-mesure, agents IA, automatisations et services informatiques."
       }
     </script>
   </head>
@@ -53,7 +53,9 @@
         <div class="nav-group">
           <button class="nav-link nav-menu-button" type="button" aria-expanded="false">Particuliers</button>
           <div class="nav-dropdown">
-            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Réparation, conseil et matériel.</small></a>
+            <a href="particuliers.html"><span>Vue d'ensemble</span><small>Domicile, réparation, conseil et matériel.</small></a>
+            <a href="assistance-informatique-domicile.html"><span>Assistance à domicile</span><small>Dépannage chez vous, crédit d'impôt 50%.</small></a>
+            <a href="installation-camera-surveillance.html"><span>Caméras de surveillance</span><small>Intérieur, extérieur, alertes et départs en vacances.</small></a>
             <a href="reparation-ordinateur.html"><span>Réparation ordinateur</span><small>PC lent, écran, mot de passe, données.</small></a>
             <a href="achat-materiel-informatique.html"><span>Achat matériel</span><small>PC, RAM, stockage, écran et usage.</small></a>
           </div>
@@ -65,6 +67,7 @@
             <a href="developpement-web.html"><span>Développement web</span><small>Sites premium, SEO et conversion.</small></a>
             <a href="logiciel-sur-mesure.html"><span>Logiciel sur-mesure</span><small>Outils métier, dashboards et automatisation.</small></a>
             <a href="automatisation.html"><span>Automatisation</span><small>Flux, relances et tâches répétitives.</small></a>
+            <a href="agents-ia.html"><span>Agents IA</span><small>Assistants métier, workflows et automatisation intelligente.</small></a>
             <a href="strategie-digitale.html"><span>Stratégie digitale</span><small>Audit, priorités et feuille de route.</small></a>
           </div>
         </div>
@@ -74,12 +77,16 @@
           <div class="nav-dropdown">
             <a href="cas-clients.html"><span>Cas clients</span><small>Exemples de transformation digitale.</small></a>
             <a href="blog.html"><span>Blog</span><small>Conseils web, logiciel et informatique.</small></a>
+            <a href="credit-impot-assistance-informatique.html"><span>Crédit d'impôt</span><small>Comprendre le reste à charge 50%.</small></a>
             <a href="jeux.html"><span>Jeux</span><small>Puissance 4 MY BUSINESS LIFE.</small></a>
             <a href="ebook.html"><span>Ebook logiciel</span><small>Automatiser et centraliser votre activité.</small></a>
             <a href="ebook-site-internet.html"><span>Ebook site internet</span><small>Moderniser, suivre et convertir.</small></a>
+            <a href="ebook-agents-ia.html"><span>Ebook agents IA</span><small>Automatiser sans perdre le contrôle.</small></a>
+            <a href="ebook-reparation-informatique.html"><span>Ebook réparation</span><small>Diagnostiquer avant d'intervenir.</small></a>
           </div>
         </div>
         <a href="a-propos.html">À propos</a>
+        <a href="espace-client.html">Espace client</a>
         <a class="nav-cta" href="contact.html">Contact</a>
       </nav>
     </header>
@@ -104,7 +111,7 @@
           </div>
         </div>
 
-        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE" data-animate="scale">
+        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE" data-stage-panel data-animate="scale">
           <div class="stage-shell">
             <div class="stage-topbar">
               <span></span>
@@ -120,15 +127,28 @@
                 <span></span>
               </aside>
               <div class="stage-main">
-                <div class="stage-kpis">
-                  <span>Présence</span>
-                  <span>Automatisation</span>
-                  <span>Pilotage</span>
+                <div class="stage-kpis" aria-label="Accès rapides aux solutions">
+                  <a class="stage-kpi is-active" href="developpement-web.html" data-stage-control="presence" aria-label="Explorer les sites web premium">
+                    <span>Présence</span>
+                    <small>Site moderne</small>
+                  </a>
+                  <a class="stage-kpi" href="automatisation.html" data-stage-control="automation" aria-label="Explorer les automatisations">
+                    <span>Automatisation</span>
+                    <small>Flux et tâches</small>
+                  </a>
+                  <a class="stage-kpi" href="logiciel-sur-mesure.html" data-stage-control="pilotage" aria-label="Explorer le pilotage et les dashboards">
+                    <span>Pilotage</span>
+                    <small>Dashboard métier</small>
+                  </a>
                 </div>
                 <div class="stage-board">
                   <div class="stage-status">
-                    <strong>Plan digital</strong>
-                    <span>Priorités, actions, résultats</span>
+                    <strong data-stage-title>Plan digital</strong>
+                    <span data-stage-copy>Priorités, actions, résultats</span>
+                  </div>
+                  <div class="stage-insight" data-stage-insight>
+                    <span>Parcours conseillé</span>
+                    <strong>Clarifier la présence, puis convertir.</strong>
                   </div>
                   <div class="stage-line"></div>
                   <div class="stage-line short"></div>
@@ -220,18 +240,28 @@
             <h3>Automatisation</h3>
             <p>Relances, exports, synchronisations et tâches répétitives deviennent fluides.</p>
           </a>
-          <a class="solution-card" href="strategie-digitale.html" data-animate style="--delay: 190ms">
+          <a class="solution-card" href="agents-ia.html" data-animate style="--delay: 190ms">
             <span>04</span>
+            <h3>Agents IA</h3>
+            <p>Assistants métier pour qualifier, répondre, synthétiser et accélérer vos équipes.</p>
+          </a>
+          <a class="solution-card" href="strategie-digitale.html" data-animate style="--delay: 240ms">
+            <span>05</span>
             <h3>Stratégie digitale</h3>
             <p>Clarifier les priorités avant d'investir du temps ou du budget.</p>
           </a>
-          <a class="solution-card" href="reparation-ordinateur.html" data-animate style="--delay: 240ms">
-            <span>05</span>
+          <a class="solution-card" href="reparation-ordinateur.html" data-animate style="--delay: 290ms">
+            <span>06</span>
             <h3>Réparation ordinateur</h3>
             <p>PC lent, écran cassé, mot de passe perdu, virus ou récupération de données.</p>
           </a>
-          <a class="solution-card" href="achat-materiel-informatique.html" data-animate style="--delay: 290ms">
-            <span>06</span>
+          <a class="solution-card" href="assistance-informatique-domicile.html" data-animate style="--delay: 340ms">
+            <span>07</span>
+            <h3>Assistance à domicile</h3>
+            <p>Dépannage informatique chez vous avec crédit d'impôt 50% sous conditions.</p>
+          </a>
+          <a class="solution-card" href="achat-materiel-informatique.html" data-animate style="--delay: 390ms">
+            <span>08</span>
             <h3>Achat matériel</h3>
             <p>Choisir le bon PC, la bonne RAM, le bon stockage et la bonne configuration.</p>
           </a>
@@ -377,6 +407,9 @@
           <a href="developpement-web.html">Développement web</a>
           <a href="logiciel-sur-mesure.html">Logiciel sur-mesure</a>
           <a href="automatisation.html">Automatisation</a>
+          <a href="agents-ia.html">Agents IA</a>
+          <a href="assistance-informatique-domicile.html">Assistance à domicile</a>
+          <a href="installation-camera-surveillance.html">Caméras de surveillance</a>
           <a href="reparation-ordinateur.html">Réparation ordinateur</a>
           <a href="achat-materiel-informatique.html">Achat matériel</a>
         </div>
@@ -385,24 +418,30 @@
           <a href="particuliers.html">Particuliers</a>
           <a href="professionnels.html">Professionnels</a>
           <a href="diagnostic.html">Diagnostic en ligne</a>
+          <a href="espace-client.html">Espace client</a>
           <a href="contact.html">Demander une étude</a>
         </div>
         <div class="footer-column">
           <strong>Ressources</strong>
           <a href="cas-clients.html">Cas clients</a>
           <a href="blog.html">Blog</a>
+          <a href="credit-impot-assistance-informatique.html">Crédit d'impôt informatique</a>
           <a href="jeux.html">Jeux</a>
           <a href="ebook.html">Ebook logiciel</a>
           <a href="ebook-site-internet.html">Ebook site internet</a>
+          <a href="ebook-agents-ia.html">Ebook agents IA</a>
+          <a href="ebook-reparation-informatique.html">Ebook réparation</a>
           <a href="mailto:contact@mybusinesslife.fr">contact@mybusinesslife.fr</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 MY BUSINESS LIFE. Tous droits réservés.</span>
-        <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a></span>
+        <span><a href="mentions-legales.html">Mentions légales</a> · <a href="conditions-utilisation.html">CGU</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cookies.html">Cookies</a> · <a href="accessibilite.html">Accessibilité</a></span>
       </div>
     </footer>
 
-    <script src="premium-site.js?v=19"></script>
+    <script src="site-config.js?v=4"></script>
+    <script src="site-data.js?v=7"></script>
+    <script src="premium-site.js?v=29"></script>
   </body>
 </html>

@@ -1284,6 +1284,100 @@ h3 {
   padding: 24px 0 34px;
 }
 
+.ebook-cookie-consent {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 980;
+  width: min(540px, calc(100vw - 36px));
+  max-height: calc(100svh - 36px);
+  overflow: auto;
+  border: 1px solid rgba(247, 249, 252, 0.16);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(28, 143, 163, 0.2), transparent 38%),
+    linear-gradient(145deg, rgba(20, 52, 71, 0.98), rgba(6, 19, 28, 0.98));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+  color: var(--white);
+  opacity: 0;
+  padding: 18px;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.98);
+  transition:
+    opacity 260ms var(--ease),
+    transform 260ms var(--ease);
+}
+
+.ebook-cookie-consent.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.ebook-cookie-consent strong {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.ebook-cookie-consent p,
+.ebook-cookie-consent label,
+.ebook-cookie-consent a {
+  color: rgba(247, 249, 252, 0.74);
+  font-size: 0.86rem;
+}
+
+.ebook-cookie-consent label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-weight: 800;
+}
+
+.ebook-cookie-consent input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--orange);
+}
+
+.ebook-cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 10px;
+}
+
+.ebook-cookie-actions button {
+  min-height: 38px;
+  border: 1px solid rgba(247, 249, 252, 0.15);
+  border-radius: var(--radius);
+  background: rgba(247, 249, 252, 0.08);
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  padding: 8px 11px;
+  transition:
+    transform 180ms var(--ease),
+    border-color 180ms var(--ease),
+    box-shadow 180ms var(--ease);
+}
+
+.ebook-cookie-actions button:last-child {
+  border-color: rgba(255, 106, 46, 0.5);
+  background: var(--orange);
+  color: #190802;
+}
+
+.ebook-cookie-actions button:hover {
+  border-color: rgba(255, 106, 46, 0.45);
+  box-shadow: 0 12px 28px rgba(255, 106, 46, 0.16);
+  transform: translateY(-2px);
+}
+
 .section-reveal {
   opacity: 1;
   transform: translateY(0);
@@ -1542,6 +1636,23 @@ h3 {
   .footer {
     display: grid;
   }
+
+  .ebook-cookie-consent {
+    right: 9px;
+    bottom: 9px;
+    left: 9px;
+    width: auto;
+    padding: 14px;
+  }
+
+  .ebook-cookie-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ebook-cookie-actions button {
+    width: 100%;
+  }
 }
 
 @media print {
@@ -1684,4 +1795,78 @@ h3 {
   border-color: rgba(28, 143, 163, 0.28);
   box-shadow: 0 18px 44px rgba(7, 19, 28, 0.1);
   transform: translateY(-3px);
+}
+
+.ai-ebook {
+  background:
+    radial-gradient(circle at 18% 14%, rgba(28, 143, 163, 0.28), transparent 34rem),
+    radial-gradient(circle at 82% 12%, rgba(255, 106, 46, 0.13), transparent 30rem),
+    var(--bg);
+}
+
+.repair-ebook {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 106, 46, 0.18), transparent 32rem),
+    radial-gradient(circle at 82% 18%, rgba(28, 143, 163, 0.22), transparent 34rem),
+    var(--bg);
+}
+
+.ai-ebook .mockup-cover {
+  background:
+    radial-gradient(circle at 70% 18%, rgba(28, 143, 163, 0.32), transparent 11rem),
+    linear-gradient(155deg, #162232 0%, #0f2230 55%, #143447 100%);
+}
+
+.repair-ebook .mockup-cover {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 106, 46, 0.34), transparent 10rem),
+    linear-gradient(155deg, #1c2028 0%, #0f2230 52%, #143447 100%);
+}
+
+.ebook-preview-motion .preview-chart i {
+  transform-origin: bottom;
+  animation: ebookBarPulse 3.4s ease-in-out infinite;
+}
+
+.ebook-preview-motion .preview-chart i:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.ebook-preview-motion .preview-chart i:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+.ebook-preview-motion .preview-chart i:nth-child(4) {
+  animation-delay: 460ms;
+}
+
+.ebook-preview-motion .preview-chart i:nth-child(5) {
+  animation-delay: 600ms;
+}
+
+.ai-ebook .preview-kpis span,
+.ai-ebook .preview-flow span:nth-child(2),
+.repair-ebook .preview-kpis span,
+.repair-ebook .preview-flow span:nth-child(3) {
+  border-color: rgba(28, 143, 163, 0.28);
+  background: rgba(28, 143, 163, 0.12);
+}
+
+.repair-ebook .preview-flow span:nth-child(4),
+.ai-ebook .preview-flow span:nth-child(4) {
+  border-color: rgba(255, 106, 46, 0.34);
+  background: rgba(255, 106, 46, 0.12);
+}
+
+@keyframes ebookBarPulse {
+  0%,
+  100% {
+    transform: scaleY(0.86);
+    filter: saturate(1);
+  }
+
+  50% {
+    transform: scaleY(1.08);
+    filter: saturate(1.35);
+  }
 }
