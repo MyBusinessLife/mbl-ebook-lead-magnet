@@ -297,80 +297,44 @@
       }
 
       .method-node {
-        background: linear-gradient(135deg, rgba(255, 106, 46, 0.15), rgba(255, 106, 46, 0.07));
-        border: 1px solid rgba(255, 106, 46, 0.35);
+        background: var(--navy);
+        border: 1.5px solid rgba(255, 106, 46, 0.55);
         border-radius: 100px;
-        padding: 10px 22px;
+        padding: 11px 24px;
         font-size: 0.85rem;
         font-weight: 700;
-        color: var(--white);
+        color: #f7f9fc;
         white-space: nowrap;
+        box-shadow: 0 2px 12px rgba(4, 17, 26, 0.12);
       }
 
       .method-arrow {
         color: var(--orange);
-        font-size: 1.1rem;
-        font-weight: 700;
+        font-size: 1.2rem;
+        font-weight: 900;
         flex-shrink: 0;
       }
 
-      /* Loop diagram */
+      /* Loop diagram — SVG version */
       .loop-diagram {
         margin: 48px auto 0;
-        max-width: 640px;
-        position: relative;
-        aspect-ratio: 1 / 0.55;
-      }
-
-      .loop-inner {
+        max-width: 480px;
         width: 100%;
-        height: 100%;
-        border: 2px dashed rgba(255, 106, 46, 0.3);
-        border-radius: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        animation: spin-loop 22s linear infinite;
       }
 
-      @keyframes spin-loop { to { transform: rotate(360deg); } }
-
-      .loop-nodes {
-        position: absolute;
-        inset: 0;
-        animation: spin-loop-reverse 22s linear infinite;
+      .loop-diagram svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
       }
 
-      @keyframes spin-loop-reverse { to { transform: rotate(-360deg); } }
-
-      .loop-node {
-        position: absolute;
-        background: var(--navy-2);
-        border: 1px solid rgba(255, 106, 46, 0.45);
-        border-radius: 8px;
-        padding: 8px 14px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: var(--white);
-        white-space: nowrap;
-        transform: translate(-50%, -50%);
+      @keyframes dash-flow {
+        to { stroke-dashoffset: -48; }
       }
 
-      /* Position nodes around ellipse */
-      .loop-node:nth-child(1) { top: 0%;  left: 50%; }
-      .loop-node:nth-child(2) { top: 50%; left: 100%; transform: translate(-100%, -50%); }
-      .loop-node:nth-child(3) { top: 100%; left: 65%; transform: translate(-50%, -100%); }
-      .loop-node:nth-child(4) { top: 100%; left: 35%; transform: translate(-50%, -100%); }
-      .loop-node:nth-child(5) { top: 50%; left: 0%; transform: translate(0%, -50%); }
-
-      .loop-center-text {
-        font-size: 0.78rem;
-        font-weight: 700;
-        color: var(--orange);
-        text-align: center;
-        line-height: 1.5;
-        padding: 0 40px;
+      @keyframes node-pulse {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0.7; }
       }
 
       /* Results placeholders */
@@ -953,72 +917,83 @@
             </div>
           </div>
           <div class="story-image" data-animate="scale" style="display:flex;align-items:center;justify-content:center">
-            <div class="loop-diagram" aria-label="Schéma en boucle : Analyse → Optimisation → Tests A/B → Analyse → Optimisation">
-              <div class="loop-inner">
-                <div class="loop-nodes">
-                  <div class="loop-node">Analyse des données</div>
-                  <div class="loop-node">Optimisation</div>
-                  <div class="loop-node">Tests A/B</div>
-                  <div class="loop-node">Résultats</div>
-                  <div class="loop-node">Amélioration</div>
-                </div>
-                <div class="loop-center-text">Cycle<br>d'optimisation<br>hebdomadaire</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <div class="loop-diagram" aria-label="Schéma en boucle : Analyse des données → Optimisation → Tests A/B → Résultats → Amélioration">
+            <!-- SVG circle r=160, cx=240, cy=200. 5 nodes at angles: -90°, -90+72, -90+144, -90+216, -90+288 -->
+            <!-- Angles (deg): -90, -18, 54, 126, 198 -->
+            <!-- Points (cx+r·cos, cy+r·sin): -->
+            <!-- -90°: (240, 40)  | -18°: (392, 151) | 54°: (334, 329) | 126°: (146, 329) | 198°: (88, 151) -->
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                  <path d="M1,1 L7,4 L1,7 Z" fill="#ff6a2e" opacity="0.9"/>
+                </marker>
+              </defs>
 
-      <!-- ═══════════════════════════════════════════
-           RÉSULTATS (placeholders évolutifs)
-      ═══════════════════════════════════════════ -->
-      <section class="section-band" id="resultats" aria-labelledby="results-title">
-        <div class="section-head" data-animate>
-          <div>
-            <p class="premium-kicker">Résultats</p>
-            <h2 id="results-title">Des résultats concrets, mesurables et partagés.</h2>
-          </div>
-          <p>
-            Captures d'écran, statistiques, témoignages clients et études de cas seront publiés ici
-            au fil des campagnes gérées par MBL Ads.
-          </p>
-        </div>
-        <div class="results-grid">
-          <div class="result-placeholder" data-animate>
-            <div class="ph-icon" aria-hidden="true">📸</div>
-            <span class="ph-badge">À venir</span>
-            <h3>Captures Meta Ads</h3>
-            <p>Résultats réels issus des gestionnaires de publicités Facebook et Instagram.</p>
-          </div>
-          <div class="result-placeholder" data-animate style="--delay:80ms">
-            <div class="ph-icon" aria-hidden="true">📉</div>
-            <span class="ph-badge">À venir</span>
-            <h3>Coût par prospect</h3>
-            <p>Évolution du coût par lead sur les campagnes optimisées par MBL Ads.</p>
-          </div>
-          <div class="result-placeholder" data-animate style="--delay:160ms">
-            <div class="ph-icon" aria-hidden="true">👥</div>
-            <span class="ph-badge">À venir</span>
-            <h3>Prospects générés</h3>
-            <p>Volume de demandes qualifiées obtenues via les campagnes pilotées.</p>
-          </div>
-          <div class="result-placeholder" data-animate style="--delay:240ms">
-            <div class="ph-icon" aria-hidden="true">💬</div>
-            <span class="ph-badge">À venir</span>
-            <h3>Témoignages clients</h3>
-            <p>Retours d'expérience des entrepreneurs accompagnés par MBL Ads.</p>
-          </div>
-          <div class="result-placeholder" data-animate style="--delay:320ms">
-            <div class="ph-icon" aria-hidden="true">📁</div>
-            <span class="ph-badge">À venir</span>
-            <h3>Études de cas</h3>
-            <p>Détail des stratégies mises en place et des résultats obtenus par secteur.</p>
-          </div>
-          <div class="result-placeholder" data-animate style="--delay:400ms">
-            <div class="ph-icon" aria-hidden="true">🎬</div>
-            <span class="ph-badge">À venir</span>
-            <h3>Vidéos & démonstrations</h3>
-            <p>Présentation vidéo des campagnes et des méthodes d'optimisation utilisées.</p>
+              <!-- Dashed animated circle track -->
+              <circle cx="240" cy="200" r="148"
+                fill="none"
+                stroke="rgba(255,106,46,0.18)"
+                stroke-width="2"
+                stroke-dasharray="12 8"
+                style="animation: dash-flow 3s linear infinite"/>
+
+              <!-- Arcs between nodes (slightly inside the track, with arrowheads) -->
+              <!-- We draw 5 arc segments, one between each consecutive node pair -->
+              <!-- Node centers at r=148 from (240,200): -->
+              <!-- N0 -90°: (240, 52)   -->
+              <!-- N1 -18°: (380.7, 154.3) -->
+              <!-- N2  54°: (327.1, 319.7) -->
+              <!-- N3 126°: (152.9, 319.7) -->
+              <!-- N4 198°: (99.3, 154.3) -->
+
+              <path d="M 255,56 A 148,148 0 0,1 375,162"
+                fill="none" stroke="#ff6a2e" stroke-width="2" stroke-opacity="0.7"
+                marker-end="url(#arrow)" stroke-dasharray="8 6"
+                style="animation: dash-flow 2.2s linear infinite"/>
+              <path d="M 380,172 A 148,148 0 0,1 332,311"
+                fill="none" stroke="#ff6a2e" stroke-width="2" stroke-opacity="0.7"
+                marker-end="url(#arrow)" stroke-dasharray="8 6"
+                style="animation: dash-flow 2.2s linear infinite; animation-delay:-0.44s"/>
+              <path d="M 316,324 A 148,148 0 0,1 164,324"
+                fill="none" stroke="#ff6a2e" stroke-width="2" stroke-opacity="0.7"
+                marker-end="url(#arrow)" stroke-dasharray="8 6"
+                style="animation: dash-flow 2.2s linear infinite; animation-delay:-0.88s"/>
+              <path d="M 148,311 A 148,148 0 0,1 100,172"
+                fill="none" stroke="#ff6a2e" stroke-width="2" stroke-opacity="0.7"
+                marker-end="url(#arrow)" stroke-dasharray="8 6"
+                style="animation: dash-flow 2.2s linear infinite; animation-delay:-1.32s"/>
+              <path d="M 100,154 A 148,148 0 0,1 228,53"
+                fill="none" stroke="#ff6a2e" stroke-width="2" stroke-opacity="0.7"
+                marker-end="url(#arrow)" stroke-dasharray="8 6"
+                style="animation: dash-flow 2.2s linear infinite; animation-delay:-1.76s"/>
+
+              <!-- Center label -->
+              <circle cx="240" cy="200" r="54" fill="#0f2230" stroke="rgba(255,106,46,0.3)" stroke-width="1.5"/>
+              <text x="240" y="192" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="#ff6a2e" letter-spacing="0.03em">CYCLE</text>
+              <text x="240" y="207" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="rgba(247,249,252,0.6)">hebdomadaire</text>
+              <text x="240" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="rgba(247,249,252,0.6)">d'optimisation</text>
+
+              <!-- Node 0 — top: Analyse des données -->
+              <rect x="148" y="22" width="184" height="40" rx="10" fill="#143447" stroke="rgba(255,106,46,0.55)" stroke-width="1.5"/>
+              <text x="240" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#f7f9fc">Analyse des données</text>
+
+              <!-- Node 1 — right-top: Optimisation -->
+              <rect x="360" y="131" width="112" height="40" rx="10" fill="#143447" stroke="rgba(255,106,46,0.55)" stroke-width="1.5"/>
+              <text x="416" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#f7f9fc">Optimisation</text>
+
+              <!-- Node 2 — right-bottom: Tests A/B -->
+              <rect x="296" y="310" width="104" height="40" rx="10" fill="#143447" stroke="rgba(255,106,46,0.55)" stroke-width="1.5"/>
+              <text x="348" y="335" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#f7f9fc">Tests A/B</text>
+
+              <!-- Node 3 — left-bottom: Résultats -->
+              <rect x="80" y="310" width="104" height="40" rx="10" fill="#143447" stroke="rgba(255,106,46,0.55)" stroke-width="1.5"/>
+              <text x="132" y="335" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#f7f9fc">Résultats</text>
+
+              <!-- Node 4 — left-top: Amélioration -->
+              <rect x="8" y="131" width="116" height="40" rx="10" fill="#143447" stroke="rgba(255,106,46,0.55)" stroke-width="1.5"/>
+              <text x="66" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#f7f9fc">Amélioration</text>
+            </svg>
+            </div>
           </div>
         </div>
       </section>
