@@ -19,6 +19,51 @@
     <title>MBL Ads — Campagnes Meta Ads performantes | MY BUSINESS LIFE</title>
     <link rel="stylesheet" href="premium-site.css?v=32" />
     <style>
+      /* ── MBL Ads — corrections de lisibilité des titres ── */
+
+      /* Hero h1 : le span utilise un dégradé trop pâle dans premium-site.css — on le remplace */
+      .premium-hero h1 {
+        color: #ffffff;
+      }
+
+      .premium-hero h1 span {
+        background: linear-gradient(110deg, #ff6a2e 0%, #ffb08a 55%, #ffffff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Lead sous le titre du hero */
+      .premium-lead {
+        color: rgba(247, 249, 252, 0.88) !important;
+      }
+
+      /* Titres h2 dans toutes les sections — bien blancs sur fond sombre, bien noirs sur fond clair */
+      .section-band:not(.dark) .section-head h2,
+      .section-band:not(.dark) h2 {
+        color: var(--ink) !important;
+      }
+
+      .section-band.dark .section-head h2,
+      .section-band.dark h2 {
+        color: #ffffff !important;
+      }
+
+      /* Texte paragraphe sous h2 dans les sections claires */
+      .section-band:not(.dark) .section-head p {
+        color: #334957 !important;
+      }
+
+      /* CTA section */
+      .premium-cta h2 {
+        color: #ffffff !important;
+      }
+
+      /* Kicker (étiquettes oranges au-dessus des titres) */
+      .premium-kicker {
+        color: var(--orange) !important;
+      }
+
       /* ── MBL Ads page-specific styles ── */
 
       /* ── Hero dashboard visual ── */
