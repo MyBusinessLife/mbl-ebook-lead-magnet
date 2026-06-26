@@ -21,84 +21,252 @@
     <style>
       /* ── MBL Ads page-specific styles ── */
 
-      /* Hero visual ads */
-      .service-motion--ads {
-        position: relative;
+      /* ── Hero dashboard visual ── */
+      .ads-dashboard {
         width: 100%;
-        height: 100%;
+        background: #0b1d2a;
+        border: 1px solid rgba(247, 249, 252, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(4, 17, 26, 0.5);
+        font-family: Inter, sans-serif;
+      }
+
+      /* Top bar */
+      .ads-db-topbar {
+        background: #0f2230;
+        border-bottom: 1px solid rgba(247,249,252,0.08);
+        padding: 12px 18px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 10px;
       }
 
-      .ads-core {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--orange) 0%, #ff9a5e 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        color: #fff;
-        z-index: 2;
-        box-shadow: 0 0 0 12px rgba(255, 106, 46, 0.15), 0 0 0 28px rgba(255, 106, 46, 0.07);
-        animation: pulse-ads 2.8s ease-in-out infinite;
-      }
-
-      @keyframes pulse-ads {
-        0%, 100% { box-shadow: 0 0 0 12px rgba(255, 106, 46, 0.15), 0 0 0 28px rgba(255, 106, 46, 0.07); }
-        50%       { box-shadow: 0 0 0 18px rgba(255, 106, 46, 0.22), 0 0 0 40px rgba(255, 106, 46, 0.06); }
-      }
-
-      .ads-orbit {
-        position: absolute;
-        inset: 0;
-        animation: orbit-spin 12s linear infinite;
-      }
-
-      @keyframes orbit-spin { to { transform: rotate(360deg); } }
-
-      .ads-planet {
-        position: absolute;
-        top: 12%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--navy-2);
-        border: 1px solid rgba(255, 106, 46, 0.35);
+      .ads-db-logo {
+        width: 28px;
+        height: 28px;
         border-radius: 6px;
-        padding: 4px 10px;
-        font-size: 0.68rem;
-        font-weight: 700;
-        color: var(--orange);
-        white-space: nowrap;
+        background: #1877f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        font-weight: 900;
+        color: #fff;
+        flex-shrink: 0;
       }
 
-      .ads-stat {
-        position: absolute;
-        background: var(--navy-2);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 8px 12px;
+      .ads-db-title {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: rgba(247,249,252,0.9);
+        flex: 1;
+      }
+
+      .ads-db-live {
+        display: flex;
+        align-items: center;
+        gap: 6px;
         font-size: 0.7rem;
         font-weight: 700;
-        color: var(--white);
-        line-height: 1.35;
-        white-space: nowrap;
-        animation: float-stat 3.5s ease-in-out infinite;
+        color: #22c55e;
       }
 
-      .ads-stat.stat-a { top: 22%; right: 6%; animation-delay: 0s; }
-      .ads-stat.stat-b { bottom: 28%; right: 4%; animation-delay: 0.9s; }
-      .ads-stat.stat-c { bottom: 22%; left: 6%; animation-delay: 1.8s; }
+      .ads-db-live::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: blink-live 1.6s ease-in-out infinite;
+      }
 
-      .ads-stat span { display: block; color: var(--orange); font-size: 1rem; }
+      @keyframes blink-live {
+        0%,100% { opacity: 1; }
+        50%      { opacity: 0.3; }
+      }
 
-      @keyframes float-stat {
-        0%, 100% { transform: translateY(0); }
-        50%       { transform: translateY(-6px); }
+      /* KPI row */
+      .ads-db-kpis {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: 1px solid rgba(247,249,252,0.07);
+      }
+
+      .ads-db-kpi {
+        padding: 14px 16px;
+        border-right: 1px solid rgba(247,249,252,0.07);
+      }
+
+      .ads-db-kpi:last-child { border-right: none; }
+
+      .ads-db-kpi-label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: rgba(247,249,252,0.45);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 5px;
+      }
+
+      .ads-db-kpi-value {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #f7f9fc;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .ads-db-kpi-delta {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #22c55e;
+      }
+
+      .ads-db-kpi-delta.down { color: #f87171; }
+
+      /* Chart area */
+      .ads-db-chart {
+        padding: 16px 18px 10px;
+        border-bottom: 1px solid rgba(247,249,252,0.07);
+      }
+
+      .ads-db-chart-label {
+        font-size: 0.67rem;
+        font-weight: 600;
+        color: rgba(247,249,252,0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 10px;
+      }
+
+      .ads-db-bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        height: 56px;
+      }
+
+      .ads-db-bar {
+        flex: 1;
+        border-radius: 4px 4px 0 0;
+        background: rgba(255,106,46,0.25);
+        position: relative;
+        animation: bar-grow 1.2s var(--ease) both;
+        animation-delay: var(--bd, 0ms);
+      }
+
+      @keyframes bar-grow {
+        from { transform: scaleY(0); transform-origin: bottom; }
+        to   { transform: scaleY(1); transform-origin: bottom; }
+      }
+
+      .ads-db-bar.active { background: var(--orange); }
+
+      /* Campaign rows */
+      .ads-db-campaigns {
+        padding: 10px 0 6px;
+      }
+
+      .ads-db-camp-head {
+        display: grid;
+        grid-template-columns: 1fr 70px 70px 64px;
+        padding: 0 16px 6px;
+        font-size: 0.62rem;
+        font-weight: 600;
+        color: rgba(247,249,252,0.35);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        border-bottom: 1px solid rgba(247,249,252,0.06);
+      }
+
+      .ads-db-camp-row {
+        display: grid;
+        grid-template-columns: 1fr 70px 70px 64px;
+        padding: 9px 16px;
+        align-items: center;
+        border-bottom: 1px solid rgba(247,249,252,0.04);
+        transition: background 0.2s;
+      }
+
+      .ads-db-camp-row:hover { background: rgba(247,249,252,0.03); }
+
+      .ads-db-camp-name {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: rgba(247,249,252,0.85);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .ads-db-camp-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .ads-db-camp-val {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: rgba(247,249,252,0.7);
+        text-align: right;
+      }
+
+      .ads-db-camp-status {
+        font-size: 0.62rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 100px;
+        text-align: center;
+        width: fit-content;
+        margin-left: auto;
+      }
+
+      .ads-db-camp-status.on  { background: rgba(34,197,94,0.15); color: #22c55e; }
+      .ads-db-camp-status.off { background: rgba(247,249,252,0.08); color: rgba(247,249,252,0.35); }
+
+      /* Progress bar */
+      .ads-db-progress-row {
+        padding: 8px 16px 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .ads-db-progress-label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: rgba(247,249,252,0.4);
+        white-space: nowrap;
+      }
+
+      .ads-db-progress-track {
+        flex: 1;
+        height: 5px;
+        background: rgba(247,249,252,0.08);
+        border-radius: 100px;
+        overflow: hidden;
+      }
+
+      .ads-db-progress-fill {
+        height: 100%;
+        border-radius: 100px;
+        background: linear-gradient(90deg, var(--orange), #ff9a5e);
+        animation: fill-progress 2s var(--ease) both;
+        animation-delay: 600ms;
+      }
+
+      @keyframes fill-progress {
+        from { width: 0 !important; }
+      }
+
+      .ads-db-progress-pct {
+        font-size: 0.68rem;
+        font-weight: 800;
+        color: var(--orange);
+        white-space: nowrap;
       }
 
       /* Problem cards */
@@ -617,27 +785,95 @@
             <a class="button button-secondary" href="#contact-ads">Être rappelé</a>
           </div>
         </div>
-        <div class="premium-visual" data-animate="scale">
-          <div class="floating-metrics" aria-hidden="true">
-            <span><strong>Meta</strong> Ads</span>
-            <span><strong>ROI</strong> optimisé</span>
-          </div>
-          <div class="visual-frame service-motion-frame" role="img" aria-label="Illustration animée de campagnes Meta Ads avec statistiques et optimisation">
-            <div class="motion-bg-grid" aria-hidden="true"></div>
-            <div class="service-motion service-motion--ads" aria-hidden="true">
-              <div class="ads-core">ADS</div>
-              <div class="ads-orbit">
-                <div class="ads-planet">Facebook · Instagram</div>
+        <div class="premium-visual" data-animate="scale" style="opacity:1;transform:none;filter:none">
+          <div class="ads-dashboard" aria-label="Aperçu d'un gestionnaire de campagnes Meta Ads">
+
+            <!-- Top bar -->
+            <div class="ads-db-topbar">
+              <div class="ads-db-logo" aria-hidden="true">f</div>
+              <span class="ads-db-title">Gestionnaire de publicités — MBL Ads</span>
+              <span class="ads-db-live">En direct</span>
+            </div>
+
+            <!-- KPIs -->
+            <div class="ads-db-kpis">
+              <div class="ads-db-kpi">
+                <div class="ads-db-kpi-label">Prospects</div>
+                <div class="ads-db-kpi-value">147</div>
+                <div class="ads-db-kpi-delta">↑ +38% ce mois</div>
               </div>
-              <div class="ads-stat stat-a"><span>+340%</span>Portée</div>
-              <div class="ads-stat stat-b"><span>-52%</span>Coût / lead</div>
-              <div class="ads-stat stat-c"><span>×4</span>Prospects</div>
+              <div class="ads-db-kpi">
+                <div class="ads-db-kpi-label">Coût / lead</div>
+                <div class="ads-db-kpi-value">4,20 €</div>
+                <div class="ads-db-kpi-delta">↓ −52% vs avant</div>
+              </div>
+              <div class="ads-db-kpi">
+                <div class="ads-db-kpi-label">Portée</div>
+                <div class="ads-db-kpi-value">28 400</div>
+                <div class="ads-db-kpi-delta">↑ +340% ce mois</div>
+              </div>
             </div>
-            <div class="visual-card">
-              <span>Campagne active</span>
-              <strong>Une pub qui performe, ça se pilote chaque semaine.</strong>
-              <p>Nous analysons, testons et ajustons en continu pour maximiser vos résultats.</p>
+
+            <!-- Mini bar chart -->
+            <div class="ads-db-chart">
+              <div class="ads-db-chart-label">Prospects générés — 7 derniers jours</div>
+              <div class="ads-db-bars" aria-hidden="true">
+                <div class="ads-db-bar" style="height:35%;--bd:0ms"></div>
+                <div class="ads-db-bar" style="height:52%;--bd:60ms"></div>
+                <div class="ads-db-bar" style="height:44%;--bd:120ms"></div>
+                <div class="ads-db-bar" style="height:68%;--bd:180ms"></div>
+                <div class="ads-db-bar" style="height:58%;--bd:240ms"></div>
+                <div class="ads-db-bar" style="height:80%;--bd:300ms"></div>
+                <div class="ads-db-bar active" style="height:100%;--bd:360ms"></div>
+              </div>
             </div>
+
+            <!-- Campaign rows -->
+            <div class="ads-db-campaigns">
+              <div class="ads-db-camp-head">
+                <span>Campagne</span>
+                <span style="text-align:right">Dépense</span>
+                <span style="text-align:right">Leads</span>
+                <span style="text-align:right">Statut</span>
+              </div>
+              <div class="ads-db-camp-row">
+                <span class="ads-db-camp-name">
+                  <span class="ads-db-camp-dot" style="background:#ff6a2e"></span>
+                  Acquisition — Artisans
+                </span>
+                <span class="ads-db-camp-val">312 €</span>
+                <span class="ads-db-camp-val">74</span>
+                <span class="ads-db-camp-status on">Actif</span>
+              </div>
+              <div class="ads-db-camp-row">
+                <span class="ads-db-camp-name">
+                  <span class="ads-db-camp-dot" style="background:#1877f2"></span>
+                  Retargeting — Visiteurs
+                </span>
+                <span class="ads-db-camp-val">88 €</span>
+                <span class="ads-db-camp-val">43</span>
+                <span class="ads-db-camp-status on">Actif</span>
+              </div>
+              <div class="ads-db-camp-row">
+                <span class="ads-db-camp-name">
+                  <span class="ads-db-camp-dot" style="background:rgba(247,249,252,0.2)"></span>
+                  Test A/B — Visuels
+                </span>
+                <span class="ads-db-camp-val">—</span>
+                <span class="ads-db-camp-val">—</span>
+                <span class="ads-db-camp-status off">En test</span>
+              </div>
+            </div>
+
+            <!-- Budget progress -->
+            <div class="ads-db-progress-row">
+              <span class="ads-db-progress-label">Budget mensuel utilisé</span>
+              <div class="ads-db-progress-track">
+                <div class="ads-db-progress-fill" style="width:62%"></div>
+              </div>
+              <span class="ads-db-progress-pct">62%</span>
+            </div>
+
           </div>
         </div>
       </section>
