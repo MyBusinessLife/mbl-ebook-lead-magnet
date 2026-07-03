@@ -280,6 +280,7 @@ const pdfFilename = ebookConfig.pdfFilename || "ebook-logiciel-sur-mesure-mbl.pd
 const pdfFooterText = ebookConfig.pdfFooterText || "Logiciels sur-mesure pour entreprises ambitieuses";
 const finalCtaLabel = ebookConfig.finalCtaLabel || "Demander une étude gratuite";
 const pdfCtaButtonLabel = ebookConfig.pdfCtaButtonLabel || "reserver";
+const showFinalCta = ebookConfig.showFinalCta !== false;
 const formSuccessMessage =
   ebookConfig.formSuccessMessage ||
   "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
@@ -426,7 +427,7 @@ function renderPageContent(page) {
         <h2 class="ebook-title">${escapeHtml(page.title)}</h2>
         <p class="ebook-subtitle">${escapeHtml(page.subtitle)}</p>
         <div class="cta-final-actions">
-          <a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">${escapeHtml(finalCtaLabel)}</a>
+          ${showFinalCta ? `<a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">${escapeHtml(finalCtaLabel)}</a>` : ""}
           <button class="button button-secondary" type="button" data-download-pdf> Télécharger le PDF </button>
         </div>
       </div>
@@ -690,7 +691,7 @@ function drawPdfPage(doc, page, index) {
     drawResults(doc, page.results, 22, startY + 4);
   }
 
-  if (page.type === "final") {
+  if (page.type === "final" && showFinalCta) {
     drawFinalCta(doc);
   }
 
