@@ -245,19 +245,19 @@
 
       .next-steps-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: 1fr;
+        gap: 12px;
         margin-top: 28px;
       }
 
       .next-step-card {
-        min-height: 168px;
+        min-height: 0;
         border: 1px solid rgba(247, 249, 252, 0.12);
         border-radius: var(--radius);
         background:
           linear-gradient(145deg, rgba(247, 249, 252, 0.1), rgba(247, 249, 252, 0.02)),
           rgba(10, 25, 36, 0.72);
-        padding: 18px;
+        padding: 18px 18px 20px;
       }
 
       .next-step-index {
@@ -275,11 +275,22 @@
       .next-step-card h3 {
         margin-top: 16px;
         font-size: 1.14rem;
+        line-height: 1.08;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        text-wrap: balance;
       }
 
       .next-step-card p {
         margin-top: 10px;
         color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.55;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        text-wrap: pretty;
       }
 
       .private-footer {
@@ -303,12 +314,6 @@
         }
       }
 
-      @media (max-width: 1080px) {
-        .next-steps-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
       @media (max-width: 860px) {
         .tourre-topnav a,
         .tourre-topnav .nav-download {
@@ -325,10 +330,6 @@
       }
 
       @media (max-width: 720px) {
-        .next-steps-grid {
-          grid-template-columns: 1fr;
-        }
-
         .private-note {
           width: 100%;
           justify-content: center;
