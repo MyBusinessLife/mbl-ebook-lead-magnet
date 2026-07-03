@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Présentation personnalisée Meta Ads préparée pour Jacques Tourre par MY BUSINESS LIFE afin de structurer une stratégie d'acquisition de rendez-vous pour ses cabinets d'audioprothèse."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://mybusinesslife.fr/ebook-jacques-tourre-meta-ads.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MY BUSINESS LIFE | Présentation personnalisée Meta Ads pour Jacques Tourre" />
+    <meta
+      property="og:description"
+      content="Une présentation sur mesure pour structurer une stratégie Meta Ads durable au service des prises de rendez-vous des cabinets d'audioprothèse de Jacques Tourre."
+    />
+    <meta property="og:url" content="https://mybusinesslife.fr/ebook-jacques-tourre-meta-ads.html" />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <title>MY BUSINESS LIFE | Présentation personnalisée Meta Ads pour Jacques Tourre</title>
+    <link rel="stylesheet" href="ebook.css?v=14" />
+    <style>
+      :root {
+        --accent: #ff6a2e;
+        --accent-soft: rgba(255, 106, 46, 0.14);
+        --accent-glow: rgba(255, 106, 46, 0.22);
+      }
+
+      .page-glow-a {
+        background: radial-gradient(circle at 18% 32%, rgba(255, 106, 46, 0.18), transparent 55%);
+      }
+
+      .page-glow-b {
+        background: radial-gradient(circle at 82% 68%, rgba(28, 143, 163, 0.16), transparent 58%);
+      }
+
+      .tourre-ebook .hero .eyebrow,
+      .tourre-ebook .section-heading .eyebrow,
+      .tourre-ebook .cta-copy .eyebrow {
+        color: #ff8b56;
+      }
+
+      .tourre-ebook .button-primary {
+        background: linear-gradient(135deg, #ff6a2e, #ff9a5e);
+      }
+
+      .tourre-ebook .mockup-cover {
+        background:
+          linear-gradient(145deg, rgba(9, 22, 31, 0.96), rgba(17, 55, 74, 0.96)),
+          linear-gradient(180deg, rgba(255, 106, 46, 0.18), transparent 55%);
+        border-top: 3px solid #ff6a2e;
+      }
+
+      .tourre-ebook .mockup-kicker {
+        color: #ff8b56;
+      }
+
+      .tourre-topnav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .tourre-topnav a,
+      .tourre-topnav button {
+        border: 0;
+        border-radius: var(--radius);
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 10px 12px;
+        transition:
+          background 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .tourre-topnav a:hover,
+      .tourre-topnav button:hover {
+        background: rgba(247, 249, 252, 0.08);
+        color: var(--text);
+        transform: translateY(-1px);
+      }
+
+      .tourre-topnav .nav-download {
+        border: 1px solid rgba(255, 106, 46, 0.34);
+        color: var(--text);
+      }
+
+      .hero-note {
+        max-width: 650px;
+        margin-top: 18px;
+        color: rgba(247, 249, 252, 0.8);
+        font-size: 0.98rem;
+      }
+
+      .client-visual-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(247, 249, 252, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(247, 249, 252, 0.04) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.2) 100%);
+      }
+
+      .client-command-center {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 16px;
+        height: 100%;
+        padding: 28px;
+      }
+
+      .client-signal-card,
+      .client-cabinets-card,
+      .client-method-card {
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(145deg, rgba(247, 249, 252, 0.11), rgba(247, 249, 252, 0.04)),
+          rgba(8, 21, 31, 0.52);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(18px);
+      }
+
+      .client-signal-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 140px;
+        gap: 18px;
+        padding: 20px;
+      }
+
+      .client-kicker,
+      .client-card-kicker {
+        color: #ff8b56;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .client-signal-card h3,
+      .client-cabinets-card h3,
+      .client-method-card h3 {
+        margin-top: 10px;
+        font-size: 1.38rem;
+        line-height: 1.04;
+      }
+
+      .client-signal-card p,
+      .client-cabinets-card p,
+      .client-method-card p {
+        margin-top: 12px;
+        color: var(--muted);
+      }
+
+      .signal-bars {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .signal-bars span {
+        width: 22px;
+        border-radius: 999px 999px 6px 6px;
+        background: linear-gradient(180deg, rgba(28, 143, 163, 0.18), rgba(255, 106, 46, 0.95));
+        box-shadow: 0 0 22px rgba(255, 106, 46, 0.18);
+        animation: signalLift 2.8s ease-in-out infinite;
+      }
+
+      .signal-bars span:nth-child(1) {
+        height: 58px;
+        animation-delay: 0s;
+      }
+
+      .signal-bars span:nth-child(2) {
+        height: 92px;
+        animation-delay: 0.18s;
+      }
+
+      .signal-bars span:nth-child(3) {
+        height: 72px;
+        animation-delay: 0.36s;
+      }
+
+      .signal-bars span:nth-child(4) {
+        height: 116px;
+        animation-delay: 0.54s;
+      }
+
+      .client-cabinets-card,
+      .client-method-card {
+        padding: 20px;
+      }
+
+      .city-chip-row,
+      .method-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .city-chip,
+      .method-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        border: 1px solid rgba(247, 249, 252, 0.14);
+        border-radius: var(--radius);
+        background: rgba(247, 249, 252, 0.06);
+        color: rgba(247, 249, 252, 0.88);
+        font-weight: 760;
+        padding: 0 12px;
+      }
+
+      .method-chip {
+        border-color: rgba(255, 106, 46, 0.2);
+      }
+
+      .private-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 22px;
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: var(--radius);
+        background: rgba(247, 249, 252, 0.06);
+        color: rgba(247, 249, 252, 0.76);
+        font-size: 0.9rem;
+        padding: 10px 12px;
+      }
+
+      .private-note::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ff6a2e, #1c8fa3);
+        content: "";
+      }
+
+      .next-steps-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .next-step-card {
+        min-height: 168px;
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(145deg, rgba(247, 249, 252, 0.1), rgba(247, 249, 252, 0.02)),
+          rgba(10, 25, 36, 0.72);
+        padding: 18px;
+      }
+
+      .next-step-index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: rgba(255, 106, 46, 0.16);
+        color: #ff9a69;
+        font-weight: 900;
+      }
+
+      .next-step-card h3 {
+        margin-top: 16px;
+        font-size: 1.14rem;
+      }
+
+      .next-step-card p {
+        margin-top: 10px;
+        color: var(--muted);
+      }
+
+      .private-footer {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto 28px;
+        padding: 0 0 10px;
+        color: rgba(247, 249, 252, 0.62);
+        font-size: 0.88rem;
+        text-align: center;
+      }
+
+      @keyframes signalLift {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translateY(-6px);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .next-steps-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 860px) {
+        .tourre-topnav a:not(.nav-cta),
+        .tourre-topnav .nav-download {
+          display: none;
+        }
+
+        .client-signal-card {
+          grid-template-columns: 1fr;
+        }
+
+        .signal-bars {
+          min-height: 130px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .next-steps-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .private-note {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="ebook-upgrade ads-ebook tourre-ebook">
+    <div class="page-glow page-glow-a" aria-hidden="true"></div>
+    <div class="page-glow page-glow-b" aria-hidden="true"></div>
+
+    <header class="topbar" aria-label="En-tête MY BUSINESS LIFE">
+      <a class="brand" href="#top" aria-label="Retour en haut de page">
+        <span class="brand-badge">
+          <img id="brandLogo" class="brand-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
+          <span id="brandFallback" class="brand-fallback" aria-hidden="true" hidden>MBL</span>
+        </span>
+        <span class="brand-text">
+          <strong>MY BUSINESS LIFE</strong>
+          <span>Présentation confidentielle — MBL Ads</span>
+        </span>
+      </a>
+
+      <nav class="tourre-topnav" aria-label="Navigation de la présentation">
+        <a href="#ebook">Présentation</a>
+        <a href="#next-steps">Étapes</a>
+        <a class="nav-cta" href="mailto:contact@mybusinesslife.fr?subject=Reprise%20projet%20Meta%20Ads%20-%20Jacques%20Tourre">Organiser la reprise</a>
+        <button class="nav-download" type="button" data-download-pdf>Télécharger le PDF</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-reveal" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Présentation personnalisée Meta Ads</p>
+          <h1 id="hero-title">Développer durablement les prises de rendez-vous de vos cabinets d'audioprothèse</h1>
+          <p class="hero-subtitle">
+            Cette présentation a été spécialement préparée à la suite de nos échanges afin de vous
+            présenter la stratégie que nous pourrions mettre en place pour développer durablement
+            l'acquisition de nouveaux patients de vos cabinets d'audioprothèse.
+          </p>
+          <p class="hero-note">
+            L'objectif n'est pas de relancer des campagnes pour relancer des campagnes, mais de
+            remettre en place un cadre clair, suivi et réellement exploitable à l'échelle de vos
+            différents cabinets.
+          </p>
+          <div class="hero-actions" aria-label="Actions de la présentation">
+            <a class="button button-primary" href="#ebook">Lire la présentation</a>
+            <button class="button button-secondary" type="button" data-download-pdf>Télécharger le PDF</button>
+          </div>
+          <div class="trust-row" aria-label="Points clés">
+            <span>Audioprothèse</span>
+            <span>Bouches-du-Rhône</span>
+            <span>Prises de rendez-vous</span>
+          </div>
+          <div class="private-note">Document préparé pour Jacques Tourre — diffusion limitée</div>
+        </div>
+
+        <div class="hero-visual" aria-label="Aperçu de la stratégie proposée">
+          <div class="visual-panel">
+            <div class="client-visual-grid" aria-hidden="true"></div>
+            <div class="client-command-center">
+              <div class="client-signal-card">
+                <div>
+                  <span class="client-kicker">Pilotage local</span>
+                  <h3>Une stratégie Meta Ads pensée pour vos zones et vos prises de rendez-vous</h3>
+                  <p>
+                    Plusieurs cabinets, plusieurs bassins de vie, un seul besoin: savoir où le
+                    budget travaille, quel message convertit et quels rendez-vous remontent
+                    réellement.
+                  </p>
+                </div>
+                <div class="signal-bars" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="client-cabinets-card">
+                <span class="client-card-kicker">Implantations citées</span>
+                <h3>Cabinets à faire travailler ensemble</h3>
+                <div class="city-chip-row">
+                  <span class="city-chip">Vitrolles</span>
+                  <span class="city-chip">Marignane</span>
+                  <span class="city-chip">Châteauneuf-les-Martigues</span>
+                  <span class="city-chip">Port-de-Bouc</span>
+                </div>
+              </div>
+
+              <div class="client-method-card">
+                <span class="client-card-kicker">Ce qui vous a intéressé</span>
+                <h3>Méthode, suivi et transparence</h3>
+                <div class="method-chip-row">
+                  <span class="method-chip">Accompagnement mensuel</span>
+                  <span class="method-chip">Optimisations régulières</span>
+                  <span class="method-chip">Rapports de performance</span>
+                  <span class="method-chip">Lecture honnête des résultats</span>
+                </div>
+              </div>
+
+              <div class="ebook-mockup" aria-hidden="true">
+                <div class="mockup-spine"></div>
+                <div class="mockup-cover">
+                  <img class="mockup-logo" src="assets/logo.png" alt="" />
+                  <span class="mockup-kicker">EBOOK PRIVÉ</span>
+                  <strong>Meta Ads pour audioprothèse</strong>
+                  <small>Rendez-vous · Pilotage · Suivi</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ebook" class="reader-section section-reveal" aria-labelledby="reader-title">
+        <div class="section-heading">
+          <p class="eyebrow">Lecture intégrée</p>
+          <h2 id="reader-title">Une synthèse claire, pensée pour votre contexte</h2>
+          <p>
+            En quelques slides, vous retrouvez les constats clés, les causes probables des
+            précédentes contre-performances, la méthode recommandée et le cadre de reprise proposé à
+            votre retour.
+          </p>
+        </div>
+
+        <div class="reader-shell">
+          <aside class="reader-sidebar" aria-label="Pages de la présentation">
+            <div class="sidebar-title">Sommaire</div>
+            <div id="thumbnailList" class="thumbnail-list"></div>
+          </aside>
+          <div class="reader-main">
+            <div class="reader-toolbar" aria-label="Commandes du lecteur">
+              <div><span class="reader-label">Présentation digitale</span><strong id="pageCounter">1 / 8</strong></div>
+              <div class="toolbar-actions">
+                <button class="icon-button" id="prevPage" type="button" aria-label="Page précédente">Précédent</button>
+                <button class="icon-button" id="nextPage" type="button" aria-label="Page suivante">Suivant</button>
+              </div>
+            </div>
+
+            <article id="ebookPage" class="ebook-page-card ebook-cover" aria-live="polite">
+              <div class="ebook-inner ebook-cover">
+                <div class="ebook-page-meta">
+                  <span>MY BUSINESS LIFE</span>
+                  <span class="ebook-page-number">01 / 08</span>
+                </div>
+                <div>
+                  <img class="ebook-cover-logo" src="assets/logo.png" alt="Logo MY BUSINESS LIFE" />
+                  <h2 class="ebook-title">Développer durablement les prises de rendez-vous de vos cabinets</h2>
+                  <p class="ebook-subtitle">Présentation personnalisée préparée pour Jacques Tourre à la suite de nos échanges</p>
+                </div>
+                <div class="ebook-signature">MBL ADS × Jacques Tourre</div>
+              </div>
+            </article>
+
+            <div class="viewer-actions">
+              <button class="button button-secondary" type="button" data-download-pdf>Télécharger le PDF</button>
+              <a
+                class="button button-primary"
+                href="mailto:contact@mybusinesslife.fr?subject=Reprise%20projet%20Meta%20Ads%20-%20Jacques%20Tourre"
+                data-cta-link
+                >Organiser la visioconférence</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="next-steps" class="cta-section section-reveal" aria-labelledby="cta-title">
+        <div class="cta-copy">
+          <p class="eyebrow">Prochaines étapes</p>
+          <h2 id="cta-title">Relancer le sujet au bon moment, avec un cadre plus lisible</h2>
+          <p>
+            Vous partez bientôt en congés, ce qui rend une mise en production immédiate peu
+            pertinente. L'idée la plus saine est donc de préparer le cadrage maintenant, puis de
+            reprendre fin août avec une visioconférence claire, une stratégie détaillée et une base
+            de décision propre.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="mailto:contact@mybusinesslife.fr?subject=Reprise%20projet%20Meta%20Ads%20-%20Jacques%20Tourre"
+              >Planifier la reprise</a
+            >
+            <button class="button button-secondary" type="button" data-download-pdf>Télécharger le PDF</button>
+          </div>
+        </div>
+
+        <div class="next-steps-grid" aria-label="Étapes proposées">
+          <article class="next-step-card">
+            <span class="next-step-index">01</span>
+            <h3>Avant vos congés</h3>
+            <p>Partager cette synthèse, verrouiller les grands objectifs et préparer les hypothèses de travail.</p>
+          </article>
+          <article class="next-step-card">
+            <span class="next-step-index">02</span>
+            <h3>Fin août</h3>
+            <p>Organiser une visioconférence de reprise pour valider le cadrage, les zones et le plan média.</p>
+          </article>
+          <article class="next-step-card">
+            <span class="next-step-index">03</span>
+            <h3>Après validation</h3>
+            <p>Lancer un premier mois très suivi, avec tracking, créations, optimisations et lecture des performances.</p>
+          </article>
+          <article class="next-step-card">
+            <span class="next-step-index">04</span>
+            <h3>Si le projet vous convient</h3>
+            <p>Passer sur un accompagnement mensuel durable, transparent et réellement piloté dans le temps.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="private-footer">
+      MY BUSINESS LIFE — Présentation préparée pour Jacques Tourre · Document confidentiel non
+      indexé
+    </footer>
+
+    <div id="printBook" class="print-book" aria-hidden="true"></div>
+    <script>
+      window.MBL_EBOOK_CONFIG = {
+        productionUrl: "https://mybusinesslife.fr/ebook-jacques-tourre-meta-ads.html",
+        redirectProduction: false,
+        ctaUrl:
+          "mailto:contact@mybusinesslife.fr?subject=Reprise%20projet%20Meta%20Ads%20-%20Jacques%20Tourre&body=Bonjour%20MY%20BUSINESS%20LIFE,%0A%0AJe%20souhaite%20organiser%20la%20visioconf%C3%A9rence%20de%20reprise%20pour%20la%20strat%C3%A9gie%20Meta%20Ads.%0A%0ABien%20%C3%A0%20vous,%0AJacques%20Tourre",
+        source: "ebook-jacques-tourre-meta-ads",
+        pdfFilename: "ebook-personnalise-jacques-tourre-meta-ads.pdf",
+        pdfFooterText: "Présentation personnalisée Meta Ads — Jacques Tourre — MY BUSINESS LIFE",
+        finalCtaLabel: "Organiser la visioconférence",
+        pdfCtaButtonLabel: "ouvrir",
+        pages: [
+          {
+            type: "cover",
+            title: "Développer durablement les prises de rendez-vous de vos cabinets",
+            subtitle:
+              "Présentation personnalisée préparée pour Jacques Tourre à la suite de nos échanges",
+            signature: "MBL ADS × Jacques Tourre",
+          },
+          {
+            type: "cards",
+            title: "Ce que votre situation nous apprend déjà",
+            cards: [
+              {
+                title: "Base déjà comprise",
+                text: "Vous maîtrisez déjà les bases de Meta Ads et comprenez le fonctionnement global de la plateforme.",
+              },
+              {
+                title: "Campagnes déjà testées",
+                text: "Des actions ont déjà été lancées, mais sans obtenir les résultats attendus en termes de prospects et de rendez-vous.",
+              },
+              {
+                title: "Enjeu multi-cabinets",
+                text: "La stratégie doit servir plusieurs implantations et non une seule zone isolée.",
+              },
+              {
+                title: "Besoin de pilotage",
+                text: "Vous attendez surtout un prestataire qui suit réellement les performances et ajuste régulièrement.",
+              },
+            ],
+            conclusion:
+              "Le sujet n'est donc pas d'apprendre Meta Ads, mais de remettre le levier dans un cadre plus précis et mieux piloté.",
+          },
+          {
+            type: "cards",
+            title: "L'objectif à viser pour vos cabinets",
+            cards: [
+              {
+                title: "Plus de rendez-vous",
+                text: "L'objectif principal est de générer davantage de prises de rendez-vous qualifiées, pas seulement des clics.",
+              },
+              {
+                title: "Couverture locale",
+                text: "Vitrolles, Marignane, Châteauneuf-les-Martigues et Port-de-Bouc doivent être traitées avec une logique locale cohérente.",
+              },
+              {
+                title: "Budget cohérent",
+                text: "Avec plus de 1 000 € par mois de budget publicitaire envisagé, il devient possible de tester, mesurer puis optimiser sérieusement.",
+              },
+              {
+                title: "Vision durable",
+                text: "L'enjeu est de poser une mécanique stable et lisible, capable de s'améliorer dans le temps.",
+              },
+            ],
+            conclusion:
+              "Pour un réseau de cabinets, la performance vient d'une stratégie locale bien segmentée et d'un pilotage continu.",
+          },
+          {
+            type: "saas",
+            title: "Pourquoi les précédentes campagnes ont pu décevoir",
+            bullets: [
+              "Messages publicitaires trop génériques pour déclencher une vraie prise de rendez-vous",
+              "Segmentation géographique insuffisamment pensée entre les différentes implantations",
+              "Suivi incomplet des conversions et des rendez-vous réellement générés",
+              "Créatifs et angles de messages pas assez testés dans la durée",
+              "Décisions prises sans reporting clair ni lecture régulière des performances",
+            ],
+            conclusion:
+              "Le problème n'est pas Meta Ads en soi, mais l'absence de méthode, de rythme d'optimisation et de lecture exploitable des données.",
+          },
+          {
+            type: "cards",
+            title: "La méthode MBL Ads proposée pour votre reprise",
+            cards: [
+              {
+                title: "Audit de l'existant",
+                text: "Relecture de ce qui a déjà été tenté pour comprendre précisément ce qui a bloqué.",
+              },
+              {
+                title: "Architecture locale",
+                text: "Organisation de campagnes et d'audiences adaptées à chaque bassin de vie et à chaque cabinet.",
+              },
+              {
+                title: "Création des angles",
+                text: "Travail sur les messages, visuels et promesses utiles pour susciter la prise de rendez-vous.",
+              },
+              {
+                title: "Optimisations régulières",
+                text: "Ajustements continus sur la base des résultats réels plutôt que sur des intuitions.",
+              },
+              {
+                title: "Rapports clairs",
+                text: "Lecture professionnelle des chiffres pour savoir quoi garder, quoi corriger et quoi accélérer.",
+              },
+            ],
+            conclusion:
+              "Aucune promesse artificielle: une méthode cadrée, transparente et suivie dans le temps.",
+          },
+          {
+            type: "cards",
+            title: "Le cadre d'accompagnement recommandé",
+            cards: [
+              {
+                title: "Offre découverte",
+                text: "500 € HT, soit 600 € TTC pour le premier mois, sans engagement, afin de valider la méthode dans de bonnes conditions.",
+              },
+              {
+                title: "Gestion complète",
+                text: "1 000 € HT par mois, soit 1 200 € TTC, pour un pilotage mensuel intégral des campagnes.",
+              },
+              {
+                title: "Budget média",
+                text: "Le budget publicitaire Meta reste distinct et pourra être calibré à partir du niveau envisagé de plus de 1 000 € par mois.",
+              },
+              {
+                title: "Suivi professionnel",
+                text: "Accompagnement mensuel, optimisations régulières, rapports de performance et transparence de méthode.",
+              },
+            ],
+            conclusion:
+              "L'idée est de commencer par un mois lisible et très suivi avant d'inscrire la stratégie dans la durée.",
+          },
+          {
+            type: "cards",
+            title: "Feuille de route proposée",
+            cards: [
+              {
+                title: "Maintenant",
+                text: "Vous recevez ce document pour garder une base claire et revenir dessus à tête reposée.",
+              },
+              {
+                title: "Fin août",
+                text: "Organisation d'une visioconférence de reprise pour détailler la stratégie et arbitrer les priorités.",
+              },
+              {
+                title: "Premier mois",
+                text: "Lancement du dispositif retenu avec suivi rapproché, optimisations et premiers enseignements.",
+              },
+              {
+                title: "Si validation",
+                text: "Signature puis installation d'un pilotage mensuel durable sur l'ensemble des cabinets concernés.",
+              },
+            ],
+            conclusion:
+              "Reprendre le projet à votre retour permet de démarrer dans de meilleures conditions opérationnelles et mentales.",
+          },
+          {
+            type: "final",
+            title: "À votre retour, nous pourrons relancer sur des bases plus saines et plus lisibles",
+            subtitle:
+              "Si cette approche vous convient, nous organiserons une visioconférence de reprise pour présenter la stratégie en détail, répondre à vos questions et valider la suite dans un cadre clair.",
+          },
+        ],
+      };
+    </script>
+    <script src="site-config.js?v=4"></script>
+    <script src="site-data.js?v=7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="ebook.js?v=17"></script>
+  </body>
+</html>

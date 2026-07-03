@@ -278,6 +278,8 @@ try {
 
 const pdfFilename = ebookConfig.pdfFilename || "ebook-logiciel-sur-mesure-mbl.pdf";
 const pdfFooterText = ebookConfig.pdfFooterText || "Logiciels sur-mesure pour entreprises ambitieuses";
+const finalCtaLabel = ebookConfig.finalCtaLabel || "Demander une étude gratuite";
+const pdfCtaButtonLabel = ebookConfig.pdfCtaButtonLabel || "reserver";
 const formSuccessMessage =
   ebookConfig.formSuccessMessage ||
   "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
@@ -424,7 +426,7 @@ function renderPageContent(page) {
         <h2 class="ebook-title">${escapeHtml(page.title)}</h2>
         <p class="ebook-subtitle">${escapeHtml(page.subtitle)}</p>
         <div class="cta-final-actions">
-          <a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">Demander une étude gratuite</a>
+          <a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">${escapeHtml(finalCtaLabel)}</a>
           <button class="button button-secondary" type="button" data-download-pdf> Télécharger le PDF </button>
         </div>
       </div>
@@ -879,14 +881,14 @@ function drawFinalCta(doc) {
   doc.setFillColor(15, 34, 48);
   doc.roundedRect(22, 150, 166, 44, 3, 3, "F");
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(13);
+  doc.setFontSize(11.2);
   doc.setTextColor(247, 249, 252);
-  doc.text("Demander une étude gratuite", 34, 173);
+  drawWrappedText(doc, finalCtaLabel, 34, 161, 74, 5.2);
   doc.setFillColor(255, 106, 46);
   doc.roundedRect(118, 162, 52, 14, 3, 3, "F");
   doc.setTextColor(24, 9, 4);
   doc.setFontSize(8);
-  doc.text("réserver", 130, 171);
+  doc.text(pdfCtaButtonLabel, 130, 171);
   doc.link(22, 150, 166, 44, { url: ctaUrl });
 }
 
@@ -928,36 +930,38 @@ function setupActions() {
     if (downloadButton) downloadPdf();
   });
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const payload = {
-      source: ebookConfig.source || "ebook",
-      page: document.title,
-      submittedAt: new Date().toISOString(),
-      ...(window.MBLData?.pageContext?.() || { page_path: window.location.pathname }),
-      ...Object.fromEntries(formData.entries()),
-    };
+  if (form && formMessage) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const payload = {
+        source: ebookConfig.source || "ebook",
+        page: document.title,
+        submittedAt: new Date().toISOString(),
+        ...(window.MBLData?.pageContext?.() || { page_path: window.location.pathname }),
+        ...Object.fromEntries(formData.entries()),
+      };
 
-    formMessage.textContent = "Préparation de votre demande...";
+      formMessage.textContent = "Préparation de votre demande...";
 
-    try {
-      const dataResult = window.MBLData?.submitContact
-        ? await window.MBLData.submitContact(payload)
-        : { ok: false, skipped: true };
+      try {
+        const dataResult = window.MBLData?.submitContact
+          ? await window.MBLData.submitContact(payload)
+          : { ok: false, skipped: true };
 
-      if (dataResult?.ok) {
-        form.reset();
-        formMessage.textContent = "Demande reçue. Nous revenons vers vous rapidement.";
+        if (dataResult?.ok) {
+          form.reset();
+          formMessage.textContent = "Demande reçue. Nous revenons vers vous rapidement.";
+          return;
+        }
+      } catch (error) {
+        formMessage.textContent = formSuccessMessage;
         return;
       }
-    } catch (error) {
-      formMessage.textContent = formSuccessMessage;
-      return;
-    }
 
-    formMessage.textContent = formSuccessMessage;
-  });
+      formMessage.textContent = formSuccessMessage;
+    });
+  }
 
   document.querySelectorAll("[data-cta-link]").forEach((link) => {
     link.href = ctaUrl;
