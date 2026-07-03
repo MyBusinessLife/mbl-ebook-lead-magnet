@@ -281,6 +281,8 @@ const pdfFooterText = ebookConfig.pdfFooterText || "Logiciels sur-mesure pour en
 const finalCtaLabel = ebookConfig.finalCtaLabel || "Demander une étude gratuite";
 const pdfCtaButtonLabel = ebookConfig.pdfCtaButtonLabel || "reserver";
 const showFinalCta = ebookConfig.showFinalCta !== false;
+const showFinalDownloadButton = ebookConfig.showFinalDownloadButton !== false;
+const finalNoteText = ebookConfig.finalNoteText || "";
 const formSuccessMessage =
   ebookConfig.formSuccessMessage ||
   "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
@@ -422,14 +424,24 @@ function renderPageContent(page) {
   }
 
   if (page.type === "final") {
+    const actions = [
+      showFinalCta
+        ? `<a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">${escapeHtml(finalCtaLabel)}</a>`
+        : "",
+      showFinalDownloadButton
+        ? `<button class="button button-secondary" type="button" data-download-pdf> Télécharger le PDF </button>`
+        : "",
+    ]
+      .filter(Boolean)
+      .join("");
+    const note = page.conclusion || finalNoteText;
+
     return `
       <div>
         <h2 class="ebook-title">${escapeHtml(page.title)}</h2>
         <p class="ebook-subtitle">${escapeHtml(page.subtitle)}</p>
-        <div class="cta-final-actions">
-          ${showFinalCta ? `<a class="button button-primary" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">${escapeHtml(finalCtaLabel)}</a>` : ""}
-          <button class="button button-secondary" type="button" data-download-pdf> Télécharger le PDF </button>
-        </div>
+        ${actions ? `<div class="cta-final-actions">${actions}</div>` : ""}
+        ${note ? `<p class="final-note-text">${escapeHtml(note)}</p>` : ""}
       </div>
     `;
   }

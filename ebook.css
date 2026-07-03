@@ -1187,6 +1187,21 @@ h3 {
   margin-top: 34px;
 }
 
+.final-note-text {
+  max-width: 760px;
+  margin-top: 32px;
+  border: 1px solid rgba(11, 24, 33, 0.08);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(15, 34, 48, 0.06), rgba(28, 143, 163, 0.03)),
+    rgba(247, 249, 252, 0.72);
+  color: #31424f;
+  font-size: 1.04rem;
+  font-weight: 700;
+  line-height: 1.65;
+  padding: 18px 20px;
+}
+
 .viewer-actions {
   position: sticky;
   bottom: 12px;
