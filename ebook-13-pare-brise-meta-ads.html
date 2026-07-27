@@ -41,6 +41,110 @@
         border-top: 3px solid #ff6a2e;
       }
 
+      .parebrise-ebook .visual-panel {
+        display: grid;
+        grid-template-columns: minmax(168px, 0.58fr) minmax(280px, 1fr);
+        gap: 18px;
+        align-items: center;
+        min-height: 560px;
+        padding: 28px;
+      }
+
+      .parebrise-ebook .software-preview,
+      .parebrise-ebook .ebook-mockup,
+      .parebrise-ebook .mobile-service-card {
+        position: relative;
+        z-index: 1;
+        inset: auto;
+      }
+
+      .parebrise-ebook .ebook-mockup {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: min(100%, 248px);
+        grid-template-columns: 14px minmax(0, 1fr);
+        min-height: 318px;
+        justify-self: center;
+        transform: rotate(-3deg);
+      }
+
+      .parebrise-ebook .mockup-cover {
+        min-height: 318px;
+        padding: 22px;
+      }
+
+      .parebrise-ebook .mockup-cover strong {
+        font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+        line-height: 1.04;
+      }
+
+      .parebrise-ebook .mockup-cover small,
+      .parebrise-ebook .mockup-kicker {
+        overflow-wrap: normal;
+      }
+
+      .parebrise-ebook .mobile-service-card {
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+        max-width: none;
+        justify-self: stretch;
+        align-self: end;
+      }
+
+      .parebrise-ebook .software-preview {
+        grid-column: 2;
+        grid-row: 2;
+        width: 100%;
+        align-self: start;
+      }
+
+      .parebrise-ebook .preview-layout {
+        grid-template-columns: 1fr;
+        min-height: 286px;
+      }
+
+      .parebrise-ebook .preview-sidebar {
+        display: none;
+      }
+
+      .parebrise-ebook .preview-dashboard {
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .parebrise-ebook .preview-kpis span,
+      .parebrise-ebook .preview-flow span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 52px;
+        text-align: center;
+        line-height: 1.12;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .parebrise-ebook .preview-kpis span {
+        min-height: 48px;
+        font-size: 0.74rem;
+        white-space: nowrap;
+        overflow-wrap: normal;
+      }
+
+      .parebrise-ebook .preview-flow span {
+        font-size: 0.76rem;
+      }
+
+      .parebrise-ebook .preview-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .parebrise-ebook .preview-chart {
+        min-height: 104px;
+      }
+
       .hero-note {
         max-width: 650px;
         margin-top: 18px;
@@ -140,12 +244,43 @@
       }
 
       @media (max-width: 720px) {
+        .parebrise-ebook .visual-panel {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          min-height: auto;
+          padding: 20px;
+        }
+
+        .parebrise-ebook .ebook-mockup,
+        .parebrise-ebook .mobile-service-card,
+        .parebrise-ebook .software-preview {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .parebrise-ebook .ebook-mockup {
+          width: min(100%, 270px);
+          min-height: 300px;
+        }
+
+        .parebrise-ebook .mockup-cover {
+          min-height: 300px;
+        }
+
         .mobile-service-card {
           position: relative;
           right: auto;
           top: auto;
           width: auto;
-          margin: 18px;
+          margin: 0;
+        }
+
+        .parebrise-ebook .preview-kpis {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .parebrise-ebook .preview-flow {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
     </style>
@@ -233,8 +368,8 @@
                     <i></i>
                   </div>
                   <div class="preview-flow">
-                    <span>Zone</span>
-                    <span>Annonce</span>
+                    <span>Zones géographiques</span>
+                    <span>Annonces</span>
                     <span>Formulaire</span>
                     <span>Rappel</span>
                   </div>
