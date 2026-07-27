@@ -283,6 +283,15 @@ const pdfCtaButtonLabel = ebookConfig.pdfCtaButtonLabel || "reserver";
 const showFinalCta = ebookConfig.showFinalCta !== false;
 const showFinalDownloadButton = ebookConfig.showFinalDownloadButton !== false;
 const finalNoteText = ebookConfig.finalNoteText || "";
+const staticPdfUrl = ebookConfig.staticPdfUrl
+  ? (() => {
+      try {
+        return new URL(ebookConfig.staticPdfUrl, window.location.href).href;
+      } catch (error) {
+        return ebookConfig.staticPdfUrl;
+      }
+    })()
+  : "";
 const formSuccessMessage =
   ebookConfig.formSuccessMessage ||
   "Votre diagnostic est prêt à être préparé. Utilisez le bouton principal pour continuer.";
@@ -623,6 +632,26 @@ async function preloadPdfLogos() {
 }
 
 async function downloadPdf() {
+  if (staticPdfUrl) {
+    try {
+      const response = await fetch(staticPdfUrl, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Static PDF unavailable: ${response.status}`);
+      const blob = await response.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = objectUrl;
+      link.download = pdfFilename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1200);
+      return;
+    } catch (error) {
+      window.open(staticPdfUrl, "_blank", "noopener");
+      return;
+    }
+  }
+
   const pdfLib = window.jspdf;
 
   if (!pdfLib || !pdfLib.jsPDF) {
