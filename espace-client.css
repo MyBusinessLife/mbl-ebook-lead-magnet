@@ -1095,7 +1095,7 @@
 .daily-chart {
   display: grid;
   align-items: end;
-  grid-template-columns: repeat(14, minmax(10px, 1fr));
+  grid-template-columns: repeat(14, minmax(0, 1fr));
   gap: 6px;
   min-height: 220px;
   border-radius: var(--radius);
@@ -1105,13 +1105,15 @@
 
 .daily-chart.is-empty {
   display: grid;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
 }
 
 .daily-chart .empty-state {
-  grid-column: 1 / -1;
-  align-self: center;
-  justify-self: stretch;
+  display: grid;
+  width: 100%;
+  min-height: 100%;
+  place-items: center;
   text-align: center;
   white-space: normal;
 }

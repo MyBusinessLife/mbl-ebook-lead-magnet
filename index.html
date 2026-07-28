@@ -12,7 +12,7 @@
       name="keywords"
       content="MY BUSINESS LIFE, site web premium, logiciel sur-mesure, agents IA, automatisation, réparation ordinateur, achat matériel informatique, stratégie digitale"
     />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://mybusinesslife.fr/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="MY BUSINESS LIFE | Digital, organisation et croissance" />
@@ -21,23 +21,76 @@
       content="Un partenaire premium pour clarifier, créer, automatiser, réparer et faire évoluer vos projets digitaux et informatiques."
     />
     <meta property="og:url" content="https://mybusinesslife.fr/" />
-    <meta property="og:image" content="https://mybusinesslife.fr/assets/logo.png" />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=82"
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="MY BUSINESS LIFE | Sites web, logiciels, agents IA et informatique"
+    />
+    <meta
+      name="twitter:description"
+      content="Un partenaire premium pour clarifier vos besoins, construire les bons outils et suivre des résultats plus lisibles."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=82"
+    />
     <title>MY BUSINESS LIFE | Sites web, logiciels, agents IA et informatique</title>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="preload" href="assets/logo.png" as="image" />
+    <link
+      rel="preload"
+      href="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=82"
+      as="image"
+    />
     <link rel="stylesheet" href="premium-site.css?v=32" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "MY BUSINESS LIFE",
-        "url": "https://mybusinesslife.fr/",
-        "logo": "https://mybusinesslife.fr/assets/logo.png",
-        "description": "MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des solutions digitales, sites web, logiciels sur-mesure, agents IA, automatisations et services informatiques."
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "MY BUSINESS LIFE",
+            "url": "https://mybusinesslife.fr/",
+            "logo": "https://mybusinesslife.fr/assets/logo.png",
+            "description": "MY BUSINESS LIFE accompagne particuliers, indépendants et entreprises avec des solutions digitales, sites web, logiciels sur-mesure, agents IA, automatisations et services informatiques."
+          },
+          {
+            "@type": "WebSite",
+            "name": "MY BUSINESS LIFE",
+            "url": "https://mybusinesslife.fr/",
+            "inLanguage": "fr-FR",
+            "description": "Un partenaire premium pour clarifier, créer, automatiser, réparer et faire évoluer vos projets digitaux et informatiques."
+          },
+          {
+            "@type": "ProfessionalService",
+            "name": "MY BUSINESS LIFE",
+            "url": "https://mybusinesslife.fr/",
+            "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=82",
+            "areaServed": "France",
+            "priceRange": "EUR",
+            "description": "Sites web premium, logiciels sur-mesure, agents IA, automatisations, stratégie digitale, réparation informatique et conseil matériel.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Services MY BUSINESS LIFE",
+              "itemListElement": [
+                { "@type": "OfferCatalog", "name": "Sites web premium" },
+                { "@type": "OfferCatalog", "name": "Logiciels sur-mesure" },
+                { "@type": "OfferCatalog", "name": "Automatisation" },
+                { "@type": "OfferCatalog", "name": "Agents IA" },
+                { "@type": "OfferCatalog", "name": "Réparation ordinateur" },
+                { "@type": "OfferCatalog", "name": "Assistance informatique à domicile" }
+              ]
+            }
+          }
+        ]
       }
     </script>
   </head>
-  <body>
+  <body class="premium-page home-premium-page">
     <header class="site-header" aria-label="Navigation principale">
       <a class="brand" href="index.html" aria-label="MY BUSINESS LIFE">
         <span class="brand-mark"><img src="assets/logo.png" alt="" /></span>
@@ -79,7 +132,6 @@
             <a href="cas-clients.html"><span>Cas clients</span><small>Exemples de transformation digitale.</small></a>
             <a href="blog.html"><span>Blog</span><small>Conseils web, logiciel et informatique.</small></a>
             <a href="credit-impot-assistance-informatique.html"><span>Crédit d'impôt</span><small>Comprendre le reste à charge 50%.</small></a>
-            <a href="jeux.html"><span>Jeux</span><small>Puissance 4 MY BUSINESS LIFE.</small></a>
             <a href="ebook.html"><span>Ebook logiciel</span><small>Automatiser et centraliser votre activité.</small></a>
             <a href="ebook-site-internet.html"><span>Ebook site internet</span><small>Moderniser, suivre et convertir.</small></a>
             <a href="ebook-agents-ia.html"><span>Ebook agents IA</span><small>Automatiser sans perdre le contrôle.</small></a>
@@ -88,97 +140,67 @@
           </div>
         </div>
         <a href="a-propos.html">À propos</a>
-        <a href="espace-client.html">Espace client</a>
+        <a href="espace-client.html">Connexion client</a>
         <a class="nav-cta" href="contact.html">Contact</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero-section" aria-labelledby="hero-title">
-        <div class="hero-copy" data-animate>
-          <p class="eyebrow">MY BUSINESS LIFE</p>
-          <h1 id="hero-title">Le partenaire digital qui rend vos projets plus clairs, plus simples et plus puissants.</h1>
-          <p class="hero-text">
-            Sites web, automatisations, logiciels métier, stratégie digitale, réparation ordinateur
-            et conseil matériel : nous vous aidons à avancer avec des solutions utiles, belles et solides.
+    <main id="top" class="premium-main">
+      <section class="premium-hero home-premium-hero" aria-labelledby="hero-title">
+        <div data-animate>
+          <p class="premium-kicker">MY BUSINESS LIFE</p>
+          <h1 id="hero-title">Des expériences digitales <span>ultra claires, premium et mesurables</span>.</h1>
+          <p class="premium-lead">
+            Sites web, automatisations, logiciels métier, stratégie digitale, réparation ordinateur et
+            conseil matériel : nous transformons un besoin flou en parcours lisible, crédible et durable.
           </p>
-          <div class="hero-actions" aria-label="Actions principales">
+          <div class="premium-actions" aria-label="Actions principales">
             <a class="button button-primary" href="diagnostic.html">Faire mon diagnostic</a>
             <a class="button button-secondary" href="services.html">Explorer les services</a>
           </div>
-          <div class="hero-signals" aria-label="Engagements MY BUSINESS LIFE">
-            <span>Clarté stratégique</span>
-            <span>Exécution premium</span>
-            <span>Accompagnement humain</span>
+          <div class="mini-nav" aria-label="Accès rapides">
+            <a href="#profils">Choisir mon parcours</a>
+            <a href="#services">Voir les solutions</a>
+            <a href="#ressources">Découvrir les ressources</a>
           </div>
         </div>
 
-        <div class="product-stage" aria-label="Aperçu des solutions MY BUSINESS LIFE" data-stage-panel data-animate="scale">
-          <div class="stage-shell">
-            <div class="stage-topbar">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="stage-content">
-              <aside class="stage-sidebar">
-                <img src="assets/logo.png" alt="" />
-                <strong>MBL Studio</strong>
-                <span></span>
-                <span></span>
-                <span></span>
-              </aside>
-              <div class="stage-main">
-                <div class="stage-kpis" aria-label="Accès rapides aux solutions">
-                  <a class="stage-kpi is-active" href="developpement-web.html" data-stage-control="presence" aria-label="Explorer les sites web premium">
-                    <span>Présence</span>
-                    <small>Site moderne</small>
-                  </a>
-                  <a class="stage-kpi" href="automatisation.html" data-stage-control="automation" aria-label="Explorer les automatisations">
-                    <span>Automatisation</span>
-                    <small>Flux et tâches</small>
-                  </a>
-                  <a class="stage-kpi" href="logiciel-sur-mesure.html" data-stage-control="pilotage" aria-label="Explorer le pilotage et les dashboards">
-                    <span>Pilotage</span>
-                    <small>Dashboard métier</small>
-                  </a>
-                </div>
-                <div class="stage-board">
-                  <div class="stage-status">
-                    <strong data-stage-title>Plan digital</strong>
-                    <span data-stage-copy>Priorités, actions, résultats</span>
-                  </div>
-                  <div class="stage-insight" data-stage-insight>
-                    <span>Parcours conseillé</span>
-                    <strong>Clarifier la présence, puis convertir.</strong>
-                  </div>
-                  <div class="stage-line"></div>
-                  <div class="stage-line short"></div>
-                  <div class="stage-bars">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </div>
-                </div>
-                <div class="stage-flow">
-                  <span>Besoin</span>
-                  <span>Plan</span>
-                  <span>Création</span>
-                  <span>Résultat</span>
-                </div>
-              </div>
+        <div class="premium-visual" data-animate="scale">
+          <div class="floating-metrics" aria-hidden="true">
+            <span><strong>1 cap</strong> votre besoin clarifié avant d'investir</span>
+            <span><strong>3 axes</strong> présence, automatisation, pilotage</span>
+          </div>
+          <div class="visual-frame">
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=82"
+              alt="Équipe en collaboration autour de plusieurs écrans pour piloter un projet digital"
+              fetchpriority="high"
+            />
+            <div class="visual-card">
+              <span>Approche premium</span>
+              <strong>Un site, des outils et un suivi pensés pour durer.</strong>
+              <p>Chaque échange devient une base plus simple à piloter, plus belle à présenter et plus utile à faire évoluer.</p>
             </div>
           </div>
-          <div class="floating-proof proof-a">
-            <strong>1 vision</strong>
-            <span>Une direction claire avant de construire.</span>
-          </div>
-          <div class="floating-proof proof-b">
-            <strong>+ simple</strong>
-            <span>Moins de friction, plus d'action.</span>
-          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip home-proof-strip" aria-label="Repères MY BUSINESS LIFE" data-animate>
+        <div>
+          <strong>Clarté</strong>
+          <span>Un besoin cadré avant de créer le moindre outil.</span>
+        </div>
+        <div>
+          <strong>Premium</strong>
+          <span>Une présence plus crédible dès les premières secondes.</span>
+        </div>
+        <div>
+          <strong>Suivi</strong>
+          <span>Des demandes, diagnostics et projets plus faciles à relire.</span>
+        </div>
+        <div>
+          <strong>Évolution</strong>
+          <span>Une base qui reste propre quand l'activité grandit.</span>
         </div>
       </section>
 
@@ -420,7 +442,7 @@
           <a href="particuliers.html">Particuliers</a>
           <a href="professionnels.html">Professionnels</a>
           <a href="diagnostic.html">Diagnostic en ligne</a>
-          <a href="espace-client.html">Espace client</a>
+          <a href="espace-client.html">Connexion client</a>
           <a href="contact.html">Demander une étude</a>
         </div>
         <div class="footer-column">
@@ -428,7 +450,6 @@
           <a href="cas-clients.html">Cas clients</a>
           <a href="blog.html">Blog</a>
           <a href="credit-impot-assistance-informatique.html">Crédit d'impôt informatique</a>
-          <a href="jeux.html">Jeux</a>
           <a href="ebook.html">Ebook logiciel</a>
           <a href="ebook-site-internet.html">Ebook site internet</a>
           <a href="ebook-agents-ia.html">Ebook agents IA</a>
