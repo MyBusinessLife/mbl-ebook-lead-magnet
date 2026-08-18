@@ -608,92 +608,239 @@
       .dash-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
       @media (max-width: 800px) { .dash-cols { grid-template-columns: 1fr; } }
 
-      /* Planning commercial */
-      .planning-shell { margin-bottom: 16px; }
-      .planning-head {
-        padding: 14px 18px;
-        border-bottom: 1px solid var(--border);
-        display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
-      }
-      .planning-meta { font-size: 0.72rem; color: var(--muted); text-align: right; }
-      .planning-grid {
+      /* Rendez-vous imminents */
+      .upcoming-shell { margin-bottom: 16px; }
+      .upcoming-grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(220px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
         padding: 14px 16px 16px;
-        overflow-x: auto;
       }
-      .planning-col {
+      .upcoming-day {
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--border);
         border-radius: var(--r-sm);
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
+        overflow: hidden;
       }
-      .planning-col.is-appointment {
-        border-color: rgba(16,185,129,0.22);
-        background: rgba(16,185,129,0.05);
-      }
-      .planning-col-head {
+      .upcoming-day-head {
         padding: 11px 12px;
         border-bottom: 1px solid rgba(255,255,255,0.05);
         display: flex; align-items: center; justify-content: space-between; gap: 8px;
       }
-      .planning-col-title { font-size: 0.74rem; font-weight: 800; color: var(--text); }
-      .planning-col-count {
+      .upcoming-day-title { font-size: 0.74rem; font-weight: 800; color: var(--text); }
+      .upcoming-day-count {
         font-size: 0.64rem; font-weight: 800; color: var(--muted);
         background: rgba(255,255,255,0.06); border-radius: 999px; padding: 2px 7px;
       }
-      .planning-list { padding: 10px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-      .planning-item {
+      .upcoming-list { padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 112px; }
+      .upcoming-item {
         width: 100%;
         text-align: left;
-        background: var(--bg3);
-        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(16,185,129,0.08), rgba(11,29,46,0.92));
+        border: 1px solid rgba(16,185,129,0.18);
         border-radius: var(--r-sm);
         padding: 10px 11px;
         color: var(--text);
         cursor: pointer;
         transition: transform 0.15s, border-color 0.18s, box-shadow 0.18s;
       }
-      .planning-item:hover {
+      .upcoming-item:hover {
         transform: translateY(-1px);
         border-color: rgba(255,106,46,0.35);
         box-shadow: 0 10px 28px rgba(0,0,0,0.22);
       }
-      .planning-item.is-appointment {
-        border-color: rgba(16,185,129,0.24);
-        background: linear-gradient(180deg, rgba(16,185,129,0.08), rgba(11,29,46,0.9));
-      }
-      .planning-item-top {
+      .upcoming-item-top {
         display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
         margin-bottom: 6px;
       }
-      .planning-name { font-size: 0.8rem; font-weight: 800; line-height: 1.35; }
-      .planning-company { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
-      .planning-time {
+      .upcoming-item-name { font-size: 0.8rem; font-weight: 800; line-height: 1.35; }
+      .upcoming-item-time {
         font-size: 0.66rem; font-weight: 800; white-space: nowrap;
-        padding: 3px 7px; border-radius: 999px; background: rgba(255,255,255,0.06); color: var(--muted);
-      }
-      .planning-time.is-overdue { background: rgba(239,68,68,0.12); color: var(--red); }
-      .planning-time.is-today { background: rgba(245,158,11,0.12); color: var(--yellow); }
-      .planning-time.is-appointment { background: rgba(16,185,129,0.12); color: var(--green); }
-      .planning-campaign { font-size: 0.68rem; color: var(--muted); margin-bottom: 7px; }
-      .planning-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-      .planning-tag {
-        font-size: 0.62rem; font-weight: 800;
         padding: 3px 7px; border-radius: 999px;
-        background: rgba(255,255,255,0.06); color: var(--muted);
+        background: rgba(16,185,129,0.12); color: var(--green);
       }
-      .planning-empty {
+      .upcoming-item-meta { font-size: 0.68rem; color: var(--muted); }
+      .upcoming-empty {
         height: 100%;
-        min-height: 120px;
+        min-height: 92px;
         display: flex; align-items: center; justify-content: center;
         text-align: center;
         font-size: 0.72rem; color: var(--muted2);
         border: 1px dashed rgba(255,255,255,0.06);
         border-radius: var(--r-sm);
+      }
+
+      /* Planning calendrier */
+      .calendar-shell { padding: 16px; }
+      .calendar-toolbar {
+        display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        margin-bottom: 14px; flex-wrap: wrap;
+      }
+      .calendar-nav { display: flex; align-items: center; gap: 10px; }
+      .calendar-nav-head { min-width: 190px; }
+      .calendar-month-title {
+        font-size: 1rem; font-weight: 800; color: var(--text);
+        text-transform: capitalize;
+      }
+      .calendar-month-meta { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+      .calendar-legend { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+      .calendar-legend-item {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-size: 0.7rem; color: var(--muted);
+      }
+      .calendar-legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+      .calendar-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.95fr);
+        gap: 14px;
+      }
+      .calendar-main {
+        background: rgba(255,255,255,0.015);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+      }
+      .calendar-weekdays,
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+      }
+      .calendar-weekdays {
+        background: rgba(255,255,255,0.025);
+        border-bottom: 1px solid var(--border);
+      }
+      .calendar-weekday {
+        padding: 10px 8px;
+        text-align: center;
+        font-size: 0.65rem; font-weight: 800; color: var(--muted);
+        text-transform: uppercase; letter-spacing: 0.06em;
+      }
+      .calendar-day {
+        min-height: 126px;
+        padding: 9px 9px 10px;
+        border-right: 1px solid rgba(255,255,255,0.04);
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        background: transparent;
+        color: var(--text);
+        text-align: left;
+        cursor: pointer;
+        display: flex; flex-direction: column; gap: 8px;
+        transition: background 0.16s, border-color 0.16s;
+      }
+      .calendar-day:nth-child(7n) { border-right: none; }
+      .calendar-day:hover { background: rgba(255,255,255,0.025); }
+      .calendar-day.is-outside { background: rgba(255,255,255,0.01); color: rgba(240,244,248,0.35); }
+      .calendar-day.is-today { box-shadow: inset 0 0 0 1px rgba(255,106,46,0.24); }
+      .calendar-day.is-selected {
+        background: linear-gradient(180deg, rgba(255,106,46,0.12), rgba(255,255,255,0.015));
+        box-shadow: inset 0 0 0 1px rgba(255,106,46,0.35);
+      }
+      .calendar-day-head {
+        display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      }
+      .calendar-day-number { font-size: 0.8rem; font-weight: 800; }
+      .calendar-day-badge {
+        font-size: 0.62rem; font-weight: 800;
+        padding: 2px 6px; border-radius: 999px;
+        background: rgba(255,255,255,0.06); color: var(--muted);
+      }
+      .calendar-day-events {
+        display: flex; flex-direction: column; gap: 5px;
+        min-height: 0;
+      }
+      .calendar-chip {
+        width: 100%;
+        text-align: left;
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: 7px;
+        padding: 5px 7px;
+        background: rgba(255,255,255,0.03);
+        color: var(--text);
+        cursor: pointer;
+      }
+      .calendar-chip.is-appointment {
+        background: rgba(16,185,129,0.10);
+        border-color: rgba(16,185,129,0.18);
+      }
+      .calendar-chip.is-followup {
+        background: rgba(245,158,11,0.09);
+        border-color: rgba(245,158,11,0.18);
+      }
+      .calendar-chip-time { font-size: 0.62rem; font-weight: 800; margin-bottom: 1px; }
+      .calendar-chip-label {
+        font-size: 0.67rem; color: var(--muted);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .calendar-more {
+        font-size: 0.66rem; color: var(--muted2);
+        padding: 0 2px;
+      }
+      .calendar-side {
+        background: rgba(255,255,255,0.015);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        min-height: 100%;
+      }
+      .calendar-side-head {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .calendar-side-title {
+        font-size: 0.94rem; font-weight: 800; color: var(--text);
+        text-transform: capitalize;
+      }
+      .calendar-side-meta { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+      .calendar-side-list {
+        padding: 12px;
+        display: flex; flex-direction: column; gap: 9px;
+      }
+      .calendar-side-item {
+        width: 100%;
+        text-align: left;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r-sm);
+        padding: 11px 12px;
+        color: var(--text);
+        cursor: pointer;
+        transition: transform 0.15s, border-color 0.18s, box-shadow 0.18s;
+      }
+      .calendar-side-item:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255,106,46,0.35);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+      }
+      .calendar-side-item.is-appointment {
+        border-color: rgba(16,185,129,0.18);
+        background: linear-gradient(180deg, rgba(16,185,129,0.08), rgba(11,29,46,0.95));
+      }
+      .calendar-side-top {
+        display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+        margin-bottom: 7px;
+      }
+      .calendar-side-type {
+        font-size: 0.64rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.07em;
+        color: var(--muted);
+      }
+      .calendar-side-time {
+        font-size: 0.72rem; font-weight: 800; color: var(--text);
+      }
+      .calendar-side-name { font-size: 0.82rem; font-weight: 800; margin-bottom: 3px; }
+      .calendar-side-meta-line { font-size: 0.7rem; color: var(--muted); }
+      .calendar-side-empty {
+        padding: 24px 18px;
+        text-align: center;
+        font-size: 0.76rem; color: var(--muted2);
+      }
+      @media (max-width: 980px) {
+        .calendar-layout { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 760px) {
+        .upcoming-grid { grid-template-columns: 1fr; }
+        .calendar-shell { padding: 12px; }
+        .calendar-day { min-height: 110px; padding: 8px; }
+        .calendar-month-title { font-size: 0.92rem; }
       }
 
       /* Recent lead rows */
@@ -1010,15 +1157,15 @@
             </div>
           </div>
 
-          <div class="card planning-shell">
-            <div class="planning-head">
+          <div class="card upcoming-shell">
+            <div class="card-head">
               <div>
-                <div class="card-title">Planning commercial</div>
-                <div class="card-sub">Relances prioritaires et rendez-vous à venir</div>
+                <div class="card-title">Rendez-vous imminents</div>
+                <div class="card-sub" id="dashUpcomingMeta">Aujourd'hui et demain</div>
               </div>
-              <div class="planning-meta" id="dashPlanningMeta">—</div>
+              <button class="btn btn-ghost btn-sm" data-goto="planning">Ouvrir le planning →</button>
             </div>
-            <div class="planning-grid" id="dashPlanning"></div>
+            <div class="upcoming-grid" id="dashUpcoming"></div>
           </div>
 
           <!-- Middle row : Funnel + Campagnes -->
@@ -1075,17 +1222,61 @@
               <button class="btn btn-primary btn-sm" id="btnAddPipe">+ Ajouter un lead</button>
             </div>
           </div>
-          <div class="card planning-shell">
-            <div class="planning-head">
-              <div>
-                <div class="card-title">Relances & rendez-vous</div>
-                <div class="card-sub">Vision rapide avant de déplacer ou traiter un lead</div>
-              </div>
-              <div class="planning-meta" id="pipePlanningMeta">—</div>
-            </div>
-            <div class="planning-grid" id="pipePlanning"></div>
-          </div>
           <div class="kanban" id="kanban"></div>
+        </div>
+
+        <!-- ══ PLANNING ══ -->
+        <div class="view" id="v-planning">
+          <div class="page-head">
+            <div>
+              <div class="page-title">Planning</div>
+              <div class="page-sub">Calendrier des rendez-vous et relances commerciales</div>
+            </div>
+            <div class="page-actions">
+              <select class="t-select" id="planningCampFilter"><option value="">Toutes les campagnes</option></select>
+              <button class="btn btn-ghost btn-sm" id="planningTodayBtn">Aujourd'hui</button>
+              <button class="btn btn-primary btn-sm" id="btnAddPlanning">+ Ajouter un lead</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="calendar-shell">
+              <div class="calendar-toolbar">
+                <div class="calendar-nav">
+                  <button class="btn btn-ghost btn-sm" id="planningPrevBtn">←</button>
+                  <div class="calendar-nav-head">
+                    <div class="calendar-month-title" id="planningMonthLabel">—</div>
+                    <div class="calendar-month-meta" id="planningMonthMeta">—</div>
+                  </div>
+                  <button class="btn btn-ghost btn-sm" id="planningNextBtn">→</button>
+                </div>
+                <div class="calendar-legend">
+                  <span class="calendar-legend-item"><span class="calendar-legend-dot" style="background:var(--green)"></span>Rendez-vous</span>
+                  <span class="calendar-legend-item"><span class="calendar-legend-dot" style="background:var(--yellow)"></span>Relances</span>
+                </div>
+              </div>
+              <div class="calendar-layout">
+                <section class="calendar-main">
+                  <div class="calendar-weekdays">
+                    <div class="calendar-weekday">Lun</div>
+                    <div class="calendar-weekday">Mar</div>
+                    <div class="calendar-weekday">Mer</div>
+                    <div class="calendar-weekday">Jeu</div>
+                    <div class="calendar-weekday">Ven</div>
+                    <div class="calendar-weekday">Sam</div>
+                    <div class="calendar-weekday">Dim</div>
+                  </div>
+                  <div class="calendar-grid" id="planningCalendarGrid"></div>
+                </section>
+                <aside class="calendar-side">
+                  <div class="calendar-side-head">
+                    <div class="calendar-side-title" id="planningSelectedTitle">—</div>
+                    <div class="calendar-side-meta" id="planningSelectedMeta">—</div>
+                  </div>
+                  <div class="calendar-side-list" id="planningSelectedList"></div>
+                </aside>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- ══ LEADS ══ -->
@@ -1189,6 +1380,10 @@
         <button class="nav-tab active" data-tab="dash">
           <span class="nav-tab-icon">📊</span>
           <span class="nav-tab-label">Dashboard</span>
+        </button>
+        <button class="nav-tab" data-tab="planning">
+          <span class="nav-tab-icon">🗓</span>
+          <span class="nav-tab-label">Planning</span>
         </button>
         <button class="nav-tab" data-tab="pipeline">
           <span class="nav-tab-icon">🔄</span>
@@ -1340,6 +1535,8 @@
         lead: null,          // lead actif dans le modal
         tab: 'dash',
         search: '', campF: '', statusF: '', dashCampF: '', testMode: false, costPeriod: 'lifetime',
+        planningMonth: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+        planningSelectedDate: null,
       };
 
       const LABELS = { new:'Nouveau', qualified:'Qualifié', negotiation:'En négociation', followup:'À relancer', signed:'Signé', lost:'Perdu' };
@@ -1349,15 +1546,16 @@
       /* ─── UTILS ─── */
 	      const $ = id => document.getElementById(id);
 	      const E = (tag, cls, html) => { const el = document.createElement(tag); if (cls) el.className = cls; if (html) el.innerHTML = html; return el; };
-	      const fmt  = n => n != null ? Number(n).toLocaleString('fr-FR') : '—';
-	      const fmtE = n => n != null && n !== '' && n !== 0 ? Number(n).toLocaleString('fr-FR', {style:'currency',currency:'EUR',maximumFractionDigits:0}) : '—';
-	      const fmtD = d => d ? new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'2-digit'}) : '—';
-	      const fmtDT = d => d ? new Date(d).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
-	      const toValidDate = value => {
-	        if (!value) return null;
-	        const date = new Date(value);
-	        return Number.isNaN(date.getTime()) ? null : date;
-	      };
+      const fmt  = n => n != null ? Number(n).toLocaleString('fr-FR') : '—';
+      const fmtE = n => n != null && n !== '' && n !== 0 ? Number(n).toLocaleString('fr-FR', {style:'currency',currency:'EUR',maximumFractionDigits:0}) : '—';
+      const fmtD = d => d ? new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'2-digit'}) : '—';
+      const fmtDT = d => d ? new Date(d).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
+      const fmtT = d => d ? new Date(d).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}) : '—';
+      const toValidDate = value => {
+        if (!value) return null;
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? null : date;
+      };
 	      const fmtInputDT = value => {
 	        const date = toValidDate(value);
 	        if (!date) return '';
@@ -1390,10 +1588,93 @@
 	          .replaceAll('"', '&quot;')
 	          .replaceAll("'", '&#39;');
 	      }
-	      function leadName(lead) {
-	        const name = `${lead.first_name || ''} ${lead.last_name || ''}`.trim();
-	        return name || lead.email || lead.phone || 'Lead sans nom';
-	      }
+      function leadName(lead) {
+        const name = `${lead.first_name || ''} ${lead.last_name || ''}`.trim();
+        return name || lead.email || lead.phone || 'Lead sans nom';
+      }
+      function localDayKey(value) {
+        const date = value instanceof Date ? value : toValidDate(value);
+        if (!date) return '';
+        const pad = n => String(n).padStart(2, '0');
+        return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}`;
+      }
+      function parseLocalDayKey(key) {
+        if (!key) return null;
+        const [year, month, day] = String(key).split('-').map(Number);
+        if (!year || !month || !day) return null;
+        return new Date(year, month - 1, day);
+      }
+      function startOfDay(date) {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+      function addDays(date, amount) {
+        const next = new Date(date);
+        next.setDate(next.getDate() + amount);
+        return next;
+      }
+      function monthStart(date) {
+        return new Date(date.getFullYear(), date.getMonth(), 1);
+      }
+      function monthEnd(date) {
+        return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+      }
+      function sameMonth(a, b) {
+        return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth();
+      }
+      function planningScopeLeads() {
+        return S.campF ? S.leads.filter(l => l.ads_campaign_id === S.campF) : S.leads;
+      }
+      function planningEntries(leads) {
+        const activeLeads = leads.filter(l => !['signed', 'lost'].includes(l.status));
+        return activeLeads
+          .flatMap(lead => {
+            const entries = [];
+            const appointmentDate = toValidDate(lead.appointment_at);
+            const followupDate = toValidDate(lead.followup_at);
+            if (appointmentDate) {
+              entries.push({
+                key: `appointment-${lead.id}-${appointmentDate.toISOString()}`,
+                lead,
+                type: 'appointment',
+                date: appointmentDate,
+                dateKey: localDayKey(appointmentDate),
+                label: 'Rendez-vous',
+              });
+            }
+            if (followupDate) {
+              entries.push({
+                key: `followup-${lead.id}-${followupDate.toISOString()}`,
+                lead,
+                type: 'followup',
+                date: followupDate,
+                dateKey: localDayKey(followupDate),
+                label: 'Relance',
+              });
+            }
+            return entries;
+          })
+          .sort((a, b) => a.date.getTime() - b.date.getTime() || leadName(a.lead).localeCompare(leadName(b.lead), 'fr'));
+      }
+      function selectPlanningDate(key) {
+        S.planningSelectedDate = key;
+        renderPlanningView();
+      }
+      function movePlanningMonth(offset) {
+        const next = new Date(S.planningMonth.getFullYear(), S.planningMonth.getMonth() + offset, 1);
+        S.planningMonth = monthStart(next);
+        const selected = parseLocalDayKey(S.planningSelectedDate);
+        if (!selected || !sameMonth(selected, S.planningMonth)) {
+          const today = new Date();
+          S.planningSelectedDate = sameMonth(today, S.planningMonth) ? localDayKey(today) : localDayKey(S.planningMonth);
+        }
+        renderPlanningView();
+      }
+      function jumpPlanningToday() {
+        const today = new Date();
+        S.planningMonth = monthStart(today);
+        S.planningSelectedDate = localDayKey(today);
+        renderPlanningView();
+      }
 
       /* ─── AUTH ─── */
       async function init() {
@@ -1412,6 +1693,7 @@
         $('tAvatar').textContent = email[0]?.toUpperCase() || '?';
         $('tRole').textContent = isAdmin() ? 'Admin' : 'Commercial';
         $('acctWrap').hidden = false;
+        S.planningSelectedDate = localDayKey(new Date());
         await loadSettings();
         await loadAccounts();
 
@@ -1432,6 +1714,9 @@
           S.costPeriod = $('costPeriod').value;
           renderDash(); if (S.tab === 'camps') renderCamps();
         });
+        $('planningPrevBtn').addEventListener('click', () => movePlanningMonth(-1));
+        $('planningNextBtn').addEventListener('click', () => movePlanningMonth(1));
+        $('planningTodayBtn').addEventListener('click', jumpPlanningToday);
         document.querySelectorAll('[data-goto]').forEach(b => b.addEventListener('click', () => goTab(b.dataset.goto)));
       }
 
@@ -1480,15 +1765,15 @@
         const { data } = await q;
         S.campaigns = data || [];
         // Sync dropdowns
-        [$('campFilter'), $('pipeCampFilter'), $('dashCampFilter'), $('aCamp')].forEach(sel => {
+        [$('campFilter'), $('pipeCampFilter'), $('planningCampFilter'), $('dashCampFilter'), $('aCamp')].forEach(sel => {
           if (!sel) return;
           const cur = sel.value;
-          const isFilter = sel.id === 'campFilter' || sel.id === 'pipeCampFilter' || sel.id === 'dashCampFilter';
+          const isFilter = sel.id === 'campFilter' || sel.id === 'pipeCampFilter' || sel.id === 'planningCampFilter' || sel.id === 'dashCampFilter';
           sel.innerHTML = isFilter ? '<option value="">Toutes les campagnes</option>' : '<option value="">— Sans campagne —</option>';
           S.campaigns.forEach(c => { const o = E('option'); o.value = c.id; o.textContent = c.name; sel.appendChild(o); });
           if (cur) sel.value = cur;
         });
-        S.campF = $('campFilter')?.value || $('pipeCampFilter')?.value || '';
+        S.campF = $('campFilter')?.value || $('pipeCampFilter')?.value || $('planningCampFilter')?.value || '';
         S.dashCampF = $('dashCampFilter')?.value || '';
         await loadMetaStructure();
       }
@@ -1532,6 +1817,7 @@
         await loadCampaigns(); await loadLeads();
         renderDash();
         if (S.tab === 'leads')    renderLeads();
+        if (S.tab === 'planning') renderPlanningView();
         if (S.tab === 'pipeline') renderKanban();
         if (S.tab === 'camps')    renderCamps();
       }
@@ -1549,6 +1835,7 @@
         document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === `v-${id}`));
         $('content').scrollTo(0, 0);
         if (id === 'leads')    renderLeads();
+        if (id === 'planning') renderPlanningView();
         if (id === 'pipeline') renderKanban();
         if (id === 'camps')    renderCamps();
         if (id === 'settings') renderSettings();
@@ -1572,113 +1859,159 @@
         const ids = selectedCampaignIds();
         return ids.size ? S.campaigns.filter(c => ids.has(c.id)) : S.campaigns;
       }
-	      function periodLeads() {
-	        let leads = S.leads;
-	        const ids = selectedCampaignIds();
-	        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
+      function periodLeads() {
+        let leads = S.leads;
+        const ids = selectedCampaignIds();
+        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
         if (S.costPeriod !== 'lifetime') {
           const since = Date.now() - 30 * 24 * 60 * 60 * 1000;
           leads = leads.filter(l => new Date(l.source_created_at || l.created_at).getTime() >= since);
-	        }
-	        return leads;
-	      }
-	      function dashboardSelectedLeads() {
-	        let leads = S.leads;
-	        const ids = selectedCampaignIds();
-	        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
-	        return leads;
-	      }
-	      function dateBucket(value) {
-	        const date = toValidDate(value);
-	        if (!date) return 'none';
-	        const now = new Date();
-	        const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-	        const tomorrow = new Date(start); tomorrow.setDate(tomorrow.getDate() + 1);
-	        const nextWeek = new Date(start); nextWeek.setDate(nextWeek.getDate() + 7);
-	        if (date < start) return 'overdue';
-	        if (date < tomorrow) return 'today';
-	        if (date < nextWeek) return 'week';
-	        return 'later';
-	      }
-	      function planningCollections(leads) {
-	        const active = leads.filter(l => !['signed', 'lost'].includes(l.status));
-	        const sortBy = key => (a, b) => {
-	          const av = toValidDate(a[key])?.getTime() || Number.MAX_SAFE_INTEGER;
-	          const bv = toValidDate(b[key])?.getTime() || Number.MAX_SAFE_INTEGER;
-	          return av - bv;
-	        };
-	        const appointments = active.filter(l => toValidDate(l.appointment_at)).sort(sortBy('appointment_at'));
-	        const followups = active.filter(l => !toValidDate(l.appointment_at));
-	        return {
-	          appointments,
-	          overdue: followups.filter(l => dateBucket(l.followup_at) === 'overdue').sort(sortBy('followup_at')),
-	          today: followups.filter(l => dateBucket(l.followup_at) === 'today').sort(sortBy('followup_at')),
-	          week: followups.filter(l => dateBucket(l.followup_at) === 'week').sort(sortBy('followup_at')),
-	          unscheduled: followups.filter(l => !toValidDate(l.followup_at)).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)),
-	        };
-	      }
-	      function renderPlanningItem(lead, mode = 'followup') {
-	        const dateValue = mode === 'appointment' ? lead.appointment_at : lead.followup_at;
-	        const bucket = dateBucket(dateValue);
-	        const timeClasses = [
-	          'planning-time',
-	          mode === 'appointment' ? 'is-appointment' : '',
-	          bucket === 'overdue' ? 'is-overdue' : '',
-	          bucket === 'today' ? 'is-today' : '',
-	        ].filter(Boolean).join(' ');
-	        const timeLabel = mode === 'appointment'
-	          ? (dateValue ? fmtDT(dateValue) : 'À planifier')
-	          : (dateValue ? fmtDT(dateValue) : 'Non planifiée');
-	        const tags = [
-	          badge(lead.status),
-	          lead.project_name ? `<span class="planning-tag">${escapeHtml(lead.project_name)}</span>` : '',
-	          lead.project_price ? `<span class="planning-tag">${escapeHtml(fmtE(lead.project_price))}</span>` : '',
-	        ].filter(Boolean).join('');
-	        return `
-	          <button class="planning-item ${mode === 'appointment' ? 'is-appointment' : ''}" type="button" data-plan-lead="${escapeHtml(lead.id)}">
-	            <div class="planning-item-top">
-	              <div>
-	                <div class="planning-name">${escapeHtml(leadName(lead))}</div>
-	                ${lead.company ? `<div class="planning-company">${escapeHtml(lead.company)}</div>` : ''}
-	              </div>
-	              <span class="${timeClasses}">${escapeHtml(timeLabel)}</span>
-	            </div>
-	            <div class="planning-campaign">${escapeHtml(lead.ads_campaigns?.name || 'Saisie manuelle')}</div>
-	            <div class="planning-tags">${tags}</div>
-	          </button>
-	        `;
-	      }
-	      function renderPlanning(targetGridId, targetMetaId, leads) {
-	        const grid = $(targetGridId);
-	        const meta = $(targetMetaId);
-	        if (!grid || !meta) return;
-	        const groups = planningCollections(leads);
-	        const columns = [
-	          { key:'appointment', title:'Rendez-vous', items:groups.appointments, mode:'appointment', empty:'Aucun rendez-vous planifié.' },
-	          { key:'overdue', title:'En retard', items:groups.overdue, mode:'followup', empty:'Aucune relance en retard.' },
-	          { key:'today', title:'Aujourd’hui', items:groups.today, mode:'followup', empty:'Rien à traiter aujourd’hui.' },
-	          { key:'week', title:'Cette semaine', items:groups.week, mode:'followup', empty:'Pas de relance sur 7 jours.' },
-	          { key:'unscheduled', title:'À planifier', items:groups.unscheduled, mode:'followup', empty:'Tout est planifié.' },
-	        ];
-	        meta.textContent = `${groups.appointments.length} rendez-vous · ${groups.overdue.length + groups.today.length + groups.week.length} relances planifiées`;
-	        grid.innerHTML = columns.map(col => `
-	          <section class="planning-col ${col.key === 'appointment' ? 'is-appointment' : ''}">
-	            <div class="planning-col-head">
-	              <span class="planning-col-title">${col.title}</span>
-	              <span class="planning-col-count">${col.items.length}</span>
-	            </div>
-	            <div class="planning-list">
-	              ${col.items.length ? col.items.map(item => renderPlanningItem(item, col.mode)).join('') : `<div class="planning-empty">${col.empty}</div>`}
-	            </div>
-	          </section>
-	        `).join('');
-	        grid.querySelectorAll('[data-plan-lead]').forEach(button => {
-	          button.addEventListener('click', () => {
-	            const lead = S.leads.find(item => item.id === button.dataset.planLead);
-	            if (lead) openLead(lead);
-	          });
-	        });
-	      }
+        }
+        return leads;
+      }
+      function dashboardSelectedLeads() {
+        let leads = S.leads;
+        const ids = selectedCampaignIds();
+        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
+        return leads;
+      }
+      function renderUpcomingItem(lead) {
+        return `
+          <button class="upcoming-item" type="button" data-upcoming-lead="${escapeHtml(lead.id)}">
+            <div class="upcoming-item-top">
+              <div class="upcoming-item-name">${escapeHtml(leadName(lead))}</div>
+              <span class="upcoming-item-time">${escapeHtml(fmtT(lead.appointment_at))}</span>
+            </div>
+            <div class="upcoming-item-meta">${escapeHtml(lead.ads_campaigns?.name || 'Saisie manuelle')}${lead.company ? ` · ${escapeHtml(lead.company)}` : ''}</div>
+          </button>
+        `;
+      }
+      function renderUpcomingDashboard(leads) {
+        const mount = $('dashUpcoming');
+        const meta = $('dashUpcomingMeta');
+        if (!mount || !meta) return;
+        const today = new Date();
+        const todayKey = localDayKey(today);
+        const tomorrowKey = localDayKey(addDays(today, 1));
+        const appointments = leads
+          .filter(l => !['signed', 'lost'].includes(l.status) && toValidDate(l.appointment_at))
+          .sort((a, b) => toValidDate(a.appointment_at).getTime() - toValidDate(b.appointment_at).getTime());
+        const groups = [
+          { title: "Aujourd'hui", key: todayKey, items: appointments.filter(l => localDayKey(l.appointment_at) === todayKey), empty: "Aucun rendez-vous aujourd'hui." },
+          { title: 'Demain', key: tomorrowKey, items: appointments.filter(l => localDayKey(l.appointment_at) === tomorrowKey), empty: 'Aucun rendez-vous demain.' },
+        ];
+        meta.textContent = `${groups.reduce((sum, group) => sum + group.items.length, 0)} rendez-vous sur 48 h`;
+        mount.innerHTML = groups.map(group => `
+          <section class="upcoming-day">
+            <div class="upcoming-day-head">
+              <span class="upcoming-day-title">${group.title}</span>
+              <span class="upcoming-day-count">${group.items.length}</span>
+            </div>
+            <div class="upcoming-list">
+              ${group.items.length ? group.items.map(item => renderUpcomingItem(item)).join('') : `<div class="upcoming-empty">${group.empty}</div>`}
+            </div>
+          </section>
+        `).join('');
+        mount.querySelectorAll('[data-upcoming-lead]').forEach(button => {
+          button.addEventListener('click', () => {
+            const lead = S.leads.find(item => item.id === button.dataset.upcomingLead);
+            if (lead) openLead(lead);
+          });
+        });
+      }
+      function renderPlanningView() {
+        const grid = $('planningCalendarGrid');
+        const monthLabel = $('planningMonthLabel');
+        const monthMeta = $('planningMonthMeta');
+        const selectedTitle = $('planningSelectedTitle');
+        const selectedMeta = $('planningSelectedMeta');
+        const selectedList = $('planningSelectedList');
+        if (!grid || !monthLabel || !monthMeta || !selectedTitle || !selectedMeta || !selectedList) return;
+
+        const month = monthStart(S.planningMonth);
+        const leads = planningScopeLeads();
+        const entries = planningEntries(leads);
+        const monthStartDate = monthStart(month);
+        const monthEndDate = monthEnd(month);
+        const firstVisible = addDays(monthStartDate, -((monthStartDate.getDay() + 6) % 7));
+        const lastVisible = addDays(monthEndDate, 6 - ((monthEndDate.getDay() + 6) % 7));
+        const visibleEntries = entries.filter(entry => sameMonth(entry.date, month));
+
+        monthLabel.textContent = month.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+        monthMeta.textContent = `${visibleEntries.filter(entry => entry.type === 'appointment').length} rendez-vous · ${visibleEntries.filter(entry => entry.type === 'followup').length} relances`;
+
+        if (!S.planningSelectedDate) {
+          S.planningSelectedDate = localDayKey(new Date());
+        }
+        const selectedDate = parseLocalDayKey(S.planningSelectedDate) || monthStartDate;
+        if (!sameMonth(selectedDate, month)) {
+          S.planningSelectedDate = localDayKey(sameMonth(new Date(), month) ? new Date() : monthStartDate);
+        }
+
+        const cells = [];
+        for (let cursor = new Date(firstVisible); cursor <= lastVisible; cursor = addDays(cursor, 1)) {
+          cells.push(new Date(cursor));
+        }
+
+        grid.innerHTML = cells.map(day => {
+          const key = localDayKey(day);
+          const items = entries.filter(entry => entry.dateKey === key);
+          const visibleItems = items.slice(0, 3);
+          const overflow = items.length - visibleItems.length;
+          const isToday = key === localDayKey(new Date());
+          const isSelected = key === S.planningSelectedDate;
+          const isOutside = !sameMonth(day, month);
+          return `
+            <div class="calendar-day ${isToday ? 'is-today' : ''} ${isSelected ? 'is-selected' : ''} ${isOutside ? 'is-outside' : ''}" tabindex="0" role="button" data-calendar-day="${key}">
+              <div class="calendar-day-head">
+                <span class="calendar-day-number">${day.getDate()}</span>
+                ${items.length ? `<span class="calendar-day-badge">${items.length}</span>` : ''}
+              </div>
+              <div class="calendar-day-events">
+                ${visibleItems.map(entry => `
+                  <button class="calendar-chip is-${entry.type}" type="button" data-calendar-entry="${escapeHtml(entry.key)}">
+                    <div class="calendar-chip-time">${escapeHtml(fmtT(entry.date))}</div>
+                    <div class="calendar-chip-label">${escapeHtml(leadName(entry.lead))}</div>
+                  </button>
+                `).join('')}
+                ${overflow > 0 ? `<div class="calendar-more">+${overflow} autre${overflow > 1 ? 's' : ''}</div>` : ''}
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        const selectedEntries = entries.filter(entry => entry.dateKey === S.planningSelectedDate);
+        const selectedDateValue = parseLocalDayKey(S.planningSelectedDate) || new Date();
+        selectedTitle.textContent = selectedDateValue.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+        selectedMeta.textContent = `${selectedEntries.length} action${selectedEntries.length > 1 ? 's' : ''} prévue${selectedEntries.length > 1 ? 's' : ''}`;
+        selectedList.innerHTML = selectedEntries.length
+          ? selectedEntries.map(entry => `
+              <button class="calendar-side-item is-${entry.type}" type="button" data-calendar-entry="${escapeHtml(entry.key)}">
+                <div class="calendar-side-top">
+                  <span class="calendar-side-type">${entry.type === 'appointment' ? 'Rendez-vous' : 'Relance'}</span>
+                  <span class="calendar-side-time">${escapeHtml(fmtT(entry.date))}</span>
+                </div>
+                <div class="calendar-side-name">${escapeHtml(leadName(entry.lead))}</div>
+                <div class="calendar-side-meta-line">${escapeHtml(entry.lead.ads_campaigns?.name || 'Saisie manuelle')}${entry.lead.company ? ` · ${escapeHtml(entry.lead.company)}` : ''}</div>
+                <div class="calendar-side-meta-line">${badge(entry.lead.status)}${entry.lead.project_name ? ` <span class="calendar-side-meta-line">· ${escapeHtml(entry.lead.project_name)}</span>` : ''}</div>
+              </button>
+            `).join('')
+          : '<div class="calendar-side-empty">Aucune action planifiée sur cette date.</div>';
+
+        grid.querySelectorAll('[data-calendar-day]').forEach(button => {
+          button.addEventListener('click', event => {
+            if (event.target.closest('[data-calendar-entry]')) return;
+            selectPlanningDate(button.dataset.calendarDay);
+          });
+        });
+        document.querySelectorAll('[data-calendar-entry]').forEach(button => {
+          button.addEventListener('click', event => {
+            event.stopPropagation();
+            const entry = entries.find(item => item.key === button.dataset.calendarEntry);
+            if (entry) openLead(entry.lead);
+          });
+        });
+      }
 
       /* ─── DASHBOARD ─── */
       function sparklinePath(values, w=120, h=36) {
@@ -1758,9 +2091,9 @@
 
         $('k-cpl').textContent = cpl ? fmtE(cpl) : '—';
         $('k-budget-sub').textContent = budget > 0 ? `Budget : ${fmtE(budget)}` : 'Budget non renseigné';
-	        $('k-budget-sub').className = 'hero-delta flat';
-	        $('k-budget-period').textContent = S.costPeriod === 'lifetime' ? '· total' : '· 30j';
-	        renderPlanning('dashPlanning', 'dashPlanningMeta', dashboardLeads);
+        $('k-budget-sub').className = 'hero-delta flat';
+        $('k-budget-period').textContent = S.costPeriod === 'lifetime' ? '· total' : '· 30j';
+        renderUpcomingDashboard(dashboardLeads);
 
         // Sparklines
         const dailyLeads = leadsPerDay(L);
@@ -1980,12 +2313,11 @@
         return card;
       }
 
-	      function renderKanban() {
-	        const kb = $('kanban'); kb.innerHTML = '';
-	        const all = S.campF ? S.leads.filter(l => l.ads_campaign_id === S.campF) : S.leads;
-	        renderPlanning('pipePlanning', 'pipePlanningMeta', all);
+      function renderKanban() {
+        const kb = $('kanban'); kb.innerHTML = '';
+        const all = S.campF ? S.leads.filter(l => l.ads_campaign_id === S.campF) : S.leads;
 
-	        STAGES.forEach(s => {
+        STAGES.forEach(s => {
           const leads = all.filter(l => l.status === s.key);
           const col = E('div', `k-col${s.followup?' followup':''}`);
           col.dataset.status = s.key;
@@ -2344,7 +2676,7 @@
       function setupAddLead() {
         const open = () => $('addModal').classList.remove('gone');
         const close = () => $('addModal').classList.add('gone');
-        ['btnAddDash','btnAddPipe','btnAddLeads'].forEach(id => $(id)?.addEventListener('click', open));
+        ['btnAddDash','btnAddPipe','btnAddPlanning','btnAddLeads'].forEach(id => $(id)?.addEventListener('click', open));
         $('addClose').addEventListener('click', close);
         $('addCancel').addEventListener('click', close);
         $('addModal').addEventListener('click', e => { if (e.target === $('addModal')) close(); });
@@ -2376,8 +2708,9 @@
       function setupFilters() {
         let t;
         $('searchInput').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { S.search = e.target.value; renderLeads(); }, 150); });
-        $('campFilter').addEventListener('change', e => { S.campF = e.target.value; renderLeads(); });
-        $('pipeCampFilter').addEventListener('change', e => { S.campF = e.target.value; $('campFilter').value = S.campF; renderKanban(); });
+        $('campFilter').addEventListener('change', e => { S.campF = e.target.value; $('pipeCampFilter').value = S.campF; $('planningCampFilter').value = S.campF; renderLeads(); });
+        $('pipeCampFilter').addEventListener('change', e => { S.campF = e.target.value; $('campFilter').value = S.campF; $('planningCampFilter').value = S.campF; renderKanban(); });
+        $('planningCampFilter').addEventListener('change', e => { S.campF = e.target.value; $('campFilter').value = S.campF; $('pipeCampFilter').value = S.campF; renderPlanningView(); });
         $('dashCampFilter').addEventListener('change', e => { S.dashCampF = e.target.value; renderDash(); });
         $('statusFilter').addEventListener('change', e => { S.statusF = e.target.value; renderLeads(); });
       }
