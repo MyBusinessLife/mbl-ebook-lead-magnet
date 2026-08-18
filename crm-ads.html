@@ -608,6 +608,94 @@
       .dash-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
       @media (max-width: 800px) { .dash-cols { grid-template-columns: 1fr; } }
 
+      /* Planning commercial */
+      .planning-shell { margin-bottom: 16px; }
+      .planning-head {
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--border);
+        display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+      }
+      .planning-meta { font-size: 0.72rem; color: var(--muted); text-align: right; }
+      .planning-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(220px, 1fr));
+        gap: 10px;
+        padding: 14px 16px 16px;
+        overflow-x: auto;
+      }
+      .planning-col {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--border);
+        border-radius: var(--r-sm);
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+      }
+      .planning-col.is-appointment {
+        border-color: rgba(16,185,129,0.22);
+        background: rgba(16,185,129,0.05);
+      }
+      .planning-col-head {
+        padding: 11px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      }
+      .planning-col-title { font-size: 0.74rem; font-weight: 800; color: var(--text); }
+      .planning-col-count {
+        font-size: 0.64rem; font-weight: 800; color: var(--muted);
+        background: rgba(255,255,255,0.06); border-radius: 999px; padding: 2px 7px;
+      }
+      .planning-list { padding: 10px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .planning-item {
+        width: 100%;
+        text-align: left;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r-sm);
+        padding: 10px 11px;
+        color: var(--text);
+        cursor: pointer;
+        transition: transform 0.15s, border-color 0.18s, box-shadow 0.18s;
+      }
+      .planning-item:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255,106,46,0.35);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+      }
+      .planning-item.is-appointment {
+        border-color: rgba(16,185,129,0.24);
+        background: linear-gradient(180deg, rgba(16,185,129,0.08), rgba(11,29,46,0.9));
+      }
+      .planning-item-top {
+        display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+        margin-bottom: 6px;
+      }
+      .planning-name { font-size: 0.8rem; font-weight: 800; line-height: 1.35; }
+      .planning-company { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+      .planning-time {
+        font-size: 0.66rem; font-weight: 800; white-space: nowrap;
+        padding: 3px 7px; border-radius: 999px; background: rgba(255,255,255,0.06); color: var(--muted);
+      }
+      .planning-time.is-overdue { background: rgba(239,68,68,0.12); color: var(--red); }
+      .planning-time.is-today { background: rgba(245,158,11,0.12); color: var(--yellow); }
+      .planning-time.is-appointment { background: rgba(16,185,129,0.12); color: var(--green); }
+      .planning-campaign { font-size: 0.68rem; color: var(--muted); margin-bottom: 7px; }
+      .planning-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+      .planning-tag {
+        font-size: 0.62rem; font-weight: 800;
+        padding: 3px 7px; border-radius: 999px;
+        background: rgba(255,255,255,0.06); color: var(--muted);
+      }
+      .planning-empty {
+        height: 100%;
+        min-height: 120px;
+        display: flex; align-items: center; justify-content: center;
+        text-align: center;
+        font-size: 0.72rem; color: var(--muted2);
+        border: 1px dashed rgba(255,255,255,0.06);
+        border-radius: var(--r-sm);
+      }
+
       /* Recent lead rows */
       .lead-row {
         display:flex; align-items:center; gap:10px;
@@ -922,6 +1010,17 @@
             </div>
           </div>
 
+          <div class="card planning-shell">
+            <div class="planning-head">
+              <div>
+                <div class="card-title">Planning commercial</div>
+                <div class="card-sub">Relances prioritaires et rendez-vous à venir</div>
+              </div>
+              <div class="planning-meta" id="dashPlanningMeta">—</div>
+            </div>
+            <div class="planning-grid" id="dashPlanning"></div>
+          </div>
+
           <!-- Middle row : Funnel + Campagnes -->
           <div class="dash-row2">
 
@@ -976,6 +1075,16 @@
               <button class="btn btn-primary btn-sm" id="btnAddPipe">+ Ajouter un lead</button>
             </div>
           </div>
+          <div class="card planning-shell">
+            <div class="planning-head">
+              <div>
+                <div class="card-title">Relances & rendez-vous</div>
+                <div class="card-sub">Vision rapide avant de déplacer ou traiter un lead</div>
+              </div>
+              <div class="planning-meta" id="pipePlanningMeta">—</div>
+            </div>
+            <div class="planning-grid" id="pipePlanning"></div>
+          </div>
           <div class="kanban" id="kanban"></div>
         </div>
 
@@ -995,14 +1104,15 @@
             <div class="table-toolbar">
               <input class="t-input" type="search" id="searchInput" placeholder="Rechercher (nom, email, téléphone)…" />
               <select class="t-select" id="campFilter"><option value="">Toutes les campagnes</option></select>
-              <select class="t-select" id="statusFilter">
-                <option value="">Tous les statuts</option>
-                <option value="new">Nouveau</option>
-                <option value="qualified">Qualifié</option>
-                <option value="negotiation">En négociation</option>
-                <option value="signed">Signé</option>
-                <option value="lost">Perdu</option>
-              </select>
+	              <select class="t-select" id="statusFilter">
+	                <option value="">Tous les statuts</option>
+	                <option value="new">Nouveau</option>
+	                <option value="qualified">Qualifié</option>
+	                <option value="negotiation">En négociation</option>
+	                <option value="followup">À relancer</option>
+	                <option value="signed">Signé</option>
+	                <option value="lost">Perdu</option>
+	              </select>
             </div>
             <div class="table-wrap">
               <table>
@@ -1123,18 +1233,32 @@
             <div class="sec-title">Statut pipeline</div>
             <div class="field">
               <label for="mStatus">Étape</label>
-              <select class="f-select" id="mStatus">
-                <option value="new">🔵 Nouveau</option>
-                <option value="qualified">🟡 Qualifié</option>
-                <option value="negotiation">🔷 En négociation</option>
-                <option value="signed">🟢 Signé</option>
-                <option value="lost">🔴 Perdu</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <div class="sec-title">Projet</div>
-            <div style="display:flex;flex-direction:column;gap:10px">
+	              <select class="f-select" id="mStatus">
+	                <option value="new">🔵 Nouveau</option>
+	                <option value="qualified">🟡 Qualifié</option>
+	                <option value="negotiation">🔷 En négociation</option>
+	                <option value="followup">🔔 À relancer</option>
+	                <option value="signed">🟢 Signé</option>
+	                <option value="lost">🔴 Perdu</option>
+	              </select>
+	            </div>
+	          </div>
+	          <div>
+	            <div class="sec-title">Suivi commercial</div>
+	            <div class="fields-2">
+	              <div class="field">
+	                <label for="mFollowupAt">Relance prévue</label>
+	                <input class="f-input" type="datetime-local" id="mFollowupAt" />
+	              </div>
+	              <div class="field">
+	                <label for="mAppointmentAt">Rendez-vous</label>
+	                <input class="f-input" type="datetime-local" id="mAppointmentAt" />
+	              </div>
+	            </div>
+	          </div>
+	          <div>
+	            <div class="sec-title">Projet</div>
+	            <div style="display:flex;flex-direction:column;gap:10px">
               <div class="field">
                 <label for="mProjName">Nom du projet</label>
                 <input class="f-input" type="text" id="mProjName" placeholder="ex : Refonte site + SEO" />
@@ -1223,14 +1347,31 @@
       const FILLS   = { new:'#64748b', qualified:'#f59e0b', negotiation:'#3b82f6', followup:'#f59e0b', signed:'#10b981', lost:'#ef4444' };
 
       /* ─── UTILS ─── */
-      const $ = id => document.getElementById(id);
-      const E = (tag, cls, html) => { const el = document.createElement(tag); if (cls) el.className = cls; if (html) el.innerHTML = html; return el; };
-      const fmt  = n => n != null ? Number(n).toLocaleString('fr-FR') : '—';
-      const fmtE = n => n != null && n !== '' && n !== 0 ? Number(n).toLocaleString('fr-FR', {style:'currency',currency:'EUR',maximumFractionDigits:0}) : '—';
-      const fmtD = d => d ? new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'2-digit'}) : '—';
-      const isAdmin = () => S.profile?.role === 'admin';
-      const isCommercial = () => S.profile?.role === 'commercial';
-      const canEdit = () => isAdmin() || isCommercial();
+	      const $ = id => document.getElementById(id);
+	      const E = (tag, cls, html) => { const el = document.createElement(tag); if (cls) el.className = cls; if (html) el.innerHTML = html; return el; };
+	      const fmt  = n => n != null ? Number(n).toLocaleString('fr-FR') : '—';
+	      const fmtE = n => n != null && n !== '' && n !== 0 ? Number(n).toLocaleString('fr-FR', {style:'currency',currency:'EUR',maximumFractionDigits:0}) : '—';
+	      const fmtD = d => d ? new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'2-digit'}) : '—';
+	      const fmtDT = d => d ? new Date(d).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
+	      const toValidDate = value => {
+	        if (!value) return null;
+	        const date = new Date(value);
+	        return Number.isNaN(date.getTime()) ? null : date;
+	      };
+	      const fmtInputDT = value => {
+	        const date = toValidDate(value);
+	        if (!date) return '';
+	        const pad = n => String(n).padStart(2, '0');
+	        return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+	      };
+	      const parseInputDT = value => {
+	        if (!value) return null;
+	        const date = new Date(value);
+	        return Number.isNaN(date.getTime()) ? null : date.toISOString();
+	      };
+	      const isAdmin = () => S.profile?.role === 'admin';
+	      const isCommercial = () => S.profile?.role === 'commercial';
+	      const canEdit = () => isAdmin() || isCommercial();
 
       function toast(msg, type = 'ok') {
         const el = E('div', `toast ${type}`, msg);
@@ -1238,9 +1379,21 @@
         setTimeout(() => el.remove(), 2800);
       }
 
-      function badge(status) {
-        return `<span class="badge b-${status}">${LABELS[status] || status}</span>`;
-      }
+	      function badge(status) {
+	        return `<span class="badge b-${status}">${LABELS[status] || status}</span>`;
+	      }
+	      function escapeHtml(value) {
+	        return String(value ?? '')
+	          .replaceAll('&', '&amp;')
+	          .replaceAll('<', '&lt;')
+	          .replaceAll('>', '&gt;')
+	          .replaceAll('"', '&quot;')
+	          .replaceAll("'", '&#39;');
+	      }
+	      function leadName(lead) {
+	        const name = `${lead.first_name || ''} ${lead.last_name || ''}`.trim();
+	        return name || lead.email || lead.phone || 'Lead sans nom';
+	      }
 
       /* ─── AUTH ─── */
       async function init() {
@@ -1419,16 +1572,113 @@
         const ids = selectedCampaignIds();
         return ids.size ? S.campaigns.filter(c => ids.has(c.id)) : S.campaigns;
       }
-      function periodLeads() {
-        let leads = S.leads;
-        const ids = selectedCampaignIds();
-        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
+	      function periodLeads() {
+	        let leads = S.leads;
+	        const ids = selectedCampaignIds();
+	        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
         if (S.costPeriod !== 'lifetime') {
           const since = Date.now() - 30 * 24 * 60 * 60 * 1000;
           leads = leads.filter(l => new Date(l.source_created_at || l.created_at).getTime() >= since);
-        }
-        return leads;
-      }
+	        }
+	        return leads;
+	      }
+	      function dashboardSelectedLeads() {
+	        let leads = S.leads;
+	        const ids = selectedCampaignIds();
+	        if (ids.size) leads = leads.filter(l => ids.has(l.ads_campaign_id));
+	        return leads;
+	      }
+	      function dateBucket(value) {
+	        const date = toValidDate(value);
+	        if (!date) return 'none';
+	        const now = new Date();
+	        const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+	        const tomorrow = new Date(start); tomorrow.setDate(tomorrow.getDate() + 1);
+	        const nextWeek = new Date(start); nextWeek.setDate(nextWeek.getDate() + 7);
+	        if (date < start) return 'overdue';
+	        if (date < tomorrow) return 'today';
+	        if (date < nextWeek) return 'week';
+	        return 'later';
+	      }
+	      function planningCollections(leads) {
+	        const active = leads.filter(l => !['signed', 'lost'].includes(l.status));
+	        const sortBy = key => (a, b) => {
+	          const av = toValidDate(a[key])?.getTime() || Number.MAX_SAFE_INTEGER;
+	          const bv = toValidDate(b[key])?.getTime() || Number.MAX_SAFE_INTEGER;
+	          return av - bv;
+	        };
+	        const appointments = active.filter(l => toValidDate(l.appointment_at)).sort(sortBy('appointment_at'));
+	        const followups = active.filter(l => !toValidDate(l.appointment_at));
+	        return {
+	          appointments,
+	          overdue: followups.filter(l => dateBucket(l.followup_at) === 'overdue').sort(sortBy('followup_at')),
+	          today: followups.filter(l => dateBucket(l.followup_at) === 'today').sort(sortBy('followup_at')),
+	          week: followups.filter(l => dateBucket(l.followup_at) === 'week').sort(sortBy('followup_at')),
+	          unscheduled: followups.filter(l => !toValidDate(l.followup_at)).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)),
+	        };
+	      }
+	      function renderPlanningItem(lead, mode = 'followup') {
+	        const dateValue = mode === 'appointment' ? lead.appointment_at : lead.followup_at;
+	        const bucket = dateBucket(dateValue);
+	        const timeClasses = [
+	          'planning-time',
+	          mode === 'appointment' ? 'is-appointment' : '',
+	          bucket === 'overdue' ? 'is-overdue' : '',
+	          bucket === 'today' ? 'is-today' : '',
+	        ].filter(Boolean).join(' ');
+	        const timeLabel = mode === 'appointment'
+	          ? (dateValue ? fmtDT(dateValue) : 'À planifier')
+	          : (dateValue ? fmtDT(dateValue) : 'Non planifiée');
+	        const tags = [
+	          badge(lead.status),
+	          lead.project_name ? `<span class="planning-tag">${escapeHtml(lead.project_name)}</span>` : '',
+	          lead.project_price ? `<span class="planning-tag">${escapeHtml(fmtE(lead.project_price))}</span>` : '',
+	        ].filter(Boolean).join('');
+	        return `
+	          <button class="planning-item ${mode === 'appointment' ? 'is-appointment' : ''}" type="button" data-plan-lead="${escapeHtml(lead.id)}">
+	            <div class="planning-item-top">
+	              <div>
+	                <div class="planning-name">${escapeHtml(leadName(lead))}</div>
+	                ${lead.company ? `<div class="planning-company">${escapeHtml(lead.company)}</div>` : ''}
+	              </div>
+	              <span class="${timeClasses}">${escapeHtml(timeLabel)}</span>
+	            </div>
+	            <div class="planning-campaign">${escapeHtml(lead.ads_campaigns?.name || 'Saisie manuelle')}</div>
+	            <div class="planning-tags">${tags}</div>
+	          </button>
+	        `;
+	      }
+	      function renderPlanning(targetGridId, targetMetaId, leads) {
+	        const grid = $(targetGridId);
+	        const meta = $(targetMetaId);
+	        if (!grid || !meta) return;
+	        const groups = planningCollections(leads);
+	        const columns = [
+	          { key:'appointment', title:'Rendez-vous', items:groups.appointments, mode:'appointment', empty:'Aucun rendez-vous planifié.' },
+	          { key:'overdue', title:'En retard', items:groups.overdue, mode:'followup', empty:'Aucune relance en retard.' },
+	          { key:'today', title:'Aujourd’hui', items:groups.today, mode:'followup', empty:'Rien à traiter aujourd’hui.' },
+	          { key:'week', title:'Cette semaine', items:groups.week, mode:'followup', empty:'Pas de relance sur 7 jours.' },
+	          { key:'unscheduled', title:'À planifier', items:groups.unscheduled, mode:'followup', empty:'Tout est planifié.' },
+	        ];
+	        meta.textContent = `${groups.appointments.length} rendez-vous · ${groups.overdue.length + groups.today.length + groups.week.length} relances planifiées`;
+	        grid.innerHTML = columns.map(col => `
+	          <section class="planning-col ${col.key === 'appointment' ? 'is-appointment' : ''}">
+	            <div class="planning-col-head">
+	              <span class="planning-col-title">${col.title}</span>
+	              <span class="planning-col-count">${col.items.length}</span>
+	            </div>
+	            <div class="planning-list">
+	              ${col.items.length ? col.items.map(item => renderPlanningItem(item, col.mode)).join('') : `<div class="planning-empty">${col.empty}</div>`}
+	            </div>
+	          </section>
+	        `).join('');
+	        grid.querySelectorAll('[data-plan-lead]').forEach(button => {
+	          button.addEventListener('click', () => {
+	            const lead = S.leads.find(item => item.id === button.dataset.planLead);
+	            if (lead) openLead(lead);
+	          });
+	        });
+	      }
 
       /* ─── DASHBOARD ─── */
       function sparklinePath(values, w=120, h=36) {
@@ -1472,10 +1722,11 @@
         return counts;
       }
 
-      function renderDash() {
-        const L = periodLeads();
-        const visibleCampaigns = dashboardCampaigns();
-        const total = L.length;
+	      function renderDash() {
+	        const L = periodLeads();
+	        const visibleCampaigns = dashboardCampaigns();
+	        const dashboardLeads = dashboardSelectedLeads();
+	        const total = L.length;
         const newC  = L.filter(l => l.status === 'new').length;
         const qual  = L.filter(l => l.status === 'qualified').length;
         const neg   = L.filter(l => l.status === 'negotiation').length;
@@ -1507,8 +1758,9 @@
 
         $('k-cpl').textContent = cpl ? fmtE(cpl) : '—';
         $('k-budget-sub').textContent = budget > 0 ? `Budget : ${fmtE(budget)}` : 'Budget non renseigné';
-        $('k-budget-sub').className = 'hero-delta flat';
-        $('k-budget-period').textContent = S.costPeriod === 'lifetime' ? '· total' : '· 30j';
+	        $('k-budget-sub').className = 'hero-delta flat';
+	        $('k-budget-period').textContent = S.costPeriod === 'lifetime' ? '· total' : '· 30j';
+	        renderPlanning('dashPlanning', 'dashPlanningMeta', dashboardLeads);
 
         // Sparklines
         const dailyLeads = leadsPerDay(L);
@@ -1625,11 +1877,11 @@
 
         // Activity feed
         const af = $('activityFeed'); af.innerHTML = '';
-        const activities = L
-          .filter(l => l.status !== 'new')
-          .sort((a,b) => new Date(b.updated_at||b.created_at) - new Date(a.updated_at||a.created_at))
-          .slice(0, 6);
-        const actLabel = { qualified:'qualifié', negotiation:'en négociation', signed:'signé 🎉', lost:'perdu' };
+	        const activities = L
+	          .filter(l => l.status !== 'new')
+	          .sort((a,b) => new Date(b.updated_at||b.created_at) - new Date(a.updated_at||a.created_at))
+	          .slice(0, 6);
+	        const actLabel = { qualified:'qualifié', negotiation:'en négociation', followup:'à relancer', signed:'signé 🎉', lost:'perdu' };
         if (!activities.length) { af.innerHTML = '<div class="empty-state">Aucune activité récente</div>'; }
         activities.forEach(l => {
           const div = E('div','activity-item');
@@ -1668,15 +1920,17 @@
 
       let dragState = { lead:null, card:null, srcKey:null, placeholder:null };
 
-      function makeCard(l) {
+	      function makeCard(l) {
         const card = E('div', 'k-card');
         card.dataset.id = l.id;
         card.draggable = true;
 
-        const tags = [];
-        if (l.project_name) tags.push(`<span class="k-tag">${l.project_name}</span>`);
-        if (l.status === 'followup' && l.followup_at)
-          tags.push(`<span class="k-tag followup-tag">📅 ${fmtD(l.followup_at)}</span>`);
+	        const tags = [];
+	        if (l.project_name) tags.push(`<span class="k-tag">${l.project_name}</span>`);
+	        if (l.appointment_at)
+	          tags.push(`<span class="k-tag followup-tag">🗓 ${fmtDT(l.appointment_at)}</span>`);
+	        if (l.status === 'followup' && l.followup_at)
+	          tags.push(`<span class="k-tag followup-tag">📅 ${fmtD(l.followup_at)}</span>`);
         if (l.company) tags.push(`<span class="k-tag">${l.company}</span>`);
 
         const initials = `${(l.first_name||'?')[0]}${(l.last_name||'')[0]||''}`.toUpperCase();
@@ -1726,11 +1980,12 @@
         return card;
       }
 
-      function renderKanban() {
-        const kb = $('kanban'); kb.innerHTML = '';
-        const all = S.campF ? S.leads.filter(l => l.ads_campaign_id === S.campF) : S.leads;
+	      function renderKanban() {
+	        const kb = $('kanban'); kb.innerHTML = '';
+	        const all = S.campF ? S.leads.filter(l => l.ads_campaign_id === S.campF) : S.leads;
+	        renderPlanning('pipePlanning', 'pipePlanningMeta', all);
 
-        STAGES.forEach(s => {
+	        STAGES.forEach(s => {
           const leads = all.filter(l => l.status === s.key);
           const col = E('div', `k-col${s.followup?' followup':''}`);
           col.dataset.status = s.key;
@@ -2017,30 +2272,34 @@
         S.lead = lead;
         $('mName').textContent = `${lead.first_name||''} ${lead.last_name||''}`.trim() || 'Lead sans nom';
         $('mCamp').textContent = lead.ads_campaigns?.name || 'Saisie manuelle';
-        $('mStatus').value = lead.status || 'new';
-        $('mProjName').value  = lead.project_name  || '';
-        $('mProjPrice').value = lead.project_price || '';
-        $('mNotes').value     = lead.project_notes || '';
-        $('mSaved').hidden = true;
+	        $('mStatus').value = lead.status || 'new';
+	        $('mProjName').value  = lead.project_name  || '';
+	        $('mProjPrice').value = lead.project_price || '';
+	        $('mNotes').value     = lead.project_notes || '';
+	        $('mFollowupAt').value = fmtInputDT(lead.followup_at);
+	        $('mAppointmentAt').value = fmtInputDT(lead.appointment_at);
+	        $('mSaved').hidden = true;
 
-        const grid = $('mInfoGrid');
-        grid.innerHTML = [
-          ['Prénom',     lead.first_name],
+	        const grid = $('mInfoGrid');
+	        grid.innerHTML = [
+	          ['Prénom',     lead.first_name],
           ['Nom',        lead.last_name],
           ['Email',      lead.email],
-          ['Téléphone',  lead.phone],
-          ['Entreprise', lead.company],
-          ['Date',       fmtD(lead.created_at)],
-        ].map(([l,v]) => `<div class="info-block"><div class="info-lbl">${l}</div><div class="info-val ${v?'':'empty'}">${v||'Non renseigné'}</div></div>`).join('');
+	          ['Téléphone',  lead.phone],
+	          ['Entreprise', lead.company],
+	          ['Date',       fmtD(lead.created_at)],
+	          ['Relance',    lead.followup_at ? fmtDT(lead.followup_at) : null],
+	          ['Rendez-vous', lead.appointment_at ? fmtDT(lead.appointment_at) : null],
+	        ].map(([l,v]) => `<div class="info-block"><div class="info-lbl">${l}</div><div class="info-val ${v?'':'empty'}">${v||'Non renseigné'}</div></div>`).join('');
 
         const msgEl = $('mMessage');
         if (lead.message) { msgEl.style.display = ''; $('mMessageText').textContent = lead.message; }
         else msgEl.style.display = 'none';
 
         const editable = canEdit();
-        ['mStatus','mProjName','mProjPrice','mNotes','mSave','mDelete'].forEach(id => {
-          const el = $(id); if (el) el.style.display = editable ? '' : 'none';
-        });
+	        ['mStatus','mProjName','mProjPrice','mNotes','mFollowupAt','mAppointmentAt','mSave','mDelete'].forEach(id => {
+	          const el = $(id); if (el) el.style.display = editable ? '' : 'none';
+	        });
 
         $('leadModal').classList.remove('gone');
       }
@@ -2052,16 +2311,19 @@
 
         $('mSave').addEventListener('click', async () => {
           const l = S.lead; if (!l) return;
-          const status = $('mStatus').value;
-          const upd = {
-            status,
-            project_name:  $('mProjName').value.trim() || null,
-            project_price: parseFloat($('mProjPrice').value) || null,
-            project_notes: $('mNotes').value.trim() || null,
-            qualified_at: ['qualified','negotiation','signed'].includes(status) ? (l.qualified_at || new Date().toISOString()) : null,
-            signed_at: status === 'signed' ? (l.signed_at || new Date().toISOString()) : null,
-          };
-          const { error } = await sb.from('ads_leads').update(upd).eq('id', l.id);
+	          const status = $('mStatus').value;
+	          const upd = {
+	            status,
+	            project_name:  $('mProjName').value.trim() || null,
+	            project_price: parseFloat($('mProjPrice').value) || null,
+	            project_notes: $('mNotes').value.trim() || null,
+	            followup_at: parseInputDT($('mFollowupAt').value),
+	            appointment_at: parseInputDT($('mAppointmentAt').value),
+	            qualified_at: ['qualified','negotiation','followup','signed'].includes(status) ? (l.qualified_at || new Date().toISOString()) : null,
+	            signed_at: status === 'signed' ? (l.signed_at || new Date().toISOString()) : null,
+	          };
+	          if (status === 'followup' && !upd.followup_at) upd.followup_at = l.followup_at || new Date(Date.now() + 3 * 86400000).toISOString();
+	          const { error } = await sb.from('ads_leads').update(upd).eq('id', l.id);
           if (error) { toast('Erreur : ' + error.message, 'err'); return; }
           Object.assign(l, upd);
           $('mSaved').hidden = false;
