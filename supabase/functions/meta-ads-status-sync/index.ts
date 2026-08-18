@@ -12,6 +12,9 @@ const json = (body: unknown, status = 200) =>
     status,
     headers: { ...corsHeaders, "content-type": "application/json; charset=utf-8" },
   });
+const money = (value: unknown) => value == null ? null : Number(value) / 100;
+const metric = (row: Record<string, string> | undefined, key: string) => Number(row?.[key] || 0);
+const insightFields = "spend,impressions,clicks,reach,unique_clicks,inline_link_clicks,frequency,ctr,cpc,cpm,cpp,actions,action_values,cost_per_action_type";
 
 function errorMessage(error: unknown) {
   if (error instanceof Error) return error.message;
@@ -78,14 +81,29 @@ Deno.serve(async (request) => {
 
     for (const account of accounts || []) {
       const metaAccount = String(account.meta_ad_account_id).replace(/^act_/, "act_");
-      const [campaigns, adsets, ads] = await Promise.all([
-        graphAll(version, `${metaAccount}/campaigns`, metaToken, "id,name,status,effective_status,objective,start_time,stop_time"),
-        graphAll(version, `${metaAccount}/adsets`, metaToken, "id,name,status,effective_status,campaign_id,start_time,end_time"),
+      const [campaigns, adsets, ads, campaignInsights, adsetInsights, adInsights,
+        campaignLifetime, adsetLifetime, adLifetime] = await Promise.all([
+        graphAll(version, `${metaAccount}/campaigns`, metaToken, "id,name,status,effective_status,objective,daily_budget,lifetime_budget,start_time,stop_time"),
+        graphAll(version, `${metaAccount}/adsets`, metaToken, "id,name,status,effective_status,campaign_id,daily_budget,lifetime_budget,start_time,end_time"),
         graphAll(version, `${metaAccount}/ads`, metaToken, "id,name,status,effective_status,campaign_id,adset_id"),
+        graphAll(version, `${metaAccount}/insights?level=campaign&date_preset=last_30d`, metaToken, `campaign_id,${insightFields}`),
+        graphAll(version, `${metaAccount}/insights?level=adset&date_preset=last_30d`, metaToken, `adset_id,${insightFields}`),
+        graphAll(version, `${metaAccount}/insights?level=ad&date_preset=last_30d`, metaToken, `ad_id,${insightFields}`),
+        graphAll(version, `${metaAccount}/insights?level=campaign&date_preset=maximum`, metaToken, `campaign_id,${insightFields}`),
+        graphAll(version, `${metaAccount}/insights?level=adset&date_preset=maximum`, metaToken, `adset_id,${insightFields}`),
+        graphAll(version, `${metaAccount}/insights?level=ad&date_preset=maximum`, metaToken, `ad_id,${insightFields}`),
       ]);
+      const ci = new Map(campaignInsights.map((row) => [row.campaign_id, row]));
+      const ai = new Map(adsetInsights.map((row) => [row.adset_id, row]));
+      const adi = new Map(adInsights.map((row) => [row.ad_id, row]));
+      const cli = new Map(campaignLifetime.map((row) => [row.campaign_id, row]));
+      const ali = new Map(adsetLifetime.map((row) => [row.adset_id, row]));
+      const adli = new Map(adLifetime.map((row) => [row.ad_id, row]));
 
       const campaignMap = new Map<string, string>();
       for (const item of campaigns) {
+        const stats = ci.get(item.id);
+        const lifetime = cli.get(item.id);
         const { data, error } = await db.from("ads_campaigns").upsert({
           ads_account_id: account.id,
           meta_campaign_id: item.id,
@@ -93,10 +111,28 @@ Deno.serve(async (request) => {
           status: item.status,
           effective_status: item.effective_status,
           objective: item.objective || null,
+          daily_budget: money(item.daily_budget),
+          lifetime_budget: money(item.lifetime_budget),
+          budget_spent: metric(stats, "spend"),
+          impressions: metric(stats, "impressions"),
+          clicks: metric(stats, "clicks"),
+          reach: metric(stats, "reach"),
+          ctr: metric(stats, "ctr"),
+          cpc: metric(stats, "cpc"),
+          cpm: metric(stats, "cpm"),
+          spend_lifetime: metric(lifetime, "spend"),
+          impressions_lifetime: metric(lifetime, "impressions"),
+          clicks_lifetime: metric(lifetime, "clicks"),
+          reach_lifetime: metric(lifetime, "reach"),
+          frequency: metric(stats, "frequency"),
+          unique_clicks: metric(stats, "unique_clicks"),
+          inline_link_clicks: metric(stats, "inline_link_clicks"),
+          insights: { last_30d: stats || {}, lifetime: lifetime || {} },
           start_date: item.start_time?.slice(0, 10) || null,
           end_date: item.stop_time?.slice(0, 10) || null,
           active: item.effective_status === "ACTIVE",
           synced_at: totals.synced_at,
+          spend_synced_at: totals.synced_at,
         }, { onConflict: "ads_account_id,meta_campaign_id" }).select("id").single();
         if (error) throw error;
         campaignMap.set(item.id, data.id);
@@ -104,6 +140,8 @@ Deno.serve(async (request) => {
 
       const adsetMap = new Map<string, string>();
       for (const item of adsets) {
+        const stats = ai.get(item.id);
+        const lifetime = ali.get(item.id);
         const { data, error } = await db.from("ads_adsets").upsert({
           ads_account_id: account.id,
           ads_campaign_id: campaignMap.get(item.campaign_id) || null,
@@ -111,6 +149,23 @@ Deno.serve(async (request) => {
           name: item.name,
           status: item.status,
           effective_status: item.effective_status,
+          daily_budget: money(item.daily_budget),
+          lifetime_budget: money(item.lifetime_budget),
+          spend: metric(stats, "spend"),
+          impressions: metric(stats, "impressions"),
+          clicks: metric(stats, "clicks"),
+          reach: metric(stats, "reach"),
+          ctr: metric(stats, "ctr"),
+          cpc: metric(stats, "cpc"),
+          cpm: metric(stats, "cpm"),
+          spend_lifetime: metric(lifetime, "spend"),
+          impressions_lifetime: metric(lifetime, "impressions"),
+          clicks_lifetime: metric(lifetime, "clicks"),
+          reach_lifetime: metric(lifetime, "reach"),
+          frequency: metric(stats, "frequency"),
+          unique_clicks: metric(stats, "unique_clicks"),
+          inline_link_clicks: metric(stats, "inline_link_clicks"),
+          insights: { last_30d: stats || {}, lifetime: lifetime || {} },
           start_time: item.start_time || null,
           end_time: item.end_time || null,
           synced_at: totals.synced_at,
@@ -120,6 +175,8 @@ Deno.serve(async (request) => {
       }
 
       for (const item of ads) {
+        const stats = adi.get(item.id);
+        const lifetime = adli.get(item.id);
         const { error } = await db.from("ads_ads").upsert({
           ads_account_id: account.id,
           ads_campaign_id: campaignMap.get(item.campaign_id) || null,
@@ -128,6 +185,21 @@ Deno.serve(async (request) => {
           name: item.name,
           status: item.status,
           effective_status: item.effective_status,
+          spend: metric(stats, "spend"),
+          impressions: metric(stats, "impressions"),
+          clicks: metric(stats, "clicks"),
+          reach: metric(stats, "reach"),
+          ctr: metric(stats, "ctr"),
+          cpc: metric(stats, "cpc"),
+          cpm: metric(stats, "cpm"),
+          spend_lifetime: metric(lifetime, "spend"),
+          impressions_lifetime: metric(lifetime, "impressions"),
+          clicks_lifetime: metric(lifetime, "clicks"),
+          reach_lifetime: metric(lifetime, "reach"),
+          frequency: metric(stats, "frequency"),
+          unique_clicks: metric(stats, "unique_clicks"),
+          inline_link_clicks: metric(stats, "inline_link_clicks"),
+          insights: { last_30d: stats || {}, lifetime: lifetime || {} },
           synced_at: totals.synced_at,
         }, { onConflict: "ads_account_id,meta_ad_id" });
         if (error) throw error;

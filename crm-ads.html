@@ -1542,7 +1542,7 @@
       const LABELS = { new:'Nouveau', qualified:'Qualifié', negotiation:'En négociation', followup:'À relancer', signed:'Signé', lost:'Perdu' };
       const COLORS  = { new:'var(--slate)', qualified:'var(--yellow)', negotiation:'var(--blue)', signed:'var(--green)', lost:'var(--red)' };
       const FILLS   = { new:'#64748b', qualified:'#f59e0b', negotiation:'#3b82f6', followup:'#f59e0b', signed:'#10b981', lost:'#ef4444' };
-      const META_STATUS_SYNC_INTERVAL_MS = 120000;
+      const META_STATUS_SYNC_INTERVAL_MS = 60000;
       let metaStatusSyncInFlight = false;
       let metaStatusSyncTimer = null;
       let metaStructureRefreshTimer = null;
