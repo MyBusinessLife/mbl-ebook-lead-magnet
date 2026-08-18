@@ -1327,7 +1327,7 @@
             </div>
             <div class="page-actions">
               <button class="btn btn-ghost btn-sm" id="btnImportHistory">↓ Importer l’historique</button>
-              <button class="btn btn-ghost btn-sm" id="btnSyncMeta">↻ Synchroniser Meta</button>
+              <button class="btn btn-ghost btn-sm" id="btnSyncMeta">↻ Synchronisation complète</button>
               <button class="btn btn-primary btn-sm" id="btnAddCamp">+ Campagne</button>
             </div>
           </div>
@@ -1542,6 +1542,11 @@
       const LABELS = { new:'Nouveau', qualified:'Qualifié', negotiation:'En négociation', followup:'À relancer', signed:'Signé', lost:'Perdu' };
       const COLORS  = { new:'var(--slate)', qualified:'var(--yellow)', negotiation:'var(--blue)', signed:'var(--green)', lost:'var(--red)' };
       const FILLS   = { new:'#64748b', qualified:'#f59e0b', negotiation:'#3b82f6', followup:'#f59e0b', signed:'#10b981', lost:'#ef4444' };
+      const META_STATUS_SYNC_INTERVAL_MS = 120000;
+      let metaStatusSyncInFlight = false;
+      let metaStatusSyncTimer = null;
+      let metaStructureRefreshTimer = null;
+      let lastMetaStatusSyncAt = 0;
 
       /* ─── UTILS ─── */
 	      const $ = id => document.getElementById(id);
@@ -1707,6 +1712,7 @@
         setupMetaSync();
         setupMetaDetails();
         setupRealtime();
+        setupMetaStatusAutoSync();
         $('logoutBtn').addEventListener('click', async () => { await sb.auth.signOut(); location.href = 'espace-client.html'; });
         $('btnRefresh').addEventListener('click', () => refresh().then(() => toast('Actualisé')));
         $('btnTestMode').addEventListener('click', toggleTestMode);
@@ -1845,6 +1851,61 @@
         document.addEventListener('click', e => {
           const btn = e.target.closest('[data-goto]');
           if (btn) goTab(btn.dataset.goto);
+        });
+      }
+
+      function renderCampaignViews() {
+        renderDash();
+        if (S.tab === 'leads') renderLeads();
+        if (S.tab === 'planning') renderPlanningView();
+        if (S.tab === 'pipeline') renderKanban();
+        if (S.tab === 'camps') renderCamps();
+      }
+
+      async function refreshMetaStructuresOnly() {
+        await loadCampaigns();
+        renderCampaignViews();
+      }
+
+      async function syncMetaStatuses({ quiet = true, force = false } = {}) {
+        const hasLinkedAccount = S.accounts.some((account) => account.meta_ad_account_id);
+        if (!hasLinkedAccount) return false;
+        if (metaStatusSyncInFlight) return false;
+        if (!force && Date.now() - lastMetaStatusSyncAt < 45000) return false;
+
+        metaStatusSyncInFlight = true;
+        try {
+          const { data, error } = await sb.functions.invoke('meta-ads-status-sync', { body: {} });
+          if (error || data?.error) {
+            const rawError = data?.error || error;
+            const message = typeof rawError === 'string'
+              ? rawError
+              : [rawError?.message, rawError?.details, rawError?.hint, rawError?.code].filter(Boolean).join(' · ') || JSON.stringify(rawError);
+            if (!quiet) toast('Erreur Meta : ' + message, 'err');
+            console.error('Meta status sync failed', rawError);
+            return false;
+          }
+          lastMetaStatusSyncAt = Date.now();
+          await refreshMetaStructuresOnly();
+          if (!quiet) toast(`${data.campaigns} campagnes mises à jour en direct`);
+          return true;
+        } finally {
+          metaStatusSyncInFlight = false;
+        }
+      }
+
+      function setupMetaStatusAutoSync() {
+        syncMetaStatuses({ quiet: true, force: true }).catch((error) => console.error('Initial meta status sync failed', error));
+        metaStatusSyncTimer = window.setInterval(() => {
+          if (!document.hidden) syncMetaStatuses({ quiet: true }).catch((error) => console.error('Meta status sync failed', error));
+        }, META_STATUS_SYNC_INTERVAL_MS);
+        window.addEventListener('focus', () => {
+          syncMetaStatuses({ quiet: true, force: true }).catch((error) => console.error('Meta status sync failed', error));
+        });
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden) {
+            syncMetaStatuses({ quiet: true, force: true }).catch((error) => console.error('Meta status sync failed', error));
+          }
         });
       }
 
@@ -2488,8 +2549,15 @@
       }
 
       function metaStatus(value) {
-        const active = value === 'ACTIVE';
-        return `<span class="badge ${active?'b-signed':'b-lost'}">${value || '—'}</span>`;
+        const status = String(value || '').toUpperCase();
+        const badgeClass = status === 'ACTIVE'
+          ? 'b-signed'
+          : ['PAUSED', 'IN_PROCESS', 'PENDING_REVIEW', 'CAMPAIGN_PAUSED', 'ADSET_PAUSED', 'WITH_ISSUES'].includes(status)
+            ? 'b-followup'
+            : status === 'ARCHIVED'
+              ? 'b-new'
+              : 'b-lost';
+        return `<span class="badge ${badgeClass}">${status || '—'}</span>`;
       }
 
       function renderMetaStructure() {
@@ -2537,7 +2605,7 @@
         $('btnSyncMeta').addEventListener('click', async () => {
           const btn = $('btnSyncMeta'); btn.disabled = true; btn.textContent = 'Synchronisation…';
           const { data, error } = await sb.functions.invoke('meta-ads-sync', { body: {} });
-          btn.disabled = false; btn.textContent = '↻ Synchroniser Meta';
+          btn.disabled = false; btn.textContent = '↻ Synchronisation complète';
           if (error || data?.error) {
             const rawError = data?.error || error;
             const message = typeof rawError === 'string'
@@ -2553,11 +2621,11 @@
       }
 
       function setupRealtime() {
-        let timer;
-        const channel = sb.channel('mbl-ads-leads-live')
+        let leadTimer;
+        const leadsChannel = sb.channel('mbl-ads-leads-live')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'ads_leads' }, payload => {
-            clearTimeout(timer);
-            timer = setTimeout(async () => {
+            clearTimeout(leadTimer);
+            leadTimer = setTimeout(async () => {
               await refresh();
               if (payload.eventType === 'INSERT' && payload.new?.is_test === S.testMode) {
                 toast(S.testMode ? 'Nouveau lead test reçu' : 'Nouveau prospect reçu');
@@ -2565,7 +2633,31 @@
             }, 250);
           })
           .subscribe();
-        window.addEventListener('beforeunload', () => sb.removeChannel(channel), { once: true });
+        const metaChannel = sb.channel('mbl-ads-meta-live')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'ads_campaigns' }, () => {
+            clearTimeout(metaStructureRefreshTimer);
+            metaStructureRefreshTimer = setTimeout(() => {
+              refreshMetaStructuresOnly().catch((error) => console.error('Meta structure refresh failed', error));
+            }, 250);
+          })
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'ads_adsets' }, () => {
+            clearTimeout(metaStructureRefreshTimer);
+            metaStructureRefreshTimer = setTimeout(() => {
+              refreshMetaStructuresOnly().catch((error) => console.error('Meta structure refresh failed', error));
+            }, 250);
+          })
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'ads_ads' }, () => {
+            clearTimeout(metaStructureRefreshTimer);
+            metaStructureRefreshTimer = setTimeout(() => {
+              refreshMetaStructuresOnly().catch((error) => console.error('Meta structure refresh failed', error));
+            }, 250);
+          })
+          .subscribe();
+        window.addEventListener('beforeunload', () => {
+          if (metaStatusSyncTimer) window.clearInterval(metaStatusSyncTimer);
+          sb.removeChannel(leadsChannel);
+          sb.removeChannel(metaChannel);
+        }, { once: true });
       }
 
       function goLeadsByCamp(campId) {
