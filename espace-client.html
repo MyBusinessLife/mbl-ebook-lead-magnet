@@ -12,7 +12,7 @@
     <title>Espace client | Connexion MY BUSINESS LIFE</title>
     <link rel="preload" href="assets/logo.png" as="image" />
     <link rel="stylesheet" href="premium-site.css?v=32" />
-    <link rel="stylesheet" href="espace-client.css?v=11" />
+    <link rel="stylesheet" href="espace-client.css?v=12" />
   </head>
   <body class="premium-page access-page">
     <header class="site-header" aria-label="Navigation principale">
@@ -265,6 +265,7 @@
           <button class="admin-tab" type="button" data-admin-tab="projects" aria-selected="false">Projets</button>
           <button class="admin-tab" type="button" data-admin-tab="performance" aria-selected="false">Performance</button>
           <button class="admin-tab" type="button" data-admin-tab="users" aria-selected="false">Utilisateurs</button>
+          <a class="admin-tab" href="crm-ads.html">CRM Ads</a>
         </nav>
 
         <section class="admin-requests admin-leads-panel admin-tab-panel is-active" data-admin-tab-panel="requests" aria-labelledby="all-requests-title">
@@ -276,19 +277,48 @@
             </div>
             <div class="request-toolbar" aria-label="Filtres des demandes clients">
               <input id="leadSearch" type="search" placeholder="Rechercher nom, email, besoin..." aria-label="Rechercher une demande client" />
-              <select id="leadTypeFilter" aria-label="Filtrer par type de demande">
-                <option value="all">Tous les types</option>
-                <option value="contact">Formulaires</option>
-                <option value="diagnostic">Diagnostics</option>
-              </select>
-              <select id="leadStatusFilter" aria-label="Filtrer par statut">
-                <option value="all">Tous les statuts</option>
-                <option value="new">Nouveaux</option>
-                <option value="in_progress">En cours</option>
-                <option value="won">Traités gagnés</option>
-                <option value="lost">Traités perdus</option>
-                <option value="archived">Archivés</option>
-              </select>
+              <div class="filter-menu" id="leadTypeFilter" data-filter-menu data-default-label="Tous les types">
+                <button class="filter-menu-trigger" type="button" data-filter-trigger aria-expanded="false">Tous les types</button>
+                <div class="filter-menu-panel" data-filter-panel hidden>
+                  <label class="filter-option">
+                    <input type="checkbox" value="contact" data-filter-option checked />
+                    <span>Formulaires</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="diagnostic" data-filter-option checked />
+                    <span>Diagnostics</span>
+                  </label>
+                </div>
+              </div>
+              <div class="filter-menu" id="leadStatusFilter" data-filter-menu data-default-label="Tous les statuts">
+                <button class="filter-menu-trigger" type="button" data-filter-trigger aria-expanded="false">Tous les statuts</button>
+                <div class="filter-menu-panel" data-filter-panel hidden>
+                  <label class="filter-option">
+                    <input type="checkbox" value="new" data-filter-option checked />
+                    <span>Nouveaux</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="in_progress" data-filter-option checked />
+                    <span>En cours</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="no_response" data-filter-option checked />
+                    <span>Pas de réponse</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="won" data-filter-option checked />
+                    <span>Traités gagnés</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="lost" data-filter-option checked />
+                    <span>Traités perdus</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="archived" data-filter-option checked />
+                    <span>Archivés</span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
           <div class="request-list lead-request-list" id="allRequests"></div>
@@ -303,18 +333,84 @@
             </div>
             <div class="request-toolbar" aria-label="Actions des projets prospects">
               <input id="proposalSearch" type="search" placeholder="Rechercher un prospect, un projet, un service..." aria-label="Rechercher un projet prospect" />
-              <select id="proposalStatusFilter" aria-label="Filtrer les projets par statut">
-                <option value="all">Tous les statuts</option>
-                <option value="draft">Brouillons</option>
-                <option value="sent">Envoyés</option>
-                <option value="viewed">Consultés</option>
-                <option value="accepted">Acceptés</option>
-                <option value="refused">Refusés</option>
-                <option value="archived">Archivés</option>
-              </select>
+              <div class="filter-menu" id="proposalStatusFilter" data-filter-menu data-default-label="Tous les statuts">
+                <button class="filter-menu-trigger" type="button" data-filter-trigger aria-expanded="false">Tous les statuts</button>
+                <div class="filter-menu-panel" data-filter-panel hidden>
+                  <label class="filter-option">
+                    <input type="checkbox" value="draft" data-filter-option checked />
+                    <span>Brouillons</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="sent" data-filter-option checked />
+                    <span>Envoyés</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="viewed" data-filter-option checked />
+                    <span>Consultés</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="accepted" data-filter-option checked />
+                    <span>Acceptés</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="refused" data-filter-option checked />
+                    <span>Refusés</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="archived" data-filter-option checked />
+                    <span>Archivés</span>
+                  </label>
+                </div>
+              </div>
+              <div class="filter-menu" id="proposalStageFilter" data-filter-menu data-default-label="Toutes les étapes CRM">
+                <button class="filter-menu-trigger" type="button" data-filter-trigger aria-expanded="false">Toutes les étapes CRM</button>
+                <div class="filter-menu-panel" data-filter-panel hidden>
+                  <label class="filter-option">
+                    <input type="checkbox" value="new" data-filter-option checked />
+                    <span>Nouveaux</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="proposal_sent" data-filter-option checked />
+                    <span>Proposition envoyée</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="follow_up" data-filter-option checked />
+                    <span>À relancer</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="no_response" data-filter-option checked />
+                    <span>Pas de réponse</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="negotiation" data-filter-option checked />
+                    <span>En discussion</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="won" data-filter-option checked />
+                    <span>Signés</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="lost" data-filter-option checked />
+                    <span>Perdus</span>
+                  </label>
+                </div>
+              </div>
               <button class="button button-primary" id="createProposalButton" type="button">Nouveau projet</button>
             </div>
           </div>
+
+          <div class="proposal-crm-metrics" id="proposalCrmMetrics" aria-label="Indicateurs CRM projets prospects"></div>
+
+          <section class="crm-planning-shell" aria-labelledby="proposal-planning-title">
+            <div class="crm-planning-head">
+              <div>
+                <p class="auth-kicker">Planning premium</p>
+                <h3 id="proposal-planning-title">Relances et priorités commerciales</h3>
+              </div>
+              <span id="proposalPlanningMeta"></span>
+            </div>
+            <div class="crm-planning-grid" id="proposalPlanning" aria-label="Planning commercial des prospects"></div>
+          </section>
 
           <div class="proposal-studio-grid proposal-studio-grid-list-only">
             <div class="proposal-list" id="proposalList" aria-label="Liste des projets prospects"></div>
@@ -584,6 +680,260 @@
             </form>
             </div>
           </div>
+
+          <div class="crm-modal" id="prospectModal" hidden>
+            <div class="crm-modal-backdrop" data-close-prospect-modal></div>
+            <div class="crm-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="prospectModalTitle">
+              <div class="crm-modal-toolbar">
+                <div>
+                  <p class="auth-kicker">Fiche prospect</p>
+                  <h3 id="prospectModalTitle">Prospect</h3>
+                  <p id="prospectModalSubtitle">Pilotez la prochaine action, la probabilité de signature et le niveau de maturité du dossier.</p>
+                </div>
+                <button class="button button-secondary proposal-modal-close" type="button" data-close-prospect-modal>Fermer</button>
+              </div>
+
+              <div class="crm-modal-summary-grid" aria-label="Synthèse prospect">
+                <article class="crm-summary-card">
+                  <span>Étape CRM</span>
+                  <strong id="prospectModalStage">Nouveau</strong>
+                </article>
+                <article class="crm-summary-card">
+                  <span>Probabilité</span>
+                  <strong id="prospectModalProbability">15%</strong>
+                </article>
+                <article class="crm-summary-card">
+                  <span>Valeur estimée</span>
+                  <strong id="prospectModalValue">À préciser</strong>
+                </article>
+                <article class="crm-summary-card">
+                  <span>Pipeline pondéré</span>
+                  <strong id="prospectModalWeighted">À préciser</strong>
+                </article>
+                <article class="crm-summary-card">
+                  <span>Relance</span>
+                  <strong id="prospectModalFollowUp">Non planifiée</strong>
+                </article>
+                <article class="crm-summary-card">
+                  <span>Rendez-vous</span>
+                  <strong id="prospectModalAppointment">Non planifié</strong>
+                </article>
+                <article class="crm-summary-card">
+                  <span>Dernier contact</span>
+                  <strong id="prospectModalLastContact">Non renseigné</strong>
+                </article>
+              </div>
+
+              <div class="crm-modal-layout">
+                <div class="crm-modal-content">
+                  <section class="crm-detail-panel" aria-label="Coordonnées et contexte">
+                    <div class="crm-detail-head">
+                      <div>
+                        <p class="auth-kicker">Coordonnées</p>
+                        <h4 id="prospectModalContact">Prospect à préciser</h4>
+                      </div>
+                      <div class="crm-detail-chips" id="prospectModalChips"></div>
+                    </div>
+                    <div class="crm-detail-grid">
+                      <article>
+                        <span>Email</span>
+                        <strong id="prospectModalEmail">-</strong>
+                      </article>
+                      <article>
+                        <span>Téléphone</span>
+                        <strong id="prospectModalPhone">-</strong>
+                      </article>
+                      <article>
+                        <span>Entreprise</span>
+                        <strong id="prospectModalCompany">-</strong>
+                      </article>
+                      <article>
+                        <span>Service</span>
+                        <strong id="prospectModalService">-</strong>
+                      </article>
+                      <article>
+                        <span>Présentation</span>
+                        <strong id="prospectModalPresentationStatus">Brouillon</strong>
+                      </article>
+                      <article>
+                        <span>Référence</span>
+                        <strong id="prospectModalRef">-</strong>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="crm-detail-panel" aria-label="Lecture commerciale">
+                    <div class="crm-detail-head">
+                      <div>
+                        <p class="auth-kicker">Lecture commerciale</p>
+                        <h4>Ce qu'il faut avoir en tête</h4>
+                      </div>
+                      <div class="crm-detail-actions">
+                        <a class="button button-secondary" id="prospectOpenPublicLink" href="#" target="_blank" rel="noreferrer noopener">Voir la présentation</a>
+                        <button class="button button-secondary" id="prospectCopyPublicLink" type="button">Copier le lien</button>
+                        <button class="button button-primary" id="prospectOpenEditorButton" type="button">Ouvrir l'éditeur</button>
+                      </div>
+                    </div>
+                    <div class="crm-reading-block">
+                      <span>Pitch court</span>
+                      <p id="prospectModalPitch">Aucun pitch rédigé pour le moment.</p>
+                    </div>
+                    <div class="crm-reading-block">
+                      <span>Contexte / besoin</span>
+                      <p id="prospectModalContext">Aucun contexte détaillé pour le moment.</p>
+                    </div>
+                    <div class="crm-reading-block">
+                      <span>Dernière note de relance</span>
+                      <p id="prospectModalFollowUpNote">Aucune relance enregistrée pour le moment.</p>
+                    </div>
+                  </section>
+                </div>
+
+                <form class="premium-form crm-quick-form" id="prospectModalForm" aria-label="Pilotage CRM du prospect">
+                  <div class="proposal-form-head">
+                    <div>
+                      <p class="auth-kicker">Pilotage</p>
+                      <h3>Travail rapide</h3>
+                    </div>
+                    <span class="proposal-form-meta">Mettez à jour l'étape, la probabilité, la relance ou le prochain rendez-vous sans quitter la fiche.</span>
+                  </div>
+
+                  <input type="hidden" name="id" />
+
+                  <div class="proposal-form-grid">
+                    <label>
+                      <span>Étape CRM</span>
+                      <select name="crm_stage">
+                        <option value="new">Nouveau</option>
+                        <option value="proposal_sent">Proposition envoyée</option>
+                        <option value="follow_up">À relancer</option>
+                        <option value="no_response">Pas de réponse</option>
+                        <option value="negotiation">En discussion</option>
+                        <option value="won">Signé</option>
+                        <option value="lost">Perdu</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span>Température</span>
+                      <select name="lead_temperature">
+                        <option value="cold">Froid</option>
+                        <option value="warm">Tiède</option>
+                        <option value="hot">Chaud</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span>Probabilité de signature</span>
+                      <input type="number" name="deal_probability" min="0" max="100" step="1" placeholder="0 à 100" />
+                    </label>
+                    <label>
+                      <span>Valeur estimée</span>
+                      <input type="number" name="estimated_value" min="0" step="100" placeholder="Montant HT ou TTC selon votre usage" />
+                    </label>
+                    <label>
+                      <span>Prochaine relance</span>
+                      <input type="datetime-local" name="follow_up_at" />
+                    </label>
+                    <label>
+                      <span>Rendez-vous planifié</span>
+                      <input type="datetime-local" name="appointment_at" />
+                    </label>
+                    <label>
+                      <span>Dernier contact</span>
+                      <input type="datetime-local" name="last_contacted_at" />
+                    </label>
+                  </div>
+
+                  <label>
+                    <span>Prochaine étape proposée</span>
+                    <textarea name="next_step" rows="3" placeholder="Ex : reprise avec le décideur, arbitrage budget, envoi d'un complément..."></textarea>
+                  </label>
+
+                  <label>
+                    <span>Notes internes CRM</span>
+                    <textarea name="admin_notes" rows="4" placeholder="Points de vigilance, objections, timing, décideurs, arbitrages..."></textarea>
+                  </label>
+
+                  <div class="proposal-form-actions crm-quick-actions">
+                    <button class="button button-secondary" id="prospectScheduleFollowUpButton" type="button">Planifier une relance</button>
+                    <button class="button button-primary" type="submit">Enregistrer</button>
+                  </div>
+                  <p class="form-status" id="prospectModalStatus" role="status"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="crm-modal crm-modal-top" id="followUpModal" hidden>
+            <div class="crm-modal-backdrop" data-close-followup-modal></div>
+            <div class="crm-modal-dialog is-compact" role="dialog" aria-modal="true" aria-labelledby="followUpModalTitle">
+              <form class="premium-form crm-followup-form" id="followUpForm" aria-label="Planifier une relance prospect">
+                <div class="crm-modal-toolbar">
+                  <div>
+                    <p class="auth-kicker">Relance</p>
+                    <h3 id="followUpModalTitle">Préparer la prochaine action</h3>
+                    <p id="followUpModalIntro">Planifiez un rappel proprement, sans sortir de votre CRM.</p>
+                  </div>
+                  <button class="button button-secondary proposal-modal-close" type="button" data-close-followup-modal>Fermer</button>
+                </div>
+
+                <input type="hidden" name="id" />
+
+                <div class="proposal-form-grid">
+                  <label>
+                    <span>Date de relance</span>
+                    <input type="datetime-local" name="follow_up_at" />
+                  </label>
+                  <label>
+                    <span>Étape après relance</span>
+                    <select name="crm_stage">
+                      <option value="follow_up">À relancer</option>
+                      <option value="no_response">Pas de réponse</option>
+                      <option value="negotiation">En discussion</option>
+                      <option value="won">Signé</option>
+                      <option value="lost">Perdu</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Probabilité actualisée</span>
+                    <input type="number" name="deal_probability" min="0" max="100" step="1" placeholder="0 à 100" />
+                  </label>
+                  <label class="crm-checkbox">
+                    <input type="checkbox" name="touch_last_contact" checked />
+                    <span>Mettre à jour le dernier contact maintenant</span>
+                  </label>
+                </div>
+
+                <label>
+                  <span>Note de relance</span>
+                  <textarea name="note" rows="4" placeholder="Ce qui a été envoyé, l'objection rencontrée, la prochaine action attendue..."></textarea>
+                </label>
+
+                <div class="proposal-form-actions">
+                  <button class="button button-secondary" type="button" data-close-followup-modal>Annuler</button>
+                  <button class="button button-primary" type="submit">Enregistrer la relance</button>
+                </div>
+                <p class="form-status" id="followUpStatus" role="status"></p>
+              </form>
+            </div>
+          </div>
+
+          <div class="crm-modal crm-modal-top" id="confirmModal" hidden>
+            <div class="crm-modal-backdrop" data-confirm-cancel></div>
+            <div class="crm-modal-dialog is-compact" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+              <div class="crm-modal-toolbar">
+                <div>
+                  <p class="auth-kicker">Confirmation</p>
+                  <h3 id="confirmModalTitle">Confirmer l'action</h3>
+                  <p id="confirmModalMessage">Cette action demande une validation explicite.</p>
+                </div>
+                <button class="button button-secondary proposal-modal-close" type="button" data-confirm-cancel>Fermer</button>
+              </div>
+              <div class="crm-confirm-actions">
+                <button class="button button-secondary" type="button" data-confirm-cancel>Annuler</button>
+                <button class="button button-danger" id="confirmModalAccept" type="button">Confirmer</button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="admin-grid admin-tab-panel" data-admin-tab-panel="performance" hidden>
@@ -693,6 +1043,6 @@
     <script src="site-data.js?v=7"></script>
     <script src="premium-site.js?v=29"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="espace-client.js?v=13"></script>
+    <script src="espace-client.js?v=15"></script>
   </body>
 </html>

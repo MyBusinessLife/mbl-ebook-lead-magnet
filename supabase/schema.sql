@@ -43,10 +43,11 @@ create table if not exists public.contact_requests (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  status text not null default 'new' check (status in ('new', 'in_progress', 'won', 'lost', 'archived')),
+  status text not null default 'new' check (status in ('new', 'in_progress', 'no_response', 'won', 'lost', 'archived')),
   source text not null default 'site-vitrine',
   page_path text,
   page_title text,
+  submission_key text,
   name text,
   email text not null,
   phone text,
@@ -61,15 +62,19 @@ create table if not exists public.contact_requests (
 create index if not exists contact_requests_created_at_idx on public.contact_requests (created_at desc);
 create index if not exists contact_requests_status_idx on public.contact_requests (status);
 create index if not exists contact_requests_email_idx on public.contact_requests (lower(email));
+create unique index if not exists contact_requests_submission_key_uidx
+on public.contact_requests (submission_key)
+where submission_key is not null;
 
 create table if not exists public.diagnostic_requests (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  status text not null default 'new' check (status in ('new', 'in_progress', 'won', 'lost', 'archived')),
+  status text not null default 'new' check (status in ('new', 'in_progress', 'no_response', 'won', 'lost', 'archived')),
   source text not null default 'diagnostic-premium',
   page_path text,
   page_title text,
+  submission_key text,
   name text,
   email text not null,
   phone text,
@@ -86,12 +91,22 @@ create table if not exists public.diagnostic_requests (
 create index if not exists diagnostic_requests_created_at_idx on public.diagnostic_requests (created_at desc);
 create index if not exists diagnostic_requests_status_idx on public.diagnostic_requests (status);
 create index if not exists diagnostic_requests_email_idx on public.diagnostic_requests (lower(email));
+create unique index if not exists diagnostic_requests_submission_key_uidx
+on public.diagnostic_requests (submission_key)
+where submission_key is not null;
 
 create table if not exists public.prospect_projects (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   status text not null default 'draft' check (status in ('draft', 'sent', 'viewed', 'accepted', 'refused', 'archived')),
+  crm_stage text not null default 'new' check (crm_stage in ('new', 'proposal_sent', 'follow_up', 'no_response', 'negotiation', 'won', 'lost')),
+  deal_probability integer not null default 15 check (deal_probability >= 0 and deal_probability <= 100),
+  estimated_value numeric(12,2),
+  lead_temperature text not null default 'warm' check (lead_temperature in ('cold', 'warm', 'hot')),
+  follow_up_at timestamptz,
+  appointment_at timestamptz,
+  last_contacted_at timestamptz,
   source_type text not null default 'manual' check (source_type in ('manual', 'contact', 'diagnostic')),
   source_request_id uuid,
   public_ref text not null unique default lower(substr(replace(gen_random_uuid()::text, '-', ''), 1, 16)),
@@ -120,6 +135,9 @@ create table if not exists public.prospect_projects (
 
 create index if not exists prospect_projects_created_at_idx on public.prospect_projects (created_at desc);
 create index if not exists prospect_projects_status_idx on public.prospect_projects (status);
+create index if not exists prospect_projects_crm_stage_idx on public.prospect_projects (crm_stage);
+create index if not exists prospect_projects_follow_up_at_idx on public.prospect_projects (follow_up_at);
+create index if not exists prospect_projects_appointment_at_idx on public.prospect_projects (appointment_at);
 create index if not exists prospect_projects_client_email_idx on public.prospect_projects (lower(client_email));
 create index if not exists prospect_projects_public_ref_idx on public.prospect_projects (public_ref);
 create index if not exists prospect_projects_source_idx on public.prospect_projects (source_type, source_request_id);
@@ -218,7 +236,7 @@ begin
 
   if new.status <> old.status and new.status in ('won', 'lost', 'archived') then
     new.handled_at = coalesce(new.handled_at, now());
-  elsif new.status in ('new', 'in_progress') then
+  elsif new.status in ('new', 'in_progress', 'no_response') then
     new.handled_at = null;
   end if;
 
@@ -252,6 +270,10 @@ begin
   end if;
 
   if new.status in ('accepted', 'refused', 'archived') and coalesce(old.status, '') <> new.status then
+    new.responded_at = coalesce(new.responded_at, now());
+  end if;
+
+  if new.crm_stage in ('won', 'lost') and coalesce(old.crm_stage, '') <> new.crm_stage then
     new.responded_at = coalesce(new.responded_at, now());
   end if;
 
@@ -357,9 +379,9 @@ begin
       'openRequests', (
         select count(*)
         from (
-          select status from public.contact_requests where status in ('new', 'in_progress')
+          select status from public.contact_requests where status in ('new', 'in_progress', 'no_response')
           union all
-          select status from public.diagnostic_requests where status in ('new', 'in_progress')
+          select status from public.diagnostic_requests where status in ('new', 'in_progress', 'no_response')
         ) open_items
       )
     ),
