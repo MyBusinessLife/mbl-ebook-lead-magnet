@@ -16,6 +16,7 @@
       content="Une page confidentielle pour montrer comment MBL ADS structure des campagnes Meta Ads et comment cette logique peut être adaptée à Truffes Folies."
     />
     <meta property="og:url" content="https://mybusinesslife.fr/ebook-truffes-folies-meta-ads.html" />
+    <meta property="og:image" content="https://mybusinesslife.fr/assets/truffes-folies-restaurant-concepts.png" />
     <title>MBL ADS | Présentation privée pour Truffes Folies</title>
     <link rel="stylesheet" href="ebook.css?v=14" />
     <style>
@@ -161,11 +162,11 @@
       }
 
       .private-hero h1 {
-        max-width: 860px;
+        max-width: min(860px, 100%);
         margin: 24px 0 0;
-        font-size: clamp(3.25rem, 7vw, 6.9rem);
-        line-height: 0.9;
-        letter-spacing: -0.085em;
+        font-size: clamp(2.9rem, 6.15vw, 5.85rem);
+        line-height: 0.94;
+        letter-spacing: -0.064em;
         text-wrap: balance;
       }
 
@@ -318,16 +319,17 @@
 
       .flow-grid {
         display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+        gap: 12px;
       }
 
       .flow-step {
         min-width: 0;
+        min-height: 118px;
         border: 1px solid rgba(247, 249, 252, 0.12);
         border-radius: 17px;
         background: rgba(247, 249, 252, 0.055);
-        padding: 13px 11px;
+        padding: 15px 14px;
       }
 
       .flow-step strong {
@@ -342,9 +344,9 @@
         display: block;
         margin-top: 8px;
         color: rgba(247, 249, 252, 0.84);
-        font-size: 0.92rem;
+        font-size: 0.96rem;
         font-weight: 780;
-        line-height: 1.22;
+        line-height: 1.25;
       }
 
       .case-grid {
@@ -634,6 +636,16 @@
         line-height: 1.35;
       }
 
+      .restaurant-concept-image {
+        margin-top: 24px;
+      }
+
+      .restaurant-concept-image img {
+        aspect-ratio: 1 / 1;
+        max-height: none;
+        object-fit: cover;
+      }
+
       .reservation-bar {
         position: relative;
         z-index: 1;
@@ -739,7 +751,7 @@
 
         .flow-grid,
         .message-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(2, minmax(150px, 1fr));
         }
       }
 
@@ -773,8 +785,9 @@
         }
 
         .private-hero h1 {
-          font-size: clamp(2.8rem, 13vw, 4.3rem);
-          letter-spacing: -0.07em;
+          font-size: clamp(2.25rem, 10.5vw, 3.55rem);
+          line-height: 0.98;
+          letter-spacing: -0.052em;
         }
 
         .method-card,
@@ -1015,16 +1028,17 @@
               Sans inventer de campagne définitive, voici le type de direction que nous pourrions tester :
               simple, désirable, centrée sur la truffe et orientée réservation.
             </p>
-            <div class="ad-concept" role="img" aria-label="Maquette textuelle d'une publicité possible pour Truffes Folies">
-              <span class="ad-label">Concept Meta Ads</span>
-              <strong>Une adresse parisienne dédiée aux amoureux de la truffe.</strong>
-              <span>Plan serré d'un plat, truffe fraîche râpée, ambiance du restaurant, puis invitation à réserver.</span>
-              <div class="reservation-bar" aria-hidden="true">
-                <em>Expérience</em>
-                <em>Paris 7e</em>
-                <em>Réservation</em>
-              </div>
-            </div>
+            <figure class="media-card is-square restaurant-concept-image">
+              <img
+                src="assets/truffes-folies-restaurant-concepts.png"
+                alt="Exemples de concepts Meta Ads premium pour Truffes Folies"
+                loading="lazy"
+              />
+              <figcaption>
+                Exemple de direction créative : plusieurs concepts publicitaires, un même objectif,
+                donner envie de réserver.
+              </figcaption>
+            </figure>
           </aside>
         </div>
 
