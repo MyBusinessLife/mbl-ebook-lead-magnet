@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Présentation privée MBL ADS pour Truffes Folies : exemples de campagnes Meta Ads, méthode d'acquisition et pistes publicitaires adaptées à un restaurant autour de l'expérience truffe."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://mybusinesslife.fr/ebook-truffes-folies-meta-ads.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MBL ADS | Présentation privée pour Truffes Folies" />
+    <meta
+      property="og:description"
+      content="Une page confidentielle pour montrer comment MBL ADS structure des campagnes Meta Ads et comment cette logique peut être adaptée à Truffes Folies."
+    />
+    <meta property="og:url" content="https://mybusinesslife.fr/ebook-truffes-folies-meta-ads.html" />
+    <title>MBL ADS | Présentation privée pour Truffes Folies</title>
+    <link rel="stylesheet" href="ebook.css?v=14" />
+    <style>
+      :root {
+        --accent: #ff6a2e;
+        --accent-soft: rgba(255, 106, 46, 0.15);
+        --gold: #f7c76a;
+        --gold-soft: rgba(247, 199, 106, 0.16);
+        --cream: #fff5df;
+        --deep: #07131c;
+        --card: rgba(15, 34, 48, 0.72);
+        --card-strong: rgba(24, 43, 56, 0.86);
+      }
+
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body.presentation-private {
+        background:
+          radial-gradient(circle at 16% 10%, rgba(255, 106, 46, 0.18), transparent 30rem),
+          radial-gradient(circle at 86% 18%, rgba(247, 199, 106, 0.12), transparent 26rem),
+          linear-gradient(180deg, #08151f 0%, #0f2230 46%, #07131c 100%);
+      }
+
+      .presentation-private h1,
+      .presentation-private h2,
+      .presentation-private h3,
+      .presentation-private p,
+      .presentation-private li,
+      .presentation-private span,
+      .presentation-private strong {
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .presentation-private .no-break {
+        white-space: nowrap;
+      }
+
+      .page-glow-a {
+        background: radial-gradient(circle at 16% 12%, rgba(255, 106, 46, 0.24), transparent 58%);
+      }
+
+      .page-glow-b {
+        background: radial-gradient(circle at 88% 62%, rgba(28, 143, 163, 0.2), transparent 58%);
+      }
+
+      .private-topnav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .private-topnav a {
+        border-radius: var(--radius);
+        color: var(--muted);
+        font-size: 0.94rem;
+        font-weight: 760;
+        padding: 10px 12px;
+        transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+        white-space: nowrap;
+      }
+
+      .private-topnav a:hover {
+        background: rgba(247, 249, 252, 0.08);
+        color: var(--text);
+        transform: translateY(-1px);
+      }
+
+      .private-topnav .nav-cta {
+        border: 1px solid rgba(255, 106, 46, 0.38);
+        color: var(--text);
+      }
+
+      .brand-text-badge,
+      .text-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 106, 46, 0.48);
+        background:
+          radial-gradient(circle at 50% 30%, rgba(28, 143, 163, 0.5), transparent 68%),
+          rgba(247, 249, 252, 0.06);
+        color: #ffffff;
+        font-weight: 950;
+        letter-spacing: -0.04em;
+      }
+
+      .brand-text-badge {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        font-size: 0.78rem;
+      }
+
+      .page-shell {
+        width: min(1260px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .private-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.62fr);
+        gap: clamp(26px, 4vw, 56px);
+        align-items: stretch;
+        min-height: calc(100vh - 126px);
+        padding: clamp(58px, 8vw, 110px) 0 56px;
+      }
+
+      .eyebrow-pill {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 106, 46, 0.34);
+        border-radius: 999px;
+        background: rgba(255, 106, 46, 0.1);
+        color: #ff9a69;
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        padding: 9px 13px;
+        text-transform: uppercase;
+      }
+
+      .eyebrow-pill::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ff6a2e, #f7c76a);
+        box-shadow: 0 0 18px rgba(255, 106, 46, 0.64);
+        content: "";
+      }
+
+      .private-hero h1 {
+        max-width: 860px;
+        margin: 24px 0 0;
+        font-size: clamp(3.25rem, 7vw, 6.9rem);
+        line-height: 0.9;
+        letter-spacing: -0.085em;
+        text-wrap: balance;
+      }
+
+      .hero-lead {
+        max-width: 760px;
+        margin-top: 26px;
+        color: rgba(247, 249, 252, 0.78);
+        font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button-soft {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        border: 1px solid rgba(247, 249, 252, 0.14);
+        border-radius: var(--radius);
+        background: rgba(247, 249, 252, 0.07);
+        color: var(--text);
+        font-weight: 850;
+        padding: 0 18px;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .button-soft:hover {
+        border-color: rgba(255, 106, 46, 0.38);
+        background: rgba(255, 106, 46, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .button-primary-local {
+        border-color: rgba(255, 106, 46, 0.44);
+        background: linear-gradient(135deg, #ff6a2e, #ff9a5e);
+        box-shadow: 0 18px 50px rgba(255, 106, 46, 0.2);
+      }
+
+      .hero-summary-card {
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid rgba(247, 249, 252, 0.13);
+        border-radius: 26px;
+        background:
+          linear-gradient(145deg, rgba(247, 249, 252, 0.12), rgba(247, 249, 252, 0.035)),
+          rgba(8, 21, 31, 0.68);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+        padding: clamp(22px, 3.5vw, 34px);
+      }
+
+      .hero-summary-card::before {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6a2e, #f7c76a, transparent);
+        content: "";
+      }
+
+      .text-mark {
+        width: 74px;
+        height: 74px;
+        border-radius: 22px;
+        font-size: 1rem;
+      }
+
+      .hero-summary-card h2 {
+        margin: 28px 0 0;
+        font-size: clamp(1.8rem, 3vw, 2.65rem);
+        line-height: 1;
+        letter-spacing: -0.055em;
+      }
+
+      .summary-list {
+        display: grid;
+        gap: 12px;
+        margin: 26px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .summary-list li {
+        border: 1px solid rgba(247, 249, 252, 0.1);
+        border-radius: 16px;
+        background: rgba(247, 249, 252, 0.055);
+        color: rgba(247, 249, 252, 0.76);
+        padding: 14px;
+      }
+
+      .section-block {
+        padding: clamp(42px, 6vw, 76px) 0;
+        scroll-margin-top: 110px;
+      }
+
+      .section-heading {
+        max-width: 790px;
+        margin-bottom: 30px;
+      }
+
+      .section-heading .eyebrow {
+        color: #ff9a69;
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+      }
+
+      .section-heading h2 {
+        margin-top: 10px;
+        font-size: clamp(2rem, 4.6vw, 4rem);
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+        text-wrap: balance;
+      }
+
+      .section-heading p {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .method-card {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1fr);
+        gap: 22px;
+        align-items: stretch;
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 26px;
+        background:
+          linear-gradient(145deg, rgba(247, 249, 252, 0.1), rgba(247, 249, 252, 0.035)),
+          rgba(8, 21, 31, 0.62);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
+        padding: clamp(20px, 3vw, 30px);
+      }
+
+      .method-card h3 {
+        margin: 0;
+        font-size: clamp(1.65rem, 3vw, 2.4rem);
+        line-height: 1.02;
+      }
+
+      .method-card p {
+        margin-top: 16px;
+        color: var(--muted);
+      }
+
+      .flow-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .flow-step {
+        min-width: 0;
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 17px;
+        background: rgba(247, 249, 252, 0.055);
+        padding: 13px 11px;
+      }
+
+      .flow-step strong {
+        display: block;
+        color: #ff9a69;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .flow-step span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(247, 249, 252, 0.84);
+        font-size: 0.92rem;
+        font-weight: 780;
+        line-height: 1.22;
+      }
+
+      .case-grid {
+        display: grid;
+        gap: 28px;
+      }
+
+      .case-panel {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1fr);
+        gap: clamp(22px, 4vw, 46px);
+        align-items: center;
+        min-width: 0;
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 28px;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(255, 106, 46, 0.16), transparent 40%),
+          linear-gradient(145deg, rgba(247, 249, 252, 0.1), rgba(247, 249, 252, 0.035)),
+          rgba(8, 21, 31, 0.66);
+        box-shadow: 0 26px 84px rgba(0, 0, 0, 0.28);
+        overflow: hidden;
+        padding: clamp(20px, 3.4vw, 36px);
+      }
+
+      .case-panel.is-reversed {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+      }
+
+      .case-panel.is-reversed .case-media {
+        order: 2;
+      }
+
+      .case-panel.is-gold {
+        background:
+          radial-gradient(circle at 0% 0%, rgba(247, 199, 106, 0.16), transparent 42%),
+          linear-gradient(145deg, rgba(247, 249, 252, 0.11), rgba(247, 249, 252, 0.035)),
+          rgba(8, 21, 31, 0.68);
+      }
+
+      .case-media {
+        align-self: stretch;
+        min-width: 0;
+      }
+
+      .media-card {
+        display: flex;
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(247, 249, 252, 0.16);
+        border-radius: 22px;
+        background: rgba(247, 249, 252, 0.06);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+      }
+
+      .media-card img {
+        width: 100%;
+        height: auto;
+        max-height: 720px;
+        object-fit: contain;
+        background: rgba(8, 21, 31, 0.72);
+      }
+
+      .media-card.is-square img {
+        aspect-ratio: auto;
+      }
+
+      .media-card figcaption {
+        border-top: 1px solid rgba(247, 249, 252, 0.12);
+        background: rgba(8, 21, 31, 0.84);
+        color: rgba(247, 249, 252, 0.68);
+        font-size: 0.88rem;
+        font-weight: 720;
+        line-height: 1.35;
+        padding: 12px 14px;
+      }
+
+      .case-content {
+        min-width: 0;
+      }
+
+      .case-kicker {
+        display: inline-flex;
+        width: fit-content;
+        border: 1px solid rgba(255, 106, 46, 0.36);
+        border-radius: 999px;
+        background: rgba(255, 106, 46, 0.1);
+        color: #ff9a69;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        padding: 8px 11px;
+        text-transform: uppercase;
+      }
+
+      .case-content h2 {
+        margin: 18px 0 0;
+        font-size: clamp(2rem, 4vw, 3.45rem);
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+        text-wrap: balance;
+      }
+
+      .case-content p {
+        margin-top: 18px;
+        color: rgba(247, 249, 252, 0.76);
+        font-size: 1.04rem;
+      }
+
+      .check-list {
+        display: grid;
+        gap: 11px;
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .check-list li {
+        position: relative;
+        color: rgba(247, 249, 252, 0.8);
+        line-height: 1.45;
+        padding-left: 22px;
+      }
+
+      .check-list li::before {
+        position: absolute;
+        top: 0.64em;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ff6a2e, #f7c76a);
+        content: "";
+      }
+
+      .proof-pill {
+        width: fit-content;
+        max-width: 100%;
+        margin-top: 24px;
+        border: 1px solid rgba(247, 199, 106, 0.44);
+        border-radius: 16px;
+        background: rgba(247, 199, 106, 0.12);
+        color: #f9d993;
+        font-weight: 850;
+        line-height: 1.35;
+        padding: 13px 15px;
+      }
+
+      .restaurant-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.72fr);
+        gap: clamp(22px, 4vw, 46px);
+        align-items: stretch;
+      }
+
+      .restaurant-card,
+      .concept-card,
+      .progress-card,
+      .final-card {
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 28px;
+        background:
+          linear-gradient(145deg, rgba(247, 249, 252, 0.11), rgba(247, 249, 252, 0.035)),
+          rgba(8, 21, 31, 0.66);
+        box-shadow: 0 26px 84px rgba(0, 0, 0, 0.28);
+        padding: clamp(22px, 3.5vw, 36px);
+      }
+
+      .restaurant-card h2,
+      .concept-card h2,
+      .progress-card h2,
+      .final-card h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.45rem);
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+        text-wrap: balance;
+      }
+
+      .restaurant-card p,
+      .concept-card p,
+      .progress-card p,
+      .final-card p {
+        margin-top: 17px;
+        color: rgba(247, 249, 252, 0.76);
+      }
+
+      .lever-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .lever-card {
+        min-width: 0;
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 18px;
+        background: rgba(247, 249, 252, 0.055);
+        padding: 16px;
+      }
+
+      .lever-card strong {
+        display: block;
+        color: #ff9a69;
+        font-size: 1rem;
+      }
+
+      .lever-card span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.4;
+      }
+
+      .concept-card {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 0%, rgba(247, 199, 106, 0.18), transparent 44%),
+          linear-gradient(145deg, rgba(247, 249, 252, 0.12), rgba(247, 249, 252, 0.04)),
+          rgba(8, 21, 31, 0.7);
+      }
+
+      .ad-concept {
+        position: relative;
+        display: grid;
+        gap: 18px;
+        min-height: 510px;
+        margin-top: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(247, 199, 106, 0.36);
+        border-radius: 24px;
+        background:
+          radial-gradient(circle at 50% 10%, rgba(247, 199, 106, 0.2), transparent 34%),
+          linear-gradient(155deg, rgba(22, 13, 8, 0.88), rgba(8, 21, 31, 0.96) 50%, rgba(58, 33, 19, 0.9));
+        padding: 24px;
+      }
+
+      .ad-concept::before {
+        position: absolute;
+        right: -90px;
+        bottom: -120px;
+        width: 260px;
+        height: 260px;
+        border: 1px solid rgba(247, 199, 106, 0.22);
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(247, 199, 106, 0.18), transparent 64%);
+        content: "";
+      }
+
+      .ad-label {
+        position: relative;
+        z-index: 1;
+        width: fit-content;
+        border: 1px solid rgba(247, 199, 106, 0.42);
+        border-radius: 999px;
+        color: #f9d993;
+        font-size: 0.74rem;
+        font-weight: 950;
+        letter-spacing: 0.1em;
+        padding: 8px 11px;
+        text-transform: uppercase;
+      }
+
+      .ad-concept strong {
+        position: relative;
+        z-index: 1;
+        display: block;
+        max-width: 420px;
+        color: #ffffff;
+        font-size: clamp(2.1rem, 5vw, 4.05rem);
+        line-height: 0.9;
+        letter-spacing: -0.07em;
+      }
+
+      .ad-concept span:not(.ad-label) {
+        position: relative;
+        z-index: 1;
+        display: block;
+        max-width: 360px;
+        color: rgba(255, 245, 223, 0.78);
+        font-size: 1.06rem;
+        font-weight: 760;
+        line-height: 1.35;
+      }
+
+      .reservation-bar {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: auto;
+      }
+
+      .reservation-bar em {
+        border: 1px solid rgba(247, 249, 252, 0.14);
+        border-radius: 999px;
+        background: rgba(247, 249, 252, 0.08);
+        color: rgba(247, 249, 252, 0.8);
+        font-style: normal;
+        font-weight: 800;
+        padding: 8px 11px;
+      }
+
+      .message-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .message-card {
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 18px;
+        background: rgba(247, 249, 252, 0.055);
+        padding: 16px;
+      }
+
+      .message-card strong {
+        color: #f9d993;
+      }
+
+      .message-card p {
+        margin-top: 8px;
+        font-size: 0.94rem;
+      }
+
+      .progress-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .metric-row {
+        display: grid;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .metric-row span {
+        border: 1px solid rgba(247, 249, 252, 0.12);
+        border-radius: 17px;
+        background: rgba(247, 249, 252, 0.055);
+        color: rgba(247, 249, 252, 0.8);
+        font-weight: 780;
+        padding: 13px 14px;
+      }
+
+      .final-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 26px;
+        align-items: center;
+        margin-bottom: 42px;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(255, 106, 46, 0.2), transparent 38%),
+          radial-gradient(circle at 92% 100%, rgba(247, 199, 106, 0.16), transparent 38%),
+          rgba(8, 21, 31, 0.74);
+      }
+
+      .final-card .button-primary-local {
+        min-width: 230px;
+      }
+
+      .private-footer {
+        width: min(1260px, calc(100% - 40px));
+        margin: 0 auto 30px;
+        color: rgba(247, 249, 252, 0.58);
+        font-size: 0.88rem;
+        text-align: center;
+      }
+
+      @media (max-width: 1180px) {
+        .private-hero,
+        .method-card,
+        .case-panel,
+        .case-panel.is-reversed,
+        .restaurant-grid,
+        .progress-grid,
+        .final-card {
+          grid-template-columns: 1fr;
+        }
+
+        .case-panel.is-reversed .case-media {
+          order: 0;
+        }
+
+        .flow-grid,
+        .message-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 780px) {
+        .topbar,
+        .page-shell,
+        .private-footer {
+          width: min(100% - 24px, var(--max));
+        }
+
+        .private-topnav a:not(.nav-cta) {
+          display: none;
+        }
+
+        .brand-text span {
+          display: none;
+        }
+
+        .brand-text strong {
+          font-size: 0.92rem;
+        }
+
+        .brand-text-badge {
+          width: 48px;
+          height: 48px;
+        }
+
+        .private-hero {
+          min-height: auto;
+          padding-top: 38px;
+        }
+
+        .private-hero h1 {
+          font-size: clamp(2.8rem, 13vw, 4.3rem);
+          letter-spacing: -0.07em;
+        }
+
+        .method-card,
+        .case-panel,
+        .restaurant-card,
+        .concept-card,
+        .progress-card,
+        .final-card {
+          border-radius: 22px;
+          padding: 20px;
+        }
+
+        .flow-grid,
+        .lever-grid,
+        .message-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .media-card {
+          min-height: 360px;
+        }
+
+        .media-card img {
+          max-height: 560px;
+        }
+
+        .ad-concept {
+          min-height: 440px;
+        }
+
+        .final-card .button-soft {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="presentation-private">
+    <div class="page-glow page-glow-a" aria-hidden="true"></div>
+    <div class="page-glow page-glow-b" aria-hidden="true"></div>
+
+    <header class="topbar" aria-label="En-tête MBL ADS">
+      <a class="brand" href="#top" aria-label="Retour en haut de page">
+        <span class="brand-text-badge" aria-hidden="true">MBL</span>
+        <span class="brand-text">
+          <strong>MY BUSINESS LIFE</strong>
+          <span>Présentation confidentielle - MBL Ads</span>
+        </span>
+      </a>
+      <nav class="private-topnav" aria-label="Navigation de la présentation">
+        <a href="#methode">Méthode</a>
+        <a href="#exemples">Exemples</a>
+        <a href="#restaurant">Restaurant</a>
+        <a class="nav-cta" href="#contact">Suite</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="page-shell private-hero" aria-labelledby="hero-title">
+        <div>
+          <span class="eyebrow-pill">Présentation privée</span>
+          <h1 id="hero-title">Des campagnes Meta Ads pensées pour donner envie de réserver.</h1>
+          <p class="hero-lead">
+            Cette page montre comment MBL ADS construit une acquisition claire, créative et mesurable,
+            puis comment cette logique peut être adaptée à un restaurant comme Truffes Folies.
+          </p>
+          <div class="hero-actions">
+            <a class="button-soft button-primary-local" href="#restaurant">Voir l'adaptation restaurant</a>
+            <a class="button-soft" href="#exemples">Voir les exemples</a>
+          </div>
+        </div>
+
+        <aside class="hero-summary-card" aria-label="Résumé de la présentation">
+          <span class="text-mark" aria-hidden="true">MBL</span>
+          <h2>Stratégie, création, lancement, optimisation.</h2>
+          <ul class="summary-list">
+            <li>Une méthode qui part de l'activité, pas d'un modèle publicitaire générique.</li>
+            <li>Des concepts visuels adaptés au secteur, à l'offre et au niveau de décision attendu.</li>
+            <li>Un suivi orienté qualité réelle : demandes, réservations, chiffre d'affaires et rentabilité.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="methode" class="page-shell section-block" aria-labelledby="method-title">
+        <div class="section-heading">
+          <p class="eyebrow">Méthode MBL ADS</p>
+          <h2 id="method-title">Notre rôle ne se limite pas à mettre une publicité en ligne.</h2>
+          <p>
+            Nous prenons en charge le parcours complet : comprendre l'activité, créer les messages,
+            paramétrer Meta Ads, lancer, analyser, optimiser et suivre la qualité des prospects obtenus.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <div>
+            <h3>Une campagne efficace commence avant le bouton “publier”.</h3>
+            <p>
+              Chaque activité a ses propres enjeux. Nous adaptons les campagnes au secteur, à l'offre,
+              au budget disponible et à la clientèle recherchée.
+            </p>
+          </div>
+          <div class="flow-grid" aria-label="Parcours de travail">
+            <div class="flow-step"><strong>01</strong><span>Comprendre l'activité</span></div>
+            <div class="flow-step"><strong>02</strong><span>Identifier l'offre prioritaire</span></div>
+            <div class="flow-step"><strong>03</strong><span>Créer les concepts</span></div>
+            <div class="flow-step"><strong>04</strong><span>Lancer la campagne</span></div>
+            <div class="flow-step"><strong>05</strong><span>Mesurer les résultats</span></div>
+            <div class="flow-step"><strong>06</strong><span>Renforcer ce qui fonctionne</span></div>
+            <div class="flow-step"><strong>07</strong><span>Améliorer ce qui bloque</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="exemples" class="page-shell section-block" aria-labelledby="examples-title">
+        <div class="section-heading">
+          <p class="eyebrow">Quelques exemples</p>
+          <h2 id="examples-title">Des campagnes différentes, mais la même exigence de méthode.</h2>
+          <p>
+            Les exemples ci-dessous illustrent trois contextes distincts : acquisition locale,
+            acquisition MBL ADS et acquisition B2B pour logiciel sur mesure.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-panel">
+            <figure class="case-media media-card">
+              <img
+                src="assets/truffes-folies-rayon-local.png"
+                alt="Exemple de créative Meta Ads pour une campagne locale autour de Cholet"
+                loading="lazy"
+              />
+              <figcaption>Exemple de concept publicitaire pour une campagne locale de génération de demandes.</figcaption>
+            </figure>
+            <div class="case-content">
+              <span class="case-kicker">Rayon local</span>
+              <h2>Acquisition locale dans le bâtiment.</h2>
+              <p>
+                Pour une entreprise spécialisée dans la couverture et la rénovation de toiture,
+                l'objectif est de développer une acquisition autour de la zone d'intervention
+                et de générer davantage de demandes de devis qualifiées.
+              </p>
+              <ul class="check-list">
+                <li>Analyse des prestations prioritaires et de la zone géographique.</li>
+                <li>Création des angles publicitaires, visuels et annonces.</li>
+                <li>Formulaire de qualification pour filtrer les demandes.</li>
+                <li>Gestion complète de la campagne, analyse et optimisation selon la qualité reçue.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case-panel is-reversed is-gold">
+            <figure class="case-media media-card">
+              <img
+                src="assets/truffes-folies-acquisition-mbl-ads.png"
+                alt="Exemple de créative MBL ADS pour notre propre acquisition Meta Ads"
+                loading="lazy"
+              />
+              <figcaption>Exemple de créative utilisée pour présenter une problématique d'acquisition MBL ADS.</figcaption>
+            </figure>
+            <div class="case-content">
+              <span class="case-kicker">Notre propre acquisition</span>
+              <h2>Nous appliquons aussi nos méthodes à nos propres campagnes.</h2>
+              <p>
+                MBL ADS investit aussi son propre budget publicitaire. Cela nous permet de tester
+                en continu des angles, des hooks, des styles graphiques, des formulaires et la qualité
+                des prospects générés.
+              </p>
+              <ul class="check-list">
+                <li>Tests de nouveaux angles et de plusieurs niveaux de promesse.</li>
+                <li>Comparaison de styles graphiques corporate, directs ou plus originaux.</li>
+                <li>Lecture des performances dans le temps : coût, qualité et conversion commerciale.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case-panel">
+            <figure class="case-media media-card is-square">
+              <img
+                src="assets/truffes-folies-logiciel-sur-mesure.png"
+                alt="Exemple de créative sur les logiciels et l'automatisation"
+                loading="lazy"
+              />
+              <figcaption>Exemple de concept pour parler aux entreprises qui perdent du temps avec des tâches répétitives.</figcaption>
+            </figure>
+            <div class="case-content">
+              <span class="case-kicker">Logiciel sur mesure</span>
+              <h2>Acquisition B2B pour projet à forte valeur.</h2>
+              <p>
+                Sur une campagne liée au logiciel sur mesure, le défi n'était pas d'obtenir un maximum
+                de contacts, mais d'attirer des entreprises avec un vrai besoin, une douleur claire
+                et un projet suffisamment important.
+              </p>
+              <ul class="check-list">
+                <li>Messages centrés sur la perte de temps, les fichiers Excel et les tâches manuelles.</li>
+                <li>Créatives qui rendent le problème immédiatement compréhensible.</li>
+                <li>Qualification pour distinguer les curieux des projets réellement exploitables.</li>
+              </ul>
+              <div class="proof-pill">
+                Exemple de résultat obtenu : une opportunité ayant abouti à un contrat d'environ
+                <span class="no-break">16 000 €</span>, pour environ <span class="no-break">300 €</span>
+                de dépenses publicitaires sur la période concernée.
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="restaurant" class="page-shell section-block" aria-labelledby="restaurant-title">
+        <div class="section-heading">
+          <p class="eyebrow">Adaptation restaurant</p>
+          <h2 id="restaurant-title">Pour Truffes Folies, les leviers changent complètement.</h2>
+          <p>
+            On ne reprend pas une campagne pensée pour un artisan ou une entreprise B2B.
+            La stratégie doit partir de l'envie, de l'expérience gastronomique, de la preuve
+            et du chemin le plus court vers la réservation.
+          </p>
+        </div>
+
+        <div class="restaurant-grid">
+          <article class="restaurant-card">
+            <h2>Les axes publicitaires à travailler.</h2>
+            <p>
+              L'objectif serait de transformer les contenus existants du restaurant en plusieurs concepts
+              publicitaires capables de déclencher une envie immédiate, puis une action simple : réserver.
+            </p>
+            <div class="lever-grid" aria-label="Leviers publicitaires pour le restaurant">
+              <div class="lever-card"><strong>L'envie</strong><span>Plats, truffe fraîche, textures et gestes gourmands au centre.</span></div>
+              <div class="lever-card"><strong>L'expérience</strong><span>Faire ressentir que l'on vient vivre un moment gastronomique particulier.</span></div>
+              <div class="lever-card"><strong>La preuve</strong><span>Réputation, avis, cadre, savoir-faire et éléments rassurants.</span></div>
+              <div class="lever-card"><strong>La proximité</strong><span>Paris 7e, Tour Eiffel, Invalides et clientèle déjà présente dans le secteur.</span></div>
+              <div class="lever-card"><strong>La réservation</strong><span>Réduire le chemin entre “cette publicité me donne envie” et “je réserve”.</span></div>
+              <div class="lever-card"><strong>La saisonnalité</strong><span>Tester les moments forts : dîner, couple, découverte, entreprise ou privatisation.</span></div>
+            </div>
+          </article>
+
+          <aside class="concept-card" aria-label="Concept publicitaire possible pour Truffes Folies">
+            <h2>Une piste de création possible.</h2>
+            <p>
+              Sans inventer de campagne définitive, voici le type de direction que nous pourrions tester :
+              simple, désirable, centrée sur la truffe et orientée réservation.
+            </p>
+            <div class="ad-concept" role="img" aria-label="Maquette textuelle d'une publicité possible pour Truffes Folies">
+              <span class="ad-label">Concept Meta Ads</span>
+              <strong>Une adresse parisienne dédiée aux amoureux de la truffe.</strong>
+              <span>Plan serré d'un plat, truffe fraîche râpée, ambiance du restaurant, puis invitation à réserver.</span>
+              <div class="reservation-bar" aria-hidden="true">
+                <em>Expérience</em>
+                <em>Paris 7e</em>
+                <em>Réservation</em>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="message-grid" aria-label="Messages à tester">
+          <article class="message-card"><strong>Expérience gastronomique</strong><p>Montrer une sortie premium, pas seulement un repas.</p></article>
+          <article class="message-card"><strong>Dîner en couple</strong><p>Mettre l'accent sur le moment, l'ambiance et la découverte.</p></article>
+          <article class="message-card"><strong>Découverte de la truffe</strong><p>Parler aux personnes curieuses ou déjà amatrices.</p></article>
+          <article class="message-card"><strong>Proximité Tour Eiffel</strong><p>Créer un lien avec les clients présents dans le secteur.</p></article>
+          <article class="message-card"><strong>Avis et réputation</strong><p>Renforcer la confiance avant le clic vers la réservation.</p></article>
+          <article class="message-card"><strong>Privatisation</strong><p>Tester les événements, repas d'entreprise et moments de groupe.</p></article>
+        </div>
+      </section>
+
+      <section class="page-shell section-block" aria-labelledby="progress-title">
+        <div class="progress-grid">
+          <article class="progress-card">
+            <h2 id="progress-title">Une approche progressive.</h2>
+            <p>
+              Nous préférons commencer avec une structure maîtrisée, observer les premières données,
+              puis faire évoluer la stratégie avec ce que le marché répond réellement.
+            </p>
+          </article>
+
+          <article class="progress-card">
+            <h2>Ce que l'on regarderait pour décider.</h2>
+            <div class="metric-row" aria-label="Indicateurs à suivre">
+              <span>Clics vers la réservation</span>
+              <span>Réservations réellement obtenues</span>
+              <span>Coût d'acquisition</span>
+              <span>Panier moyen et chiffre d'affaires généré</span>
+              <span>Messages et créatives qui donnent les meilleurs signaux</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="page-shell final-card" aria-labelledby="final-title">
+        <div>
+          <h2 id="final-title">Construire une stratégie adaptée à votre situation réelle.</h2>
+          <p>
+            Les exemples présentés illustrent notre méthode de travail et ne constituent pas une promesse
+            de résultat. L'objectif est de créer une stratégie cohérente avec votre activité, votre audience,
+            votre période et votre capacité à transformer les demandes obtenues.
+          </p>
+        </div>
+        <a
+          class="button-soft button-primary-local"
+          href="mailto:contact@mybusinesslife.fr?subject=Projet%20Meta%20Ads%20-%20Truffes%20Folies&body=Bonjour%20MY%20BUSINESS%20LIFE,%0A%0AJe%20souhaite%20%C3%A9changer%20au%20sujet%20de%20la%20pr%C3%A9sentation%20Meta%20Ads%20pour%20Truffes%20Folies.%0A%0ABien%20%C3%A0%20vous,"
+        >
+          Échanger sur la suite
+        </a>
+      </section>
+    </main>
+
+    <footer class="private-footer">
+      MY BUSINESS LIFE - Présentation confidentielle préparée pour Truffes Folies - Page non indexée
+    </footer>
+  </body>
+</html>
