@@ -37,8 +37,8 @@ const pageLoader =
 
 if (pageLoader && shouldUsePageLoader) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const minLoaderTime = reduceMotion ? 120 : 1250;
-  const maxLoaderTime = reduceMotion ? 160 : 1900;
+  const minLoaderTime = reduceMotion ? 0 : 180;
+  const maxLoaderTime = reduceMotion ? 160 : 800;
   let loaderHidden = false;
 
   document.body.classList.add("is-page-loading");
@@ -233,7 +233,7 @@ if ("IntersectionObserver" in window) {
         revealObserver.unobserve(entry.target);
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.03, rootMargin: "0px 0px -24px 0px" }
   );
 
   animatedItems.forEach((item) => revealObserver.observe(item));
