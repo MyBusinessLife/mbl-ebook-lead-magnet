@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#0b1b24" />
+    <meta name="description" content="Présentation personnalisée MBL ADS pour Naila : stratégie d'acquisition de candidatures qualifiées pour une formation premium en médecine esthétique." />
+    <link rel="canonical" href="https://mybusinesslife.fr/presentation-naila-medecine-esthetique-meta-ads.html" />
+    <title>Naila × MBL ADS | Stratégie d'acquisition personnalisée</title>
+    <style>
+      @font-face {
+        font-family: "Manrope";
+        src: url("assets/public/manrope-latin.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 200 800;
+        font-display: swap;
+      }
+
+      :root {
+        color-scheme: dark;
+        --ink: #0b1b24;
+        --ink-soft: #132a36;
+        --panel: #1b303b;
+        --line: rgba(246, 244, 237, 0.16);
+        --paper: #f4f0e8;
+        --white: #fbfcfe;
+        --muted: #bcc7cc;
+        --orange: #ff783d;
+        --gold: #d9bb82;
+        --teal: #7ec1c7;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--ink);
+        color: var(--white);
+        font-family: "Manrope", "Avenir Next", sans-serif;
+        line-height: 1.5;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      p, h1, h2, h3, figure { margin: 0; }
+      h1, h2, h3 { text-wrap: balance; }
+      p, li { overflow-wrap: break-word; }
+      ::selection { background: var(--orange); color: var(--ink); }
+
+      .shell { width: min(1440px, calc(100% - 72px)); margin: 0 auto; }
+      .skip-link { position: absolute; left: 12px; top: -80px; z-index: 20; padding: 12px 16px; background: var(--paper); color: var(--ink); }
+      .skip-link:focus { top: 12px; }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--line);
+        background: rgba(11, 27, 36, 0.92);
+        backdrop-filter: blur(18px);
+      }
+      .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 78px; }
+      .brand { display: flex; align-items: center; gap: 13px; min-width: 0; }
+      .brand img { width: 46px; height: 46px; border-radius: 13px; }
+      .brand span { display: grid; line-height: 1.16; }
+      .brand strong { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.03em; }
+      .brand small { color: var(--muted); font-size: 0.74rem; font-weight: 650; }
+      nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); }
+      nav a { color: #dce4e7; font-size: 0.81rem; font-weight: 750; white-space: nowrap; transition: color 160ms ease; }
+      nav a:hover, nav a:focus-visible { color: var(--orange); }
+      nav .nav-end { border: 1px solid rgba(255, 120, 61, 0.48); border-radius: 999px; padding: 11px 16px; }
+
+      .hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding: clamp(76px, 10vw, 144px) 0 62px;
+        background:
+          radial-gradient(circle at 79% 32%, rgba(126, 193, 199, 0.19), transparent 33%),
+          radial-gradient(circle at 9% 0%, rgba(255, 120, 61, 0.18), transparent 32%),
+          linear-gradient(135deg, #0d1f29 0%, #172e3a 66%, #0b1b24 100%);
+      }
+      .hero::before, .dark-section::before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        background-size: 78px 78px;
+        content: "";
+        mask-image: linear-gradient(to bottom, #000, transparent 94%);
+      }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.67fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
+      .eyebrow { color: var(--orange); font-size: 0.78rem; font-weight: 850; letter-spacing: 0.16em; text-transform: uppercase; }
+      .eyebrow::before { display: inline-block; width: 28px; height: 2px; margin: 0 11px 4px 0; background: currentColor; content: ""; }
+      .hero h1 { margin-top: 24px; max-width: 980px; font-size: clamp(3.2rem, 6.4vw, 7.3rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.075em; }
+      .hero h1 em { color: var(--gold); font-family: Georgia, serif; font-weight: 400; }
+      .hero-lead { max-width: 690px; margin-top: 27px; color: #d6e0e3; font-size: clamp(1.05rem, 1.5vw, 1.27rem); line-height: 1.65; }
+      .hero-tag { display: inline-flex; gap: 9px; margin-top: 33px; border: 1px solid rgba(255,255,255,0.19); border-radius: 999px; background: rgba(255,255,255,0.06); padding: 11px 17px; color: var(--paper); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+      .hero-card { position: relative; min-width: 0; border: 1px solid rgba(217,187,130,0.42); border-radius: 25px; background: linear-gradient(150deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035)); box-shadow: 0 28px 80px rgba(0,0,0,0.2); padding: clamp(28px, 3vw, 45px); }
+      .hero-card::before { position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--orange), var(--gold), transparent); content: ""; }
+      .hero-card .card-kicker { color: var(--gold); font-size: 0.75rem; font-weight: 850; letter-spacing: 0.15em; text-transform: uppercase; }
+      .hero-card h2 { margin-top: 21px; font-size: clamp(1.8rem, 2.75vw, 2.9rem); line-height: 1.12; letter-spacing: -0.055em; }
+      .hero-card h2 strong { color: var(--gold); }
+      .hero-card p { margin-top: 19px; color: #d0dce0; font-size: 1rem; line-height: 1.7; }
+      .hero-card .rule { display: block; height: 1px; margin: 31px 0 22px; background: var(--line); }
+      .hero-card .card-bottom { color: var(--teal); font-size: 0.9rem; font-weight: 800; }
+
+      .numbers { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #10232d; }
+      .numbers-grid { display: grid; grid-template-columns: 1.12fr 0.86fr 0.85fr 1.35fr; }
+      .number { min-width: 0; padding: 28px clamp(16px, 2.2vw, 34px); border-left: 1px solid var(--line); }
+      .number:first-child { border-left: 0; padding-left: 0; }
+      .number:last-child { padding-right: 0; }
+      .number strong { display: block; color: var(--paper); font-size: clamp(1.45rem, 2.2vw, 2.35rem); font-weight: 800; line-height: 1.14; letter-spacing: -0.05em; }
+      .number:first-child strong { color: var(--gold); }
+      .number span { display: block; margin-top: 8px; color: var(--muted); font-size: 0.79rem; font-weight: 650; }
+
+      .section { padding: clamp(80px, 9vw, 150px) 0; scroll-margin-top: 78px; }
+      .section-head { max-width: 830px; margin-bottom: 43px; }
+      .section-head h2 { margin-top: 19px; font-size: clamp(2.45rem, 5vw, 5.15rem); line-height: 1.05; letter-spacing: -0.07em; }
+      .section-head p { max-width: 730px; margin-top: 19px; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.13rem); line-height: 1.7; }
+      .section-head.light p { color: #50606a; }
+      .light-section { background: var(--paper); color: var(--ink); }
+      .light-section .eyebrow { color: #a8492d; }
+      .light-section .section-head h2 { color: #102833; }
+      .dark-section { position: relative; isolation: isolate; background: linear-gradient(155deg, #10252f, #071820); }
+
+      .cred-grid { display: grid; grid-template-columns: 1.2fr repeat(2, 1fr); gap: 14px; }
+      .cred-feature, .cred-card { border: 1px solid rgba(16, 40, 51, 0.13); border-radius: 22px; background: #fffdf8; padding: clamp(22px, 2.8vw, 35px); }
+      .cred-feature { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; min-height: 400px; background: #13303c; color: var(--white); }
+      .cred-feature strong { color: var(--gold); font-size: clamp(3.4rem, 6vw, 6.4rem); font-weight: 800; line-height: 1; letter-spacing: -0.08em; }
+      .cred-feature h3 { margin-top: 28px; font-size: clamp(1.55rem, 2.3vw, 2.3rem); line-height: 1.16; letter-spacing: -0.05em; }
+      .cred-feature p { margin-top: 14px; color: #c7d5d9; }
+      .cred-card small { color: #ad5a36; font-size: 0.75rem; font-weight: 850; letter-spacing: 0.13em; text-transform: uppercase; }
+      .cred-card h3 { margin-top: 15px; font-size: 1.3rem; line-height: 1.23; letter-spacing: -0.045em; }
+      .cred-card p { margin-top: 10px; color: #586872; font-size: 0.94rem; line-height: 1.6; }
+      .offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+      .offer { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 20px; min-width: 0; border: 1px solid rgba(16,40,51,0.13); border-radius: 20px; background: #fffdf8; padding: 25px 28px; }
+      .offer > div { min-width: 0; }
+      .offer span { display: block; color: #8e4b32; font-size: 0.75rem; font-weight: 850; letter-spacing: 0.11em; text-transform: uppercase; }
+      .offer h3 { margin-top: 7px; font-size: 1.28rem; letter-spacing: -0.04em; }
+      .offer p { margin-top: 7px; color: #52616a; font-size: 0.87rem; }
+      .offer strong { flex: 0 0 auto; color: #123643; font-size: clamp(1.5rem, 2.2vw, 2.35rem); white-space: nowrap; letter-spacing: -0.06em; }
+
+      .audience-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .audience-card { min-width: 0; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,0.045); padding: clamp(26px, 3vw, 42px); }
+      .audience-card .index { color: var(--orange); font-size: 0.76rem; font-weight: 850; letter-spacing: 0.15em; }
+      .audience-card h3 { margin-top: 40px; font-size: clamp(1.55rem, 2.65vw, 2.7rem); line-height: 1.15; letter-spacing: -0.055em; }
+      .audience-card p { margin-top: 16px; color: var(--muted); line-height: 1.7; }
+      .qualify { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 30px; align-items: start; margin-top: 15px; border: 1px solid rgba(126,193,199,0.28); border-radius: 24px; background: rgba(126,193,199,0.08); padding: clamp(26px, 3vw, 42px); }
+      .qualify h3 { font-size: clamp(1.55rem, 2.4vw, 2.45rem); line-height: 1.18; letter-spacing: -0.055em; }
+      .qualify ul { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 13px 24px; margin: 0; padding: 0; list-style: none; }
+      .qualify li { position: relative; border-bottom: 1px solid var(--line); padding: 0 0 12px 20px; color: #dbe6e9; font-size: 0.95rem; line-height: 1.55; }
+      .qualify li::before { position: absolute; top: 9px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); content: ""; }
+
+      .path { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; margin-top: 34px; }
+      .path-step { min-width: 0; min-height: 150px; border: 1px solid rgba(16,40,51,0.15); border-radius: 19px; background: #fffdf8; padding: 20px; }
+      .path-step b { color: #a8492d; font-size: 0.78rem; letter-spacing: 0.1em; }
+      .path-step strong { display: block; margin-top: 27px; font-size: clamp(1rem, 1.35vw, 1.22rem); line-height: 1.25; letter-spacing: -0.04em; }
+      .path-step:last-child { border-color: #17414e; background: #17414e; color: white; }
+      .path-step:last-child b { color: var(--gold); }
+      .angle-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 19px; }
+      .angle { min-width: 0; border-top: 2px solid #c98660; background: rgba(255,255,255,0.58); padding: 22px 23px 24px; }
+      .angle h3 { font-size: 1.05rem; letter-spacing: -0.035em; }
+      .angle p { margin-top: 9px; color: #53646e; font-size: 0.91rem; line-height: 1.6; }
+      .measure { margin-top: 30px; border-radius: 20px; background: #173541; padding: 25px 30px; color: #e9f1f3; font-size: clamp(1.05rem, 1.5vw, 1.36rem); font-weight: 700; line-height: 1.6; }
+      .measure strong { color: var(--gold); }
+
+      .proof-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 18px; align-items: start; }
+      .proof-card { min-width: 0; border: 1px solid var(--line); border-radius: 24px; background: #192e39; overflow: hidden; }
+      .proof-copy { padding: clamp(25px, 2.7vw, 36px); }
+      .proof-copy .mini { color: var(--orange); font-size: 0.76rem; font-weight: 850; letter-spacing: 0.13em; text-transform: uppercase; }
+      .proof-copy h3 { margin-top: 13px; font-size: clamp(1.6rem, 2.6vw, 2.7rem); line-height: 1.14; letter-spacing: -0.055em; }
+      .proof-copy p { margin-top: 15px; color: #c8d5da; font-size: 0.98rem; line-height: 1.66; }
+      .proof-img { border-top: 1px solid var(--line); background: #0b1b24; padding: 18px; }
+      .proof-img img { width: 100%; max-height: 590px; border-radius: 11px; object-fit: contain; }
+      .proof-img.screenshot { display: grid; place-items: center; background: #e9edf0; }
+      .proof-img.screenshot img { max-height: 400px; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 15px 40px rgba(0,0,0,0.17); }
+      .proof-card figcaption { padding: 0 26px 22px; color: #9fb1b8; font-size: 0.78rem; line-height: 1.55; }
+      .proof-card:nth-child(2) figcaption { padding-top: 16px; }
+      .proof-note { margin-top: 24px; color: #a7b8bd; font-size: 0.82rem; line-height: 1.6; }
+
+      .software { background: var(--paper); color: var(--ink); }
+      .software-grid { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: clamp(35px, 6vw, 92px); align-items: center; }
+      .software-stat { border: 1px solid rgba(15,50,61,0.2); border-radius: 24px; background: #15313d; color: white; padding: clamp(30px, 4vw, 54px); box-shadow: 22px 22px 0 rgba(21,49,61,0.09); }
+      .software-stat strong { display: block; color: var(--gold); font-size: clamp(5rem, 10vw, 10rem); font-weight: 800; line-height: 1; letter-spacing: -0.11em; }
+      .software-stat span { display: block; margin-top: 20px; color: #e2edef; font-size: clamp(1.1rem, 1.7vw, 1.5rem); font-weight: 700; line-height: 1.4; }
+      .software-copy h2 { margin-top: 20px; font-size: clamp(2.4rem, 4.7vw, 4.8rem); line-height: 1.04; letter-spacing: -0.07em; }
+      .software-copy p { margin-top: 20px; max-width: 650px; color: #53636b; font-size: 1.08rem; line-height: 1.72; }
+      .software-copy .software-link { margin-top: 28px; border-left: 3px solid #c98660; padding-left: 19px; color: #1c3944; font-weight: 750; }
+
+      .roadmap-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+      .roadmap { min-width: 0; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,0.05); padding: clamp(25px, 3vw, 40px); }
+      .roadmap .phase { color: var(--orange); font-size: 0.76rem; font-weight: 850; letter-spacing: 0.14em; text-transform: uppercase; }
+      .roadmap h3 { margin-top: 21px; font-size: clamp(1.6rem, 2.5vw, 2.6rem); letter-spacing: -0.055em; }
+      .roadmap p { margin-top: 15px; color: var(--muted); line-height: 1.7; }
+      .closing { margin-top: 24px; border: 1px solid rgba(217,187,130,0.4); border-radius: 25px; background: radial-gradient(circle at 100% 0, rgba(217,187,130,0.14), transparent 40%), #182e39; padding: clamp(28px, 4vw, 52px); }
+      .closing h2 { max-width: 890px; color: var(--paper); font-size: clamp(2rem, 3.7vw, 3.8rem); line-height: 1.12; letter-spacing: -0.06em; }
+      .closing p { max-width: 870px; margin-top: 18px; color: #cbd7db; line-height: 1.7; }
+      footer { border-top: 1px solid var(--line); padding: 30px 0 42px; color: #a3b2b7; font-size: 0.78rem; }
+      footer .shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+      @media (max-width: 1050px) {
+        .hero-grid, .software-grid { grid-template-columns: 1fr; }
+        .hero-card { max-width: 700px; }
+        .numbers-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .number:nth-child(3) { border-left: 0; }
+        .number:nth-child(n+3) { border-top: 1px solid var(--line); }
+        .number:nth-child(3) { padding-left: 0; }
+        .cred-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .cred-feature { grid-row: auto; grid-column: span 2; min-height: 300px; }
+        .path { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      }
+      @media (max-width: 700px) {
+        .shell { width: min(100% - 32px, 1440px); }
+        .header-inner { min-height: 70px; }
+        .brand img { width: 42px; height: 42px; }
+        .brand small { display: none; }
+        nav { gap: 12px; }
+        nav a:not(.nav-end) { display: none; }
+        nav .nav-end { font-size: 0.75rem; padding: 9px 12px; }
+        .hero { padding: 65px 0 44px; }
+        .hero h1 { font-size: clamp(3rem, 11.5vw, 5.3rem); }
+        .hero-grid { gap: 34px; }
+        .hero-card { padding: 26px; }
+        .number { padding: 19px 13px; }
+        .number:first-child, .number:nth-child(3) { padding-left: 0; }
+        .section { padding: 72px 0; }
+        .section-head { margin-bottom: 27px; }
+        .section-head h2 { font-size: clamp(2.2rem, 9vw, 3.7rem); }
+        .cred-grid, .offer-grid, .audience-grid, .qualify, .proof-grid, .roadmap-grid { grid-template-columns: 1fr; }
+        .cred-feature { grid-column: auto; min-height: 330px; }
+        .offer { flex-direction: column; }
+        .qualify ul { grid-template-columns: 1fr; }
+        .path { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .path-step { min-height: 132px; padding: 16px; }
+        .path-step strong { margin-top: 20px; }
+        .angle-grid { grid-template-columns: 1fr; }
+        .software-stat { box-shadow: none; }
+      }
+      @media (max-width: 370px) {
+        .numbers-grid { grid-template-columns: 1fr; }
+        .number, .number:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); padding: 18px 0; }
+        .number:first-child { border-top: 0; }
+        .path { grid-template-columns: 1fr; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+      @media print {
+        :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        .site-header { position: static; }
+        .hero, .section { padding-top: 45px; padding-bottom: 45px; }
+        .hero { min-height: auto; }
+        .section, .proof-card, .cred-card, .cred-feature, .roadmap { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#haut" aria-label="MBL ADS, retour au début">
+          <img src="assets/logo-mbl-officiel.png" alt="" width="46" height="46" />
+          <span><strong>MY BUSINESS LIFE</strong><small>Présentation confidentielle · MBL ADS</small></span>
+        </a>
+        <nav aria-label="Navigation de la présentation">
+          <a href="#positionnement">Positionnement</a>
+          <a href="#strategie">Stratégie</a>
+          <a href="#preuves">Nos campagnes</a>
+          <a class="nav-end" href="#plan">Plan d'action</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <section class="hero" id="haut" aria-labelledby="hero-title">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow">Naila × MBL ADS · Présentation privée</p>
+            <h1 id="hero-title">De la crédibilité à la <em>candidature</em> qualifiée.</h1>
+            <p class="hero-lead">Une stratégie Meta Ads sur mesure pour développer les inscriptions à vos formations premium en médecine esthétique, avec un démarrage concentré sur la France.</p>
+            <span class="hero-tag">Votre stratégie d'acquisition personnalisée</span>
+          </div>
+          <aside class="hero-card" aria-label="Idée directrice">
+            <span class="card-kicker">Le point décisif</span>
+            <h2>Votre image inspire déjà confiance. <strong>Transformons cette confiance en inscriptions.</strong></h2>
+            <p>La campagne doit faire émerger des femmes qui ont le bon profil, un projet réel et la capacité d'investir dans un parcours de formation premium.</p>
+            <span class="rule" aria-hidden="true"></span>
+            <span class="card-bottom">Qualité des candidatures avant volume des formulaires.</span>
+          </aside>
+        </div>
+      </section>
+
+      <div class="numbers" aria-label="Les quatre repères de la stratégie">
+        <div class="shell numbers-grid">
+          <div class="number"><strong>4 500 € → 15 000 €</strong><span>par participante, selon le programme</span></div>
+          <div class="number"><strong>≈ 10</strong><span>participantes par classe</span></div>
+          <div class="number"><strong>≈ 389K</strong><span>abonnés Instagram annoncés</span></div>
+          <div class="number"><strong>France d'abord</strong><span>marché francophone ensuite</span></div>
+        </div>
+      </div>
+
+      <section class="section light-section" id="positionnement" aria-labelledby="positionnement-title">
+        <div class="shell">
+          <div class="section-head light">
+            <span class="eyebrow">01 · Un socle déjà solide</span>
+            <h2 id="positionnement-title">Une offre premium qui a déjà ses preuves de confiance.</h2>
+            <p>Le rôle de la publicité est de rendre cette valeur visible auprès des bons profils, puis de les guider vers une candidature sérieuse.</p>
+          </div>
+          <div class="cred-grid">
+            <article class="cred-feature">
+              <strong>389K</strong>
+              <div><h3>La présence de Dr Zainab Khenissi crée un point d'entrée puissant.</h3><p>Une communauté Instagram d'environ 389 000 abonnés, selon les éléments communiqués, et une expertise médicale déjà identifiée.</p></div>
+            </article>
+            <article class="cred-card"><small>01 / Encadrement</small><h3>Des médecins certifiés</h3><p>Une légitimité pédagogique à rendre immédiatement perceptible dans les annonces et les pages de candidature.</p></article>
+            <article class="cred-card"><small>02 / Réassurance</small><h3>Des retours de participantes</h3><p>Des témoignages et parcours utiles pour aider chaque candidate à se projeter.</p></article>
+            <article class="cred-card"><small>03 / Expérience</small><h3>Des groupes restreints</h3><p>Environ dix participantes par classe pour préserver la qualité du suivi.</p></article>
+            <article class="cred-card"><small>04 / Valeur</small><h3>Un accompagnement sur plusieurs mois</h3><p>Un positionnement cohérent avec l'investissement demandé et l'ambition des candidates.</p></article>
+          </div>
+          <div class="offer-grid" aria-label="Les deux programmes présentés">
+            <article class="offer"><div><span>Programme 4 mois</span><h3>Entrer dans la spécialisation</h3><p>Paiement en plusieurs fois sans frais possible.</p></div><strong>dès 4 500 €</strong></article>
+            <article class="offer"><div><span>Programme premium 6 mois</span><h3>Un accompagnement approfondi</h3><p>Groupes d'environ dix participantes.</p></div><strong>jusqu'à 15 000 €</strong></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="profils" aria-labelledby="profils-title">
+        <div class="shell">
+          <div class="section-head">
+            <span class="eyebrow">02 · Le ciblage qui compte</span>
+            <h2 id="profils-title">Parler aux femmes qui peuvent réellement rejoindre la formation.</h2>
+            <p>Une candidature utile associe le bon parcours, une intention claire, un calendrier réaliste et une capacité d'investissement cohérente.</p>
+          </div>
+          <div class="audience-grid">
+            <article class="audience-card"><span class="index">PROFIL 01</span><h3>Médecins en reconversion</h3><p>Déjà dotées d'un parcours médical, elles envisagent une nouvelle spécialisation en médecine esthétique et veulent comprendre le niveau d'encadrement proposé.</p></article>
+            <article class="audience-card"><span class="index">PROFIL 02</span><h3>Professionnelles titulaires d'un CAP esthétique</h3><p>Elles souhaitent développer leurs compétences et préciser quel parcours de formation correspond à leur projet et à leur cadre d'exercice.</p></article>
+          </div>
+          <div class="qualify">
+            <h3>Le formulaire prépare déjà le travail commercial.</h3>
+            <ul>
+              <li>Formation et activité actuelle</li>
+              <li>Projet professionnel et motivation</li>
+              <li>Programme envisagé : 4 ou 6 mois</li>
+              <li>Calendrier de démarrage</li>
+              <li>Capacité d'investissement et financement</li>
+              <li>Disponibilité pour un échange en visio</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section light-section" id="strategie" aria-labelledby="strategie-title">
+        <div class="shell">
+          <div class="section-head light">
+            <span class="eyebrow">03 · Architecture d'acquisition</span>
+            <h2 id="strategie-title">Chaque étape doit rapprocher d'une inscription.</h2>
+            <p>Pour une formation entre 4 500 € et 15 000 €, nous suivons le parcours complet plutôt que le seul coût d'un formulaire.</p>
+          </div>
+          <div class="path" aria-label="Parcours de conversion">
+            <div class="path-step"><b>01</b><strong>Publicité</strong></div>
+            <div class="path-step"><b>02</b><strong>Candidature qualifiée</strong></div>
+            <div class="path-step"><b>03</b><strong>Prise de contact</strong></div>
+            <div class="path-step"><b>04</b><strong>Appel ou visio</strong></div>
+            <div class="path-step"><b>05</b><strong>Inscription</strong></div>
+          </div>
+          <div class="angle-grid" aria-label="Angles publicitaires à tester">
+            <article class="angle"><h3>La légitimité médicale</h3><p>Dr Zainab Khenissi, son expertise et les médecins formateurs certifiés.</p></article>
+            <article class="angle"><h3>La preuve par les parcours</h3><p>Témoignages, satisfaction et évolutions professionnelles des anciennes participantes.</p></article>
+            <article class="angle"><h3>La reconversion</h3><p>Un message spécifique pour les médecins qui explorent la médecine esthétique.</p></article>
+            <article class="angle"><h3>L'expérience premium</h3><p>Un programme sur plusieurs mois, encadré et pensé pour de petits groupes.</p></article>
+            <article class="angle"><h3>La rareté réelle</h3><p>Environ dix places par classe, si cette limite est confirmée pour la session promue.</p></article>
+            <article class="angle"><h3>Le financement facilité</h3><p>Mettre en avant le paiement en plusieurs fois sans frais lorsque cette option s'applique.</p></article>
+          </div>
+          <p class="measure">Notre indicateur décisif : <strong>combien de candidatures deviennent des conversations sérieuses, puis des inscriptions.</strong></p>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="preuves" aria-labelledby="preuves-title">
+        <div class="shell">
+          <div class="section-head">
+            <span class="eyebrow">04 · MBL ADS en pratique</span>
+            <h2 id="preuves-title">Vous avez déjà rencontré notre méthode en cliquant sur notre publicité.</h2>
+            <p>L'une de nos publicités actives est précisément celle sur laquelle vous avez cliqué pour découvrir MBL ADS. Nous montrons ci-dessous sa capture de suivi ainsi qu'un autre exemple de nos créations publicitaires.</p>
+          </div>
+          <div class="proof-grid">
+            <figure class="proof-card">
+              <div class="proof-copy"><span class="mini">Une autre création MBL ADS</span><h3>Des concepts qui attirent l'attention et suscitent une action.</h3><p>Nous produisons et testons des messages et visuels pour notre propre acquisition. Cet exemple illustre notre travail créatif, indépendamment de la publicité cliquée par Naila.</p></div>
+              <div class="proof-img"><img src="assets/truffes-folies-acquisition-mbl-ads.png" alt="Exemple d'une autre création publicitaire MBL ADS pour notre propre acquisition" loading="lazy" /></div>
+              <figcaption>Exemple de création MBL ADS. Il ne s'agit pas de la créative de l'annonce affichée à droite.</figcaption>
+            </figure>
+            <figure class="proof-card">
+              <div class="proof-copy"><span class="mini">La publicité sur laquelle vous avez cliqué</span><h3>Une annonce active, une conversation qui commence.</h3><p>La capture fournie présente le suivi de l'annonce « axe concret 300€ » : 15 formulaires enregistrés, 121,35 € dépensés et 8,09 € par formulaire au moment de la capture.</p></div>
+              <div class="proof-img screenshot"><img src="assets/naila-publicite-cliquee-mbl-ads.jpg" alt="Capture du tableau de bord Meta Ads : annonce active axe concret 300€, 15 prospects formulaire, coût de 8,09 € et dépense de 121,35 €" loading="lazy" /></div>
+              <figcaption>Capture du suivi Meta Ads fournie pour cette présentation. Le visuel de la publicité cliquée n'est pas visible dans cette capture.</figcaption>
+            </figure>
+          </div>
+          <p class="proof-note">Ces chiffres concernent une campagne MBL ADS et illustrent notre propre acquisition. Ils ne préjugent ni du coût ni du volume de candidatures pour une formation en médecine esthétique.</p>
+        </div>
+      </section>
+
+      <section class="section software" id="logiciel" aria-labelledby="logiciel-title">
+        <div class="shell software-grid">
+          <div class="software-stat" aria-label="Gain multiplié par seize"><strong>×16</strong><span>un gain obtenu avec notre pôle structure logiciel</span></div>
+          <div class="software-copy"><span class="eyebrow">05 · Une preuve dans nos propres activités</span><h2 id="logiciel-title">Nous mettons aussi notre acquisition au service de notre pôle logiciel.</h2><p>Notre pôle structure logiciel nous permet de confronter les campagnes à une vente à forte valeur, avec un cycle de décision plus exigeant qu'un simple clic. Sur une opération de ce pôle, le gain constaté a été multiplié par 16.</p><p class="software-link">Pour Naila, la même discipline s'applique : relier les candidatures à la prise de contact, aux entretiens et aux inscriptions réellement obtenues.</p></div>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="plan" aria-labelledby="plan-title">
+        <div class="shell">
+          <div class="section-head">
+            <span class="eyebrow">06 · Déploiement progressif</span>
+            <h2 id="plan-title">Valider en France. Étendre ensuite au marché francophone.</h2>
+            <p>Une progression guidée par le coût d'acquisition, la qualité des candidates et la capacité réelle à remplir les prochaines classes.</p>
+          </div>
+          <div class="roadmap-grid">
+            <article class="roadmap"><span class="phase">Phase 01 · France</span><h3>Identifier les profils qui convertissent.</h3><p>Tester les angles, les deux programmes, les créatives et le formulaire. Mesurer la qualité des échanges commerciaux et le nombre d'inscriptions, zone par zone.</p></article>
+            <article class="roadmap"><span class="phase">Phase 02 · Francophonie</span><h3>Étendre ce qui a fait ses preuves.</h3><p>Élargir progressivement la diffusion aux autres marchés francophones lorsque les messages, les coûts et l'organisation commerciale sont validés en France.</p></article>
+          </div>
+          <div class="closing"><h2>Une promesse simple : attirer les bonnes candidates et mesurer les inscriptions.</h2><p>Votre offre et votre image posent déjà les bases de la confiance. Notre travail consiste à structurer les campagnes, qualifier les demandes et améliorer chaque étape du parcours jusqu'à la décision d'inscription.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="shell"><span>MY BUSINESS LIFE · MBL ADS</span><span>Présentation personnalisée pour Naila · Lien non indexé</span></div></footer>
+  </body>
+</html>
